@@ -1,0 +1,21 @@
+#!/bin/zsh
+autoload +X _complete
+autoload -U compinit && compinit
+source /usr/bin/aws_zsh_completer.sh
+functions[_original_complete]=$functions[_complete]
+_complete () {
+  unset 'compstate[vared]'
+  _original_complete "$@"
+}
+while true; do
+        clear
+        unbuffer task list | head -n 18
+        task calendar
+        COMMAND=''
+        vared COMMAND
+        if [[ $COMMAND = "q" ]] || [[ $COMMAND = "Q" ]]
+                then break
+            else
+                eval $COMMAND
+        fi
+done
