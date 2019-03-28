@@ -1,0 +1,218 @@
+# i3 config file (v4)
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 14px
+# 			<border> <background> <text> <indicator> <child_border>
+# client.focused 		#FF8787 #2D2D2D 	#FF8787 #FF8787   #FF8787
+# client.focused_inactive #87AFD7 #2D2D2D 	#81A1C1 #81A1C1   #FF8787
+# client.unfocused        #2D2D2D #2D2D2D 	#888888 #87AFD7   #FF8787
+# client.focused 		#FF8787 #2D2D2D 	#FF8787 #FF8787   #FF8787
+# client.focused_inactive #87AFD7 #2D2D2D 	#87AFD7 #87AFD7   #87AFD7
+client.focused 		#FF8787 #393939 	#FF8787 #FF8787   #FF8787
+client.focused_inactive #87AFD7 #393939 	#87AFD7 #87AFD7   #87AFD7
+client.unfocused        #393939 #393939 	#888888 #393939   #393939
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Change HDMI orentiation [r]ight, [l]eft, [n]one, [m]irror
+bindsym $mod+Ctrl+r exec $HOME/.scripts/hdmi_orientation_r
+bindsym $mod+Ctrl+l exec $HOME/.scripts/hdmi_orientation_l
+bindsym $mod+Ctrl+m exec $HOME/.scripts/hdmi_orientation_m
+bindsym $mod+Ctrl+n exec $HOME/.scripts/hdmi_orientation_n
+
+# Audio controls
+bindsym XF86AudioRaiseVolume exec amixer set Master 2dB+
+bindsym XF86AudioLowerVolume exec amixer set Master 2dB-
+bindsym XF86AudioMute exec amixer set Master toggle
+
+# Sreen brightness controls
+bindsym $mod+bracketright exec light -A 2 # increase screen brightness
+bindsym $mod+bracketleft exec light -U 2 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+
+# bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+# bindsym $mod+Return exec ~/.config/i3/terminal.sh
+bindsym $mod+Return exec termite
+# bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+bindsym $mod+o exec \
+    ~/.config/i3/dmenu_tag -fn $dmenu_font \
+                    -nb $normbgcolor \
+                    -nf $normfgcolor \
+                    -sb $selbgcolor \
+                    -sf $selfgcolor \
+                    -lh $dmenu_lh \
+      | xargs i3-msg workspace
+bindsym $mod+Shift+o exec \
+    ~/.config/i3/dmenu_tag -fn $dmenu_font \
+                    -nb $normbgcolor \
+                    -nf $normfgcolor \
+                    -sb $selbgcolor \
+                    -sf $selfgcolor \
+                    -lh $dmenu_lh \
+      | xargs i3-msg move to workspace
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+m split h
+
+# split in vertical orientation
+bindsym $mod+n split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+# bindysm $mod+Tab workspace back_and_forth
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+# bindysm $mod+Shift+Tab move container to workspace back_and_forth
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window's width.
+        # Pressing right will grow the window's width.
+        # Pressing up will shrink the window's height.
+        # Pressing down will grow the window's height.
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# bindsym $mod+n exec /home/xmay/.config/i3/dual_lay.sh
+# bindsym $mod+m exec /home/xmay/.config/i3/single_lay.sh
+
+exec $HOME/.fehbg
+# exec ./.config/i3/scrl.sh
+exec $HOME/.config/polybar/rebar.sh
+# exec compton --shadow-exclude-reg 1920x26+0+0
+
+for_window [class="^.*"] border pixel 0
+for_window [class="Termite"] border pixel 4 title_format "Terminal"
+assign [class="Google-chrome"] 2
+assign [class="Slack"] 3
+assign [class="Spotify"] 4
+
+gaps inner 0
+gaps outer 5
