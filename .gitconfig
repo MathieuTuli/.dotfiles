@@ -1,0 +1,15 @@
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lgfull = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --pretty=full
+	dotfiles = !git --git-dir=/home/mat/.dotfiles --work-tree=/home/mat
+[credential]
+	helper = cache --timeout 28800
+[user]
+	email = tuli.mathieu@gmail.com
+	name = Mathieu Tuli
+[merge]
+    tool = nvim
+[mergetool]
+    keepBackup = false
+[mergetool "nvim"]
+    cmd = nvim \"$MERGED\" -c \"normal ]nzRzt\"

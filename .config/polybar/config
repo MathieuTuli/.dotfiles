@@ -1,0 +1,594 @@
+;------------------------------------------------------------
+;       VARIABLES
+;------------------------------------------------------------
+[colors]
+bar-background = #2D2d2D
+# selected-workspace-background = #E5E5E5
+selected-workspace-background = #666666
+
+; Text Color
+foreground = #222222
+foreground-alt = #7B7B7B
+
+; Little bits at the bottom of WS numbers
+primary = #cCc0b0
+
+; These are both for alerts
+secondary = #FD2C40
+alert = #BD2C40
+
+; i3
+
+focused-i3-background = #7B7B7B
+focused-i3-foreground = #222222
+unfocused-i3-background = #222222
+unfocused-i3-foreground = #7B7B7B
+
+; module
+module-background = #393939
+
+; Colors
+; transparent = #00ffffff
+; white = #FFFFFF
+; grey = #444444
+; blue = #0A6DD3
+; purple = #9F78E1
+; green = #8ECEB2
+; red = #F67280
+; orange = F8B195
+transparent = #00ffffff
+white = #FFFFFF
+grey = #444444
+blue = #87AFD7
+purple = #9F78E1
+# green = #5FFFAF
+green = #AFD787
+red = #FF8787
+orange = #FFAF87
+# pink = #FFAFD7
+pink = #D7AFD7
+
+;------------------------------------------------------------
+;       BARS
+;------------------------------------------------------------
+[bar/main]
+monitor = ${env:MONITOR:}
+
+width = 100%
+height = 18
+radius = 0.0
+
+background = ${colors.bar-background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #FFFFFF
+
+border-size = 0
+border-color = ${colors.bar-background}
+border-top-size = 5
+border-top-color = ${colors.bar-background}
+border-left-size = 5
+border-left-color = ${colors.bar-background}
+border-right-size = 5
+border-right-color = ${colors.bar-background}
+
+; padding-left = 0
+; padding-right = 2
+
+; module-margin-left = 1
+; module-margin-right = 1
+
+font-0 = fixed:pixelsize=12;3
+font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
+font-2 = Wuncon Siji:pixelsize=12;3
+font-3 = fixed:pixelsize=0;0
+
+# modules-left = edge-space l-slant-unfocused-i3-l i3 l-slant-unfocused-i3-r space  l-slant-module-l spotify l-slant-module-r space alsa
+modules-left = l-slant-module-l i3 l-slant-module-r space l-slant-module-l spotify l-slant-module-r space l-slant-module-l alsa l-slant-module-r
+# modules-center = alsa
+# modules-right = arrow-filesystem filesystem arrow-memory memory arrow-cpu cpu arrow-wlan wlan arrow-battery Battery arrow-date date
+# modules-right = r-slant-red-l filesystem r-slant-red-r space r-slant-orange-l memory r-slant-orange-r space r-slant-green-l cpu r-slant-green-r space r-slant-purple-l wlan r-slant-purple-r space r-slant-orange-l battery r-slant-orange-r space r-slant-blue-l date r-slant-blue-r edge-space
+modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-module-l memory r-slant-module-r space r-slant-module-l cpu r-slant-module-r space r-slant-module-l system-nvidia-smi r-slant-module-r space r-slant-module-l wlan r-slant-module-r space r-slant-module-l battery r-slant-module-r space r-slant-module-l date r-slant-module-r
+
+# tray-position = right
+# tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+;------------------------------------------------------------
+;       DECORATIONS
+;------------------------------------------------------------
+
+[module/edge-space]
+type = custom/text
+content = ""
+content-foreground = ${colors.bar-background}
+content-background = ${colors.bar-background}
+
+[module/space]
+type = custom/text
+content = "%{T4} %{T-}"
+content-foreground = ${colors.bar-background}
+content-background = ${colors.bar-background}
+
+[module/l-slant-bar-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.bar-background}
+
+[module/l-slant-bar-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background= ${colors.bar-background}
+
+[module/l-slant-module-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.module-background}
+
+[module/l-slant-module-r]
+# █
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.module-background}
+content-background= ${colors.bar-background}
+
+[module/l-slant-unfocused-i3-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.unfocused-i3-background}
+
+[module/l-slant-unfocused-i3-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.unfocused-i3-background}
+content-background= ${colors.bar-background}
+
+[module/r-slant-module-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.module-background}
+content-background = ${colors.bar-background}
+
+[module/r-slant-module-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background= ${colors.module-background}
+
+[module/r-slant-red-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.red}
+content-background = ${colors.bar-background}
+
+[module/r-slant-red-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.red}
+
+[module/r-slant-orange-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.orange}
+content-background = ${colors.bar-background}
+
+[module/r-slant-orange-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.orange}
+
+[module/r-slant-green-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.green}
+content-background = ${colors.bar-background}
+
+[module/r-slant-green-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.green}
+
+[module/r-slant-purple-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.purple}
+content-background = ${colors.bar-background}
+
+[module/r-slant-purple-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.purple}
+
+[module/r-slant-blue-l]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.blue}
+content-background = ${colors.bar-background}
+
+[module/r-slant-blue-r]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.bar-background}
+content-background = ${colors.blue}
+
+[module/arrow-i3]
+type = custom/text
+content = ""
+content-font = 2
+content-foreground = ${colors.transparent}
+content-background = ${colors.green}
+
+[module/arrow-spotify]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.green}
+content-background = ${colors.bar-background}
+
+[module/arrow-filesystem]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.red}
+content-background = ${colors.bar-background}
+
+[module/arrow-memory]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.orange}
+content-background = ${colors.red}
+
+[module/arrow-cpu]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.green}
+content-background = ${colors.orange}
+
+[module/arrow-wlan]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.purple}
+content-background = ${colors.green}
+
+[module/arrow-battery]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.orange}
+content-background = ${colors.purple}
+
+[module/arrow-date]
+type = custom/text
+content = " "
+content-font = 2
+content-foreground = ${colors.blue}
+content-background = ${colors.orange}
+
+;------------------------------------------------------------
+;       MODULES
+;------------------------------------------------------------
+
+[module/system-nvidia-smi]
+type = custom/script
+exec = ~/.config/polybar/system-nvidia-smi.sh
+label-foreground = ${colors.pink}
+label-background = ${colors.module-background}
+interval = 0.5
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+label-background = ${colors.module-backgrond}
+label-foreground = ${colors.module-backgrond}
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+; focused = Active workspace on focused monitor
+label-focused = "%index%"
+; label-focused-background = ${colors.focused-i3-background}
+label-focused-background = ${colors.focused-i3-background}
+label-focused-foreground= ${colors.module-background}
+; label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+label-unfocused-background = ${colors.module-background}
+label-unfocused-foreground= ${colors.unfocused-i3-foreground}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+; label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
+; ws-icon-0 = 1;⌬
+
+[module/spotify]
+type = custom/script
+interval = 0.1
+format = <label>
+exec = python ~/.scripts/spotify_status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
+# label-foreground = ${colors.foreground}
+# label-background = ${colors.green}
+label-foreground = ${colors.green}
+label-background = ${colors.module-background}
+
+[module/filesystem]
+type = internal/fs
+interval = 30
+mount-0 = /
+# format-prefix = " "
+# format-prefix-background = ${colors.red}
+label-mounted = "%mountpoint% %percentage_used:02%%"
+label-mounted-foreground = ${colors.red}
+label-mounted-background= ${colors.module-background}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+;format-underline = #f90000
+# format-prefix = " "
+# format-prefix-background = ${colors.green}
+label = ✝ %percentage:02%%
+label-foreground = ${colors.orange}
+label-background = ${colors.module-background}
+
+[module/memory]
+type = internal/memory
+interval = 2
+# format-prefix = " "
+# format-prefix-background = ${colors.orange}
+label = ☰ %percentage_used:02%%
+label-foreground = ${colors.orange}
+label-background = ${colors.module-background}
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+# format-prefix = " "
+# format-prefix-background = ${colors.purple}
+format-connected = <label-connected> <ramp-signal>
+format-connected-background = ${colors.module-background}
+format-connected-foreground = ${colors.purple}
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${colors.module-background}
+format-disconnected-foreground = ${colors.purple}
+label-connected = "%essid%"
+speed-labels = %downspeed:9% %upspeed:9%
+label-disconnected = ??? %{F#777777}⚡⚡⚡⚡⚡⚡%{F-}
+ramp-signal-0 = ⚡%{F#777777}⚡⚡⚡⚡⚡%{F-}
+ramp-signal-1 = ⚡⚡%{F#777777}⚡⚡⚡⚡%{F-}
+ramp-signal-2 = ⚡⚡⚡%{F#777777}⚡⚡⚡%{F-}
+ramp-signal-3 = ⚡⚡⚡⚡%{F#777777}⚡⚡%{F-}
+ramp-signal-4 = ⚡⚡⚡⚡⚡%{F#777777}⚡%{F-}
+ramp-signal-5 = ⚡⚡⚡⚡⚡⚡
+
+[module/date]
+type = internal/date
+interval = 0.5
+date = "%Y-%m-%d"
+date-short = "%m-%d"
+
+time-alt = "%I:%M:%S %p"
+time = "%I:%M:%S %p"
+
+; format-prefix = " "
+format-prefix-background = ${colors.module-background}
+label = %date% %time%
+label-foreground = ${colors.blue}
+label-background = ${colors.module-background}
+
+[module/alsa]
+type = internal/alsa
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+master-mixer = Master
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+
+headphone-id = 17
+
+mapped = true
+interval = 5
+
+# format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume><ramp-volume>
+# label-volume = VOL %percentage%%
+label-volume =
+label-volume-foreground = ${colors.white}
+
+format-volume-background = ${colors.module-background}
+
+format-muted-foreground = ${colors.alert}
+format-muted-background = ${colors.module-background}
+label-muted =  " M ﭳﭳﭳﭳﭳﭳﭳﭳﭳ"
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #8ECEB2
+bar-volume-foreground-1 = #8ECEB2
+bar-volume-foreground-2 = #8ECEB2
+bar-volume-foreground-3 = #8ECEB2
+bar-volume-foreground-4 = #8ECEB2
+bar-volume-foreground-5 = #8ECEB2
+bar-volume-foreground-6 = #8ECEB2
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-foreground = ${colors.white}
+# bar-volume-indicator = ▐
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+# bar-volume-fill = ═
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+# bar-volume-empty = ═
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.white}
+
+ramp-volume-0-foreground = ${colors.green}
+ramp-volume-0-background = ${colors.module-background}
+ramp-volume-0 = S %{F#777777}ﭳﭳﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-1-foreground = ${colors.green}
+ramp-volume-1-background = ${colors.module-background}
+ramp-volume-1 = S ﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-2-foreground = ${colors.green}
+ramp-volume-2-background = ${colors.module-background}
+ramp-volume-2 = S ﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-3-foreground = ${colors.green}
+ramp-volume-3-background = ${colors.module-background}
+ramp-volume-3 = S ﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-4-foreground = ${colors.green}
+ramp-volume-4-background = ${colors.module-background}
+ramp-volume-4 = S ﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-5-foreground = ${colors.green}
+ramp-volume-5-background = ${colors.module-background}
+ramp-volume-5 = S ﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳ%{F-}
+ramp-volume-6-foreground = ${colors.green}
+ramp-volume-6-background = ${colors.module-background}
+ramp-volume-6 = S ﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳ%{F-}
+ramp-volume-7-foreground = ${colors.green}
+ramp-volume-7-background = ${colors.module-background}
+ramp-volume-7 = S ﭳﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳ%{F-}
+ramp-volume-8-foreground = ${colors.green}
+ramp-volume-8-background = ${colors.module-background}
+ramp-volume-8 = S ﭳﭳﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳ%{F-}
+ramp-volume-9-foreground = ${colors.green}
+ramp-volume-9-background = ${colors.module-background}
+ramp-volume-9 = S ﭳﭳﭳﭳﭳﭳﭳﭳﭳ%{F#777777}%{F-}
+
+ramp-headphones-0-foreground = ${colors.green}
+ramp-headphones-0-background = ${colors.module-background}
+ramp-headphones-0 = H %{F#777777}ﭳﭳﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-headphones-1-foreground = ${colors.green}
+ramp-headphones-1-background = ${colors.module-background}
+ramp-headphones-1 = H ﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-headphones-2-foreground = ${colors.green}
+ramp-headphones-2-background = ${colors.module-background}
+ramp-headphones-2 = H ﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-headphones-3-foreground = ${colors.green}
+ramp-headphones-3-background = ${colors.module-background}
+ramp-headphones-3 = H ﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-headphones-4-foreground = ${colors.green}
+ramp-headphones-4-background = ${colors.module-background}
+ramp-headphones-4 = H ﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳ%{F-}
+ramp-headphones-5-foreground = ${colors.green}
+ramp-headphones-5-background = ${colors.module-background}
+ramp-headphones-5 = H ﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳ%{F- B-}
+ramp-headphones-6-foreground = ${colors.green}
+ramp-headphones-6-background = ${colors.module-background}
+ramp-headphones-6 = H ﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳ%{F-}
+ramp-headphones-7-foreground = ${colors.green}
+ramp-headphones-7-background = ${colors.module-background}
+ramp-headphones-7 = H ﭳﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳ%{F-}
+ramp-headphones-8-foreground = ${colors.green}
+ramp-headphones-8-background = ${colors.module-background}
+ramp-headphones-8 = H ﭳﭳﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳ%{F-}
+ramp-headphones-9-foreground = ${colors.green}
+ramp-headphones-9-background = ${colors.module-background}
+ramp-headphones-9 = H ﭳﭳﭳﭳﭳﭳﭳﭳﭳ%{F#777777}%{F-}
+
+[module/battery]
+; #ls -1 /sys/class/power_supply
+interval = 5
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 100
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = ${colors.white}
+format-charging-background = ${colors.module-background}
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-foreground = ${colors.white}
+format-discharging-background = ${colors.module-background}
+format-full = <label-full>
+format-full-foreground = ${colors.green}
+format-full-background = ${colors.module-background}
+
+label-charging = "%percentage:02%% ⚡"
+label-discharging = "%percentage:02%% %{F#777777}⚡%{F-}"
+label-discharging-foreground = ${colors.white}
+label-full = "%percentage:02%% ⚡"
+
+ramp-capacity-0 =
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 =
+ramp-capacity-1-foreground = ${colors.red}
+ramp-capacity-2 =
+ramp-capacity-3 =
+ramp-capacity-4 =
+animation-charging-0 =
+animation-charging-1 =
+animation-charging-2 =
+animation-charging-3 =
+animation-charging-4 =
+animation-charging-framerate = 750
+
+;------------------------------------------------------------
+;       SETTINGS
+;------------------------------------------------------------
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+;------------------------------------------------------------
+;       GLOBAL
+;------------------------------------------------------------
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

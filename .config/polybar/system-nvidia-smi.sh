@@ -1,0 +1,7 @@
+#!/bin/sh
+if nvidia-smi > /tmp/echo_off.txt; then
+        nvidia-smi --query-gpu=memory.total,memory.free,utilization.gpu --format=csv,noheader,nounits | awk '{sum = $1 - $2; perc=100 * sum / $1; printf "☰ %.2d%s ✝ %.2d%s", perc, "%", $3, "%"}'
+else
+        echo ☰ \?\?% ✝ \?\?%
+fi
+
