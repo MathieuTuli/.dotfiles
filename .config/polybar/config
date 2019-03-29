@@ -89,7 +89,7 @@ modules-left = l-slant-module-l i3 l-slant-module-r space l-slant-module-l spoti
 # modules-center = alsa
 # modules-right = arrow-filesystem filesystem arrow-memory memory arrow-cpu cpu arrow-wlan wlan arrow-battery Battery arrow-date date
 # modules-right = r-slant-red-l filesystem r-slant-red-r space r-slant-orange-l memory r-slant-orange-r space r-slant-green-l cpu r-slant-green-r space r-slant-purple-l wlan r-slant-purple-r space r-slant-orange-l battery r-slant-orange-r space r-slant-blue-l date r-slant-blue-r edge-space
-modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-module-l memory r-slant-module-r space r-slant-module-l cpu r-slant-module-r space r-slant-module-l system-nvidia-smi r-slant-module-r space r-slant-module-l wlan r-slant-module-r space r-slant-module-l battery r-slant-module-r space r-slant-module-l date r-slant-module-r
+modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-module-l memory space cpu r-slant-module-r space r-slant-module-l system-nvidia-smi r-slant-module-r space r-slant-module-l wlan r-slant-module-r space r-slant-module-l battery r-slant-module-r space r-slant-module-l date r-slant-module-r
 
 # tray-position = right
 # tray-padding = 2
@@ -373,7 +373,7 @@ interval = 2
 ;format-underline = #f90000
 # format-prefix = " "
 # format-prefix-background = ${colors.green}
-label = ✝ %percentage:02%%
+label = " ✝ %percentage:02%%"
 label-foreground = ${colors.orange}
 label-background = ${colors.module-background}
 
@@ -401,7 +401,7 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = ??? %{F#777777}⚡⚡⚡⚡⚡⚡%{F-}
+label-disconnected = *** %{F#777777}⚡⚡⚡⚡⚡⚡%{F-}
 ramp-signal-0 = ⚡%{F#777777}⚡⚡⚡⚡⚡%{F-}
 ramp-signal-1 = ⚡⚡%{F#777777}⚡⚡⚡⚡%{F-}
 ramp-signal-2 = ⚡⚡⚡%{F#777777}⚡⚡⚡%{F-}
