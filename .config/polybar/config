@@ -66,11 +66,11 @@ line-color = #FFFFFF
 
 border-size = 0
 border-color = ${colors.bar-background}
-border-top-size = 5
+border-top-size = 7
 border-top-color = ${colors.bar-background}
-border-left-size = 5
+border-left-size = 7
 border-left-color = ${colors.bar-background}
-border-right-size = 5
+border-right-size = 7
 border-right-color = ${colors.bar-background}
 
 ; padding-left = 0

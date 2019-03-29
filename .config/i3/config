@@ -215,4 +215,4 @@ assign [class="Slack"] 3
 assign [class="Spotify"] 4
 
 gaps inner 0
-gaps outer 5
+gaps outer 7
