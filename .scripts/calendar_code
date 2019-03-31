@@ -11,9 +11,9 @@ while true; do
         clear
         unbuffer task list | head -n 18
         task calendar
-        COMMAND=''
+        COMMAND='task '
         vared COMMAND
-        if [[ $COMMAND = "q" ]] || [[ $COMMAND = "Q" ]]
+        if [[ $COMMAND = "task q" ]] || [[ $COMMAND = "task Q" ]]
                 then break
             else
                 eval $COMMAND
