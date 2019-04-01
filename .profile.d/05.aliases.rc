@@ -24,3 +24,4 @@ function cd_up() {
 alias "cd.."="cd_up"
 alias copy="xclip -selection clipboard"
 alias notepad="vi /home/mat/.notepad"
+alias rename_window="i3-msg title_format "

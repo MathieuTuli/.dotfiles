@@ -30,6 +30,18 @@ while true; do
                         fi
                 elif [[ $COMMAND == "limit:"* ]] then
                         LINELIMIT=$COMMAND
+                        CURRENTLIMIT=${COMMAND//limit:/}
+                        if [[ $CURRENTLIMIT == *"all"* ]] then
+                                LINELIMIT=$COMMAND
+                                LONGLIMIT=1000
+                        else
+                                if [ "$CURRENTLIMIT" -le 15 ]
+                                then
+                                        LONGLIMIT=18
+                                else
+                                        LONGLIMIT=1000
+                                fi
+                        fi
                 elif [[ $COMMAND == "focus:"* ]] then
                         if [[ $COMMAND == *"all"* ]] then
                                 FOCUS=""
@@ -39,6 +51,12 @@ while true; do
                 elif [[ $COMMAND == "detail:"* ]] then
                         if [[ $COMMAND == *"long"* ]] then
                                 DETAIL="long"
+                                if [ "$LIMIT" -le 15 ]
+                                then
+                                        LONGLIMIT=18
+                                else
+                                        LONGLIMIT=1000
+                                fi
                         else
                                 DETAIL="list"
                                 LONGLIMIT=1000
