@@ -9,9 +9,13 @@ _complete () {
 }
 FILTER=""
 LINELIMIT="limit: 15"
+DETAIL="list"
+LONGLIMIT=1000
+long_comparator=15
+FOCUS=""
 while true; do
         clear
-        unbuffer task list $FILTER $LINELIMIT
+        unbuffer task $FOCUS $DETAIL $FILTER $LINELIMIT | head -n $LONGLIMIT
         task calendar
         COMMAND=''
         vared COMMAND
@@ -26,6 +30,19 @@ while true; do
                         fi
                 elif [[ $COMMAND == "limit:"* ]] then
                         LINELIMIT=$COMMAND
+                elif [[ $COMMAND == "focus:"* ]] then
+                        if [[ $COMMAND == *"all"* ]] then
+                                FOCUS=""
+                        else
+                                FOCUS=${COMMAND//focus:/}
+                        fi
+                elif [[ $COMMAND == "detail:"* ]] then
+                        if [[ $COMMAND == *"long"* ]] then
+                                DETAIL="long"
+                        else
+                                DETAIL="list"
+                                LONGLIMIT=1000
+                        fi
                 else
                        eval $COMMAND
                 fi
