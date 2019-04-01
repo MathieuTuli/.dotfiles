@@ -8,32 +8,24 @@ _complete () {
   _original_complete "$@"
 }
 FILTER=""
-LINELIMIT=18
+LINELIMIT="limit: 15"
 while true; do
         clear
-        unbuffer task list $FILTER | head -n $LINELIMIT
+        unbuffer task list $FILTER $LINELIMIT
         task calendar
         COMMAND=''
         vared COMMAND
         if [[ $COMMAND = "q" ]] || [[ $COMMAND = "Q" ]]
                 then break
             else
-                if [[ $COMMAND == "filter"* ]] then
-                        WORDTOREMOVE="filter "
-                        FILTER=${COMMAND//$WORDTOREMOVE/}
-                        if [[ $FILTER == *"all"* ]] then
+                if [[ $COMMAND == "project:"* ]] then
+                        if [[ $COMMAND == *"all"* ]] then
                                 FILTER=""
                         else
-                                FILTER="project:"$FILTER
+                                FILTER=$COMMAND
                         fi
-                elif [[ $COMMAND == "limit"* ]] then
-                        WORDTOREMOVE="limit "
-                        LINELIMIT=${COMMAND//$WORDTOREMOVE/}
-                        if [[ $LINELIMIT == *"all"* ]] then
-                                LINELIMIT=100
-                        else
-                                LINELIMIT=$((LINELIMIT + 2))
-                        fi
+                elif [[ $COMMAND == "limit:"* ]] then
+                        LINELIMIT=$COMMAND
                 else
                        eval $COMMAND
                 fi
