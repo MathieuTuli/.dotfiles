@@ -7,15 +7,26 @@ _complete () {
   unset 'compstate[vared]'
   _original_complete "$@"
 }
+FILTER=""
 while true; do
         clear
-        unbuffer task list | head -n 18
+        unbuffer task list $FILTER | head -n 18
         task calendar
-        COMMAND='task '
+        COMMAND=''
         vared COMMAND
-        if [[ $COMMAND = "task q" ]] || [[ $COMMAND = "task Q" ]]
+        if [[ $COMMAND = "q" ]] || [[ $COMMAND = "Q" ]]
                 then break
             else
-                eval $COMMAND
+                if [[ $COMMAND == "filter"* ]] then
+                        WORDTOREMOVE="filter "
+                        FILTER=${COMMAND//$WORDTOREMOVE/}
+                        if [[ $FILTER == "all"* ]] then
+                                FILTER=""
+                        else
+                                FILTER="project:"$FILTER
+                        fi
+                    else
+                        eval $COMMAND
+                fi
         fi
 done
