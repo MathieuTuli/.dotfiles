@@ -4,6 +4,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+" Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 " Plugin 'shougo/deoplete.nvim'
