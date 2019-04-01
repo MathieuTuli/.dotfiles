@@ -8,9 +8,10 @@ _complete () {
   _original_complete "$@"
 }
 FILTER=""
+LINELIMIT=18
 while true; do
         clear
-        unbuffer task list $FILTER | head -n 18
+        unbuffer task list $FILTER | head -n $LINELIMIT
         task calendar
         COMMAND=''
         vared COMMAND
@@ -20,13 +21,21 @@ while true; do
                 if [[ $COMMAND == "filter"* ]] then
                         WORDTOREMOVE="filter "
                         FILTER=${COMMAND//$WORDTOREMOVE/}
-                        if [[ $FILTER == "all"* ]] then
+                        if [[ $FILTER == *"all"* ]] then
                                 FILTER=""
                         else
                                 FILTER="project:"$FILTER
                         fi
-                    else
-                        eval $COMMAND
+                elif [[ $COMMAND == "limit"* ]] then
+                        WORDTOREMOVE="limit "
+                        LINELIMIT=${COMMAND//$WORDTOREMOVE/}
+                        if [[ $LINELIMIT == *"all"* ]] then
+                                LINELIMIT=100
+                        else
+                                LINELIMIT=$((LINELIMIT + 2))
+                        fi
+                else
+                       eval $COMMAND
                 fi
         fi
 done
