@@ -31,6 +31,11 @@ data.location=~/.task
 
 # CUSTOM COLORS
 color.overdue=red on yellow
-color.calendar.overdue=red on yellow
-color.calendar.today=black on green
-color.due.today=rgb500 on cyan
+color.calendar.overdue=rgb000 on red
+color.calendar.due=rgb000 on magenta
+color.calendar.due.today=rgb300 on blue
+color.calendar.today=rgb000 on rgb455
+color.calendar.weekend=rgb000
+color.calendar.holiday=rgb000 on green
+color.due.today=rgb300 on blue
+color.due=rgb000 on magenta
