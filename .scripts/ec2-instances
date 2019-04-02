@@ -1,4 +1,3 @@
-clear
 echo "IMRSV"
 unbuffer aws ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name,Uptime:LaunchTime}' "$@"
 echo "PERSONAL"

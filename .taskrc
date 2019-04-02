@@ -30,12 +30,18 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/no-color.theme
 
 # CUSTOM COLORS
+color.burndown.done=green on green
+color.burndown.started=yellow on yellow
+color.burndown.pending=magenta on magenta
 color.overdue=rgb000 on red
 color.calendar.overdue=rgb000 on red
 color.calendar.due=rgb000 on magenta
-color.calendar.due.today=rgb300 on blue
-color.calendar.today=rgb000 on rgb455
+color.calendar.due.today=rgb000 on yellow
+color.calendar.today=rgb000 on blue
 color.calendar.weekend=rgb000
 color.calendar.holiday=rgb000 on green
-color.due.today=rgb300 on blue
+color.due.today=rgb000 on yellow
 color.due=rgb000 on magenta
+color.active=rgb000 on green
+report.list.sort=urgency-,due-
+report.long.sort=urgency-,due-
