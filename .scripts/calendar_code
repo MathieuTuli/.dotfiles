@@ -13,6 +13,7 @@ DETAIL="list"
 LONGLIMIT=1000
 long_comparator=15
 FOCUS=""
+i3-msg title_format "Calendar"
 while true; do
         clear
         unbuffer task $FOCUS $DETAIL $FILTER $LINELIMIT | head -n $LONGLIMIT
