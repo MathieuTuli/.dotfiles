@@ -30,7 +30,7 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/no-color.theme
 
 # CUSTOM COLORS
-color.overdue=red on yellow
+color.overdue=rgb000 on red
 color.calendar.overdue=rgb000 on red
 color.calendar.due=rgb000 on magenta
 color.calendar.due.today=rgb300 on blue
