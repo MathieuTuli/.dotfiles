@@ -1,6 +1,7 @@
 # for f in split(glob('~/.profile.d/*.rc'), '\n')
 #     exe 'source' f
 # endfor
+source .profile.d/00.first.rc
 source .profile.d/01.paths.rc
 source .profile.d/02.boot.rc
 source .profile.d/03.autocomplete.rc
