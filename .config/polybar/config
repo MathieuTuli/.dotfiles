@@ -15,7 +15,8 @@ primary = #cCc0b0
 
 ; These are both for alerts
 secondary = #FD2C40
-alert = #BD2C40
+; alert = #BD2C40
+alert = #F67280
 
 ; i3
 
