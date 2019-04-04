@@ -39,6 +39,7 @@ color.calendar.due=rgb000 on magenta
 color.calendar.due.today=rgb000 on yellow
 color.calendar.today=rgb000 on blue
 color.calendar.weekend=rgb000
+color.calendar.weeknumber=yellow
 color.calendar.holiday=cyan
 color.due.today=rgb000 on yellow
 color.due=rgb000 on magenta
