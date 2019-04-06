@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=$PATH:/home/mat/.scripts
+export PATH=$PATH:$HOME/.scripts
 
 # default monitor is LVDS1
 MONITOR=eDP1
@@ -36,29 +36,29 @@ function OrientHDMIRight {
     xrandr --output VIRTUAL1 --auto --right-of eDP1
     polybar_rebar
     fehbg
-    echo "r" > /home/mat/.status-files/hdmi_orientation_status
+    echo "r" > $HOME/.status-files/hdmi_orientation_status
 }
 function OrientHDMILeft {
     xrandr --output VIRTUAL1 --auto --left-of eDP1
     polybar_rebar
     fehbg
-    echo "l" > /home/mat/.status-files/hdmi_orientation_status
+    echo "l" > $HOME/.status-files/hdmi_orientation_status
 }
 function OrientHDMIMirror {
     xrandr --output VIRTUAL1 --auto --same-as eDP1
     polybar_rebar
     fehbg
-    echo "m" > /home/mat/.status-files/hdmi_orientation_status
+    echo "m" > $HOME/.status-files/hdmi_orientation_status
 }
 function OrientHDMINone {
     xrandr --output VIRTUAL1 --off
     polybar_rebar
     fehbg
-    echo "n" > /home/mat/.status-files/hdmi_orientation_status
+    echo "n" > $HOME/.status-files/hdmi_orientation_status
 }
 while true; do
-        read HDMI_ORIENTATION_STATUS < /home/mat/.status-files/hdmi_orientation_status
-        read NEW_HDMI_ORIENTATION_STATUS < /home/mat/.status-files/new_hdmi_orientation_status
+        read HDMI_ORIENTATION_STATUS < $HOME/.status-files/hdmi_orientation_status
+        read NEW_HDMI_ORIENTATION_STATUS < $HOME/.status-files/new_hdmi_orientation_status
         if ! HDMIActive && ! HDMIConnected
         then
         echo "not connected not active"

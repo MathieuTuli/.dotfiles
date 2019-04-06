@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "m" > /home/mat/.status-files/new_hdmi_orientation_status
+echo "m" > $HOME/.status-files/new_hdmi_orientation_status

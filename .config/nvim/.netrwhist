@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/mat/.config/termite'
-let g:netrw_dirhist_2='/home/mat/github/object-tracking/YOLO/IMRSV_tracker/open_cash_lines'
-let g:netrw_dirhist_3='/home/mat/github/object-tracking/src/imrsv/object_tracking'

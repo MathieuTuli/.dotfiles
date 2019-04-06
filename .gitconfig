@@ -1,7 +1,7 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lgfull = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --pretty=full
-	dotfiles = !git --git-dir=/home/mat/.dotfiles --work-tree=/home/mat
+	dotfiles = !git --git-dir=$HOME/.dotfiles --work-tree=$HOME
 [credential]
 	helper = cache --timeout 28800
 [user]

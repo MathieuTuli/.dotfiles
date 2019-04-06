@@ -3,6 +3,6 @@ autoload -U compinit && compinit
 set -o vi
 bindkey '^R' history-incremental-search-backward
 source /usr/bin/aws_zsh_completer.sh
-# source /home/mat/.scripts/git_completion.zsh
+# source $HOME/.scripts/git_completion.zsh
 # zstyle ':completion:*:*:git:*' script ~/.scripts/git_completion.zsh
 # source /usr/share/zsh/functions/Completion/Unix/_git

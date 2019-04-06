@@ -1,2 +1,2 @@
 #!/bin/zsh
-zsh /home/mat/.scripts/calendar_code
+zsh $HOME/.scripts/calendar_code

@@ -16,12 +16,12 @@ EC2 () {
     LESS=FRXS aws --profile mat ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
 }
 alias json_pretty='python -m json.tool'
-alias screenshot='gm import /home/mat/pictures/screenshots/screenshot.png'
+alias screenshot='gm import $HOME/pictures/screenshots/screenshot.png'
 # alias nvidia-settings='optirun -b none nvidia-settings -c :8'
 function cd_up() {
   cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 alias "cd.."="cd_up"
 alias copy="xclip -selection clipboard"
-alias notepad="vi /home/mat/.notepad"
+alias notepad="vi $HOME/.notepad"
 alias rename_window="i3-msg title_format "
