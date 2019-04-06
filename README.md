@@ -9,7 +9,7 @@
 
 ## Screenshots
 
-![Full](https://github.com/mathieutuli/.dotfiles/images/full.png)
-![Split](https://github.com/mathieutuli/.dotfiles/images/split_no_container.png)
-![Split 2](https://github.com/mathieutuli/.dotfiles/images/split_container.png)
-![Polybar](https://github.com/mathieutuli/dotfiles/.dotfiles/images/polybar.png)
+![Full](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/full.png)
+![Split](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/split_no_container.png)
+![Split 2](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/split_container.png)
+![Polybar](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/polybar.png)
