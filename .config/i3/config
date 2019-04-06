@@ -172,6 +172,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+Shift+e exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 set $resize_amount 4
@@ -207,6 +208,7 @@ bindsym $mod+r mode "resize"
 exec $HOME/.fehbg
 # exec ./.config/i3/scrl.sh
 exec $HOME/.config/polybar/rebar.sh
+exec dunst
 # exec compton --shadow-exclude-reg 1920x26+0+0
 
 for_window [class="^.*"] border pixel 0

@@ -3,7 +3,7 @@
     indicate_hidden = yes
     icon_path = ~/.config/dunst/icons/
     font = Wuncon Siji 16
-    geometry = "400x0-7+32"
+    geometry = "500x0-7+32"
     notification_height=100
     show_indicators = true
     dmenu = /usr/bin/dmenu -i -p 'Arch Linux' -fn Wuncon Siji:pixelsize=16 -nb #2d2d2d -nf #ffffff -sf #ffffff -sb #666666
@@ -99,7 +99,7 @@
     background = "#AFD787"
     foreground = "#2d2d2d"
     frame_color = "#2d2d2d"
-    timeout = 3
+    timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
@@ -107,7 +107,7 @@
     background = "#FFAF87"
     foreground = "#2d2d2d"
     frame_color = "#2d2d2d"
-    timeout = 3
+    timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
