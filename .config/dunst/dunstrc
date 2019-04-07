@@ -8,14 +8,14 @@
     show_indicators = true
     dmenu = /usr/bin/dmenu -i -p 'Arch Linux' -fn Wuncon Siji:pixelsize=16 -nb #2d2d2d -nf #ffffff -sf #ffffff -sb #666666
     browser = /usr/bin/google-chrome-stable
-    stack_duplicates = false
+    stack_duplicates = true
     follow = mouse
     shrink = no
     transparency = 0
     separator_height = 4
     # Padding between text and separator.
     padding = 8
-    horizontal_padding = 8
+    horizontal_padding = 10
     frame_width = 4
     frame_color = "#2d2d2d"
     separator_color = frame

@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '$HOME/.config/i3/background_2d2d2d.jpg' 
+feh --bg-scale '/home/mat/.config/i3/background_2d2d2d.jpg' 

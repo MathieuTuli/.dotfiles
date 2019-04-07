@@ -1,0 +1,13 @@
+[Unit]
+Description=HDMI Hotswap Systemd Service
+
+[Service]
+Type=simple
+WorkingDirectory=$HOME/.scripts
+Environment=$HOME/.scripts
+ExecStart=$HOME/.scripts/hdmi_hotswap
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target

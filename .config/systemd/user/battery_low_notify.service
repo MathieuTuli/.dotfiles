@@ -1,0 +1,11 @@
+[Unit]
+Description=Notify Of Low Battery Levels
+
+[Service]
+Type=simple
+ExecStart=/bin/sh %h/.scripts/battery_low_notify -L 15 -m "Warning: Low Battery" -p 5
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=default.target
