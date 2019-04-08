@@ -10,7 +10,6 @@ let g:python3_host_prog = '/usr/bin/python3.7'
 "yaml related
 au BufNewFile,BufReadPost *.yaml,*.yml set filetype=yaml
 
-let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 
 syntax on
