@@ -10,7 +10,6 @@ selected-workspace-background = #666666
 foreground = #222222
 
 ; Little bits at the bottom of WS numbers
-primary = #cCc0b0
 
 ; These are both for alerts
 secondary = #FD2C40
