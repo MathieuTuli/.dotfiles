@@ -6,37 +6,44 @@
 # License:    MIT
 
 [colors]
-cursor = #d8dee9
+cursor = #ffffff
 cursor_foreground = #2e3440
 
 foreground = #d8dee9
 foreground_bold = #d8dee9
 background = rgba(46,52,64,0.97)
 
-highlight = #4c566a
+highlight = #696969
 
-color0  = #3b4252
-color1  = #FF8787
-# color1  = #bf616a
+color0  = #2d2d2d
+# color1  = #FF8787
+color1  = #bf616a
 color2  = #85ca9c
 # color2 = #a3be8c
-color3  = #ebcb8b
-color4  = #81a1c1
-color5  = #b48ead
+# color3  = #AFD787
+color3 = #FFAF87
+# color4  = #81a1c1
+color4  = #87AFD7
+color5  = #9F78E1
 color6  = #87AFD7
 # color6  = #88c0d0
-color7  = #e5e9f0
-color8  = #4c566a
+color7  = #ffffff
+color8  = #555555
 color9  = #FF8787
 # color9  = #bf616a
 color10 = #85ca9c
 # color10 = #a3be8c
-color11 = #ebcb8b
-color12 = #81a1c1
-color13 = #b48ead
-color14 = #FFAFD7
-# color14 = #8fbcbb
-color15 = #eceff4
+color11 = #FFAF87
+# color11  = #AFD787
+# color12 = #81a1c1
+color12  = #87AFD7
+# color13 = #b48ead
+color13 = #FFAFD7
+# color14 = #FFAFD7
+color14 = #8fbcbb
+# color14 = #85ca9c
+color15 = #ffffff
+# color16 = #bf616a
 
 [options]
 font = Source Code Pro for Powerline 16
