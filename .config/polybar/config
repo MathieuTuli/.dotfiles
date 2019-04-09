@@ -8,7 +8,6 @@ selected-workspace-background = #666666
 
 ; Text Color
 foreground = #222222
-foreground-alt = #7B7B7B
 
 ; Little bits at the bottom of WS numbers
 primary = #cCc0b0
