@@ -1,24 +1,28 @@
 " Color palette
-let s:gui_dark_gray = '#303030'
-let s:cterm_dark_gray = 236
-let s:gui_med_gray_hi = '#444444'
-let s:cterm_med_gray_hi = 238
-let s:gui_med_gray_lo = '#3a3a3a'
-let s:cterm_med_gray_lo = 237
-let s:gui_light_gray = '#b2b2b2'
-let s:cterm_light_gray = 249
-let s:gui_green = '#afd787'
-let s:cterm_green = 150
+let s:gui_dark_gray = '#2d2d2d'
+let s:cterm_dark_gray = 0
+let s:gui_med_gray_hi = '#2d2d2d'
+let s:cterm_med_gray_hi = 0
+let s:gui_med_gray_lo = '#2d2d2d'
+let s:cterm_med_gray_lo = 0
+let s:gui_light_gray = '#555555'
+let s:cterm_light_gray = 8
+let s:gui_green = '#85ca9c'
+" let s:gui_green = '#afd787'
+let s:cterm_green = 10
+" let s:cterm_green = 150
 let s:gui_blue = '#87afd7'
-let s:cterm_blue = 110
-let s:gui_purple = '#afafd7'
-let s:cterm_purple = 146
-let s:gui_orange = '#d7af5f'
-let s:cterm_orange = 179
-let s:gui_red = '#d78787'
-let s:cterm_red = 174
-let s:gui_pink = '#d7afd7'
-let s:cterm_pink = 182
+let s:cterm_blue = 6
+let s:gui_purple = '#9F78E1'
+let s:cterm_purple = 5
+let s:gui_orange = '#FFAF87'
+let s:cterm_orange = 11
+let s:gui_red = '#FF8787'
+let s:cterm_red = 9
+" let s:cterm_red = 174
+let s:gui_pink = '#FFAFD7'
+" let s:cterm_pink = 182
+let s:cterm_pink = 13
 
 let g:airline#themes#bubblegum#palette = {}
 
