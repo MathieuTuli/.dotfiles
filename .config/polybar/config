@@ -10,7 +10,6 @@ selected-workspace-background = #666666
 foreground = #222222
 
 ; Little bits at the bottom of WS numbers
-primary = #cCc0b0
 
 ; These are both for alerts
 secondary = #FD2C40
@@ -37,7 +36,7 @@ module-background = #393939
 ; red = #F67280
 ; orange = F8B195
 transparent = #00ffffff
-white = #FFFFFF
+white = #eeeeee
 grey = #444444
 blue = #87AFD7
 purple = #9F78E1
@@ -56,7 +55,7 @@ pink = #D7AFD7
 monitor = ${env:MONITOR:}
 
 width = 100%
-height = 18
+height = 22
 radius = 0.0
 
 background = ${colors.bar-background}
