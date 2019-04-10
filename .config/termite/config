@@ -40,11 +40,11 @@ color12  = #87AFD7
 # color13 = #b48ead
 color13 = #FFAFD7
 # color14 = #FFAFD7
-color14 = #8fbcbb
-# color14 = #85ca9c
-color15 = #ffffff
+# color14 = #8fbcbb
+color14 = #85ca9c
+color15 = #eeeeee
 color237 = #393939
-color240 = #999999
+color240 = #666666
 
 # color0  = #3b4252
 # color1  = #bf616a
