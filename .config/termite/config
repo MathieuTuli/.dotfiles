@@ -11,7 +11,8 @@ cursor_foreground = #2e3440
 
 foreground = #d8dee9
 foreground_bold = #d8dee9
-background = rgba(46,52,64,0.97)
+# background = rgba(46,52,64,0.97)
+# background = #2d2d2d
 
 highlight = #696969
 
