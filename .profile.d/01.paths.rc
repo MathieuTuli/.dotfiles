@@ -1,4 +1,5 @@
 # [PATHS]
+export SAVEHIST=300
 export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:~/.scripts:/opt/opencv:/usr/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64:/usr/lib/firmware/nvidia:/usr/lib/nvidia
 export CUDA_HOME=/opt/cuda
