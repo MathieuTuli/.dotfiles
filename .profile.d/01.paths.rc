@@ -20,3 +20,4 @@ export PYENV_VERSION="3.7.3"
 if command -v pyenv 1>/dev/null 2>&1; then
         eval "$(pyenv init -)"
 fi
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
