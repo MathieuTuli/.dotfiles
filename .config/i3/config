@@ -214,7 +214,7 @@ exec dunst
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
 for_window [class="Spotify"] move to workspace $ws4
-assign [class="Google-chrome"] 2
+# assign [class="Google-chrome"] 2
 assign [class="Slack"] 3
 gaps inner 0
 gaps outer 7
