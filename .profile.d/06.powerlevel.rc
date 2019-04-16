@@ -29,7 +29,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="⏵ "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_elementary_icon dir dir_writable vcs virtualenv anaconda docker_machine aws ssh)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(pyenv command_execution_time background_jobs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time background_jobs)
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
 # PYENV
