@@ -64,12 +64,6 @@ let g:airline#themes#bubblegum#palette.inactive_modified = {
       \ 'airline_c': [s:gui_orange, '', s:cterm_orange, '', ''],
       \ }
 
-" ALE Status Line
-let s:V1 = [s:gui_dark_gray, s:gui_pink, s:cterm_dark_gray, s:cterm_pink]
-let s:V3 = [s:gui_pink, s:gui_med_gray_hi, s:cterm_pink, s:cterm_med_gray_hi]
-let g:airline#themes#bubblegum#palette.ale = airline#themes#generate_color_map(s:V1, s:N2, s:V3)
-let g:airline#themes#bubblegum#palette.ale = copy(g:airline#themes#bubblegum#palette.insert_modified)
-
 " CtrlP
 if !get(g:, 'loaded_ctrlp', 0)
   finish

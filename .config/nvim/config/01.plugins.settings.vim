@@ -10,8 +10,8 @@ highlight ALEErrorSign    ctermbg=9 ctermfg=0
 highlight ALEInfo    ctermbg=4 ctermfg=0
 highlight ALEInfoSign    ctermbg=4 ctermfg=0
 " highlight ALEIfoLine    ctermbg=1 ctermfg=0
-highlight ALEStyleError    ctermbg=5 ctermfg=0
-highlight ALEStyleErrorSign    ctermbg=5 ctermfg=0
+highlight ALEStyleError    ctermbg=9 ctermfg=0
+highlight ALEStyleErrorSign    ctermbg=9 ctermfg=0
 highlight ALEStyleWarning    ctermbg=11 ctermfg=0
 highlight ALEStyleWarningSign    ctermbg=11 ctermfg=0
 highlight ALEVirtualTextInfo    ctermbg=4 ctermfg=0

@@ -16,10 +16,14 @@ foreground_bold = #d8dee9
 
 highlight = #696969
 
+# others
+# tan #D6CE93
+
 color0  = #2d2d2d
 # color1  = #FF8787
 # color1  = #c22231
-color1  = #bf616a
+# color1  = #bf616a
+color1 = #9b3e5c
 color2  = #85ca9c
 # color2 = #a3be8c
 # color3  = #AFD787
