@@ -29,7 +29,7 @@ bindsym $mod+Ctrl+n exec $HOME/.scripts/hdmi_orientation_n
 # Audio controls
 bindsym XF86AudioRaiseVolume exec amixer set Master 2dB+
 bindsym XF86AudioLowerVolume exec amixer set Master 2dB-
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioMute exec toggle_mute
 
 # Sreen brightness controls
 bindsym $mod+bracketright exec light -A 2 # increase screen brightness
