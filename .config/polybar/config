@@ -453,7 +453,7 @@ format-volume-background = ${colors.module-background}
 
 format-muted-foreground = ${colors.alert}
 format-muted-background = ${colors.module-background}
-label-muted =  " M ﭳﭳﭳﭳﭳﭳﭳﭳﭳ"
+label-muted =  "M ﭳﭳﭳﭳﭳﭳﭳﭳﭳ"
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #8ECEB2
