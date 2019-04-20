@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n -e "\xFF\x09\x09" > /sys/devices/pci0000:00/0000:00:14.0/usb1/1-8/1-8:1.2/0003:1532:0233.0004/matrix_effect_static
