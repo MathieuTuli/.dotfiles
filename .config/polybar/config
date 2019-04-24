@@ -89,7 +89,7 @@ modules-left = l-slant-module-l i3 l-slant-module-r space l-slant-module-l spoti
 # modules-center = alsa
 # modules-right = arrow-filesystem filesystem arrow-memory memory arrow-cpu cpu arrow-wlan wlan arrow-battery Battery arrow-date date
 # modules-right = r-slant-red-l filesystem r-slant-red-r space r-slant-orange-l memory r-slant-orange-r space r-slant-green-l cpu r-slant-green-r space r-slant-purple-l wlan r-slant-purple-r space r-slant-orange-l battery r-slant-orange-r space r-slant-blue-l date r-slant-blue-r edge-space
-modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-module-l memory space cpu r-slant-module-r space r-slant-module-l system-nvidia-smi r-slant-module-r space r-slant-module-l wlan r-slant-module-r space r-slant-module-l battery r-slant-module-r space r-slant-module-l date r-slant-module-r
+modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp r-slant-module-r space r-slant-module-l memory space cpu r-slant-module-r space r-slant-module-l system-nvidia-smi r-slant-module-r space r-slant-module-l wlan r-slant-module-r space r-slant-module-l battery r-slant-module-r space r-slant-module-l date r-slant-module-r
 
 # tray-position = right
 # tray-padding = 2
@@ -575,6 +575,102 @@ animation-charging-3 =
 animation-charging-4 =
 animation-charging-framerate = 750
 
+[module/core0temp]
+type=internal/temperature
+interval=0.5
+thermal-zone=0
+hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input
+warm-temperature=80
+unit=true
+format=<label>
+format-warn=<label-warn>
+label=%temperature-c%
+label-foreground=${colors.white}
+label-background=${colors.module-background}
+label-warn=%temperature-c%
+label-warn-foreground= ${colors.red}
+label-warn-background=${colors.module-background}
+[module/core1temp]
+type=internal/temperature
+interval=0.5
+thermal-zone=0
+hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp3_input
+warm-temperature=80
+unit=true
+format=<label>
+format-warn=<label-warn>
+label=%temperature-c%
+label-foreground=${colors.white}
+label-background=${colors.module-background}
+label-warn=%temperature-c%
+label-warn-foreground= ${colors.red}
+label-warn-background=${colors.module-background}
+[module/core2temp]
+type=internal/temperature
+interval=0.5
+thermal-zone=0
+hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp4_input
+warm-temperature=80
+unit=true
+format=<label>
+format-warn=<label-warn>
+label=%temperature-c%
+label-foreground=${colors.white}
+label-background=${colors.module-background}
+label-warn=%temperature-c%
+label-warn-foreground= ${colors.red}
+label-warn-background=${colors.module-background}
+[module/core3temp]
+type=internal/temperature
+interval=0.5
+thermal-zone=0
+hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp5_input
+warm-temperature=80
+unit=true
+format=<label>
+format-warn=<label-warn>
+label=%temperature-c%
+label-foreground=${colors.white}
+label-background=${colors.module-background}
+label-warn=%temperature-c%
+label-warn-foreground= ${colors.red}
+label-warn-background=${colors.module-background}
+[module/core4temp]
+type=internal/temperature
+interval=0.5
+thermal-zone=0
+hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp6_input
+warm-temperature=80
+unit=true
+format=<label>
+format-warn=<label-warn>
+label=%temperature-c%
+label-foreground=${colors.white}
+label-background=${colors.module-background}
+label-warn=%temperature-c%
+label-warn-foreground= ${colors.red}
+label-warn-background=${colors.module-background}
+[module/core5temp]
+type=internal/temperature
+interval=0.5
+thermal-zone=0
+hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp7_input
+warm-temperature=80
+unit=true
+format=<label>
+format-warn=<label-warn>
+label=%temperature-c%
+label-foreground=${colors.white}
+label-background=${colors.module-background}
+label-warn=%temperature-c%
+label-warn-foreground= ${colors.red}
+label-warn-background=${colors.module-background}
+
+[module/corespacer]
+type=custom/text
+content = " | "
+content-foreground = ${colors.white}
+content-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------
