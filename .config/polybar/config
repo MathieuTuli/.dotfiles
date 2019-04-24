@@ -47,6 +47,7 @@ red = #FF8787
 orange = #FFAF87
 # pink = #FFAFD7
 pink = #D7AFD7
+yellow = #FFFD98
 
 ;------------------------------------------------------------
 ;       BARS
@@ -103,7 +104,7 @@ inheritance=bar/main
 bottom=true
 
 modules-left=
-modules-center = r-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp r-slant-module-r space
+modules-center = c-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp c-slant-module-r space
 modules-right=
 
 height=22
@@ -163,19 +164,20 @@ content-font = 2
 content-foreground = ${colors.module-background}
 content-background= ${colors.bar-background}
 
-[module/l-slant-unfocused-i3-l]
+[module/c-slant-module-l]
 type = custom/text
 content = ""
 content-font = 2
 content-foreground = ${colors.bar-background}
-content-background = ${colors.unfocused-i3-background}
+content-background = ${colors.module-background}
 
-[module/l-slant-unfocused-i3-r]
+[module/c-slant-module-r]
+# █
 type = custom/text
-content = ""
+content = ""
 content-font = 2
-content-foreground = ${colors.unfocused-i3-background}
-content-background= ${colors.bar-background}
+content-foreground = ${colors.bar-background}
+content-background= ${colors.module-background}
 
 [module/r-slant-module-l]
 type = custom/text
@@ -191,132 +193,21 @@ content-font = 2
 content-foreground = ${colors.bar-background}
 content-background= ${colors.module-background}
 
-[module/r-slant-red-l]
+[module/l-slant-unfocused-i3-l]
 type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.red}
-content-background = ${colors.bar-background}
-
-[module/r-slant-red-r]
-type = custom/text
-content = ""
+content = ""
 content-font = 2
 content-foreground = ${colors.bar-background}
-content-background = ${colors.red}
+content-background = ${colors.unfocused-i3-background}
 
-[module/r-slant-orange-l]
+[module/l-slant-unfocused-i3-r]
 type = custom/text
-content = ""
+content = ""
 content-font = 2
-content-foreground = ${colors.orange}
-content-background = ${colors.bar-background}
+content-foreground = ${colors.unfocused-i3-background}
+content-background= ${colors.bar-background}
 
-[module/r-slant-orange-r]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.orange}
-
-[module/r-slant-green-l]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.bar-background}
-
-[module/r-slant-green-r]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.green}
-
-[module/r-slant-purple-l]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.purple}
-content-background = ${colors.bar-background}
-
-[module/r-slant-purple-r]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.purple}
-
-[module/r-slant-blue-l]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.blue}
-content-background = ${colors.bar-background}
-
-[module/r-slant-blue-r]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.blue}
-
-[module/arrow-i3]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.transparent}
-content-background = ${colors.green}
-
-[module/arrow-spotify]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.bar-background}
-
-[module/arrow-filesystem]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.red}
-content-background = ${colors.bar-background}
-
-[module/arrow-memory]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.orange}
-content-background = ${colors.red}
-
-[module/arrow-cpu]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.orange}
-
-[module/arrow-wlan]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.purple}
-content-background = ${colors.green}
-
-[module/arrow-battery]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.orange}
-content-background = ${colors.purple}
-
-[module/arrow-date]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.blue}
-content-background = ${colors.orange}
-
+# 
 ;------------------------------------------------------------
 ;       MODULES
 ;------------------------------------------------------------
@@ -606,91 +497,31 @@ unit=true
 format=<label>
 format-warn=<label-warn>
 label=%temperature-c%
-label-foreground=${colors.white}
+label-foreground=${colors.yellow}
 label-background=${colors.module-background}
 label-warn=%temperature-c%
 label-warn-foreground= ${colors.red}
 label-warn-background=${colors.module-background}
 [module/core1temp]
-type=internal/temperature
-interval=0.5
-thermal-zone=0
+inheritance=module/core0temp
 hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp3_input
-warm-temperature=80
-unit=true
-format=<label>
-format-warn=<label-warn>
-label=%temperature-c%
-label-foreground=${colors.white}
-label-background=${colors.module-background}
-label-warn=%temperature-c%
-label-warn-foreground= ${colors.red}
-label-warn-background=${colors.module-background}
 [module/core2temp]
-type=internal/temperature
-interval=0.5
-thermal-zone=0
+inheritance=module/core0temp
 hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp4_input
-warm-temperature=80
-unit=true
-format=<label>
-format-warn=<label-warn>
-label=%temperature-c%
-label-foreground=${colors.white}
-label-background=${colors.module-background}
-label-warn=%temperature-c%
-label-warn-foreground= ${colors.red}
-label-warn-background=${colors.module-background}
 [module/core3temp]
-type=internal/temperature
-interval=0.5
-thermal-zone=0
+inheritance=module/core0temp
 hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp5_input
-warm-temperature=80
-unit=true
-format=<label>
-format-warn=<label-warn>
-label=%temperature-c%
-label-foreground=${colors.white}
-label-background=${colors.module-background}
-label-warn=%temperature-c%
-label-warn-foreground= ${colors.red}
-label-warn-background=${colors.module-background}
 [module/core4temp]
-type=internal/temperature
-interval=0.5
-thermal-zone=0
+inheritance=module/core0temp
 hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp6_input
-warm-temperature=80
-unit=true
-format=<label>
-format-warn=<label-warn>
-label=%temperature-c%
-label-foreground=${colors.white}
-label-background=${colors.module-background}
-label-warn=%temperature-c%
-label-warn-foreground= ${colors.red}
-label-warn-background=${colors.module-background}
 [module/core5temp]
-type=internal/temperature
-interval=0.5
-thermal-zone=0
+inheritance=module/core0temp
 hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp7_input
-warm-temperature=80
-unit=true
-format=<label>
-format-warn=<label-warn>
-label=%temperature-c%
-label-foreground=${colors.white}
-label-background=${colors.module-background}
-label-warn=%temperature-c%
-label-warn-foreground= ${colors.red}
-label-warn-background=${colors.module-background}
 
 [module/corespacer]
 type=custom/text
 content = " | "
-content-foreground = ${colors.white}
+content-foreground = ${colors.yellow}
 content-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
