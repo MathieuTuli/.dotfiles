@@ -8,7 +8,7 @@ _complete () {
   _original_complete "$@"
 }
 FILTER=""
-LINELIMIT="limit: 15"
+LINELIMIT="limit: 14"
 DETAIL="list"
 LONGLIMIT=1000
 long_comparator=15
