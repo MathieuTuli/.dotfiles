@@ -497,7 +497,7 @@ unit=true
 format=<label>
 format-warn=<label-warn>
 label=%temperature-c%
-label-foreground=${colors.yellow}
+label-foreground=${colors.focused-i3-background}
 label-background=${colors.module-background}
 label-warn=%temperature-c%
 label-warn-foreground= ${colors.red}
@@ -521,7 +521,7 @@ hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp7_input
 [module/corespacer]
 type=custom/text
 content = " | "
-content-foreground = ${colors.yellow}
+content-foreground = ${colors.focused-i3-background}
 content-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
