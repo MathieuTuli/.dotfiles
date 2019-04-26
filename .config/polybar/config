@@ -48,6 +48,7 @@ orange = #FFAF87
 # pink = #FFAFD7
 pink = #D7AFD7
 yellow = #FFFD98
+brown = #836953
 
 ;------------------------------------------------------------
 ;       BARS
@@ -85,6 +86,7 @@ font-0 = fixed:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
 font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
+font-4 = Weather Icons:size=12;4
 
 # modules-left = edge-space l-slant-unfocused-i3-l i3 l-slant-unfocused-i3-r space  l-slant-module-l spotify l-slant-module-r space alsa
 modules-left = l-slant-module-l i3 l-slant-module-r space l-slant-module-l spotify l-slant-module-r space l-slant-module-l alsa l-slant-module-r
@@ -103,9 +105,10 @@ cursor-scroll = ns-resize
 inheritance=bar/main
 bottom=true
 
-modules-left=l-slant-module-l arch-updates l-slant-module-r space
+# reverse the slants
+modules-left=r-slant-module-l arch-updates r-slant-module-r space
 modules-center = c-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp c-slant-module-r space
-modules-right=
+modules-right= l-slant-module-l weather l-slant-module-r space
 
 height=22
 border-size = 0
@@ -166,18 +169,20 @@ content-background= ${colors.bar-background}
 
 [module/c-slant-module-l]
 type = custom/text
-content = ""
+# content = ""
+content = ""
 content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.module-background}
+content-foreground = ${colors.module-background}
+content-background = ${colors.bar-background}
 
 [module/c-slant-module-r]
 # █
 type = custom/text
-content = ""
+content = ""
+# content = ""
 content-font = 2
-content-foreground = ${colors.bar-background}
-content-background= ${colors.module-background}
+content-foreground = ${colors.module-background}
+content-background= ${colors.bar-background}
 
 [module/r-slant-module-l]
 type = custom/text
@@ -528,7 +533,15 @@ content-background = ${colors.module-background}
 type = custom/script
 exec = ~/.scripts/polybar_arch_updates
 interval = 30
-label-foreground = ${colors.focused-i3-background}
+label-foreground = ${colors.brown}
+label-background = ${colors.module-background}
+
+[module/weather]
+type = custom/script
+exec = ~/.scripts/polybar_weather
+label-font=5
+interval = 1
+label-foreground = ${colors.brown}
 label-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
