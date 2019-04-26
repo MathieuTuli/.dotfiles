@@ -103,7 +103,7 @@ cursor-scroll = ns-resize
 inheritance=bar/main
 bottom=true
 
-modules-left=
+modules-left=l-slant-module-l arch-updates l-slant-module-r space
 modules-center = c-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp c-slant-module-r space
 modules-right=
 
@@ -266,7 +266,7 @@ label-urgent-padding = 1
 type = custom/script
 interval = 0.1
 format = <label>
-exec = python ~/.scripts/spotify_status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
+exec = python ~/.scripts/polybar_spotify_status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
 # label-foreground = ${colors.foreground}
 # label-background = ${colors.green}
 label-foreground = ${colors.green}
@@ -523,6 +523,13 @@ type=custom/text
 content = " | "
 content-foreground = ${colors.focused-i3-background}
 content-background = ${colors.module-background}
+
+[module/arch-updates]
+type = custom/script
+exec = ~/.scripts/polybar_arch_updates
+interval = 30
+label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------
