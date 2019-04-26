@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 # vim:ft=zsh ts=2 sw=2 sts=2 et fenc=utf-8
 ################################################################
 # vcs
@@ -7,7 +7,7 @@
 # https://github.com/bhilburn/powerlevel9k
 ################################################################
 
-POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY=false
+set_default POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY false
 function +vi-git-untracked() {
   [[ -z "${vcs_comm[gitdir]}" || "${vcs_comm[gitdir]}" == "." ]] && return
 
@@ -53,7 +53,7 @@ function +vi-git-remotebranch() {
     remote=${$(command git rev-parse --verify HEAD@{upstream} --symbolic-full-name 2>/dev/null)/refs\/(remotes|heads)\/}
 
     if [[ -n "$POWERLEVEL9K_VCS_SHORTEN_LENGTH" ]] && [[ -n "$POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH" ]]; then
-     POWERLEVEL9K_VCS_SHORTEN_DELIMITER=$'\U2026'
+     set_default POWERLEVEL9K_VCS_SHORTEN_DELIMITER $'\U2026'
 
      if [ ${#hook_com[branch]} -gt ${POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH} ] && [ ${#hook_com[branch]} -gt ${POWERLEVEL9K_VCS_SHORTEN_LENGTH} ]; then
        case "$POWERLEVEL9K_VCS_SHORTEN_STRATEGY" in
@@ -76,7 +76,7 @@ function +vi-git-remotebranch() {
     fi
 }
 
-POWERLEVEL9K_VCS_HIDE_TAGS=false
+set_default POWERLEVEL9K_VCS_HIDE_TAGS false
 function +vi-git-tagname() {
     if [[ "$POWERLEVEL9K_VCS_HIDE_TAGS" == "false" ]]; then
         # If we are on a tag, append the tagname to the current branch string.
