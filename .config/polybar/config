@@ -48,7 +48,7 @@ orange = #FFAF87
 # pink = #FFAFD7
 pink = #D7AFD7
 yellow = #FFFD98
-brown = #836953
+brown = #906050
 
 ;------------------------------------------------------------
 ;       BARS
@@ -86,7 +86,7 @@ font-0 = fixed:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
 font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
-font-4 = Weather Icons:size=12;4
+font-4 = Weather Icons:size=10;4
 
 # modules-left = edge-space l-slant-unfocused-i3-l i3 l-slant-unfocused-i3-r space  l-slant-module-l spotify l-slant-module-r space alsa
 modules-left = l-slant-module-l i3 l-slant-module-r space l-slant-module-l spotify l-slant-module-r space l-slant-module-l alsa l-slant-module-r
@@ -541,7 +541,7 @@ type = custom/script
 exec = ~/.scripts/polybar_weather
 label-font=5
 interval = 1
-label-foreground = ${colors.brown}
+label-foreground = ${colors.yellow}
 label-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
