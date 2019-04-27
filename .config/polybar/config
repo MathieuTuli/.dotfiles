@@ -108,7 +108,7 @@ bottom=true
 # reverse the slants
 modules-left=r-slant-module-l arch-updates r-slant-module-r space
 modules-center = c-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp c-slant-module-r space
-modules-right= l-slant-module-l weather l-slant-module-r space
+modules-right= l-slant-module-l weather-current-icon weather-current weather-forecast-icon weather-forecast weather-set-icon weather-set l-slant-module-r space
 
 height=22
 border-size = 0
@@ -536,9 +536,51 @@ interval = 30
 label-foreground = ${colors.brown}
 label-background = ${colors.module-background}
 
-[module/weather]
+[module/weather-current]
 type = custom/script
-exec = ~/.scripts/polybar_weather
+exec = ~/.scripts/polybar_weather -i current
+label-font=3
+interval = 1
+label-foreground = ${colors.yellow}
+label-background = ${colors.module-background}
+[module/weather-current-icon]
+type = custom/script
+exec = ~/.scripts/polybar_weather -i current_icon
+label-font=5
+interval = 1
+label-foreground = ${colors.yellow}
+label-background = ${colors.module-background}
+[module/weather-forecast]
+type = custom/script
+exec = ~/.scripts/polybar_weather -i forecast
+label-font=3
+interval = 1
+label-foreground = ${colors.yellow}
+label-background = ${colors.module-background}
+[module/weather-forecast-icon]
+type = custom/script
+exec = ~/.scripts/polybar_weather -i forecast_icon
+label-font=5
+interval = 1
+label-foreground = ${colors.yellow}
+label-background = ${colors.module-background}
+[module/weather-trend]
+type = custom/script
+exec = ~/.scripts/polybar_weather -i trend
+label-font=5
+interval = 1
+label-foreground = ${colors.yellow}
+label-background = ${colors.module-background}
+[module/weather-set]
+type = custom/script
+exec = ~/.scripts/polybar_weather -i set
+label-font=3
+interval = 1
+label-foreground = ${colors.yellow}
+label-background = ${colors.module-background}
+[module/weather-set-icon]
+type = custom/script
+exec = ~/.scripts/polybar_weather -i set_icon
 label-font=5
 interval = 1
 label-foreground = ${colors.yellow}
