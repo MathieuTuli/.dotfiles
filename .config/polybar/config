@@ -15,7 +15,6 @@ secondary = #FD2C40
 alert = #F67280
 
 ; i3
-
 focused-i3-background = #7B7B7B
 focused-i3-foreground = #222222
 unfocused-i3-background = #222222
@@ -86,12 +85,8 @@ font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
-# modules-left = edge-space l-slant-unfocused-i3-l i3 l-slant-unfocused-i3-r space  l-slant-module-l spotify l-slant-module-r space alsa
-modules-left = l-slant-module-l i3 l-slant-module-r space l-slant-module-l spotify l-slant-module-r space l-slant-module-l alsa l-slant-module-r
-# modules-center = alsa
-# modules-right = arrow-filesystem filesystem arrow-memory memory arrow-cpu cpu arrow-wlan wlan arrow-battery Battery arrow-date date
-# modules-right = r-slant-red-l filesystem r-slant-red-r space r-slant-orange-l memory r-slant-orange-r space r-slant-green-l cpu r-slant-green-r space r-slant-purple-l wlan r-slant-purple-r space r-slant-orange-l battery r-slant-orange-r space r-slant-blue-l date r-slant-blue-r edge-space
-modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-module-l memory space cpu r-slant-module-r space r-slant-module-l system-nvidia-smi r-slant-module-r space r-slant-module-l wlan r-slant-module-r space r-slant-module-l battery r-slant-module-r space r-slant-module-l date r-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
+modules-right = r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
 
 # tray-position = right
 # tray-padding = 2
@@ -104,9 +99,9 @@ inheritance=bar/main
 bottom=true
 
 # reverse the slants
-modules-left=r-slant-module-l arch-updates r-slant-module-r space r-slant-module-l dotfiles-modified spacer dotfiles-deleted spacer dotfiles-staged r-slant-module-r space
-modules-center = c-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp c-slant-module-r space
-modules-right= l-slant-module-l weather-current-icon spacer weather-current spacer weather-forecast-icon spacer weather-forecast spacer weather-set-icon spacer weather-set l-slant-module-r space
+modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged r-slant-module-r
+modules-center = c-slant-module-l core0temp grey-spacer core1temp grey-spacer core2temp grey-spacer core3temp grey-spacer core4temp grey-spacer core5temp c-slant-module-r
+modules-right= l-slant-module-l weather-current-icon spacer weather-current yellow-spacer weather-forecast-icon spacer weather-forecast yellow-spacer weather-set-icon spacer weather-set l-slant-module-r
 
 height=22
 border-size = 0
@@ -129,17 +124,17 @@ content = " "
 content-foreground = ${colors.module-background}
 content-background = ${colors.module-background}
 
-[module/edge-space]
-type = custom/text
-content = ""
-content-foreground = ${colors.bar-background}
-content-background = ${colors.bar-background}
+[module/yellow-spacer]
+type=custom/text
+content = " | "
+content-foreground = ${colors.yellow}
+content-background = ${colors.module-background}
 
-[module/space]
-type = custom/text
-content = "%{T4} %{T-}"
-content-foreground = ${colors.bar-background}
-content-background = ${colors.bar-background}
+[module/grey-spacer]
+type=custom/text
+content = " | "
+content-foreground = ${colors.focused-i3-background}
+content-background = ${colors.module-background}
 
 [module/l-slant-bar-l]
 type = custom/text
@@ -526,12 +521,6 @@ hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp6_input
 inheritance=module/core0temp
 hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp7_input
 
-[module/corespacer]
-type=custom/text
-content = " | "
-content-foreground = ${colors.focused-i3-background}
-content-background = ${colors.module-background}
-
 [module/arch-updates]
 type = custom/script
 exec = ~/.scripts/polybar_arch_updates
@@ -575,6 +564,7 @@ label-font=5
 type = custom/script
 exec = ~/.scripts/polybar_dotfiles_status -i modified
 label-font=3
+interval=30
 label-foreground = ${colors.orange}
 label-background = ${colors.module-background}
 [module/dotfiles-deleted]
