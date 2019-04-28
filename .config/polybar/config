@@ -9,8 +9,6 @@ selected-workspace-background = #666666
 ; Text Color
 foreground = #222222
 
-; Little bits at the bottom of WS numbers
-
 ; These are both for alerts
 secondary = #FD2C40
 ; alert = #BD2C40
@@ -106,9 +104,9 @@ inheritance=bar/main
 bottom=true
 
 # reverse the slants
-modules-left=r-slant-module-l arch-updates r-slant-module-r space
+modules-left=r-slant-module-l arch-updates r-slant-module-r space r-slant-module-l dotfiles-modified spacer dotfiles-deleted spacer dotfiles-staged r-slant-module-r space
 modules-center = c-slant-module-l core0temp corespacer core1temp corespacer core2temp corespacer core3temp corespacer core4temp corespacer core5temp c-slant-module-r space
-modules-right= l-slant-module-l weather-current-icon weather-current weather-forecast-icon weather-forecast weather-set-icon weather-set l-slant-module-r space
+modules-right= l-slant-module-l weather-current-icon spacer weather-current spacer weather-forecast-icon spacer weather-forecast spacer weather-set-icon spacer weather-set l-slant-module-r space
 
 height=22
 border-size = 0
@@ -125,6 +123,11 @@ border-right-color = ${colors.bar-background}
 ;------------------------------------------------------------
 ;       DECORATIONS
 ;------------------------------------------------------------
+[module/spacer]
+type=custom/text
+content = " "
+content-foreground = ${colors.module-background}
+content-background = ${colors.module-background}
 
 [module/edge-space]
 type = custom/text
@@ -544,47 +547,45 @@ interval = 1
 label-foreground = ${colors.yellow}
 label-background = ${colors.module-background}
 [module/weather-current-icon]
-type = custom/script
+inheritance=module/weather-current
 exec = ~/.scripts/polybar_weather -i current_icon
 label-font=5
-interval = 1
-label-foreground = ${colors.yellow}
-label-background = ${colors.module-background}
 [module/weather-forecast]
-type = custom/script
+inheritance=module/weather-current
 exec = ~/.scripts/polybar_weather -i forecast
 label-font=3
-interval = 1
-label-foreground = ${colors.yellow}
-label-background = ${colors.module-background}
 [module/weather-forecast-icon]
-type = custom/script
+inheritance=module/weather-current
 exec = ~/.scripts/polybar_weather -i forecast_icon
 label-font=5
-interval = 1
-label-foreground = ${colors.yellow}
-label-background = ${colors.module-background}
 [module/weather-trend]
-type = custom/script
+inheritance=module/weather-current
 exec = ~/.scripts/polybar_weather -i trend
 label-font=5
-interval = 1
-label-foreground = ${colors.yellow}
-label-background = ${colors.module-background}
 [module/weather-set]
-type = custom/script
+inheritance=module/weather-current
 exec = ~/.scripts/polybar_weather -i set
 label-font=3
-interval = 1
-label-foreground = ${colors.yellow}
-label-background = ${colors.module-background}
 [module/weather-set-icon]
-type = custom/script
+inheritance=module/weather-current
 exec = ~/.scripts/polybar_weather -i set_icon
 label-font=5
-interval = 1
-label-foreground = ${colors.yellow}
+
+[module/dotfiles-modified]
+type = custom/script
+exec = ~/.scripts/polybar_dotfiles_status -i modified
+label-font=3
+label-foreground = ${colors.orange}
 label-background = ${colors.module-background}
+[module/dotfiles-deleted]
+inheritance=module/dotfiles-modified
+exec = ~/.scripts/polybar_dotfiles_status -i deleted
+label-foreground = ${colors.red}
+[module/dotfiles-staged]
+inheritance=module/dotfiles-modified
+exec = ~/.scripts/polybar_dotfiles_status -i staged
+label-foreground = ${colors.green}
+
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------
