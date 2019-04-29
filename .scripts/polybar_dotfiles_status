@@ -10,7 +10,6 @@ done
 STAGED=$(git dotfiles diff --name-only --cached | wc -l)
 MODIFIED=$(git dotfiles ls-files $HOME --modified | wc -l)
 DELETED=$(git dotfiles ls-files $HOME --deleted | wc -l)
-AHEAD=0
 
 case $INFO in
         staged) echo $STAGED;;
