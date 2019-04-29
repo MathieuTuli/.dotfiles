@@ -6,7 +6,6 @@ in
 i) INFO=${OPTARG};;
 esac
 done
-
 get_icon() {
     case $1 in
         01d) icon="";;
