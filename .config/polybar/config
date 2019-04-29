@@ -533,7 +533,7 @@ label-background = ${colors.module-background}
 type = custom/script
 exec = ~/.scripts/polybar_weather -i current
 label-font=3
-interval = 10000
+interval = 30
 label-foreground = ${colors.yellow}
 label-background = ${colors.module-background}
 [module/weather-current-icon]
