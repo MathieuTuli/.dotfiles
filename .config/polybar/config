@@ -565,7 +565,7 @@ label-font=5
 type = custom/script
 exec = ~/.scripts/polybar_dotfiles_status -i modified
 label-font=3
-interval=30
+interval=10
 label-foreground = ${colors.orange}
 label-background = ${colors.module-background}
 [module/dotfiles-deleted]
