@@ -267,7 +267,7 @@ label-urgent-padding = 1
 
 [module/spotify]
 type = custom/script
-interval = 0.1
+interval = 3
 format = <label>
 exec = python ~/.scripts/polybar_spotify_status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
 # label-foreground = ${colors.foreground}
@@ -528,11 +528,12 @@ interval = 30
 label-foreground = ${colors.brown}
 label-background = ${colors.module-background}
 
+# CAUTION, OPEN WEATHER MAP HAS A 60RPM LIMIT FOR THE FREE TIER
 [module/weather-current]
 type = custom/script
 exec = ~/.scripts/polybar_weather -i current
 label-font=3
-interval = 1
+interval = 10000
 label-foreground = ${colors.yellow}
 label-background = ${colors.module-background}
 [module/weather-current-icon]
