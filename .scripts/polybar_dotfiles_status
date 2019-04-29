@@ -7,13 +7,11 @@ i) INFO=${OPTARG};;
 esac
 done
 
-STAGED=$(git dotfiles diff --name-only --cached | wc -l)
-MODIFIED=$(git dotfiles ls-files $HOME --modified | wc -l)
-DELETED=$(git dotfiles ls-files $HOME --deleted | wc -l)
 
 case $INFO in
-        staged) echo $STAGED;;
-        modified) echo $MODIFIED;;
-        deleted) echo $DELETED;;
+        staged) echo $(git dotfiles diff --name-only --cached | wc -l);;
+        modified) echo $(git dotfiles ls-files $HOME --modified | wc -l);;
+        deleted) echo $(git dotfiles ls-files $HOME --deleted | wc -l);;
+        ahead) echo $(git dotfiles rev-list razer-laptop...origin/razer-laptop --count);;
         *) echo "??";;
 esac
