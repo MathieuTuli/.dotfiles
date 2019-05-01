@@ -8,10 +8,10 @@ _complete () {
   _original_complete "$@"
 }
 FILTER=""
-LINELIMIT="limit: 14"
+long_comparator=14
+LINELIMIT="limit: $long_comparator"
 DETAIL="list"
 LONGLIMIT=1000
-long_comparator=14
 FOCUS=""
 i3-msg title_format "Calendar"
 DUE=""
@@ -21,7 +21,7 @@ while true; do
         unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINELIMIT | head -n $LONGLIMIT
         task calendar
         if [ $HELP -eq 1 ]; then
-                echo "project:\ndue:\nlimit:\nfocus:\ndetail:"
+                echo "project:\ndue:\nlimit:\nfocus:\ndetail:\nnew_limit:"
                 HELP=0
         fi
         COMMAND=''
@@ -50,10 +50,10 @@ while true; do
                                 LINELIMIT=$COMMAND
                                 LONGLIMIT=1000
                         elif [[ $CURRENTLIMIT == *"fit"* ]] then
-                                LINELIMIT="limit:14"
+                                LINELIMIT="limit: $long_comparator"
                                 LONGLIMIT=19
                         else
-                                if [ "$CURRENTLIMIT" -le 14 ]
+                                if [ "$CURRENTLIMIT" -le "$long_comparator" ]
                                 then
                                         LONGLIMIT=18
                                 else
@@ -66,12 +66,15 @@ while true; do
                         else
                                 FOCUS=${COMMAND//focus:/}
                         fi
+                elif [[ $COMMAND == "new_limit:"* ]] then
+                        long_comparator=${COMMAND//new_limit:/}
+                        LINELIMIT="limit: $long_comparator"
                 elif [[ $COMMAND == "detail:"* ]] then
                         if [[ $COMMAND == *"long"* ]] then
                                 DETAIL="long"
-                                if [ "$LIMIT" -le 14 ]
+                                if [ "$LIMIT" -le "$long_comparator" ]
                                 then
-                                        LONGLIMIT=18
+                                        LONGLIMIT="$(($long_comparator+3))"
                                 else
                                         LONGLIMIT=1000
                                 fi
