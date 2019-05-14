@@ -46,3 +46,6 @@ color.due=color0 on magenta
 color.active=color0 on green
 report.list.sort=urgency-,due-
 report.long.sort=urgency-,due-
+color.uda.priority.H=color15
+color.uda.priority.M=color15
+color.uda.priority.L=color240
