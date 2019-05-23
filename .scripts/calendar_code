@@ -7,6 +7,10 @@ _complete () {
   unset 'compstate[vared]'
   _original_complete "$@"
 }
+trap ctrl_c INT
+function ctrl_c() {
+        echo "Please type 'q' or 'Q' to quit"
+}
 FILTER=""
 long_comparator=14
 LINELIMIT="limit: $long_comparator"
