@@ -16,10 +16,16 @@ FOCUS=""
 i3-msg title_format "Calendar"
 DUE=""
 HELP=0
+SHOW_CALENDAR=true
 while true; do
         clear
         unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINELIMIT | head -n $LONGLIMIT
-        task calendar
+        if [ "$SHOW_CALENDAR" = true ]; then
+                task calendar
+        else
+                echo " "
+        fi
+
         if [ $HELP -eq 1 ]; then
                 echo "project:\ndue:\nlimit:\nfocus:\ndetail:\nnew_limit:"
                 HELP=0
@@ -81,6 +87,13 @@ while true; do
                         else
                                 DETAIL="list"
                                 LONGLIMIT=1000
+                        fi
+                elif [[ $COMMAND == "calendar:"* ]] then
+                        CALENDAR_STATE=${COMMAND//calendar:/}
+                        if [[ $CALENDAR_STATE == *"off"* ]] then
+                                SHOW_CALENDAR=false
+                        elif [[ $CALENDAR_STATE == *"on"* ]] then
+                                SHOW_CALENDAR=true
                         fi
                 else
                        eval $COMMAND
