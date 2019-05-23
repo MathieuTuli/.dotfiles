@@ -11,6 +11,7 @@ trap ctrl_c INT
 function ctrl_c() {
         echo "Please type 'q' or 'Q' to quit"
 }
+re='^[0-9]+$'
 FILTER=""
 long_comparator=14
 LINELIMIT="limit: $long_comparator"
@@ -29,7 +30,6 @@ while true; do
         else
                 echo " "
         fi
-
         if [ $HELP -eq 1 ]; then
                 echo "project:\ndue:\nlimit:\nfocus:\ndetail:\nnew_limit:"
                 HELP=0
@@ -54,8 +54,10 @@ while true; do
                                 DUE=$COMMAND
                         fi
                 elif [[ $COMMAND == "limit:"* ]] then
-                        LINELIMIT=$COMMAND
                         CURRENTLIMIT=${COMMAND//limit:/}
+                        if [[ $CURRENTLIMIT =~ $re ]] ; then
+                                LINELIMIT=$COMMAND
+                        fi
                         if [[ $CURRENTLIMIT == *"all"* ]] then
                                 LINELIMIT=$COMMAND
                                 LONGLIMIT=1000
