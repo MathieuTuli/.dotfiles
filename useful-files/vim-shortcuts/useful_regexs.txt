@@ -1,2 +1,0 @@
-# replace all spaces within a "" with _
-%s/\%("[^"]*"\)*\("[^"]*"\)/\=substitute(submatch(1), ' ', '_', 'g')/g
