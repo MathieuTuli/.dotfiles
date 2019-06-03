@@ -217,7 +217,7 @@ content-background= ${colors.bar-background}
 
 [module/system-nvidia-smi]
 type = custom/script
-exec = ~/.config/polybar/system-nvidia-smi.sh
+exec = ~/.scripts/polybar_nvidia_smi
 label-foreground = ${colors.pink}
 label-background = ${colors.module-background}
 interval = 0.5
