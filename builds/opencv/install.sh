@@ -29,6 +29,7 @@ cmake -D CMAKE_BUILD_TYPE=Release \
       -D WITH_OPENGL=ON \
       -D WITH_OPENCL=ON \
       -D WITH_FFMPEG=ON \
+      -D OPENCV_PYTHON3_INSTALL_PATH=/home/mat/.pyenv/versions/3.7.3/lib/python3.7/site-packages \
       -D BUILD_opencv_python3=ON \
       -D BUILD_opencv_python2=ON \
       -D BUILD_PERF_TESTS=OFF \
