@@ -10,6 +10,7 @@ _complete () {
 trap ctrl_c INT
 function ctrl_c() {
         echo "Please type 'q' or 'Q' to quit"
+        return
 }
 re='^[0-9]+$'
 FILTER=""
