@@ -16,8 +16,8 @@ FILTER=""
 long_comparator=14
 LINELIMIT="limit: $long_comparator"
 DETAIL="list"
-LONGLIMIT=1000
-LONGLIMIT_FIT=19
+# LONGLIMIT=1000
+# LONGLIMIT_FIT=19
 FOCUS=""
 i3-msg title_format "Calendar"
 DUE=""
@@ -25,7 +25,7 @@ HELP=0
 SHOW_CALENDAR=true
 while true; do
         clear
-        unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINELIMIT | head -n $LONGLIMIT
+        unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINELIMIT # | head -n $LONGLIMIT
         if [ "$SHOW_CALENDAR" = true ]; then
                 task calendar
         else
@@ -61,17 +61,17 @@ while true; do
                         fi
                         if [[ $CURRENTLIMIT == *"all"* ]] then
                                 LINELIMIT=$COMMAND
-                                LONGLIMIT=1000
+                                # LONGLIMIT=1000
                         elif [[ $CURRENTLIMIT == *"fit"* ]] then
                                 LINELIMIT="limit: $long_comparator"
-                                LONGLIMIT=$LONGLIMIT_FIT
-                        else
-                                if [ "$CURRENTLIMIT" -le "$long_comparator" ]
-                                then
-                                        LONGLIMIT=$LONGLIMIT_FIT
-                                else
-                                        LONGLIMIT=1000
-                                fi
+                                # LONGLIMIT=$LONGLIMIT_FIT
+                        # else
+                        #         if [ "$CURRENTLIMIT" -le "$long_comparator" ]
+                        #         then
+                        #                 LONGLIMIT=$LONGLIMIT_FIT
+                        #         else
+                        #                 LONGLIMIT=1000
+                        #         fi
                         fi
                 elif [[ $COMMAND == "focus:"* ]] then
                         if [[ $COMMAND == *"all"* ]] then
@@ -81,24 +81,18 @@ while true; do
                         fi
                 elif [[ $COMMAND == "new_limit:"* ]] then
                         long_comparator=${COMMAND//new_limit:/}
-                        LINELIMIT="limit: $long_comparator"
-                        if [ "$long_comparator" -ge "$LONGLIMIT_FIT" ]
-                        then
-                                LONGLIMIT_FIT=$long_comparator
-                        fi
-                        LONGLIMIT_FIT=1000
                 elif [[ $COMMAND == "detail:"* ]] then
                         if [[ $COMMAND == *"long"* ]] then
                                 DETAIL="long"
-                                if [ "$LIMIT" -le "$long_comparator" ]
-                                then
-                                        LONGLIMIT="$(($long_comparator+3))"
-                                else
-                                        LONGLIMIT=1000
-                                fi
+                                # if [ "$LIMIT" -le "$long_comparator" ]
+                                # then
+                                #         LONGLIMIT="$(($long_comparator+3))"
+                                # else
+                                #         LONGLIMIT=1000
+                                # fi
                         else
                                 DETAIL="list"
-                                LONGLIMIT=1000
+                                # LONGLIMIT=1000
                         fi
                 elif [[ $COMMAND == "calendar:"* ]] then
                         CALENDAR_STATE=${COMMAND//calendar:/}
