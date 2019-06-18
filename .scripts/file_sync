@@ -25,6 +25,13 @@ parser.set_defaults(ls_files=False)
 parser.add_argument('--ls-dirs',
                     action='store_true')
 parser.set_defaults(ls_Dirs=False)
+
+subparsers = parser.add_subparsers()
+systemd_subparser = subparsers.add_parser('systemd')
+systemd_subparser.add_argument('--profile',
+                               type=str,
+                               required=True)
+
 args = parser.parse_args()
 
 
@@ -63,3 +70,6 @@ if __name__ == "__main__":
             elif args.ls_dirs:
                 if Path(line).is_dir():
                     print(line)
+    args = parser.parse_args(['systemd'])
+    if args.profile:
+        print(args.profile)
