@@ -27,5 +27,6 @@ alias notepad="vi $HOME/.notepad"
 alias rename_window="i3-msg title_format "
 alias scrot="scrot $HOME/pictures/screenshots/screenshot.png"
 alias iso-command="echo -e 'To restore the USB drive as an empty, wipefs --all /dev/sdx as root, before repartitioning and reformating the USB drive.\ndd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync'"
+alias lock-screen="xscreensaver-command -lock"
 
 ### VOLATILE ###
