@@ -4,29 +4,27 @@ File Sync
 """
 from argparse import ArgumentParser
 from pathlib import Path
+import shutil
+
+WORKING_DIR = Path('~/.config/scripts/file-sync/').expanduser().resolve()
+WORKING_DIR.mkdir(parents=True, exist_ok=True)
 
 parser = ArgumentParser(description=__doc__)
-parser.add_argument('--add-file',
+parser.add_argument('--add',
                     type=str,
                     required=False)
-parser.add_argument('--add-dir',
+parser.add_argument('--remove',
                     type=str,
                     required=False)
-parser.add_argument('--remove-file',
-                    type=str,
-                    required=False)
-parser.add_argument('--remove-dir',
-                    type=str,
-                    required=False)
+parser.add_argument('--ls',
+                    action='store_true')
+parser.set_defaults(ls=False)
 parser.add_argument('--ls-files',
                     action='store_true')
 parser.set_defaults(ls_files=False)
 parser.add_argument('--ls-dirs',
                     action='store_true')
 parser.set_defaults(ls_Dirs=False)
-parser.add_argument('--ls',
-                    action='store_true')
-parser.set_defaults(ls=False)
 args = parser.parse_args()
 
 
@@ -37,17 +35,31 @@ if __name__ == "__main__":
     #             "Too many directives. You can only do one of [add_file, " +
     #             "add-dir, remove-file, remove-dir, ls-files, ls-dirs, ls] " +
     #             "at a time.")
-    if args.add_file:
-        path = Path(args.add_file).expanduser().resolve()
-    if args.add_dir:
-        path = Path(args.add_file).expanduser().resolve()
-    if args.remove_file:
-        path = Path(args.add_file).expanduser().resolve()
-    if args.remove_dir:
-        path = Path(args.add_file).expanduser().resolve()
-    if args.ls:
-        pass
-    elif args.ls_files:
-        pass
-    elif args.ls_dirs:
-        pass
+    to_sync = WORKING_DIR.joinpath("to_sync.txt")
+    if args.add:
+        with open(to_sync, 'a+') as f:
+            path = Path(args.add).expanduser().resolve()
+            f.write(str(path))
+            f.write('\n')
+    if args.remove:
+        path = Path(args.remove).expanduser().resolve()
+        with open(to_sync, 'r') as f:
+            lines = f.readlines()
+        with open(to_sync, 'w') as f:
+            for line in lines:
+                if Path(path) != path:
+                    f.write(line)
+                    f.write('\n')
+    if args.ls or args.ls_files or args.ls_dirs:
+        with open(to_sync, 'r') as f:
+            lines = f.readlines()
+        for line in lines:
+            line = line.strip()
+            if args.ls:
+                print(line)
+            elif args.ls_files:
+                if Path(line).is_file():
+                    print(line)
+            elif args.ls_dirs:
+                if Path(line).is_dir():
+                    print(line)
