@@ -3,23 +3,51 @@
 File Sync
 """
 from argparse import ArgumentParser
-import boto3
+from pathlib import Path
 
 parser = ArgumentParser(description=__doc__)
-parser.add_argument('--profile',
+parser.add_argument('--add-file',
                     type=str,
-                    dest='profile',
-                    required=True)
-parser.add_argument('--bucket',
+                    required=False)
+parser.add_argument('--add-dir',
                     type=str,
-                    dest='bucket',
-                    required=True)
-parser.add_argument('--working-dir',
+                    required=False)
+parser.add_argument('--remove-file',
                     type=str,
-                    dest='working_dir',
-                    required=True)
+                    required=False)
+parser.add_argument('--remove-dir',
+                    type=str,
+                    required=False)
+parser.add_argument('--ls-files',
+                    action='store_true')
+parser.set_defaults(ls_files=False)
+parser.add_argument('--ls-dirs',
+                    action='store_true')
+parser.set_defaults(ls_Dirs=False)
+parser.add_argument('--ls',
+                    action='store_true')
+parser.set_defaults(ls=False)
 args = parser.parse_args()
 
 
 if __name__ == "__main__":
-    pass
+    # if args.add_files or args.add_dir or args.remove_files or args.ls_files \
+    #         or args.ls_dirs or args.ls:
+    #     raise ValueError(
+    #             "Too many directives. You can only do one of [add_file, " +
+    #             "add-dir, remove-file, remove-dir, ls-files, ls-dirs, ls] " +
+    #             "at a time.")
+    if args.add_file:
+        path = Path(args.add_file).expanduser().resolve()
+    if args.add_dir:
+        path = Path(args.add_file).expanduser().resolve()
+    if args.remove_file:
+        path = Path(args.add_file).expanduser().resolve()
+    if args.remove_dir:
+        path = Path(args.add_file).expanduser().resolve()
+    if args.ls:
+        pass
+    elif args.ls_files:
+        pass
+    elif args.ls_dirs:
+        pass
