@@ -4,6 +4,8 @@ Description=XScreenSaver service
 [Service]
 Type=simple
 ExecStart=xscreensaver
+Restart=always
+RestartSec=2s
 
 [Install]
 WantedBy=default.target

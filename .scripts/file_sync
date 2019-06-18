@@ -1,2 +1,25 @@
-#!/bin/sh
+#! /usr/bin/env python3
+"""
+File Sync
+"""
+from argparse import ArgumentParser
+import boto3
 
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--profile',
+                    type=str,
+                    dest='profile',
+                    required=True)
+parser.add_argument('--bucket',
+                    type=str,
+                    dest='bucket',
+                    required=True)
+parser.add_argument('--working-dir',
+                    type=str,
+                    dest='working_dir',
+                    required=True)
+args = parser.parse_args()
+
+
+if __name__ == "__main__":
+    pass
