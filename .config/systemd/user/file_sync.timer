@@ -1,0 +1,9 @@
+[Unit]
+Description=File sync service to save certain files
+
+[Service]
+Type=simple
+ExecStart=
+
+[Install]
+WantedBy=multi-user.target

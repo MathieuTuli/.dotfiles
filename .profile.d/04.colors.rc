@@ -1,5 +1,6 @@
 # [COLORS]
 alias diff='diff --color=always'
+alias dmesg='dmesg --color=always'
 alias grep='grep --color=always'
 alias ls='ls --color'
 alias less='less -R'
