@@ -12,22 +12,20 @@ parser = ArgumentParser(description=__doc__)
 subparsers = parser.add_subparsers(dest='subparsers')
 
 add_subparser = subparsers.add_parser('add')
-add_subparser.add_argument('--files',
-                           type=list,
-                           required=True)
+add_subparser.add_argument('args',
+                           type=str,)
 
 remove_subparser = subparsers.add_parser('remove')
-remove_subparser.add_argument('--files',
-                              type=list,
-                              required=True)
+remove_subparser.add_argument('args',
+                              type=str,)
 
 ls_subparser = subparsers.add_parser('ls')
 ls_subparser.add_argument('-f', '--files', dest='files',
                           action='store_true')
-ls_subparser.set_defaults(ls_files=False)
+ls_subparser.set_defaults(files=False)
 ls_subparser.add_argument('-d', '--dirs', dest='dirs',
                           action='store_true')
-ls_subparser.set_defaults(ls_Dirs=False)
+ls_subparser.set_defaults(dirs=False)
 
 systemd_subparser = subparsers.add_parser('systemd')
 systemd_subparser.add_argument('--profile',
