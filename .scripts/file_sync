@@ -4,6 +4,7 @@ File Sync
 """
 from argparse import ArgumentParser
 from pathlib import Path
+import subprocess
 
 WORKING_DIR = Path('~/.config/scripts/file-sync/').expanduser().resolve()
 WORKING_DIR.mkdir(parents=True, exist_ok=True)
@@ -37,10 +38,6 @@ for directive in 'add', 'remove', 'ls', 'systemd':
                 directive,
                 help='run systemd portion, the ' +
                      'actual syncing')
-        subparser.add_argument('--profile',
-                               type=str,
-                               required=True,
-                               help='AWS profile to use')
     else:
         raise ValueError("Something went wrong")
     subparser.add_argument('-v', '--verbose',
@@ -105,4 +102,9 @@ if __name__ == "__main__":
             else:
                 print(line)
     elif args.subparsers == 'systemd':
-        pass
+        with open(to_sync, 'r') as f:
+            lines = [line.strip() for line in f.readlines()]
+        args = ''
+        rsync_command = ['rsync', '--relative', '-r'] + lines + \
+                        ['file-sync:~/efs']
+        subprocess.Popen(rsync_command)
