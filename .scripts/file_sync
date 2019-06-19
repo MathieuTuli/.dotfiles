@@ -4,29 +4,31 @@ File Sync
 """
 from argparse import ArgumentParser
 from pathlib import Path
-import shutil
 
 WORKING_DIR = Path('~/.config/scripts/file-sync/').expanduser().resolve()
 WORKING_DIR.mkdir(parents=True, exist_ok=True)
 
 parser = ArgumentParser(description=__doc__)
-parser.add_argument('--add',
-                    type=str,
-                    required=False)
-parser.add_argument('--remove',
-                    type=str,
-                    required=False)
-parser.add_argument('--ls',
-                    action='store_true')
-parser.set_defaults(ls=False)
-parser.add_argument('--ls-files',
-                    action='store_true')
-parser.set_defaults(ls_files=False)
-parser.add_argument('--ls-dirs',
-                    action='store_true')
-parser.set_defaults(ls_Dirs=False)
+subparsers = parser.add_subparsers(dest='subparsers')
 
-subparsers = parser.add_subparsers()
+add_subparser = subparsers.add_parser('add')
+add_subparser.add_argument('--files',
+                           type=list,
+                           required=True)
+
+remove_subparser = subparsers.add_parser('remove')
+remove_subparser.add_argument('--files',
+                              type=list,
+                              required=True)
+
+ls_subparser = subparsers.add_parser('ls')
+ls_subparser.add_argument('-f', '--files', dest='files',
+                          action='store_true')
+ls_subparser.set_defaults(ls_files=False)
+ls_subparser.add_argument('-d', '--dirs', dest='dirs',
+                          action='store_true')
+ls_subparser.set_defaults(ls_Dirs=False)
+
 systemd_subparser = subparsers.add_parser('systemd')
 systemd_subparser.add_argument('--profile',
                                type=str,
@@ -43,13 +45,15 @@ if __name__ == "__main__":
     #             "add-dir, remove-file, remove-dir, ls-files, ls-dirs, ls] " +
     #             "at a time.")
     to_sync = WORKING_DIR.joinpath("to_sync.txt")
-    if args.add:
+    if args.subparsers == 'add':
+        args = parser.parse_args(['add'])
         with open(to_sync, 'a+') as f:
-            path = Path(args.add).expanduser().resolve()
+            path = Path(args.files).expanduser().resolve()
             f.write(str(path))
             f.write('\n')
-    if args.remove:
-        path = Path(args.remove).expanduser().resolve()
+    elif args.subparsers == 'remove':
+        args = parser.parse_args(['remove'])
+        path = Path(args.files).expanduser().resolve()
         with open(to_sync, 'r') as f:
             lines = f.readlines()
         with open(to_sync, 'w') as f:
@@ -57,19 +61,20 @@ if __name__ == "__main__":
                 if Path(path) != path:
                     f.write(line)
                     f.write('\n')
-    if args.ls or args.ls_files or args.ls_dirs:
+    elif args.subparsers == 'ls':
+        args = parser.parse_args(['ls'])
         with open(to_sync, 'r') as f:
             lines = f.readlines()
         for line in lines:
             line = line.strip()
-            if args.ls:
-                print(line)
-            elif args.ls_files:
+            if args.files:
                 if Path(line).is_file():
                     print(line)
-            elif args.ls_dirs:
+            elif args.dirs:
                 if Path(line).is_dir():
                     print(line)
-    args = parser.parse_args(['systemd'])
-    if args.profile:
-        print(args.profile)
+            else:
+                print(line)
+    elif args.subparsers == 'systemd':
+        args = parser.parse_args(['systemd'])
+        pass
