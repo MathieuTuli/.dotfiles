@@ -16,40 +16,44 @@ parser.add_argument('-v', '--verbose',
                     dest='verbose',
                     action='store_true')
 parser.set_defaults(verbose=False)
-add_subparser = subparsers.add_parser('add',
-                                      help='add file1/dir1, file2/dir2, ' +
-                                           'file3/dir3...')
-add_subparser.add_argument('Args',
-                           metavar='args',
-                           nargs='+',
-                           default=[],
-                           type=str,)
 
-remove_subparser = subparsers.add_parser('remove',
-                                         help='remove file1/dir1, file2/dir2' +
-                                              ', file3/dir3...')
-remove_subparser.add_argument('Args',
-                              metavar='args',
-                              nargs='+',
-                              default=[],
-                              type=str,)
-
-ls_subparser = subparsers.add_parser('ls',
-                                     help='list files and dirs to be synced')
-ls_subparser.add_argument('-f', '--files', dest='files',
-                          action='store_true', help='list only files')
-ls_subparser.set_defaults(files=False)
-ls_subparser.add_argument('-d', '--dirs', dest='dirs',
-                          action='store_true', help='list only dirs')
-ls_subparser.set_defaults(dirs=False)
-
-systemd_subparser = subparsers.add_parser('systemd',
-                                          help='run systemd portion, the ' +
-                                               'actual syncing')
-systemd_subparser.add_argument('--profile',
-                               type=str,
-                               required=True,
-                               help='AWS profile to use')
+for directive in 'add', 'remove', 'ls', 'systemd':
+    if directive == 'add' or 'remove':
+        subparser = subparsers.add_parser(
+                directive,
+                help=f'{directive} file1/dir1 file2/dir2 ' +
+                     'file3/dir3...')
+        subparser.add_argument('Args',
+                               metavar='args',
+                               nargs='+',
+                               default=[],
+                               type=str,)
+    elif 'ls':
+        subparser = subparsers.add_parser(
+                directive,
+                help='list files and dirs to be synced')
+        subparser.add_argument('-f', '--files', dest='files',
+                               action='store_true', help='list only files')
+        subparser.set_defaults(files=False)
+        subparser.add_argument('-d', '--dirs', dest='dirs',
+                               action='store_true', help='list only dirs')
+        subparser.set_defaults(dirs=False)
+    elif directive == 'systemd':
+        systemd_subparser = subparsers.add_parser(
+                directive,
+                help='run systemd portion, the ' +
+                     'actual syncing')
+        systemd_subparser.add_argument('--profile',
+                                       type=str,
+                                       required=True,
+                                       help='AWS profile to use')
+    else:
+        raise ValueError("Something went wrong")
+    subparser.add_argument('-v', '--verbose',
+                           default=False,
+                           dest='verbose',
+                           action='store_true')
+    subparser.set_defaults(verbose=False)
 
 args = parser.parse_args()
 
