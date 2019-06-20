@@ -108,11 +108,12 @@ if __name__ == "__main__":
             rsync_command = ['rsync', '--relative', '-r'] + lines + \
                             ['file-sync:~/efs']
             try:
-                subprocess.Popen(rsync_command)
+                p = subprocess.Popen(rsync_command, shell=False)
+                p.wait()
                 notify_command = ['notify-send', '--urgency=low',
-                                  'Files Synced.']
-                subprocess.Popen(notify_command)
-            except Exception:
+                                  f'File Synced. {lines}']
+            except Exception as e:
                 notify_command = ['notify-send', '--urgency=critical',
-                                  'Files Failed to Sync.']
-                subprocess.Popen(notify_command)
+                                  f'Files Failed to Sync due to {e}']
+            p = subprocess.Popen(notify_command, shell=False)
+            p.wait()
