@@ -1,0 +1,115 @@
+#!/bin/sh
+
+WINDOW_ID_CONKY=/tmp/conky_window_id
+
+conky_launch() {
+    # Hacky X11 magic to make Conky appear above polybar
+    killall conky
+    # xdotool search can't find Conky's window but fortunately Conky outputs it
+    conky -c ~/.config/conky/config 2> /tmp/conky_out
+    # Extract the hex window id from Conky's output
+    HEX=$(awk '/drawing to created window/ {print $NF}' /tmp/conky_out | tr -d '()' | awk -Fx '{print $2}')
+    WIN_ID=$(( 16#$HEX )) # convert to decimal
+    xdotool windowunmap $WIN_ID
+    echo $WIN_ID > $WINDOW_ID_CONKY
+}
+
+launch() {
+    # conky_launch
+    # sleep 0.2
+    killall -q polybar
+    if type "xrandr"; then
+        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+            echo $m
+            MONITOR=$m polybar --reload file-sync-panel&
+        done
+    else
+        polybar --reload file-sync-panel&
+    fi
+    BAR_ID=$!
+    rm -f /tmp/polybar_mqueue_panel
+    ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel
+    sleep 0.2
+    echo "cmd:hide" >> /tmp/polybar_mqueue_panel
+    if type "xrandr"; then
+        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+            echo $m
+            MONITOR=$m polybar --reload main&
+            BAR_ID=$!
+            rm -f /tmp/polybar_mqueue_top
+            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top
+            MONITOR=$m polybar --reload main-bottom&
+            BAR_ID=$!
+            rm -f /tmp/polybar_mqueue_bottom
+            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom
+        done
+    else
+        polybar --reload main&
+        BAR_ID=$!
+        rm -f /tmp/polybar_mqueue_top
+        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top
+        polybar --reload main-bottom&
+        BAR_ID=$!
+        rm -f /tmp/polybar_mqueue_bottom
+        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom
+    fi
+}
+
+rofi_open() {
+    # options_close
+    rofi -show run -location 0 -width 1924 -padding 700 -lines 10 -yoffset 0 -font 'DejaVu Sans 16'
+}
+
+search_open() {
+    rofi -show window -location 1
+}
+
+file_sync_open() {
+    echo "hook:module/option_menu1" >> /tmp/polybar_mqueue_top
+    echo "cmd:show" >> /tmp/polybar_mqueue_panel
+    echo "open" > /tmp/polybar_side_panel_state
+    termite
+}
+
+file_sync_close() {
+    echo "hook:module/option_menu1" >> /tmp/polybar_mqueue_top
+    echo "cmd:hide" >> /tmp/polybar_mqueue_panel
+    echo "close" > /tmp/polybar_side_panel_state
+}
+
+file_sync_toggle() {
+    if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
+        file_sync_close
+    else
+        file_sync_open
+    fi
+}
+
+file_sync_icon() {
+    COLOR_NORMAL="%{F$(xrdb -query | awk '/^*foreground/ {print $2}')}"
+    COLOR_ACTIVE="%{F$(xrdb -query | awk '/^*primary/ {print $2}')}"
+    COLOR_END="%{F-}"
+
+    if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
+        echo "$COLOR_ACTIVE$COLOR_END"
+    else
+        echo "$COLOR_NORMAL$COLOR_END"
+    fi
+}
+
+case "$1" in
+    rofi)
+        rofi_open;;
+    search)
+        search_open;;
+    file_sync_toggle)
+        file_sync_toggle;;
+    file_sync_icon)
+        file_sync_icon;;
+    launch)
+        launch;;
+    hide)
+        echo "cmd:hide" >> /tmp/polybar_mqueue_top;;
+    show)
+        echo "cmd:show" >> /tmp/polybar_mqueue_top;;
+esac

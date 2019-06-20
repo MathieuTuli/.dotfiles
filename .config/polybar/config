@@ -99,7 +99,7 @@ inheritance=bar/main
 bottom=true
 
 # reverse the slants
-modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged grey-spacer dotfiles-ahead r-slant-module-r
+modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged grey-spacer dotfiles-ahead r-slant-module-r r-slant-module-l file-sync r-slant-module-r
 modules-center = c-slant-module-l core0temp grey-spacer core1temp grey-spacer core2temp grey-spacer core3temp grey-spacer core4temp grey-spacer core5temp c-slant-module-r
 modules-right= l-slant-module-l weather-current-icon spacer weather-current yellow-spacer weather-forecast-icon spacer weather-forecast yellow-spacer weather-set-icon spacer weather-set l-slant-module-r
 
@@ -115,6 +115,34 @@ border-left-color = ${colors.bar-background}
 border-right-size = 7
 border-right-color = ${colors.bar-background}
 
+[bar/file-sync-panel]
+monitor = ${env:MONITOR:eDP1}
+enable-ipc = true
+override-redirect = true
+bottom = false
+
+height = 1036 # 1080p - bar height - 2*border width
+width = 25%
+offset-y = 40
+offset-x = 75%
+fixed-center = true
+spacing = 1
+module-margin-left = 2
+module-margin-right = 2
+
+border-size = 2
+border-color = ${colors.bar-background}
+
+background = ${colors.module-backround}
+foreground = ${colors.red}
+
+font-0 = fixed:pixelsize=12;3
+font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
+font-2 = Wuncon Siji:pixelsize=12;3
+font-3 = fixed:pixelsize=0;0
+font-4 = Weather Icons:size=12;4
+
+modules-center = file-sync
 ;------------------------------------------------------------
 ;       DECORATIONS
 ;------------------------------------------------------------
@@ -580,6 +608,12 @@ label-foreground = ${colors.green}
 inheritance=module/dotfiles-modified
 exec = ~/.scripts/polybar_dotfiles_status -i ahead
 label-foreground = ${colors.purple}
+
+[module/file-sync]
+type = custom/ipc
+hook-0 = ~/.scripts/polybar_rebar_wrapper file_sync_icon
+initial = 1
+click-left = ~/.scripts/polybar_rebar_wrapper file_sync_toggle
 
 ;------------------------------------------------------------
 ;       SETTINGS

@@ -206,7 +206,7 @@ bindsym $mod+r mode "resize"
 
 exec $HOME/.fehbg
 # exec ./.config/i3/scrl.sh
-exec $HOME/.config/polybar/rebar.sh
+exec $HOME/.scripts/polybar_rebar_wrapper launch
 exec dunst
 # exec compton --shadow-exclude-reg 1920x26+0+0
 
