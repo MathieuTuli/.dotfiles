@@ -3,7 +3,7 @@ Description=File sync service to save certain files
 
 [Service]
 Type=simple
-ExecStart=
+ExecStart=%h/.scripts/file_sync systemd
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

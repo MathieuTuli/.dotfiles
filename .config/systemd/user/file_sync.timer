@@ -1,9 +1,10 @@
 [Unit]
-Description=File sync service to save certain files
+Description=File sync service to save certain files, timer
 
-[Service]
-Type=simple
-ExecStart=
+[Timer]
+AccuracySec=10
+OnCalendar=*-*-* *:00:00
+Unit=file_sync.service
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
