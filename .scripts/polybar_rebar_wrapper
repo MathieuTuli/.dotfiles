@@ -1,5 +1,4 @@
 #!/bin/sh
-
 WINDOW_ID_CONKY=/tmp/conky_window_id
 
 conky_launch() {
@@ -91,9 +90,11 @@ file_sync_icon() {
     COLOR_END="%{F-}"
 
     if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-        echo "$COLOR_ACTIVE$COLOR_END"
+        # echo "$COLOR_ACTIVE$COLOR_END"
+        echo ""
     else
-        echo "$COLOR_NORMAL$COLOR_END"
+        # echo "$COLOR_NORMAL$COLOR_END"
+        echo ""
     fi
 }
 

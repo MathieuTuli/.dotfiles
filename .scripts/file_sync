@@ -12,7 +12,7 @@ WORKING_DIR.mkdir(parents=True, exist_ok=True)
 parser = ArgumentParser(prog='file_sync', description=__doc__)
 subparsers = parser.add_subparsers(dest='subparsers')
 
-for directive in 'add', 'remove', 'ls', 'systemd':
+for directive in 'add', 'remove', 'ls', 'systemd', 'sync':
     if directive == 'add' or directive == 'remove':
         subparser = subparsers.add_parser(
                 directive,
@@ -34,6 +34,11 @@ for directive in 'add', 'remove', 'ls', 'systemd':
                                action='store_true', help='list only dirs')
         subparser.set_defaults(dirs=False)
     elif directive == 'systemd':
+        subparser = subparsers.add_parser(
+                directive,
+                help='run systemd portion, the ' +
+                     'actual syncing')
+    elif directive == 'sync':
         subparser = subparsers.add_parser(
                 directive,
                 help='run systemd portion, the ' +
@@ -101,7 +106,7 @@ if __name__ == "__main__":
                     print(line)
             else:
                 print(line)
-    elif args.subparsers == 'systemd':
+    elif args.subparsers == 'systemd' or args.subparsers == 'sync':
         with open(to_sync, 'r') as f:
             lines = [line.strip() for line in f.readlines()]
         for line in lines:
