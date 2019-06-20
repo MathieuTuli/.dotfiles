@@ -7,4 +7,4 @@ OnCalendar=*-*-* *:00:00
 Unit=file_sync.service
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

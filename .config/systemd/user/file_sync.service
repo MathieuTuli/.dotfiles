@@ -2,8 +2,4 @@
 Description=File sync service to save certain files
 
 [Service]
-Type=simple
 ExecStart=%h/.scripts/file_sync systemd
-
-[Install]
-WantedBy=default.target
