@@ -14,15 +14,22 @@ launch() {
     killall -q polybar
     if type "xrandr"; then
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            NAME=$(MONITOR=$m polybar -w --reload file-sync-panel&)
-            BAR_ID=$(xdotool search --name $NAME)
+            MONITOR=$m polybar --reload file-sync-panel&
+            BAR_ID=$!
+            sleep 0.2
+            WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel_$m)
+            echo "TEST $WM_BAR_ID"
+            echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id_$m
             rm -f /tmp/polybar_mqueue_panel_$m
-            ln -s /tmp/polybar_mqueue_$m.$BAR_ID /tmp/polybar_mqueue_panel_$m
+            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel_$m
             echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$m
         done
     else
-        NAME=$(polybar -w --reload file-sync-panel&)
-        BAR_ID=$(xdotool search --name $NAME)
+        polybar --reload file-sync-panel&
+        BAR_ID=$!
+        sleep 0.2
+        WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel)
+        echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id
         rm -f /tmp/polybar_mqueue_panel
         ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel
         echo "cmd:hide" >> /tmp/polybar_mqueue_panel
@@ -32,21 +39,21 @@ launch() {
             MONITOR=$m polybar --reload main&
             BAR_ID=$!
             rm -f /tmp/polybar_mqueue_top_$m
-            ln -s /tmp/polybar_mqueue_$m.$BAR_ID /tmp/polybar_mqueue_top_$m
+            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
             MONITOR=$m polybar --reload main-bottom&
             BAR_ID=$!
             rm -f /tmp/polybar_mqueue_bottom_$m
-            ln -s /tmp/polybar_mqueue_$m.$BAR_ID /tmp/polybar_mqueue_bottom_$m
+            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
         done
     else
         polybar --reload main&
         BAR_ID=$!
         rm -f /tmp/polybar_mqueue_top
-        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top
+        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
         polybar --reload main-bottom&
         BAR_ID=$!
         rm -f /tmp/polybar_mqueue_bottom
-        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom
+        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
     fi
 }
 
@@ -56,9 +63,7 @@ file_sync_open() {
             echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$m
             echo "cmd:show" >> /tmp/polybar_mqueue_panel_$m
             echo "open" > /tmp/polybar_side_panel_state_$m
-            PANEL_ID=$(head -1 /tmp/polybar_mqueue_panel_$m)
-            echo "M 1"
-            echo $PANEL_ID
+            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$m)
             xdotool windowmap $PANEL_ID
             xdotool windowraise $PANEL_ID
         done
@@ -66,9 +71,7 @@ file_sync_open() {
             echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top
             echo "cmd:show" >> /tmp/polybar_mqueue_panel
             echo "open" > /tmp/polybar_side_panel_state
-            PANEL_ID=$(head -1 /tmp/polybar_mqueue_panel)
-            echo "1"
-            echo $PANEL_ID
+            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id)
             xdotool windowmap $PANEL_ID
             xdotool windowraise $PANEL_ID
     fi
@@ -80,18 +83,14 @@ file_sync_close() {
             echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$m
             echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$m
             echo "close" > /tmp/polybar_side_panel_state_$m
-            PANEL_ID=$(head -1 /tmp/polybar_mqueue_panel_$m)
-            echo "M 2"
-            echo $PANEL_ID
+            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$m)
             xdotool windowunmap $PANEL_ID
         done
     else
             echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top
             echo "cmd:hide" >> /tmp/polybar_mqueue_panel
             echo "close" > /tmp/polybar_side_panel_state
-            PANEL_ID=$(head -1 /tmp/polybar_mqueue_panel)
-            echo "2"
-            echo $PANEL_ID
+            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id)
             xdotool windowunmap $PANEL_ID
     fi
 }
