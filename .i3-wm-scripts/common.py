@@ -18,6 +18,7 @@ def get_named_windows():
     queue = [i3_tree]
     current_id = None
     data = defaultdict(list)
+    current_unknowns = dict()
     while queue:
         current = queue.pop()
         if current["layout"] == "dockarea":
@@ -32,11 +33,17 @@ def get_named_windows():
             continue
         if current.get("focused"):
             current_id = current["id"]
-        if current["name"]:
-            print(current)
-            key = (current["window_properties"]["class"],
-                   current["name"].strip())
-            data[key].append(current["id"])
+        if not current["name"]:
+            current_title = current["title_format"]
+            if current_title not in current_unknowns:
+                current_unknowns[current_title] = 0
+            else:
+                current_unknowns[current_title] += 1
+            current["name"] = f"{current_title} -" + \
+                              f" {current_unknowns[current_title]}"
+        key = (current["window_properties"]["class"],
+               current["name"].strip())
+        data[key].append(current["id"])
     return current_id, data
 
 
