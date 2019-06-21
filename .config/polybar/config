@@ -123,8 +123,8 @@ enable-ipc = true
 override-redirect = true
 bottom = true
 
-height = 100 # 1080p - bar height - 2*border width
-width = 25%
+height = 50
+width = 15%
 offset-y = 29
 offset-x = 187
 fixed-center = true
@@ -619,8 +619,12 @@ initial = 1
 click-left = ~/.scripts/polybar_rebar_wrapper file_sync_toggle
 
 [module/file-sync-contents]
-type = custom/text
-content = "TEST"
+type = custom/script
+exec = ~/.scripts/polybar_file_sync_ls
+label-font=3
+interval=30
+label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------

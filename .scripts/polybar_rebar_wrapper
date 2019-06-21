@@ -118,7 +118,8 @@ file_sync_icon() {
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
             if [ "$(cat /tmp/polybar_side_panel_state_$m)" == "open" ]; then
                 # echo  %{F#85ca9c B#393939}%{FB-}
-                echo  %{F#85ca9c B#393939}File Sync%{FB-}
+                # echo  %{F#85ca9c B#393939}File Sync%{FB-}
+                echo  %{F#777777 B#393939}File Sync%{FB-}
             else
                 # echo  %{F#777777 B#393939}%{FB-}
                 echo  %{F#777777 B#393939}File Sync%{FB-}
@@ -127,7 +128,8 @@ file_sync_icon() {
     else
             if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
                 # echo  %{F#85ca9c B#393939}%{FB-}
-                echo  %{F#85ca9c B#393939}File Sync%{FB-}
+                # echo  %{F#85ca9c B#393939}File Sync%{FB-}
+                echo  %{F#777777 B#393939}File Sync%{FB-}
             else
                 # echo  %{F#777777 B#393939}%{FB-}
                 echo  %{F#777777 B#393939}File Sync%{FB-}
