@@ -10,6 +10,7 @@ export PYTHON_INCLUDE_DIR=/home/mat/.pyenv/versions/3.7.3/include/python3.7m/
 export PYTHON3_NUMPY_INCLUDE_DIRS=/home/mat/.pyenv/versions/3.7.3/lib/python3.7/site-packages/numpy/core/include
 
 # -D WITH_GSTREAMER=ON \
+# -D OPENCV_PYTHON3_INSTALL_PATH=/home/mat/.pyenv/versions/3.7.3/lib/python3.7/site-packages \
 export CXX=/opt/cuda/bin/g++
 export CC=/opt/cuda/bin/gcc
 cmake -D CMAKE_BUILD_TYPE=Release \
@@ -29,7 +30,6 @@ cmake -D CMAKE_BUILD_TYPE=Release \
       -D WITH_OPENGL=ON \
       -D WITH_OPENCL=ON \
       -D WITH_FFMPEG=ON \
-      -D OPENCV_PYTHON3_INSTALL_PATH=/home/mat/.pyenv/versions/3.7.3/lib/python3.7/site-packages \
       -D BUILD_opencv_python3=ON \
       -D BUILD_opencv_python2=ON \
       -D BUILD_PERF_TESTS=OFF \

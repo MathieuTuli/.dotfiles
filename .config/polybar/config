@@ -53,6 +53,7 @@ brown = #906050
 [bar/main]
 monitor = ${env:MONITOR:}
 bottom=false
+enable-ipc = true
 
 width = 100%
 height = 22
@@ -97,6 +98,7 @@ cursor-scroll = ns-resize
 [bar/main-bottom]
 inheritance=bar/main
 bottom=true
+enable-ipc = true
 
 # reverse the slants
 modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged grey-spacer dotfiles-ahead r-slant-module-r r-slant-module-l file-sync r-slant-module-r
@@ -133,7 +135,7 @@ module-margin-right = 2
 border-size = 2
 border-color = ${colors.bar-background}
 
-background = ${colors.module-backround}
+background = ${colors.module-background}
 foreground = ${colors.red}
 
 font-0 = fixed:pixelsize=12;3
@@ -143,6 +145,7 @@ font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
 modules-center = file-sync
+
 ;------------------------------------------------------------
 ;       DECORATIONS
 ;------------------------------------------------------------

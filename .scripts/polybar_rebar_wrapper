@@ -14,6 +14,7 @@ conky_launch() {
 }
 
 launch() {
+    echo "close" > /tmp/polybar_side_panel_state
     # conky_launch
     # sleep 0.2
     killall -q polybar
@@ -67,7 +68,6 @@ file_sync_open() {
     echo "hook:module/option_menu1" >> /tmp/polybar_mqueue_top
     echo "cmd:show" >> /tmp/polybar_mqueue_panel
     echo "open" > /tmp/polybar_side_panel_state
-    termite
 }
 
 file_sync_close() {
@@ -85,16 +85,12 @@ file_sync_toggle() {
 }
 
 file_sync_icon() {
-    COLOR_NORMAL="%{F$(xrdb -query | awk '/^*foreground/ {print $2}')}"
-    COLOR_ACTIVE="%{F$(xrdb -query | awk '/^*primary/ {print $2}')}"
-    COLOR_END="%{F-}"
-
     if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-        # echo "$COLOR_ACTIVE$COLOR_END"
-        echo ""
+        # echo  %{F#85ca9c B#393939}%{FB-}
+        echo  %{F#85ca9c B#393939}File Sync%{FB-}
     else
-        # echo "$COLOR_NORMAL$COLOR_END"
-        echo ""
+        # echo  %{F#777777 B#393939}%{FB-}
+        echo  %{F#777777 B#393939}File Sync%{FB-}
     fi
 }
 
