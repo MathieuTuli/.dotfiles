@@ -42,8 +42,8 @@ purple = #9F78E1
 green = #85ca9c
 red = #FF8787
 orange = #FFAF87
-# pink = #FFAFD7
-pink = #D7AFD7
+pink = #FFAFD7
+# pink = #D7AFD7
 yellow = #FFFD98
 brown = #906050
 
@@ -121,19 +121,19 @@ border-right-color = ${colors.bar-background}
 monitor = ${env:MONITOR:eDP1}
 enable-ipc = true
 override-redirect = true
-bottom = false
+bottom = true
 
-height = 1036 # 1080p - bar height - 2*border width
+height = 100 # 1080p - bar height - 2*border width
 width = 25%
-offset-y = 40
-offset-x = 75%
+offset-y = 29
+offset-x = 187
 fixed-center = true
 spacing = 1
 module-margin-left = 2
 module-margin-right = 2
 
-border-size = 2
-border-color = ${colors.bar-background}
+# border-size = 2
+# border-color = ${colors.bar-background}
 
 background = ${colors.module-background}
 foreground = ${colors.red}
@@ -144,7 +144,7 @@ font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
-modules-center = file-sync
+modules-center = file-sync-contents
 
 ;------------------------------------------------------------
 ;       DECORATIONS
@@ -618,6 +618,9 @@ hook-0 = ~/.scripts/polybar_rebar_wrapper file_sync_icon
 initial = 1
 click-left = ~/.scripts/polybar_rebar_wrapper file_sync_toggle
 
+[module/file-sync-contents]
+type = custom/text
+content = "TEST"
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------
