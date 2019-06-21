@@ -96,20 +96,42 @@ file_sync_close() {
 }
 
 file_sync_toggle() {
-    if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-        file_sync_close
+    if type "xrandr"; then
+        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+            if [ "$(cat /tmp/polybar_side_panel_state_$m)" == "open" ]; then
+                file_sync_close
+            else
+                file_sync_open
+            fi
+        done
     else
-        file_sync_open
+            if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
+                file_sync_close
+            else
+                file_sync_open
+            fi
     fi
 }
 
 file_sync_icon() {
-    if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-        # echo  %{F#85ca9c B#393939}%{FB-}
-        echo  %{F#85ca9c B#393939}File Sync%{FB-}
+    if type "xrandr"; then
+        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+            if [ "$(cat /tmp/polybar_side_panel_state_$m)" == "open" ]; then
+                # echo  %{F#85ca9c B#393939}%{FB-}
+                echo  %{F#85ca9c B#393939}File Sync%{FB-}
+            else
+                # echo  %{F#777777 B#393939}%{FB-}
+                echo  %{F#777777 B#393939}File Sync%{FB-}
+            fi
+        done
     else
-        # echo  %{F#777777 B#393939}%{FB-}
-        echo  %{F#777777 B#393939}File Sync%{FB-}
+            if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
+                # echo  %{F#85ca9c B#393939}%{FB-}
+                echo  %{F#85ca9c B#393939}File Sync%{FB-}
+            else
+                # echo  %{F#777777 B#393939}%{FB-}
+                echo  %{F#777777 B#393939}File Sync%{FB-}
+            fi
     fi
 }
 
