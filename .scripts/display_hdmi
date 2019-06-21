@@ -8,28 +8,28 @@ while true; do
                 [rR])
                         echo 'displaying right...'
                         xrandr --output VIRTUAL1 --auto --right-of eDP1
-                        polybar_rebar
+                        polybar_rebar_wrapper launch
                         fehbg
                         break
                         ;;
                 [lL])
                         echo 'displaying left...'
                         xrandr --output VIRTUAL1 --auto --left-of eDP1
-                        polybar_rebar
+                        polybar_rebar_wrapper launch
                         fehbg
                         break
                         ;;
                 [mM])
                         echo 'mirroring display...'
                         xrandr --output VIRTUAL1 --auto --same-as eDP1
-                        polybar_rebar
+                        polybar_rebar_wrapper launch
                         fehbg
                         break
                         ;;
                 [nM])
                         echo 'exiting...'
                         xrandr --output VIRTUAL1 --off
-                        polybar_rebar
+                        polybar_rebar_wrapper launch
                         fehbg
                         exit 1
                         ;;
