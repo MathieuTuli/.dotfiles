@@ -6,6 +6,7 @@ Type=simple
 ExecStart=/bin/sh %h/.scripts/hdmi_hotswap
 Restart=always
 RestartSec=2s
+User=mat
 
 [Install]
 WantedBy=multi-user.target
