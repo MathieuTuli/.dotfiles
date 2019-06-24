@@ -58,39 +58,35 @@ launch() {
 }
 
 file_sync_open() {
-    if type "xrandr"; then
-        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$m
-            echo "cmd:show" >> /tmp/polybar_mqueue_panel_$m
-            echo "open" > /tmp/polybar_side_panel_state_$m
-            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$m)
-            xdotool windowmap $PANEL_ID
-            xdotool windowraise $PANEL_ID
-        done
-    else
+    if [ "$1" == "none" ]; then
             echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top
             echo "cmd:show" >> /tmp/polybar_mqueue_panel
             echo "open" > /tmp/polybar_side_panel_state
             PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id)
             xdotool windowmap $PANEL_ID
             xdotool windowraise $PANEL_ID
+    else
+            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$1
+            echo "cmd:show" >> /tmp/polybar_mqueue_panel_$1
+            echo "open" > /tmp/polybar_side_panel_state_$1
+            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$1)
+            xdotool windowmap $PANEL_ID
+            xdotool windowraise $PANEL_ID
     fi
 }
 
 file_sync_close() {
-    if type "xrandr"; then
-        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$m
-            echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$m
-            echo "close" > /tmp/polybar_side_panel_state_$m
-            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$m)
-            xdotool windowunmap $PANEL_ID
-        done
-    else
+    if [ "$1" == "none" ]; then
             echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top
             echo "cmd:hide" >> /tmp/polybar_mqueue_panel
             echo "close" > /tmp/polybar_side_panel_state
             PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id)
+            xdotool windowunmap $PANEL_ID
+    else
+            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$1
+            echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$1
+            echo "close" > /tmp/polybar_side_panel_state_$1
+            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$1)
             xdotool windowunmap $PANEL_ID
     fi
 }
@@ -99,16 +95,16 @@ file_sync_toggle() {
     if type "xrandr"; then
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
             if [ "$(cat /tmp/polybar_side_panel_state_$m)" == "open" ]; then
-                file_sync_close
+                file_sync_close $m
             else
-                file_sync_open
+                file_sync_open $m
             fi
         done
     else
             if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-                file_sync_close
+                file_sync_close none
             else
-                file_sync_open
+                file_sync_open none
             fi
     fi
 }
