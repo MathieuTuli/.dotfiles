@@ -92,12 +92,26 @@ file_sync_close() {
 }
 
 file_sync_toggle() {
+    eval $(xdotool getmouselocation --shell)
+    MAX_X=1919
+    MIN_X=0
+    MAX_Y=1079
+    MIN_Y=0
+    if [ "$X" -gt "$MAX_X" ] || [ "$X" -lt "$MIN_X" ] || [ "$Y" -gt "$MAX_Y" ] || [ "$Y" -lt "$MIN_Y" ]; then
+        CURRENT_MONITOR=VIRTUAL1
+    else
+        CURRENT_MONITOR=eDP1
+    fi
     if type "xrandr"; then
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
             if [ "$(cat /tmp/polybar_side_panel_state_$m)" == "open" ]; then
-                file_sync_close $m
+                if [ "$CURRENT_MONITOR" == "$m" ]; then
+                        file_sync_close $m
+                fi
             else
-                file_sync_open $m
+                if [ "$CURRENT_MONITOR" == "$m" ]; then
+                        file_sync_open $m
+                fi
             fi
         done
     else
