@@ -121,13 +121,13 @@ border-right-size = 7
 border-right-color = ${colors.bar-background}
 
 [bar/file-sync-panel]
-monitor = ${env:MONITOR:eDP1}
+monitor = ${env:MONITOR:}
 enable-ipc = true
 override-redirect = true
 bottom = true
 
-height = 50
-width = 15%
+height = ${env:FILE_SYNC_PANEL_HEIGHT:}
+width = ${env:FILE_SYNC_PANEL_WIDTH:}
 offset-y = 29
 offset-x = 187
 fixed-center = true
