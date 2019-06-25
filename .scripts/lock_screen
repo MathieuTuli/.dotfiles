@@ -1,2 +1,3 @@
 #!/bin/sh
+xdotool key XF86AudioPlay playerctl pause
 xscreensaver-command -lock
