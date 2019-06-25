@@ -7,6 +7,8 @@
 - dunst
 - nvim
 
+## How It Works ##
+
 ## Screenshots
 
 ![Full](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/full.png)
