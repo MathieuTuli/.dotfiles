@@ -12,31 +12,31 @@ launch() {
     # conky_launch
     # sleep 0.2
     killall -q polybar
-    if type "xrandr"; then
-        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            LINES=$(cat $HOME/.config/scripts/file-sync/to_sync.txt | wc -l)
-            LONGEST_LINE=$(cat $HOME/.config/scripts/file-sync/to_sync.txt | wc -L)
-            let "LINES = $LINES * 30"
-            let "LONGEST_LINE = $LONGEST_LINE * 10"
-            FILE_SYNC_PANEL_HEIGHT=$LINES FILE_SYNC_PANEL_WIDTH=$LONGEST_LINE MONITOR=$m polybar --reload file-sync-panel&
-            BAR_ID=$!
-            sleep 0.2
-            WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel_$m)
-            echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id_$m
-            rm -f /tmp/polybar_mqueue_panel_$m
-            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel_$m
-            echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$m
-        done
-    else
-        polybar --reload file-sync-panel&
-        BAR_ID=$!
-        sleep 0.2
-        WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel)
-        echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id
-        rm -f /tmp/polybar_mqueue_panel
-        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel
-        echo "cmd:hide" >> /tmp/polybar_mqueue_panel
-    fi
+    # if type "xrandr"; then
+    #     for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    #         LINES=$(cat $HOME/.config/scripts/file-sync/to_sync.txt | wc -l)
+    #         LONGEST_LINE=$(cat $HOME/.config/scripts/file-sync/to_sync.txt | wc -L)
+    #         let "LINES = $LINES * 30"
+    #         let "LONGEST_LINE = $LONGEST_LINE * 10"
+    #         FILE_SYNC_PANEL_HEIGHT=$LINES FILE_SYNC_PANEL_WIDTH=$LONGEST_LINE MONITOR=$m polybar --reload file-sync-panel&
+    #         BAR_ID=$!
+    #         sleep 0.2
+    #         WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel_$m)
+    #         echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id_$m
+    #         rm -f /tmp/polybar_mqueue_panel_$m
+    #         ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel_$m
+    #         echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$m
+    #     done
+    # else
+    #     polybar --reload file-sync-panel&
+    #     BAR_ID=$!
+    #     sleep 0.2
+    #     WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel)
+    #     echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id
+    #     rm -f /tmp/polybar_mqueue_panel
+    #     ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel
+    #     echo "cmd:hide" >> /tmp/polybar_mqueue_panel
+    # fi
     if type "xrandr"; then
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
             MONITOR=$m polybar --reload main&
