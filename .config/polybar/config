@@ -147,7 +147,7 @@ font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
-modules-center = file-sync-contents
+modules-center = file-sync-ls
 
 ;------------------------------------------------------------
 ;       DECORATIONS
@@ -621,7 +621,7 @@ hook-0 = ~/.scripts/polybar_rebar_wrapper file_sync_icon
 initial = 1
 click-left = ~/.scripts/polybar_rebar_wrapper file_sync_toggle
 
-[module/file-sync-contents]
+[module/file-sync-ls]
 type = custom/script
 exec = ~/.scripts/polybar_file_sync_ls
 label-font=3
