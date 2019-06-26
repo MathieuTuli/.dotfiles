@@ -25,3 +25,6 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
+
+# ow is for those full access directories
+export LS_COLORS='ow=4;34:*.py=0;35'
