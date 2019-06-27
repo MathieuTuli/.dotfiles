@@ -179,6 +179,7 @@ bindsym $mod+Ctrl+Shift+e exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 set $resize_amount 4
+set $large_resize_amount 20
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -190,12 +191,20 @@ mode "resize" {
         bindsym j resize grow height $resize_amount px or $resize_amount ppt
         bindsym k resize shrink height $resize_amount px or $resize_amount ppt
         bindsym l resize grow width $resize_amount px or $resize_amount ppt
+        bindsym Shift+h resize shrink width $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+j resize grow height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+k resize shrink height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+l resize grow width $large_resize_amount px or $large_resize_amount ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width $resize_amount px or $resize_amount ppt
+        bindsym Down resize grow height $resize_amount px or $resize_amount ppt
+        bindsym Up resize shrink height $resize_amount px or $resize_amount ppt
+        bindsym Right resize grow width $resize_amount px or $resize_amount ppt
+        bindsym Shift+Left resize shrink width $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+Down resize grow height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+Up resize shrink height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+Right resize grow width $large_resize_amount px or $resize_amount ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"

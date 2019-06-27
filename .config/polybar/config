@@ -104,7 +104,7 @@ bottom=true
 enable-ipc = true
 
 # reverse the slants
-modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged grey-spacer dotfiles-ahead r-slant-module-r 
+modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged grey-spacer dotfiles-ahead r-slant-module-r
 # r-slant-module-l file-sync r-slant-module-r
 modules-center = c-slant-module-l core0temp grey-spacer core1temp grey-spacer core2temp grey-spacer core3temp grey-spacer core4temp grey-spacer core5temp c-slant-module-r
 modules-right= l-slant-module-l weather-current-icon spacer weather-current yellow-spacer weather-forecast-icon spacer weather-forecast yellow-spacer weather-set-icon spacer weather-set l-slant-module-r
@@ -267,6 +267,7 @@ label-foreground = ${colors.module-backgrond}
 
 label-mode-background = ${colors.alert}
 label-mode-foreground = ${colors.module-background}
+label-mode = " %mode% "
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
