@@ -15,7 +15,9 @@ function ctrl_c() {
 re='^[0-9]+$'
 FILTER=""
 long_comparator=14
-LINELIMIT="limit: $long_comparator"
+eval $(xdotool getwindowgeometry -shell $(xdotool getactivewindow))
+let "LINES = $HEIGHT / 38"
+LINELIMIT="limit: $LINES"
 DETAIL="list"
 # LONGLIMIT=1000
 # LONGLIMIT_FIT=19
@@ -23,7 +25,7 @@ FOCUS=""
 i3-msg title_format "Calendar"
 DUE=""
 HELP=0
-SHOW_CALENDAR=true
+SHOW_CALENDAR=false
 while true; do
         clear
         unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINELIMIT # | head -n $LONGLIMIT
@@ -64,7 +66,10 @@ while true; do
                                 LINELIMIT=$COMMAND
                                 # LONGLIMIT=1000
                         elif [[ $CURRENTLIMIT == *"fit"* ]] then
-                                LINELIMIT="limit: $long_comparator"
+                                # LINELIMIT="limit: $long_comparator"
+                                eval $(xdotool getwindowgeometry -shell $(xdotool getactivewindow))
+                                let "LINES = $HEIGHT / 38"
+                                LINELIMIT="limit: $LINES"
                                 # LONGLIMIT=$LONGLIMIT_FIT
                         # else
                         #         if [ "$CURRENTLIMIT" -le "$long_comparator" ]
