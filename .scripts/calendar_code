@@ -35,10 +35,15 @@ i3-msg title_format "Calendar"
 DUE=""
 HELP=0
 SHOW_CALENDAR=false
+PRIORITY=""
 compute_line_limit
 while true; do
+        if [ "$LIMIT_FIT" = true ]; then
+                compute_line_limit
+        fi
+
         clear
-        unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINE_LIMIT # | head -n $LONGLIMIT
+        unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINE_LIMIT $PRIORITY
         if [ "$SHOW_CALENDAR" = true ]; then
                 task calendar
         else
@@ -69,13 +74,14 @@ while true; do
                         fi
                 elif [[ $COMMAND == "limit:"* ]] then
                         CURRENT_LIMIT=${COMMAND//limit:/}
+                        LIMIT_FIT=false
                         if [[ $CURRENT_LIMIT =~ $re ]] ; then
                                 LINE_LIMIT=$COMMAND
-                        fi
-                        if [[ $CURRENT_LIMIT == *"all"* ]] then
+                        elif [[ $CURRENT_LIMIT == *"all"* ]] then
                                 LINE_LIMIT=$COMMAND
                         elif [[ $CURRENT_LIMIT == *"fit"* ]] then
                                 compute_line_limit
+                                LIMIT_FIT=true
                         fi
                 elif [[ $COMMAND == "focus:"* ]] then
                         if [[ $COMMAND == *"all"* ]] then
@@ -88,6 +94,17 @@ while true; do
                                 DETAIL="long"
                         else
                                 DETAIL="list"
+                        fi
+                elif [[ $COMMAND == "priority:"* ]] then
+                        COMMAND=${COMMAND//priority:/}
+                        if [[ $COMMAND == *"L"* ]] then
+                                PRIORITY="priority:L"
+                        elif [[ $COMMAND == *"M"* ]] then
+                                PRIORITY="priority:M"
+                        elif [[ $COMMAND == *"H"* ]] then
+                                PRIORITY="priority:H"
+                        elif [[ $COMMAND == *"all"* ]] then
+                                PRIORITY="priority:L,M,H"
                         fi
                 elif [[ $COMMAND == "calendar:"* ]] then
                         CALENDAR_STATE=${COMMAND//calendar:/}
