@@ -12,12 +12,21 @@ function ctrl_c() {
         echo "Please type 'q' or 'Q' to quit"
         return
 }
+function compute_line_limit(){
+        eval $(xdotool getwindowgeometry -shell $(xdotool getactivewindow))
+        let "ALLOWED_LINES = $HEIGHT / 31"
+        LINE_LIMIT="$ALLOWED_LINES"
+        PRINTED_LINES=$(unbuffer task $FOCUS $DETAIL $FILTER $DUE limit:$LINE_LIMIT | wc -l)
+        while [ "$PRINTED_LINES" -ge "$ALLOWED_LINES" ]; do
+                let "LINE_LIMIT = $LINE_LIMIT - 1"
+                PRINTED_LINES=$(unbuffer task $FOCUS $DETAIL $FILTER $DUE limit:$LINE_LIMIT | wc -l)
+        done
+        LINE_LIMIT="limit: $LINE_LIMIT"
+        return
+}
+
 re='^[0-9]+$'
 FILTER=""
-long_comparator=14
-eval $(xdotool getwindowgeometry -shell $(xdotool getactivewindow))
-let "LINES = $HEIGHT / 38"
-LINELIMIT="limit: $LINES"
 DETAIL="list"
 # LONGLIMIT=1000
 # LONGLIMIT_FIT=19
@@ -26,16 +35,17 @@ i3-msg title_format "Calendar"
 DUE=""
 HELP=0
 SHOW_CALENDAR=false
+compute_line_limit
 while true; do
         clear
-        unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINELIMIT # | head -n $LONGLIMIT
+        unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINE_LIMIT # | head -n $LONGLIMIT
         if [ "$SHOW_CALENDAR" = true ]; then
                 task calendar
         else
                 echo " "
         fi
         if [ $HELP -eq 1 ]; then
-                echo "project:\ndue:\nlimit:\nfocus:\ndetail:\nnew_limit:"
+                echo "project:\ndue:\nlimit:\nfocus:\ndetail:"
                 HELP=0
         fi
         COMMAND=''
@@ -58,26 +68,14 @@ while true; do
                                 DUE=$COMMAND
                         fi
                 elif [[ $COMMAND == "limit:"* ]] then
-                        CURRENTLIMIT=${COMMAND//limit:/}
-                        if [[ $CURRENTLIMIT =~ $re ]] ; then
-                                LINELIMIT=$COMMAND
+                        CURRENT_LIMIT=${COMMAND//limit:/}
+                        if [[ $CURRENT_LIMIT =~ $re ]] ; then
+                                LINE_LIMIT=$COMMAND
                         fi
-                        if [[ $CURRENTLIMIT == *"all"* ]] then
-                                LINELIMIT=$COMMAND
-                                # LONGLIMIT=1000
-                        elif [[ $CURRENTLIMIT == *"fit"* ]] then
-                                # LINELIMIT="limit: $long_comparator"
-                                eval $(xdotool getwindowgeometry -shell $(xdotool getactivewindow))
-                                let "LINES = $HEIGHT / 38"
-                                LINELIMIT="limit: $LINES"
-                                # LONGLIMIT=$LONGLIMIT_FIT
-                        # else
-                        #         if [ "$CURRENTLIMIT" -le "$long_comparator" ]
-                        #         then
-                        #                 LONGLIMIT=$LONGLIMIT_FIT
-                        #         else
-                        #                 LONGLIMIT=1000
-                        #         fi
+                        if [[ $CURRENT_LIMIT == *"all"* ]] then
+                                LINE_LIMIT=$COMMAND
+                        elif [[ $CURRENT_LIMIT == *"fit"* ]] then
+                                compute_line_limit
                         fi
                 elif [[ $COMMAND == "focus:"* ]] then
                         if [[ $COMMAND == *"all"* ]] then
@@ -85,20 +83,11 @@ while true; do
                         else
                                 FOCUS=${COMMAND//focus:/}
                         fi
-                elif [[ $COMMAND == "new_limit:"* ]] then
-                        long_comparator=${COMMAND//new_limit:/}
                 elif [[ $COMMAND == "detail:"* ]] then
                         if [[ $COMMAND == *"long"* ]] then
                                 DETAIL="long"
-                                # if [ "$LIMIT" -le "$long_comparator" ]
-                                # then
-                                #         LONGLIMIT="$(($long_comparator+3))"
-                                # else
-                                #         LONGLIMIT=1000
-                                # fi
                         else
                                 DETAIL="list"
-                                # LONGLIMIT=1000
                         fi
                 elif [[ $COMMAND == "calendar:"* ]] then
                         CALENDAR_STATE=${COMMAND//calendar:/}
