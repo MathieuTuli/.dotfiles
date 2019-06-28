@@ -1,3 +1,2 @@
 /home/mat/Documents
 /home/mat/.task
-/home/mat/3d-printer
