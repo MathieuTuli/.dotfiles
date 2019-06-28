@@ -17,9 +17,17 @@ function compute_line_limit(){
         let "ALLOWED_LINES = $HEIGHT / 31"
         LINE_LIMIT="$ALLOWED_LINES"
         PRINTED_LINES=$(unbuffer task $FOCUS $DETAIL $FILTER $DUE limit:$LINE_LIMIT | wc -l)
+        if [ "$SHOW_CALENDAR" = true ]; then
+                CALENDAR_LINES=$(task calendar | wc -l)
+                let "PRINTED_LINES = $PRINTED_LINES + $CALENDAR_LINES"
+        fi
         while [ "$PRINTED_LINES" -ge "$ALLOWED_LINES" ]; do
                 let "LINE_LIMIT = $LINE_LIMIT - 1"
                 PRINTED_LINES=$(unbuffer task $FOCUS $DETAIL $FILTER $DUE limit:$LINE_LIMIT | wc -l)
+                if [ "$SHOW_CALENDAR" = true ]; then
+                        CALENDAR_LINES=$(task calendar | wc -l)
+                        let "PRINTED_LINES = $PRINTED_LINES + $CALENDAR_LINES"
+                fi
         done
         LINE_LIMIT="limit: $LINE_LIMIT"
         return
