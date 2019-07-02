@@ -1,3 +1,11 @@
+" BRACKET COMPLETION
+inoremap (; (<CR>);<C-c>O
+" inoremap (, (<CR>),<C-c>O
+inoremap {; {<CR>};<C-c>O
+" inoremap {, {<CR>},<C-c>O
+inoremap [; [<CR>];<C-c>O
+" inoremap [, [<CR>],<C-c>O
+
 " CURSOR NAVIGATION
 nnoremap ;l $
 nnoremap ;h ^

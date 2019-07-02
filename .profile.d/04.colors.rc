@@ -2,7 +2,7 @@
 alias diff='diff --color=always'
 alias dmesg='dmesg --color=always'
 alias grep='grep --color=always'
-alias ls='ls --color'
+alias ls='ls --color -h'
 alias less='less -R'
 alias aws='aws --color on'
 alias pacman='pacman --color=always'
