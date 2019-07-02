@@ -44,6 +44,7 @@ DUE=""
 HELP=0
 SHOW_CALENDAR=false
 PRIORITY=""
+LIMIT_FIT=true
 compute_line_limit
 while true; do
         if [ "$LIMIT_FIT" = true ]; then
