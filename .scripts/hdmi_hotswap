@@ -1,5 +1,4 @@
 #!/bin/bash
-systemctl is-system-running --wait
 export PATH=$PATH:$HOME/.scripts
 export DISPLAY=:0
 export HDMI_ORIENTATION=r
