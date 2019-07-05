@@ -14,7 +14,7 @@ font pango:monospace 14px
 # client.focused_inactive #87AFD7 #2D2D2D 	#87AFD7 #87AFD7   #87AFD7
 client.focused 		#FF8787 #393939 	#FF8787 #FF8787   #FF8787
 client.focused_inactive #87AFD7 #393939 	#87AFD7 #87AFD7   #87AFD7
-client.unfocused        #393939 #393939 	#888888 #393939   #393939
+client.unfocused        #2d2d2d #393939 	#888888 #393939   #393939
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
