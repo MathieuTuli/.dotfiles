@@ -60,6 +60,32 @@ launch() {
     fi
 }
 
+launch_productive() {
+    echo "close" > /tmp/polybar_side_panel_state
+    killall -q polybar
+    if type "xrandr"; then
+        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+            MONITOR=$m polybar --reload main-productive&
+            BAR_ID=$!
+            rm -f /tmp/polybar_mqueue_top_$m
+            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
+            MONITOR=$m polybar --reload main-bottom-productive&
+            BAR_ID=$!
+            rm -f /tmp/polybar_mqueue_bottom_$m
+            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
+        done
+    else
+        polybar --reload main-productive&
+        BAR_ID=$!
+        rm -f /tmp/polybar_mqueue_top
+        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
+        polybar --reload main-bottom-productive&
+        BAR_ID=$!
+        rm -f /tmp/polybar_mqueue_bottom
+        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
+    fi
+}
+
 file_sync_open() {
     if [ "$1" == "none" ]; then
             echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top
@@ -157,6 +183,8 @@ case "$1" in
         file_sync_icon;;
     launch)
         launch;;
+    launch_productive)
+        launch_productive;;
     hide)
         if type "xrandr"; then
             for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do

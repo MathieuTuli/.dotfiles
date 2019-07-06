@@ -208,20 +208,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# bindsym $mod+n exec /home/xmay/.config/i3/dual_lay.sh
-# bindsym $mod+m exec /home/xmay/.config/i3/single_lay.sh
-
 exec $HOME/.fehbg
-# exec ./.config/i3/scrl.sh
-exec $HOME/.scripts/polybar-rebar-wrapper launch
+bindsym $mod+p exec $HOME/.scripts/polybar-rebar-wrapper launch && i3-msg gaps outer all set 7
+bindsym $mod+shift+p exec $HOME/.scripts/polybar-rebar-wrapper launch_productive && i3-msg gaps outer all set 0
 exec dunst
-# exec compton --shadow-exclude-reg 1920x26+0+0
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
 for_window [class="Spotify"] move to workspace $ws4
 for_window [class="i3-frame"] floating disable
-# assign [class="Google-chrome"] 2
 assign [class="Slack"] 3
 gaps inner 0
 gaps outer 7
