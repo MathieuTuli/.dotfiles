@@ -252,7 +252,7 @@ content-background= ${colors.bar-background}
 
 [module/system-nvidia-smi]
 type = custom/script
-exec = ~/.scripts/polybar_nvidia_smi
+exec = ~/.scripts/polybar-nvidia-smi
 label-foreground = ${colors.pink}
 label-background = ${colors.module-background}
 interval = 0.5
@@ -305,7 +305,7 @@ label-urgent-padding = 1
 type = custom/script
 interval = 3
 format = <label>
-exec = python ~/.scripts/polybar_spotify_status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
+exec = python ~/.scripts/polybar-spotify-status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
 # label-foreground = ${colors.foreground}
 # label-background = ${colors.green}
 label-foreground = ${colors.green}
@@ -559,7 +559,7 @@ hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp7_input
 
 [module/arch-updates]
 type = custom/script
-exec = ~/.scripts/polybar_arch_updates
+exec = ~/.scripts/polybar-arch-updates
 interval = 30
 label-foreground = ${colors.brown}
 label-background = ${colors.module-background}
@@ -567,65 +567,65 @@ label-background = ${colors.module-background}
 # CAUTION, OPEN WEATHER MAP HAS A 60RPM LIMIT FOR THE FREE TIER
 [module/weather-current]
 type = custom/script
-exec = ~/.scripts/polybar_weather -i current
+exec = ~/.scripts/polybar-weather -i current
 label-font=3
 interval = 30
 label-foreground = ${colors.yellow}
 label-background = ${colors.module-background}
 [module/weather-current-icon]
 inheritance=module/weather-current
-exec = ~/.scripts/polybar_weather -i current_icon
+exec = ~/.scripts/polybar-weather -i current_icon
 label-font=5
 [module/weather-forecast]
 inheritance=module/weather-current
-exec = ~/.scripts/polybar_weather -i forecast
+exec = ~/.scripts/polybar-weather -i forecast
 label-font=3
 [module/weather-forecast-icon]
 inheritance=module/weather-current
-exec = ~/.scripts/polybar_weather -i forecast_icon
+exec = ~/.scripts/polybar-weather -i forecast_icon
 label-font=5
 [module/weather-trend]
 inheritance=module/weather-current
-exec = ~/.scripts/polybar_weather -i trend
+exec = ~/.scripts/polybar-weather -i trend
 label-font=5
 [module/weather-set]
 inheritance=module/weather-current
-exec = ~/.scripts/polybar_weather -i set
+exec = ~/.scripts/polybar-weather -i set
 label-font=3
 [module/weather-set-icon]
 inheritance=module/weather-current
-exec = ~/.scripts/polybar_weather -i set_icon
+exec = ~/.scripts/polybar-weather -i set_icon
 label-font=5
 
 [module/dotfiles-modified]
 type = custom/script
-exec = ~/.scripts/polybar_dotfiles_status -i modified
+exec = ~/.scripts/polybar-dotfiles-status -i modified
 label-font=3
 interval=10
 label-foreground = ${colors.orange}
 label-background = ${colors.module-background}
 [module/dotfiles-deleted]
 inheritance=module/dotfiles-modified
-exec = ~/.scripts/polybar_dotfiles_status -i deleted
+exec = ~/.scripts/polybar-dotfiles-status -i deleted
 label-foreground = ${colors.red}
 [module/dotfiles-staged]
 inheritance=module/dotfiles-modified
-exec = ~/.scripts/polybar_dotfiles_status -i staged
+exec = ~/.scripts/polybar-dotfiles-status -i staged
 label-foreground = ${colors.green}
 [module/dotfiles-ahead]
 inheritance=module/dotfiles-modified
-exec = ~/.scripts/polybar_dotfiles_status -i ahead
+exec = ~/.scripts/polybar-dotfiles-status -i ahead
 label-foreground = ${colors.purple}
 
 [module/file-sync]
 type = custom/ipc
-hook-0 = ~/.scripts/polybar_rebar_wrapper file_sync_icon
+hook-0 = ~/.scripts/polybar-rebar-wrapper file_sync_icon
 initial = 1
-click-left = ~/.scripts/polybar_rebar_wrapper file_sync_toggle
+click-left = ~/.scripts/polybar-rebar-wrapper file_sync_toggle
 
 [module/file-sync-ls]
 type = custom/script
-exec = ~/.scripts/polybar_file_sync_ls
+exec = ~/.scripts/polybar-file-sync-ls
 label-font=3
 interval=30
 label-foreground = ${colors.focused-i3-background}

@@ -19,16 +19,10 @@ client.unfocused        #2d2d2d #393939 	#888888 #393939   #393939
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 
-# Change HDMI orentiation [r]ight, [l]eft, [n]one, [m]irror
-bindsym $mod+Ctrl+r exec $HOME/.scripts/hdmi_orientation_r
-bindsym $mod+Ctrl+l exec $HOME/.scripts/hdmi_orientation_l
-bindsym $mod+Ctrl+m exec $HOME/.scripts/hdmi_orientation_m
-bindsym $mod+Ctrl+n exec $HOME/.scripts/hdmi_orientation_n
-
 # Audio controls
 bindsym XF86AudioRaiseVolume exec amixer set Master 2dB+
 bindsym XF86AudioLowerVolume exec amixer set Master 2dB-
-bindsym XF86AudioMute exec toggle_mute
+bindsym XF86AudioMute exec toggle-mute
 
 # Sreen brightness controls
 bindsym $mod+bracketright exec light -A 2 # increase screen brightness
@@ -36,13 +30,13 @@ bindsym $mod+bracketleft exec light -U 2 # decrease screen brightness
 
 # Media player controls
 # bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPlay exec spotify_play_pause
+bindsym XF86AudioPlay exec spotify-play-pause
 
 # bindsym XF86AudioPause exec playerctl pause
 # bindsym XF86AudioNext exec playerctl next
 # bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec spotify_next
-bindsym XF86AudioPrev exec spotify_previous
+bindsym XF86AudioNext exec spotify-next
+bindsym XF86AudioPrev exec spotify-previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -219,7 +213,7 @@ bindsym $mod+r mode "resize"
 
 exec $HOME/.fehbg
 # exec ./.config/i3/scrl.sh
-exec $HOME/.scripts/polybar_rebar_wrapper launch
+exec $HOME/.scripts/polybar-rebar-wrapper launch
 exec dunst
 # exec compton --shadow-exclude-reg 1920x26+0+0
 
