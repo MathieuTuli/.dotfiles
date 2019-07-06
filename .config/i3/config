@@ -209,6 +209,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec $HOME/.fehbg
+exec $HOME/.scripts/polybar-rebar-wrapper launch
 bindsym $mod+p exec $HOME/.scripts/polybar-rebar-wrapper launch && i3-msg gaps outer all set 7
 bindsym $mod+shift+p exec $HOME/.scripts/polybar-rebar-wrapper launch_productive && i3-msg gaps outer all set 0
 exec dunst
