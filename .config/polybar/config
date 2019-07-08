@@ -128,8 +128,8 @@ font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
-modules-left = i3 grey-spacer alsa l-slant-module-r
-modules-right = r-slant-module-l wlan grey-spacer battery grey-spacer date
+modules-left = bar i3 grey-spacer alsa bar
+modules-right = bar wlan grey-spacer battery grey-spacer date bar
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -280,6 +280,13 @@ content = ""
 content-font = 2
 content-foreground = ${colors.unfocused-i3-background}
 content-background= ${colors.bar-background}
+
+[module/bar]
+type = custom/text
+content = "█"
+content-font = 2
+content-foreground = ${colors.module-background}
+content-background= ${colors.module-background}
 
 # 
 ;------------------------------------------------------------
