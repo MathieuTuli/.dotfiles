@@ -117,6 +117,8 @@ border-size = 0
 border-color = ${colors.bar-background}
 # border-top-size = 7
 # border-top-color = ${colors.bar-background}
+# border-bottom-size = 7
+# border-bottom-color = ${colors.bar-background}
 # border-left-size = 7
 # border-left-color = ${colors.bar-background}
 # border-right-size = 7
@@ -128,7 +130,7 @@ font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
-modules-left = bar i3 grey-spacer alsa bar
+modules-left = i3 grey-spacer alsa bar
 modules-right = bar wlan grey-spacer battery grey-spacer date bar
 
 cursor-click = pointer
