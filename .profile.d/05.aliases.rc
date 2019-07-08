@@ -1,34 +1,54 @@
 # [ALIASES]
-# git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-# git config --global alias.full_lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --pretty=full"
-# alias dotfiles_git="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias sudo='sudo '
+
 alias vi=nvim
 alias vim=nvim
 alias vidiff=vimdiff
+
 alias wpa_cli='wpa_cli -i wlp2s0'
+
 alias powerlevel_colors='for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"'
+
 alias render_background='exec feh --bg-max $HOME/.config/i3/background.jpg'
+
 alias store-git-credentials="git config --global credential.helper 'cache --timeout 28800'"
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 EC2 () {
     LESS=FRXS aws ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
     LESS=FRXS aws --profile mat ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
 }
+
 alias json-pretty='python -m json.tool'
+
 alias screenshot='gm import $HOME/pictures/screenshots/screenshot.png'
+
 # alias nvidia-settings='optirun -b none nvidia-settings -c :8'
+
 function cd_up() {
   cd $(printf "%0.s../" $(seq 1 $1 ));
 }
 alias "cd.."="cd_up"
+
 alias copy="xclip -selection clipboard"
+
 alias notepad="vi $HOME/.notepad"
+
 alias i3-rename-window="i3-msg title_format "
+
 alias scrot="scrot $HOME/pictures/screenshots/screenshot.png"
+
 alias iso-command="echo -e 'To restore the USB drive as an empty, wipefs --all /dev/sdx as root, before repartitioning and reformating the USB drive.\ndd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync'"
+
 alias update-readme="git add README.md; git commit -m 'Update README'; git push"
+
 alias python2="PYENV_VERSION=2.7.16 python"
 alias pip2="PYENV_VERSION=2.7.16 pip"
 
-### VOLATILE ###
+function pacman() {
+    # pacman as root is 99% of the time interactive, so
+    # don't use less, as it'll screw things up.
+    [ "$(id -un)" = 0 ] && return command pacman "$@"
+    # Otherwise, page, because it should never be
+    # interactive, and it often dumps me screen fulls.
+    command pacman --color=always "$@" | less
+}
