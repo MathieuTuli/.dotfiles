@@ -7,8 +7,8 @@ inoremap [; [<CR>];<C-c>O
 " inoremap [, [<CR>],<C-c>O
 
 " CURSOR NAVIGATION
-nnoremap ;l $
-nnoremap ;h ^
+" nnoremap ;l $
+" nnoremap ;h ^
 nnoremap <S-L> $
 nnoremap <S-H> ^
 
