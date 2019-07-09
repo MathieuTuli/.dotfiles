@@ -29,7 +29,7 @@ function compute_line_limit(){
                         let "PRINTED_LINES = $PRINTED_LINES + $CALENDAR_LINES"
                 fi
         done
-        LINE_LIMIT="limit: $LINE_LIMIT"
+        LINE_LIMIT="limit:$LINE_LIMIT"
         return
 }
 
@@ -52,14 +52,14 @@ while true; do
         fi
 
         clear
-        unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINE_LIMIT $PRIORITY
+        unbuffer task $DETAIL $LINE_LIMIT $FOCUS $FILTER $DUE $PRIORITY
         if [ "$SHOW_CALENDAR" = true ]; then
                 task calendar
         else
                 echo " "
         fi
         if [ $HELP -eq 1 ]; then
-                echo "project:\ndue:\nlimit:\nfocus:\ndetail:"
+                echo "project:\ndue:\nlimit:\nfocus:\ndetail:\npriority:\ncalendar:"
                 HELP=0
         fi
         COMMAND=''
@@ -71,7 +71,7 @@ while true; do
                         if [[ $COMMAND == *"all"* ]] then
                                 FILTER=""
                         else
-                                FILTER=$COMMAND
+                                FILTER="\($COMMAND\)"
                         fi
                 elif [[ $COMMAND == "help"* ]] then
                         HELP=1
