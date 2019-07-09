@@ -12,7 +12,7 @@ while true; do
                 if $hdmi_off ; then
                         echo 'Displaying HDMI' | systemd-cat
                         echo 'Displaying HDMI'
-                        echo $HDMI_ORIENTATION | display_hdmi
+                        echo $HDMI_ORIENTATION | display-hdmi
                         hdmi_off=false
                 else
                         echo 'Already Displayed' | systemd-cat
