@@ -50,3 +50,4 @@ color.uda.priority.H=color15
 color.uda.priority.M=color4
 color.uda.priority.L=color240
 report.list.dateformat=Y-M-D H:N
+report.long.dateformat=Y-M-D H:N
