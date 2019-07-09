@@ -76,10 +76,13 @@ while true; do
                 elif [[ $COMMAND == "help"* ]] then
                         HELP=1
                 elif [[ $COMMAND == "due:"* ]] then
-                        if [[ $COMMAND == *"all"* ]] then
+                        ALL_COMMAND=${COMMAND//due:/}
+                        if [[ $ALL_COMMAND == *"all"* ]] then
+                                DUE=""
+                        elif [[ $ALL_COMMAND == "" ]] then
                                 DUE=""
                         else
-                                DUE=$COMMAND
+                                DUE="\($COMMAND\)"
                         fi
                 elif [[ $COMMAND == "limit:"* ]] then
                         CURRENT_LIMIT=${COMMAND//limit:/}
@@ -105,15 +108,19 @@ while true; do
                                 DETAIL="list"
                         fi
                 elif [[ $COMMAND == "priority:"* ]] then
-                        COMMAND=${COMMAND//priority:/}
-                        if [[ $COMMAND == *"L"* ]] then
-                                PRIORITY="priority:L"
-                        elif [[ $COMMAND == *"M"* ]] then
-                                PRIORITY="priority:M"
-                        elif [[ $COMMAND == *"H"* ]] then
-                                PRIORITY="priority:H"
-                        elif [[ $COMMAND == *"all"* ]] then
-                                PRIORITY="priority:L,M,H"
+                        ALL_COMMAND=${COMMAND//priority:/}
+                        if [[ $ALL_COMMAND == *"all"* ]] then
+                                PRIORITY="\(priority:L or priority:M or priority:H\)"
+                        # if [[ $COMMAND == *"L"* ]] then
+                        #         PRIORITY="priority:L"
+                        # elif [[ $COMMAND == *"M"* ]] then
+                        #         PRIORITY="priority:M"
+                        # elif [[ $COMMAND == *"H"* ]] then
+                        #         PRIORITY="priority:H"
+                        # elif [[ $COMMAND == *"all"* ]] then
+                        #         PRIORITY="priority:L,M,H"
+                        else
+                                PRIORITY="\($COMMAND\)"
                         fi
                 elif [[ $COMMAND == "calendar:"* ]] then
                         CALENDAR_STATE=${COMMAND//calendar:/}
