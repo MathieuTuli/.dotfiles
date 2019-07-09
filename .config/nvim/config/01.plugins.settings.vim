@@ -4,6 +4,7 @@ let g:ale_set_loclist=1
 " let g:ale_open_list=1
 " let g:ale_keep_list_window_open=1
 let g:ale_set_highlights=1
+
 highlight ALEError    ctermbg=9 ctermfg=0
 " highlight ALEErrorLine    ctermbg=1 ctermfg=0
 highlight ALEErrorSign    ctermbg=9 ctermfg=0
