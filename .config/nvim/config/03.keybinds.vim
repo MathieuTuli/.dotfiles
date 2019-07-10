@@ -9,8 +9,8 @@ inoremap [; [<CR>];<C-c>O
 " CURSOR NAVIGATION
 " nnoremap ;l $
 " nnoremap ;h ^
-nnoremap <S-L> $
-nnoremap <S-H> ^
+nnoremap <M-l> $
+nnoremap <M-h> ^
 
 " NAVIGATION
 nnoremap \] :cn<CR>
@@ -24,7 +24,7 @@ nnoremap \bq :b#<CR>
 " TABS
 nnoremap tbn :tabnext<CR>
 nnoremap tbp :tabprev<CR>
-nnoremap tbe :tabedit 
+nnoremap tbe :tabedit
 
 " BUFFERS
 nnoremap gn :bn<CR>
