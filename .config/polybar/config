@@ -104,7 +104,7 @@ bottom=false
 enable-ipc = true
 
 width = 100%
-height = 22
+height = 10
 radius = 0.0
 
 background = ${colors.bar-background}
@@ -130,7 +130,7 @@ font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
-# modules-left = i3 grey-spacer alsa bar
+modules-left = i3-productive
 # modules-right = bar wlan grey-spacer battery grey-spacer date bar
 
 cursor-click = pointer
@@ -345,6 +345,23 @@ label-urgent-padding = 1
 ; Separator in between workspaces
 ; label-separator = |
 ; ws-icon-0 = 1;⌬
+
+[module/i3-productive]
+inheritance=module/i3
+label-unfocused = %icon%
+label-focused = %icon%
+label-visible = %icon%
+label-urgent = %icon%
+ws-icon-0 = 1;-
+ws-icon-1 = 2;-
+ws-icon-2 = 3;-
+ws-icon-3 = 4;-
+ws-icon-4 = 5;-
+ws-icon-5 = 6;-
+ws-icon-6 = 7;-
+ws-icon-7 = 8;-
+ws-icon-8 = 9;-
+ws-icon-9 = 10;
 
 [module/spotify]
 type = custom/script
