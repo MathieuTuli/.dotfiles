@@ -115,10 +115,10 @@ line-color = #FFFFFF
 
 border-size = 0
 border-color = ${colors.bar-background}
-# border-top-size = 7
-# border-top-color = ${colors.bar-background}
-# border-bottom-size = 7
-# border-bottom-color = ${colors.bar-background}
+border-top-size = 3
+border-top-color = ${colors.bar-background}
+border-bottom-size = 3
+border-bottom-color = ${colors.bar-background}
 # border-left-size = 7
 # border-left-color = ${colors.bar-background}
 # border-right-size = 7
