@@ -32,7 +32,7 @@ data.location=~/.task
 # CUSTOM COLORS
 color.project.IMRSV=on cyan
 color.project.Backlog=color0 on red
-color.project.Self=on color13
+color.project.Self=on gray14
 color.project.UTHT=on yellow
 
 color.burndown.done=green on green
