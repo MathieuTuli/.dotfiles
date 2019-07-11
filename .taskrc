@@ -30,10 +30,22 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/no-color.theme
 
 # CUSTOM COLORS
+color.project.IMRSV=on cyan
+color.project.Backlog=color0 on red
+color.project.Self=on color13
+color.project.UTHT=on yellow
+
 color.burndown.done=green on green
 color.burndown.started=yellow on yellow
 color.burndown.pending=magenta on magenta
-color.overdue=color0 on color9
+
+# color.overdue=color0 on color9
+color.overdue=red
+color.due.today=gray0
+color.due=color0
+
+color.active=on green
+
 color.calendar.overdue=color0 on color9
 color.calendar.due=color0 on magenta
 color.calendar.due.today=color0 on yellow
@@ -41,13 +53,13 @@ color.calendar.today=color0 on blue
 color.calendar.weekend=rgb000
 color.calendar.weeknumber=yellow
 color.calendar.holiday=cyan
-color.due.today=color0 on yellow
-color.due=color0 on magenta
-color.active=color0 on green
+
+
+color.uda.priority.H=color0
+color.uda.priority.M=gray10
+color.uda.priority.L=gray15
+
 report.list.sort=urgency-,due-
 report.long.sort=urgency-,due-
-color.uda.priority.H=color15
-color.uda.priority.M=color4
-color.uda.priority.L=color240
 report.list.dateformat=Y-M-D H:N
 report.long.dateformat=Y-M-D H:N
