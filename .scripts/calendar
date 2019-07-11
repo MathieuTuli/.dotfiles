@@ -68,7 +68,10 @@ while true; do
                 then break
             else
                 if [[ $COMMAND == "project:"* ]] then
-                        if [[ $COMMAND == *"all"* ]] then
+                        ALL_COMMAND=${COMMAND//project:/}
+                        if [[ $ALL_COMMAND == *"all"* ]] then
+                                FILTER=""
+                        elif [[ $ALL_COMMAND == "" ]] then
                                 FILTER=""
                         else
                                 FILTER="\($COMMAND\)"
