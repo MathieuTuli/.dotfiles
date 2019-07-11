@@ -348,10 +348,10 @@ label-urgent-padding = 1
 
 [module/i3-productive]
 inheritance=module/i3
-label-unfocused = %icon%
-label-focused = %icon%
-label-visible = %icon%
-label-urgent = %icon%
+label-unfocused = "%icon%"
+label-focused = "%icon%"
+label-visible = "%icon%"
+label-urgent = "%icon%"
 ws-icon-0 = 1;-
 ws-icon-1 = 2;-
 ws-icon-2 = 3;-
