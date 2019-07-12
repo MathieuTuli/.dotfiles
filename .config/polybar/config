@@ -104,7 +104,7 @@ bottom=false
 enable-ipc = true
 
 width = 100%
-height = 10
+height = 22
 radius = 0.0
 
 background = ${colors.bar-background}
@@ -115,14 +115,14 @@ line-color = #FFFFFF
 
 border-size = 0
 border-color = ${colors.bar-background}
-border-top-size = 3
+border-top-size = 7
 border-top-color = ${colors.bar-background}
-border-bottom-size = 3
+border-bottom-size = 7
 border-bottom-color = ${colors.bar-background}
-# border-left-size = 7
-# border-left-color = ${colors.bar-background}
-# border-right-size = 7
-# border-right-color = ${colors.bar-background}
+border-left-size = 7
+border-left-color = ${colors.bar-background}
+border-right-size = 7
+border-right-color = ${colors.bar-background}
 
 font-0 = fixed:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
@@ -130,8 +130,8 @@ font-2 = Wuncon Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
-modules-left = i3-productive
-# modules-right = bar wlan grey-spacer battery grey-spacer date bar
+modules-left = l-slant-module-l i3 l-slant-module-r
+modules-right = r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
 
 cursor-click = pointer
 cursor-scroll = ns-resize
