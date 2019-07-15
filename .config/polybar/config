@@ -126,7 +126,7 @@ border-right-color = ${colors.bar-background}
 
 font-0 = fixed:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Siji:pixelsize=12;3
+font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
@@ -182,7 +182,7 @@ foreground = ${colors.red}
 
 font-0 = fixed:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Siji:pixelsize=12;3
+font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
@@ -318,7 +318,7 @@ label-mode = " %mode% "
 pin-workspaces = true
 
 ; focused = Active workspace on focused monitor
-label-focused = "%index%"
+label-focused = " %index% "
 ; label-focused-background = ${colors.focused-i3-background}
 label-focused-background = ${colors.focused-i3-background}
 label-focused-foreground= ${colors.module-background}
@@ -326,19 +326,19 @@ label-focused-foreground= ${colors.module-background}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = " %index% "
 label-unfocused-padding = 1
 label-unfocused-background = ${colors.module-background}
 label-unfocused-foreground= ${colors.unfocused-i3-foreground}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = " %index% "
 label-visible-background = ${self.label-focused-background}
 ; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = " %index% "
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
