@@ -14,7 +14,7 @@ function ctrl_c() {
 }
 function compute_line_limit(){
         eval $(xdotool getwindowgeometry -shell $(xdotool getactivewindow))
-        let "ALLOWED_LINES = $HEIGHT / 31"
+        let "ALLOWED_LINES = $HEIGHT / 27"
         LINE_LIMIT="$ALLOWED_LINES"
         PRINTED_LINES=$(unbuffer task $FOCUS $DETAIL $FILTER $DUE limit:$LINE_LIMIT | wc -l)
         if [ "$SHOW_CALENDAR" = true ]; then

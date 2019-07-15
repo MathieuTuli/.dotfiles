@@ -10,8 +10,3 @@
 ## How It Works ##
 
 ## Screenshots
-
-![Full](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/full.png)
-![Split](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/split_no_container.png)
-![Split 2](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/split_container.png)
-![Polybar](https://github.com/mathieutuli/dotfiles/blob/master/.dotfiles/images/polybar.png)

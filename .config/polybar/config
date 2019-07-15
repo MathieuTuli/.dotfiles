@@ -83,11 +83,11 @@ border-right-color = ${colors.bar-background}
 ; module-margin-left = 1
 ; module-margin-right = 1
 
-font-0 = fixed:pixelsize=12;3
+font-0 = Source Code Pro for Powerline:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Wuncon Siji:pixelsize=12;3
+font-2 = Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
-font-4 = Weather Icons:size=12;4
+font-4 = WeatherIcons:size=12;4
 
 modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
 modules-right = r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
@@ -126,7 +126,7 @@ border-right-color = ${colors.bar-background}
 
 font-0 = fixed:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Wuncon Siji:pixelsize=12;3
+font-2 = Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
@@ -182,7 +182,7 @@ foreground = ${colors.red}
 
 font-0 = fixed:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Wuncon Siji:pixelsize=12;3
+font-2 = Siji:pixelsize=12;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
 
@@ -628,7 +628,7 @@ label-background = ${colors.module-background}
 [module/weather-current]
 type = custom/script
 exec = ~/.scripts/polybar-weather -i current
-label-font=3
+label-font=1
 interval = 30
 label-foreground = ${colors.yellow}
 label-background = ${colors.module-background}
@@ -639,7 +639,7 @@ label-font=5
 [module/weather-forecast]
 inheritance=module/weather-current
 exec = ~/.scripts/polybar-weather -i forecast
-label-font=3
+label-font=1
 [module/weather-forecast-icon]
 inheritance=module/weather-current
 exec = ~/.scripts/polybar-weather -i forecast_icon
@@ -651,7 +651,7 @@ label-font=5
 [module/weather-set]
 inheritance=module/weather-current
 exec = ~/.scripts/polybar-weather -i set
-label-font=3
+label-font=1
 [module/weather-set-icon]
 inheritance=module/weather-current
 exec = ~/.scripts/polybar-weather -i set_icon
@@ -660,7 +660,7 @@ label-font=5
 [module/dotfiles-modified]
 type = custom/script
 exec = ~/.scripts/polybar-dotfiles-status -i modified
-label-font=3
+label-font=1
 interval=10
 label-foreground = ${colors.orange}
 label-background = ${colors.module-background}
