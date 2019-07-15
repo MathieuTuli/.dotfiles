@@ -72,7 +72,6 @@ color241 = #499999
 # color15 = #eceff4
 
 [options]
-# font = 16
 font = Source Code Pro for Powerline 16
 
 # [colors]

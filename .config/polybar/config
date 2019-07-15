@@ -88,6 +88,7 @@ font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
 font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
 font-3 = fixed:pixelsize=0;0
 font-4 = WeatherIcons:size=12;4
+font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
 
 modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
 modules-right = r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
@@ -129,6 +130,7 @@ font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
 font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
+font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
 
 modules-left = l-slant-module-l i3 l-slant-module-r
 modules-right = r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
@@ -185,6 +187,7 @@ font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
 font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
 font-3 = fixed:pixelsize=0;0
 font-4 = Weather Icons:size=12;4
+font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
 
 modules-center = file-sync-ls
 
@@ -417,13 +420,13 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777}⚡⚡⚡⚡⚡⚡%{F-}
-ramp-signal-0 = ⚡%{F#777777}⚡⚡⚡⚡⚡%{F-}
-ramp-signal-1 = ⚡⚡%{F#777777}⚡⚡⚡⚡%{F-}
-ramp-signal-2 = ⚡⚡⚡%{F#777777}⚡⚡⚡%{F-}
-ramp-signal-3 = ⚡⚡⚡⚡%{F#777777}⚡⚡%{F-}
-ramp-signal-4 = ⚡⚡⚡⚡⚡%{F#777777}⚡%{F-}
-ramp-signal-5 = ⚡⚡⚡⚡⚡⚡
+label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = ⚡%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = ⚡⚡%{F#777777 T6}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = ⚡⚡⚡%{F#777777 T6}⚡⚡⚡%{FT-}
+ramp-signal-3 = ⚡⚡⚡⚡%{F#777777 T6}⚡⚡%{FT-}
+ramp-signal-4 = ⚡⚡⚡⚡⚡%{F#777777 T6}⚡%{FT-}
+ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/date]
 type = internal/date
@@ -567,10 +570,10 @@ format-full = <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.module-background}
 
-label-charging = "%percentage:02%% ⚡"
-label-discharging = "%percentage:02%% %{F#777777}⚡%{F-}"
+label-charging = "%percentage:02%% %{T6}⚡%{T-}"
+label-discharging = "%percentage:02%% %{F#777777 T6}⚡%{FT-}"
 label-discharging-foreground = ${colors.white}
-label-full = "%percentage:02%% ⚡"
+label-full = "%percentage:02%% %{T6}⚡%{T-}"
 
 ramp-capacity-0 =
 ramp-capacity-0-foreground = ${colors.red}
