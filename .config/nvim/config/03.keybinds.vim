@@ -36,3 +36,6 @@ nmap <silent> <space>[ <Plug>(ale_previous_wrap)
 
 
 " nnoremap ` .
+
+" VIM REPEAT
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
