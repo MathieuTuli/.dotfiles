@@ -6,9 +6,8 @@ scriptencoding utf-8
 " let s:default_error = airline#themes#get_highlight('airline_error')
 let s:default_warning = ['#2d2d2d', '#FFAF87', 0, 11]
 let s:default_error = ['#2d2d2d', '#ff8787', 0, 9]
-call airline#highlighter#exec('airline_warning', s:default_warning)
-call airline#highlighter#exec('ariline_error', s:default_error)
-
+call airline#highlighter#exec('airline_section_warning', s:default_warning)
+call airline#highlighter#exec('ailine_error', s:default_error)
 function! s:airline_ale_count(cnt, symbol)
   return a:cnt ? a:symbol. a:cnt : ''
 endfunction

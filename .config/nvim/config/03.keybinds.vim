@@ -35,4 +35,4 @@ nmap <silent> <space>] <Plug>(ale_next_wrap)
 nmap <silent> <space>[ <Plug>(ale_previous_wrap)
 
 
-nnoremap ` .
+" nnoremap ` .
