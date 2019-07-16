@@ -24,7 +24,7 @@ nnoremap \bq :b#<CR>
 " TABS
 nnoremap tbn :tabnext<CR>
 nnoremap tbp :tabprev<CR>
-nnoremap tbe :tabedit
+nnoremap tbe :tabedit<SPACE>
 
 " BUFFERS
 nnoremap gn :bn<CR>
