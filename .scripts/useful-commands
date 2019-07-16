@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+echo '1. Create USB Bootable Drive from ISO'
+echo '    ** dd bs=4M if=*.iso of=/dev/sd* status=progress oflag=sync **'
