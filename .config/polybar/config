@@ -103,6 +103,7 @@ cursor-scroll = ns-resize
 
 [bar/main-productive]
 monitor = ${env:MONITOR:}
+inheritance=bar/main
 bottom=false
 enable-ipc = true
 
@@ -126,15 +127,6 @@ border-left-size = 7
 border-left-color = ${colors.bar-background}
 border-right-size = 7
 border-right-color = ${colors.bar-background}
-
-font-0 = fixed:pixelsize=12;3
-font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
-font-3 = fixed:pixelsize=0;0
-font-4 = Weather Icons:size=12;4
-font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
-font-6 = Noto Sans Symbols:pixelsize=12;3
-font-7 = DejaVuSansMono Nerd Font Mono:pixelsize=12;3
 
 modules-left = l-slant-module-l i3 l-slant-module-r
 modules-right = r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
@@ -164,38 +156,6 @@ border-left-size = 7
 border-left-color = ${colors.bar-background}
 border-right-size = 7
 border-right-color = ${colors.bar-background}
-
-[bar/file-sync-panel]
-monitor = ${env:MONITOR:}
-enable-ipc = true
-override-redirect = true
-bottom = true
-
-height = ${env:FILE_SYNC_PANEL_HEIGHT:}
-width = ${env:FILE_SYNC_PANEL_WIDTH:}
-offset-y = 29
-offset-x = 187
-fixed-center = true
-spacing = 1
-module-margin-left = 2
-module-margin-right = 2
-
-# border-size = 2
-# border-color = ${colors.bar-background}
-
-background = ${colors.module-background}
-foreground = ${colors.red}
-
-font-0 = fixed:pixelsize=12;3
-font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
-font-3 = fixed:pixelsize=0;0
-font-4 = Weather Icons:size=12;4
-font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
-font-6 = Noto Sans Symbols:pixelsize=12;3
-font-7 = DejaVuSansMono Nerd Font Mono:pixelsize=12;3
-
-modules-center = file-sync-ls
 
 ;------------------------------------------------------------
 ;       DECORATIONS
