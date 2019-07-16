@@ -29,5 +29,3 @@ set backspace=indent,eol,start
 set splitright
 set splitbelow
 filetype plugin indent on
-
-nnoremap ` .

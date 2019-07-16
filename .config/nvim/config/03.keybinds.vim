@@ -5,7 +5,6 @@ inoremap {; {<CR>};<C-c>O
 " inoremap {, {<CR>},<C-c>O
 inoremap [; [<CR>];<C-c>O
 " inoremap [, [<CR>],<C-c>O
-
 " CURSOR NAVIGATION
 " nnoremap ;l $
 " nnoremap ;h ^
@@ -34,3 +33,6 @@ nnoremap gd :bd<CR>
 " PLUGIN SPECIFIC
 nmap <silent> <space>] <Plug>(ale_next_wrap)
 nmap <silent> <space>[ <Plug>(ale_previous_wrap)
+
+
+nnoremap ` .
