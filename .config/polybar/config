@@ -417,13 +417,13 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 [module/date]
 type = internal/date
 interval = 0.5
-date = "%Y-%m-%d"
+date = "%Y-%m-%d "
 
 time-alt = "%I:%M:%S %p"
 time = "%I:%M:%S %p"
 
 format-prefix-background = ${colors.module-background}
-label = %date% %time%
+label = %date%%time%
 label-foreground = ${colors.blue}
 label-background = ${colors.module-background}
 
