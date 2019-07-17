@@ -2,20 +2,29 @@
 from pathlib import Path
 
 import subprocess
-import shutil
 import json
 
 reminder_file = Path('~/.config/remind/reminders.rem').expanduser()
 if not reminder_file.is_file():
-    shutil.mkdir(str(Path('~/.config/remind')), parents=True, exist_ok=True)
-    shutil.touch(str(reminder_file), parents=True, exist_ok=True)
+    Path('~/.config/remind').expanduser().mkdir(parents=True, exist_ok=True)
+    reminder_file.touch()
 
 reminders = 'Tasks Due\n'
 for t in json.loads(subprocess.check_output(['task', '+DUE',
                                              '+UNBLOCKED', 'export'])):
-    reminders += ("REM %s-%s-%s MSG %%\"%s%%\" (taskwarrior)\n" %
-                  (t['due'][:4], t['due'][4:6], t['due'][6:8],
-                   t['description']))
+    print(t)
+    due = t['due']
+    description = t['description']
+    annotations = t['annotations']
+    reminders += f"REM {due[:4]}-{due[4:6]}-{due[6:8]} MSG"
+    reminders += f" {description} |"
+    for annotation in annotations:
+        reminders += f" {annotation['description']} -"
+    reminders = reminders[:-1]
+    reminders += "\n"
+    # reminders += ("REM %s-%s-%s MSG %%\"%s%%\"\n" %
+    #               (t['due'][:4], t['due'][4:6], t['due'][6:8],
+    #                t['description']))
 
 # print(reminders)
 
