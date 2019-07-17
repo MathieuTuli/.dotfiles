@@ -1,0 +1,23 @@
+#!/usr/bin/python
+from pathlib import Path
+
+import subprocess
+import json
+
+reminder_file = Path('~/.config/remind/reminders.rem').expanduser()
+
+reminders = 'Tasks Due\n'
+for t in json.loads(subprocess.check_output(['task', '+DUE',
+                                             '+UNBLOCKED', 'export'])):
+    reminders += ("REM %s-%s-%s MSG %%\"%s%%\" (taskwarrior)\n" %
+                  (t['due'][:4], t['due'][4:6], t['due'][6:8],
+                   t['description']))
+
+# print(reminders)
+
+with open(reminder_file, 'r') as f:
+    # compare file with reminders string
+    if reminders != f.read():
+        # write new file only if it differs from existing file
+        with open(reminder_file, 'w') as o:
+            o.write(reminders)
