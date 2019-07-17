@@ -2,9 +2,13 @@
 from pathlib import Path
 
 import subprocess
+import shutil
 import json
 
 reminder_file = Path('~/.config/remind/reminders.rem').expanduser()
+if not reminder_file.is_file():
+    shutil.mkdir(str(Path('~/.config/remind')), parents=True, exist_ok=True)
+    shutil.touch(str(reminder_file), parents=True, exist_ok=True)
 
 reminders = 'Tasks Due\n'
 for t in json.loads(subprocess.check_output(['task', '+DUE',
