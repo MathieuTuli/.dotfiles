@@ -1,5 +1,0 @@
-[Unit]
-Description=File sync service to save certain files
-
-[Service]
-ExecStart=%h/.scripts/file-sync systemd

@@ -1,0 +1,10 @@
+[Unit]
+Description=File sync service to save certain files, timer
+
+[Timer]
+AccuracySec=10
+OnCalendar=*-*-* *:00:00
+Unit=file-sync.service
+
+[Install]
+WantedBy=multi-user.target

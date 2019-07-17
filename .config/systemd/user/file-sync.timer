@@ -1,10 +1,10 @@
 [Unit]
-Description=File sync service to save certain files, timer
+Description=Task Warrior Reminder timer
 
 [Timer]
 AccuracySec=10
-OnCalendar=*-*-* *:00:00
-Unit=file-sync.service
+OnCalendar=*-*-* 00:00:00
+Unit=time-warrior-remind.service
 
 [Install]
 WantedBy=multi-user.target
