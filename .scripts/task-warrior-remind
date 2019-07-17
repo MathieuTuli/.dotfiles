@@ -1,2 +1,3 @@
+#!/bin/sh
 $HOME/.scripts/task-warrior-export-due
 notify-send "$(remind $HOME/.config/remind/reminders.rem)"
