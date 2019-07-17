@@ -406,12 +406,12 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 inheritance = module/wlan
 format-connected-background = ${colors.purple}
 format-connected-foreground = ${colors.module-background}
-label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡%{FT-}
-ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡%{FT-}
-ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡%{FT-}
-ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡%{FT-}
+label-disconnected = *** %{F#666666 T6}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T6}⚡%{T-}%{F#666666 T6}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#666666 T6}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#666666 T6}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#666666 T6}⚡⚡%{FT-}
+ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#666666 T6}⚡%{FT-}
 ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/date]
@@ -552,7 +552,7 @@ adapter = AC0
 full-at = 100
 
 format-charging = <label-charging>
-format-charging-foreground = ${colors.white}
+format-charging-foreground = ${colors.green}
 format-charging-background = ${colors.module-background}
 format-discharging = <label-discharging>
 format-discharging-foreground = ${colors.white}
@@ -568,10 +568,10 @@ label-full = "%percentage:02%% %{T6}⚡%{T-}"
 
 [module/battery-productive]
 inheritance = module/battery
-format-charging-foreground = ${colors.white}
+format-charging-foreground = ${colors.module-background}
 format-charging-background = ${colors.green}
-format-discharging-foreground = ${colors.white}
-format-discharging-background = ${colors.module-background}
+format-discharging-foreground = ${colors.module-background}
+format-discharging-background = ${colors.white}
 format-full-foreground = ${colors.module-background}
 format-full-background = ${colors.green}
 
