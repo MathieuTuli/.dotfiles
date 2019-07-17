@@ -405,7 +405,7 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 [module/wlan-productive]
 inheritance = module/wlan
 format-connected-background = ${colors.purple}
-format-connected-foreground = ${colors.module-background}
+format-connected-foreground = ${colors.bar-background}
 label-disconnected = *** %{F#666666 T6}⚡⚡⚡⚡⚡⚡%{FT-}
 ramp-signal-0 = %{T6}⚡%{T-}%{F#666666 T6}⚡⚡⚡⚡⚡%{FT-}
 ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#666666 T6}⚡⚡⚡⚡%{FT-}
@@ -429,7 +429,7 @@ label-background = ${colors.module-background}
 
 [module/date-productive]
 inheritance = module/date
-label-foreground = ${colors.module-background}
+label-foreground = ${colors.bar-background}
 label-background = ${colors.blue}
 
 [module/alsa]
@@ -568,12 +568,17 @@ label-full = "%percentage:02%% %{T6}⚡%{T-}"
 
 [module/battery-productive]
 inheritance = module/battery
-format-charging-foreground = ${colors.module-background}
+format-charging-foreground = ${colors.bar-background}
 format-charging-background = ${colors.green}
-format-discharging-foreground = ${colors.module-background}
+format-discharging-foreground = ${colors.bar-background}
 format-discharging-background = ${colors.white}
 format-full-foreground = ${colors.module-background}
 format-full-background = ${colors.green}
+
+label-charging = "%percentage:02%% %{T6}⚡%{T-}"
+label-discharging = "%percentage:02%% %{T6}⚡%{T-}"
+label-discharging-foreground = ${colors.bar-background}
+label-full = "%percentage:02%% %{T6}⚡%{T-}"
 
 [module/core0temp]
 type=internal/temperature
