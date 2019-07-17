@@ -4,10 +4,13 @@ from argparse import ArgumentParser
 
 import subprocess
 import json
+import re
 
 
 parser = ArgumentParser(__doc__)
 parser.add_argument("--status", type=str)
+parser.add_argument("--remind", action='store_true')
+parser.set_defaults(remind=False)
 args = parser.parse_args()
 
 reminder_file = Path("~/.config/remind/reminders.rem").expanduser()
@@ -25,10 +28,20 @@ def write_tasks_to_file(status: str):
         annotations = list()
         if 'annotations' in t:
             annotations = t["annotations"]
-        reminders += f"REM {due[:4]}-{due[4:6]}-{due[6:8]} MSG"
-        reminders += f" {description} |"
-        for annotation in annotations:
-            reminders += f" {annotation['description']} -"
+        if args.remind:
+            reminders += f"REM {due[:4]}-{due[4:6]}-{due[6:8]} MSG"
+            reminders += f" {description} |"
+            for annotation in annotations:
+                reminders += f" {annotation['description']} -"
+        else:
+            add = f" - {due[:4]}-{due[4:6]}-{due[6:8]}"
+            add += f" {description}\n"
+            add = re.sub("(.{45})", "\\1\n   ", add, 0, re.DOTALL)
+            reminders += add
+            for annotation in annotations:
+                add = f"     - {annotation['description']}\n"
+                add = re.sub("(.{45})", "\\1\n       ", add, 0, re.DOTALL)
+                reminders += add
         reminders = reminders[:-1]
         reminders += "\n"
 

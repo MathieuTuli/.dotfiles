@@ -5,18 +5,18 @@ LINE_LIMIT=3
 $HOME/.scripts/task-warrior-export-due --status OVERDUE
 REMINDERS_FILE_LINES=$(wc -l $REMINDERS_FILE | cut -d " " -f1)
 if [ "$REMINDERS_FILE_LINES" -ne "$LINE_LIMIT" ]; then
-        notify-send --urgency=critical "$(remind $REMINDERS_FILE)"
+        notify-send --urgency=critical "$(cat $REMINDERS_FILE)"
 fi
 
 $HOME/.scripts/task-warrior-export-due --status ACTIVE
 REMINDERS_FILE_LINES=$(wc -l $REMINDERS_FILE | cut -d " " -f1)
 echo $REMINDERS_FILE_LINES
 if [ "$REMINDERS_FILE_LINES" -ne "$LINE_LIMIT" ]; then
-        notify-send --urgency=normal "$(remind $REMINDERS_FILE)"
+        notify-send --urgency=normal "$(cat $REMINDERS_FILE)"
 fi
 
 $HOME/.scripts/task-warrior-export-due --status DUE
 REMINDERS_FILE_LINES=$(wc -l $REMINDERS_FILE | cut -d " " -f1)
 if [ "$REMINDERS_FILE_LINES" -ne "$LINE_LIMIT" ]; then
-        notify-send --urgency=normal "$(remind $REMINDERS_FILE)"
+        notify-send --urgency=normal "$(cat $REMINDERS_FILE)"
 fi
