@@ -1,36 +1,41 @@
 #!/usr/bin/python
 from pathlib import Path
+from argparse import ArgumentParser
 
 import subprocess
 import json
 
-reminder_file = Path('~/.config/remind/reminders.rem').expanduser()
+
+parser = ArgumentParser(__doc__)
+parser.add_argument("--status", type=str)
+args = parser.parse_args()
+
+reminder_file = Path("~/.config/remind/reminders.rem").expanduser()
 if not reminder_file.is_file():
-    Path('~/.config/remind').expanduser().mkdir(parents=True, exist_ok=True)
+    Path("~/.config/remind").expanduser().mkdir(parents=True, exist_ok=True)
     reminder_file.touch()
 
-reminders = 'Tasks Due\n'
-for t in json.loads(subprocess.check_output(['task', '+DUE',
-                                             '+UNBLOCKED', 'export'])):
-    print(t)
-    due = t['due']
-    description = t['description']
-    annotations = t['annotations']
-    reminders += f"REM {due[:4]}-{due[4:6]}-{due[6:8]} MSG"
-    reminders += f" {description} |"
-    for annotation in annotations:
-        reminders += f" {annotation['description']} -"
-    reminders = reminders[:-1]
-    reminders += "\n"
-    # reminders += ("REM %s-%s-%s MSG %%\"%s%%\"\n" %
-    #               (t['due'][:4], t['due'][4:6], t['due'][6:8],
-    #                t['description']))
 
-# print(reminders)
+def write_tasks_to_file(status: str):
+    reminders = f"Tasks {status.lower()}\n"
+    for t in json.loads(subprocess.check_output(["task", f"+{status}",
+                                                 "+UNBLOCKED", "export"])):
+        due = t["due"]
+        description = t["description"]
+        annotations = list()
+        if 'annotations' in t:
+            annotations = t["annotations"]
+        reminders += f"REM {due[:4]}-{due[4:6]}-{due[6:8]} MSG"
+        reminders += f" {description} |"
+        for annotation in annotations:
+            reminders += f" {annotation['description']} -"
+        reminders = reminders[:-1]
+        reminders += "\n"
 
-with open(reminder_file, 'r') as f:
-    # compare file with reminders string
-    if reminders != f.read():
-        # write new file only if it differs from existing file
-        with open(reminder_file, 'w') as o:
-            o.write(reminders)
+    with open(reminder_file, "r") as f:
+        if reminders != f.read():
+            with open(reminder_file, "w") as o:
+                o.write(reminders)
+
+
+write_tasks_to_file(args.status)
