@@ -1,6 +1,6 @@
 #!/bin/sh
 REMINDERS_FILE="$HOME/.config/remind/reminders.rem"
-LINE_LIMIT=3
+LINE_LIMIT=1
 
 $HOME/.scripts/task-warrior-export-due --status OVERDUE
 REMINDERS_FILE_LINES=$(wc -l $REMINDERS_FILE | cut -d " " -f1)
