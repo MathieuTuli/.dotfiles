@@ -9,6 +9,7 @@ WINDOW_ID_CONKY=/tmp/conky_window_id
 
 launch() {
     echo "close" > /tmp/polybar_side_panel_state
+    echo "off" > $HOME/.config/scripts/productive_polybar_status
     # conky_launch
     # sleep 0.2
     killall -q polybar
@@ -61,6 +62,7 @@ launch() {
 }
 
 launch_productive() {
+    echo "on" > $HOME/.config/scripts/productive_polybar_status
     echo "close" > /tmp/polybar_side_panel_state
     killall -q polybar
     if type "xrandr"; then
