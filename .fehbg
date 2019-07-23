@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/mat/.config/i3/background_2d2d2d.jpg' 
+feh --bg-max --image-bg '#2d2d2d' '/home/mat/.config/i3/backgrounds/grey_lego_patent.jpg' 
