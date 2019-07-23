@@ -40,6 +40,5 @@ if __name__ == "__main__":
                                          args.color[1],
                                          args.color[2]))
         image_file_name = args.image.split('/')[-1]
-        destination = os.path.join(os.path.expanduser(args.dest),
-                                   image_file_name[:-4] + "_border.jpg")
-        cv2.imwrite(destination, border_img)
+        cv2.imwrite(args.dest, border_img)
+        print("Success")
