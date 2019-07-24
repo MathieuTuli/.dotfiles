@@ -30,7 +30,7 @@ while true; do
         CHARGING=${CHARGING//POWER_SUPPLY_STATUS=/}
         if [[ $CHARGING = "Discharging" ]]; then
                 if [ $CAPACITY -le $UPPER_LIMIT -a $CAPACITY -lt $PREVIOUS_CAPACITY ]; then
-                        notify-send --urgency=critical "$MESSAGE"
+                        notify-send --urgency=critical "$MESSAGE | $CAPACITY%"
                         PREVIOUS_CAPACITY=$CAPACITY
                 elif [ $CAPACITY -gt $UPPER_LIMIT ]; then
                         PREVIOUS_CAPACITY=$(($UPPER_LIMIT+1))
