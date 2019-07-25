@@ -54,3 +54,8 @@ function pacman() {
     # interactive, and it often dumps me screen fulls.
     command pacman --color=always "$@" | less
 }
+
+function pytest() {
+    command pytest --color=yes "$@" | less
+}
+alias psql="i3-msg title_format \"psql\"; psql"
