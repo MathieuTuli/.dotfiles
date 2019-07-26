@@ -55,7 +55,7 @@ function pacman() {
     command pacman --color=always "$@" | less
 }
 
-function pytest() {
-    command pytest --color=yes "$@" | less
-}
-alias psql="i3-msg title_format \"psql\"; psql"
+# function pytest() {
+#     command pytest --color=yes "$@" | less
+# }
+alias psql="i3-msg title_format \"psql\"; psql \"$@\""

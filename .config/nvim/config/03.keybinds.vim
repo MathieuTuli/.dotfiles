@@ -19,10 +19,10 @@ inoremap [; [<CR>];<C-c>O
 nnoremap <M-l> $
 nnoremap <M-h> ^
 " INSERT MODE RELATED
-imap <Up>    <Nop>
-imap <Down>  <Nop>
-imap <Left>  <Nop>
-imap <Right> <Nop>
+" imap <Up>    <Nop>
+" imap <Down>  <Nop>
+" imap <Left>  <Nop>
+" imap <Right> <Nop>
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 inoremap <C-h> <Left>
