@@ -93,7 +93,7 @@ font-6 = Noto Sans Symbols:pixelsize=12;3
 font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
 font-8 = Noto Sans Symbols2:pixelsize=12;3
 
-modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r
 modules-right = r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
 
 # tray-position = right
@@ -146,7 +146,7 @@ enable-ipc = true
 modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged grey-spacer dotfiles-ahead r-slant-module-r
 # r-slant-module-l file-sync r-slant-module-r
 modules-center = c-slant-module-l core0temp grey-spacer core1temp grey-spacer core2temp grey-spacer core3temp grey-spacer core4temp grey-spacer core5temp c-slant-module-r
-modules-right= l-slant-module-l weather-current-icon spacer weather-current yellow-spacer weather-forecast-icon spacer weather-forecast yellow-spacer weather-set-icon spacer weather-set l-slant-module-r
+modules-right=l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
 
 height=22
 border-size = 0
