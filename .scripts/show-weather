@@ -1,0 +1,2 @@
+#!/bin/zsh
+termite --hold -e "zsh -c \"sleep 0.1;curl wttr.in  | less \""
