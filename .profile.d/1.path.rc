@@ -30,3 +30,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export PGDATA=/var/lib/postgres/data
+
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$LCM_LIBRARY_DIR/pkgconfig
