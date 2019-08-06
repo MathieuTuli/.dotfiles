@@ -35,14 +35,14 @@ function compute_line_limit(){
 
 re='^[0-9]+$'
 FILTER=""
-DETAIL="list"
+DETAIL="long"
 # LONGLIMIT=1000
 # LONGLIMIT_FIT=19
 FOCUS=""
 i3-msg title_format "Calendar"
 DUE=""
 HELP=0
-SHOW_CALENDAR=false
+SHOW_CALENDAR=true
 PRIORITY=""
 LIMIT_FIT=true
 compute_line_limit
