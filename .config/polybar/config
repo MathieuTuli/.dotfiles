@@ -143,9 +143,9 @@ bottom=true
 enable-ipc = true
 
 # reverse the slants
-modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles-modified grey-spacer dotfiles-deleted grey-spacer dotfiles-staged grey-spacer dotfiles-ahead r-slant-module-r
+modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles r-slant-module-r
 # r-slant-module-l file-sync r-slant-module-r
-modules-center = c-slant-module-l core0temp grey-spacer core1temp grey-spacer core2temp grey-spacer core3temp grey-spacer core4temp grey-spacer core5temp c-slant-module-r
+modules-center = c-slant-module-l cpu-temp c-slant-module-r
 modules-right=l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
 
 height=22
@@ -581,36 +581,12 @@ label-discharging = "%percentage:02%% %{T6}⚡%{T-}"
 label-discharging-foreground = ${colors.bar-background}
 label-full = "%percentage:02%% %{T6}⚡%{T-}"
 
-[module/core0temp]
-type=internal/temperature
+[module/cpu-temp]
+type = custom/script
+exec = ~/.scripts/polybar-cpu-temp -t 80
 interval=0.5
-thermal-zone=0
-hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input
-warm-temperature=80
-unit=true
-format=<label>
-format-warn=<label-warn>
-label=%temperature-c%
-label-foreground=${colors.focused-i3-background}
-label-background=${colors.module-background}
-label-warn=%temperature-c%
-label-warn-foreground= ${colors.red}
-label-warn-background=${colors.module-background}
-[module/core1temp]
-inheritance=module/core0temp
-hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp3_input
-[module/core2temp]
-inheritance=module/core0temp
-hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp4_input
-[module/core3temp]
-inheritance=module/core0temp
-hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp5_input
-[module/core4temp]
-inheritance=module/core0temp
-hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp6_input
-[module/core5temp]
-inheritance=module/core0temp
-hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp7_input
+label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
 
 [module/arch-updates]
 type = custom/script
@@ -652,25 +628,13 @@ inheritance=module/weather-current
 exec = ~/.scripts/polybar-weather -i set_icon
 label-font=5
 
-[module/dotfiles-modified]
+[module/dotfiles]
 type = custom/script
-exec = ~/.scripts/polybar-dotfiles-status -i modified
+exec = ~/.scripts/polybar-dotfiles-status
 label-font=1
 interval=10
-label-foreground = ${colors.orange}
+label-foreground = ${colors.focused-i3-background}
 label-background = ${colors.module-background}
-[module/dotfiles-deleted]
-inheritance=module/dotfiles-modified
-exec = ~/.scripts/polybar-dotfiles-status -i deleted
-label-foreground = ${colors.red}
-[module/dotfiles-staged]
-inheritance=module/dotfiles-modified
-exec = ~/.scripts/polybar-dotfiles-status -i staged
-label-foreground = ${colors.green}
-[module/dotfiles-ahead]
-inheritance=module/dotfiles-modified
-exec = ~/.scripts/polybar-dotfiles-status -i ahead
-label-foreground = ${colors.purple}
 
 [module/file-sync]
 type = custom/ipc

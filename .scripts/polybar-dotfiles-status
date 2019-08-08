@@ -1,17 +1,14 @@
 #!/bin/sh
-while getopts i: option
-do
-case "${option}"
-in
-i) INFO=${OPTARG};;
-esac
-done
+MODIFIED=$(git dotfiles ls-files $HOME --modified | wc -l)
+STAGED=$(git dotfiles diff --name-only --cached | wc -l)
+DELETED=$(git dotfiles ls-files $HOME --deleted | wc -l)
+AHEAD=$(git dotfiles rev-list razer-laptop...origin/razer-laptop --count)
+ORANGE="%{F#FFaF87}"
+RED="%{F#FF8787}"
+GREEN="%{F#85ca9c}"
+PURPLE="%{F#9f78e1}"
+GREY="%{F#7b7b7b}"
+COLOR_END="%{F-}"
 
-
-case $INFO in
-        staged) echo $(git dotfiles diff --name-only --cached | wc -l);;
-        modified) echo $(git dotfiles ls-files $HOME --modified | wc -l);;
-        deleted) echo $(git dotfiles ls-files $HOME --deleted | wc -l);;
-        ahead) echo $(git dotfiles rev-list razer-laptop...origin/razer-laptop --count);;
-        *) echo "??";;
-esac
+BAR="$GREY|$COLOR_END"
+echo "$ORANGE$MODIFIED$COLOR_END $BAR $RED$DELETED$COLOR_END $BAR $GREEN$STAGED$COLOR_END $BAR $PURPLE$AHEAD$COLOR_END"

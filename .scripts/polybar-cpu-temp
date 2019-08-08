@@ -1,0 +1,71 @@
+#!/bin/sh
+while getopts 't::' opt; do
+    case $opt in
+        t)
+            [[ $OPTARG =~ ^[0-9]+$ ]] || error "${opt}: ${OPTARG} is not a number" 2
+            HOT_THRESHOLD="${OPTARG}"
+            ;;
+        :)
+            error "Option -$OPTARG requires an argument." 2
+            ;;
+        \?)
+            exit 2
+            ;;
+    esac
+done
+CORE_0=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp2_input)
+CORE_0_FLOAT=$(bc <<< "scale=1; $CORE_0 / 1000")
+CORE_0_INT=$(($CORE_0 / 1000 ))
+CORE_1=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp3_input)
+CORE_1_FLOAT=$(bc <<< "scale=1; $CORE_1 / 1000")
+CORE_1_INT=$(($CORE_1 / 1000 ))
+CORE_2=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp4_input)
+CORE_2_FLOAT=$(bc <<< "scale=1; $CORE_2 / 1000")
+CORE_2_INT=$(($CORE_2 / 1000 ))
+CORE_3=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp5_input)
+CORE_3_FLOAT=$(bc <<< "scale=1; $CORE_3 / 1000")
+CORE_3_INT=$(($CORE_3 / 1000 ))
+CORE_4=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp6_input)
+CORE_4_FLOAT=$(bc <<< "scale=1; $CORE_4 / 1000")
+CORE_4_INT=$(($CORE_4 / 1000 ))
+CORE_5=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp7_input)
+CORE_5_FLOAT=$(bc <<< "scale=1; $CORE_5 / 1000")
+CORE_5_INT=$(($CORE_5 / 1000 ))
+
+RED="%{F#FF8787}"
+GREY="%{F#7b7b7b}"
+COLOR_END="%{F-}"
+
+if [ $CORE_0_INT -ge $HOT_THRESHOLD ]; then
+        CORE_0_ECHO="$RED$CORE_0_FLOAT$COLOR_END"
+else
+        CORE_0_ECHO="$GREY$CORE_0_FLOAT$COLOR_END"
+fi
+if [ $CORE_1_INT -ge $HOT_THRESHOLD ]; then
+        CORE_1_ECHO="$RED$CORE_1_FLOAT$COLOR_END"
+else
+        CORE_1_ECHO="$GREY$CORE_1_FLOAT$COLOR_END"
+fi
+if [ $CORE_2_INT -ge $HOT_THRESHOLD ]; then
+        CORE_2_ECHO="$RED$CORE_2_FLOAT$COLOR_END"
+else
+        CORE_2_ECHO="$GREY$CORE_2_FLOAT$COLOR_END"
+fi
+if [ $CORE_3_INT -ge $HOT_THRESHOLD ]; then
+        CORE_3_ECHO="$RED$CORE_3_FLOAT$COLOR_END"
+else
+        CORE_3_ECHO="$GREY$CORE_3_FLOAT$COLOR_END"
+fi
+if [ $CORE_4_INT -ge $HOT_THRESHOLD ]; then
+        CORE_4_ECHO="$RED$CORE_4_FLOAT$COLOR_END"
+else
+        CORE_4_ECHO="$GREY$CORE_4_FLOAT$COLOR_END"
+fi
+if [ $CORE_5_INT -ge $HOT_THRESHOLD ]; then
+        CORE_5_ECHO="$RED$CORE_5_FLOAT$COLOR_END"
+else
+        CORE_5_ECHO="$GREY$CORE_5_FLOAT$COLOR_END"
+fi
+
+BAR="$GREY|$COLOR_END"
+echo "$CORE_0_ECHO $BAR $CORE_1_ECHO $BAR $CORE_2_ECHO $BAR $CORE_3_ECHO $BAR $CORE_4_ECHO $BAR $CORE_5_ECHO"
