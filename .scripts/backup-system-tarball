@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo tar zcvfp arch-system.gz /boot /etc /root /user /sys /lib /bin
+tar zcvfp arch-system.gz /boot /etc /root /user /sys /lib /bin
 tar zcvfp mat.tar.gz /home/mat
-sudo tar zcvfp var.tar.gz /var --exclude "/var/cache/pacman/pkg"
+tar zcvfp var.tar.gz /var --exclude "/var/cache/pacman/pkg"
 notify-send --urgency=low "Done TAR Backup"
