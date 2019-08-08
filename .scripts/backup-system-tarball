@@ -1,1 +1,4 @@
 #!/bin/sh
+tar zcvfp arch-system.gz /
+tar zcvfp mat.tar.gz /home/mat
+tar zcvfp var.tar.gz /var --exclude "/var/cache/pacman/pkg"
