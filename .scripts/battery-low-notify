@@ -30,7 +30,7 @@ update_keyboard_colour () {
         ORANGE_LIMIT=40
         RED_LIMIT=20
         if [ $CAPACITY -ge $GREEN_LIMIT ]; then
-                COLOUR="\x7c\xFC\x00"
+                COLOUR="\x7C\xFC\x00"
         elif [ $CAPACITY -ge $YELLOW_LIMIT ]; then
                 COLOUR="\xFF\x6A\x00"
         elif [ $CAPACITY -ge $ORANGE_LIMIT ]; then
