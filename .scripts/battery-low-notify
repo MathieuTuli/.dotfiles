@@ -24,8 +24,25 @@ done
 CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
 PREVIOUS_CAPACITY=$(($CAPACITY+1))
 DISPLAY=:0
+update_keyboard_colour () {
+        GREEN_LIMIT=80
+        YELLOW_LIMIT=50
+        ORANGE_LIMIT=40
+        RED_LIMIT=20
+        if [ $CAPACITY -ge $GREEN_LIMIT ]; then
+                COLOUR="\x7c\xFC\x00"
+        elif [ $CAPACITY -ge $YELLOW_LIMIT ]; then
+                COLOUR="\xFF\x6A\x00"
+        elif [ $CAPACITY -ge $ORANGE_LIMIT ]; then
+                COLOUR="\xFF\x08\x00"
+        elif [ $CAPACITY -le $RED_LIMIT ]; then
+                COLOUR="\xFF\x06\x06"
+        fi
+        sh $HOME/.scripts/keyboard-colour $COLOUR
+}
 while true; do
         CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
+        update_keyboard_colour
         CHARGING=$(cat /sys/class/power_supply/BAT0/uevent | grep POWER_SUPPLY_STATUS)
         CHARGING=${CHARGING//POWER_SUPPLY_STATUS=/}
         if [[ $CHARGING = "Discharging" ]]; then
