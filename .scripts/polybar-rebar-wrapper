@@ -71,7 +71,7 @@ launch_productive() {
             BAR_ID=$!
             rm -f /tmp/polybar_mqueue_top_$m
             ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
-            MONITOR=$m polybar --reload main-bottom-productive&
+            # MONITOR=$m polybar --reload main-bottom-productive&
             BAR_ID=$!
             rm -f /tmp/polybar_mqueue_bottom_$m
             ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
@@ -81,7 +81,7 @@ launch_productive() {
         BAR_ID=$!
         rm -f /tmp/polybar_mqueue_top
         ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
-        polybar --reload main-bottom-productive&
+        # polybar --reload main-bottom-productive&
         BAR_ID=$!
         rm -f /tmp/polybar_mqueue_bottom
         ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
