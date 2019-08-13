@@ -61,3 +61,7 @@ function pacman() {
 #     command pytest --color=yes "$@" | less
 # }
 alias psql="i3-msg title_format \"psql\"; psql \"$@\""
+
+function apvlv() {
+    command apvlv "$@" &
+}
