@@ -65,3 +65,7 @@ alias psql="i3-msg title_format \"psql\"; psql \"$@\""
 function apvlv() {
     command apvlv "$@" &
 }
+
+function show-pdf() {
+    command apvlv "$@" &
+}
