@@ -654,7 +654,7 @@ label-background = ${colors.module-background}
 type = custom/script
 exec = ~/.scripts/polybar-nordvpn-status
 label-font=3
-interval=30
+interval=5
 label-foreground = ${colors.focused-i3-background}
 label-background = ${colors.module-background}
 ;------------------------------------------------------------

@@ -12,5 +12,5 @@ if [ "$CONNECTED" = "Connected" ]; then
         CITY=$(nordvpn status | grep City | tr -d ' ' | cut -d ':' -f2)
         echo "$GREY$CITY, $COUNTRY$COLOR_END $BAR $GREY$IP$COLOR_END $BAR $GREEN▲$COLOR_END"
 else
-    echo "$RED▼$COLOR_END"
+    echo " $RED▼$COLOR_END "
 fi
