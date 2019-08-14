@@ -69,3 +69,5 @@ function apvlv() {
 function show-pdf() {
     command apvlv "$@" &
 }
+
+alias notify-done="notify-send \"Done\""
