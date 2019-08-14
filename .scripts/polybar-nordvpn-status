@@ -11,7 +11,7 @@ if [ "$CONNECTED" = "Connected" ]; then
         IP=$(nordvpn status | grep IP | tr -d ' ' | cut -d ':' -f2)
         COUNTRY=$(nordvpn status | grep Country | tr -d ' ' | cut -d ':' -f2)
         CITY=$(nordvpn status | grep City | tr -d ' ' | cut -d ':' -f2)
-        echo "$GREY[$CITY, $COUNTRY] $IP$COLOR_END $GREEN▲$COLOR_END "
+        echo "$GREY$CITY, $COUNTRY | $IP | $GREEN▲$COLOR_END "
 else
     echo " $RED▼$COLOR_END "
 fi
