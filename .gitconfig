@@ -13,3 +13,8 @@
     keepBackup = false
 [mergetool "nvim"]
     cmd = nvim \"$MERGED\" -c \"normal ]nzRzt\"
+[color]
+[color "branch"]
+[color "diff"]
+[color "status"]
+  change = 1

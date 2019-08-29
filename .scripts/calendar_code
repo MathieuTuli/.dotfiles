@@ -15,10 +15,15 @@ long_comparator=15
 FOCUS=""
 i3-msg title_format "Calendar"
 DUE=""
+HELP=0
 while true; do
         clear
         unbuffer task $FOCUS $DETAIL $FILTER $DUE $LINELIMIT | head -n $LONGLIMIT
         task calendar
+        if [ $HELP -eq 1 ]; then
+                echo "project:\ndue:\nlimit:\nfocus:\ndetail:"
+                HELP=0
+        fi
         COMMAND=''
         vared COMMAND
         if [[ $COMMAND = "q" ]] || [[ $COMMAND = "Q" ]]
@@ -30,6 +35,8 @@ while true; do
                         else
                                 FILTER=$COMMAND
                         fi
+                elif [[ $COMMAND == "help"* ]] then
+                        HELP=1
                 elif [[ $COMMAND == "due:"* ]] then
                         if [[ $COMMAND == *"all"* ]] then
                                 DUE=""
