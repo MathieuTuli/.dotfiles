@@ -1,0 +1,2 @@
+/home/mat/Documents
+/home/mat/.task

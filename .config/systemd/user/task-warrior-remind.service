@@ -1,0 +1,8 @@
+[Unit]
+Description=Task Warrior Reminder Service
+
+[Service]
+ExecStart=%h/.scripts/task-warrior-remind
+
+[Install]
+WantedBy=multi-user.target

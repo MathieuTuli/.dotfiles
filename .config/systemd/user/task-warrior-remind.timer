@@ -1,0 +1,10 @@
+[Unit]
+Description=Task Warrior Remind Timer
+
+[Timer]
+AccuracySec=10
+OnCalendar=*-*-* *:00:00
+Unit=task-warrior-remind.service
+
+[Install]
+WantedBy=multi-user.target

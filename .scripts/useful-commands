@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+echo '1. Create USB Bootable Drive from ISO'
+echo '    ** dd bs=4M if=*.iso of=/dev/sd* status=progress oflag=sync **'
+echo '2. Arch Linux AMI'
+echo '    ami-0889fe73849cf8a78'

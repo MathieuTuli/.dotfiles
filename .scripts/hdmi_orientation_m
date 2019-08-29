@@ -1,2 +1,0 @@
-#!/bin/sh
-echo "m" > $HOME/.status-files/new_hdmi_orientation_status

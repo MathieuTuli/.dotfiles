@@ -1,0 +1,10 @@
+#!/bin/sh
+FILE_NAME=$(find /sys/devices -name matrix_effect_static)
+COLOUR="$@"
+if [[ $COLOUR =~ ^\\x[0-9A-F]{2}\\x[0-9A-F]{2}\\x[0-9A-F]{2}$ ]]; then
+        echo -n -e "$COLOUR" > $FILE_NAME
+else
+        echo "$COLOUR is not a valid colour value"
+        echo "Colour must follow the regex: ^\\x[0-9A-F]{2}\\x[0-9A-F]{2}\\x[0-9A-F]{2}$ "
+        echo "For example: \x7C\xFC\x00"
+fi

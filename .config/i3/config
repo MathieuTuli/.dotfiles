@@ -14,53 +14,51 @@ font pango:monospace 14px
 # client.focused_inactive #87AFD7 #2D2D2D 	#87AFD7 #87AFD7   #87AFD7
 client.focused 		#FF8787 #393939 	#FF8787 #FF8787   #FF8787
 client.focused_inactive #87AFD7 #393939 	#87AFD7 #87AFD7   #87AFD7
-client.unfocused        #393939 #393939 	#888888 #393939   #393939
+client.unfocused        #2d2d2d #393939 	#888888 #393939   #393939
+client.urgent           #2d2d2d #FF8787 	#2d2d2d #393939   #393939
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Change HDMI orentiation [r]ight, [l]eft, [n]one, [m]irror
-bindsym $mod+Ctrl+r exec $HOME/.scripts/hdmi_orientation_r
-bindsym $mod+Ctrl+l exec $HOME/.scripts/hdmi_orientation_l
-bindsym $mod+Ctrl+m exec $HOME/.scripts/hdmi_orientation_m
-bindsym $mod+Ctrl+n exec $HOME/.scripts/hdmi_orientation_n
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec amixer set Master 2dB+
-bindsym XF86AudioLowerVolume exec amixer set Master 2dB-
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2dB+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2dB-
+bindsym XF86AudioMute exec --no-startup-id $HOME/.scripts/toggle-mute
 
 # Sreen brightness controls
-bindsym $mod+bracketright exec light -A 2 # increase screen brightness
-bindsym $mod+bracketleft exec light -U 2 # decrease screen brightness
+bindsym $mod+bracketright exec --no-startup-id light -A 2 # increase screen brightness
+bindsym $mod+bracketleft exec --no-startup-id light -U 2 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id $HOME/.scripts/spotify-play-pause
 
-# bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioPause exec --no-startup-id playerctl pause
+# bindsym XF86AudioNext exec --no-startup-id playerctl next
+# bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id $HOME/.scripts/spotify-next
+bindsym XF86AudioPrev exec --no-startup-id $HOME/.scripts/spotify-previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec ~/.config/i3/terminal.sh
-bindsym $mod+Return exec termite
-# bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec --no-startup-id ~/.config/i3/terminal.sh
+bindsym $mod+Return exec --no-startup-id termite
+# bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -i -p 'Arch Linux' -fn 'Wuncon Siji:pixelsize=16' -nb '#2d2d2d' -nf '#ffffff' -sf '#ffffff' -sb '#666666'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -p 'Arch Linux' -fn 'Source Code Pro for Powerline:pixelsize=21' -nb '#2d2d2d' -nf '#ffffff' -sf '#ffffff' -sb '#666666'
+bindsym $mod+Shift+d exec --no-startup-id python ~/.i3-wm-scripts/nextfind
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# bindsym $mod+o exec \
+# bindsym $mod+o exec --no-startup-id \
 #     ~/.config/i3/dmenu_tag -fn $dmenu_font \
 #                     -nb $normbgcolor \
 #                     -nf $normfgcolor \
@@ -68,7 +66,7 @@ bindsym $mod+d exec dmenu_run -i -p 'Arch Linux' -fn 'Wuncon Siji:pixelsize=16' 
 #                     -sf $selfgcolor \
 #                     -lh $dmenu_lh \
 #       | xargs i3-msg workspace
-# bindsym $mod+Shift+o exec \
+# bindsym $mod+Shift+o exec --no-startup-id \
 #     ~/.config/i3/dmenu_tag -fn $dmenu_font \
 #                     -nb $normbgcolor \
 #                     -nf $normfgcolor \
@@ -102,10 +100,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+z split h
+bindsym $mod+z split v
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -171,11 +169,12 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Ctrl+Shift+e exec i3-msg exit
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+Shift+e exec --no-startup-id i3-msg exit
 
 # resize window (you can also use the mouse for that)
 set $resize_amount 4
+set $large_resize_amount 20
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -187,12 +186,20 @@ mode "resize" {
         bindsym j resize grow height $resize_amount px or $resize_amount ppt
         bindsym k resize shrink height $resize_amount px or $resize_amount ppt
         bindsym l resize grow width $resize_amount px or $resize_amount ppt
+        bindsym Shift+h resize shrink width $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+j resize grow height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+k resize shrink height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+l resize grow width $large_resize_amount px or $large_resize_amount ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width $resize_amount px or $resize_amount ppt
+        bindsym Down resize grow height $resize_amount px or $resize_amount ppt
+        bindsym Up resize shrink height $resize_amount px or $resize_amount ppt
+        bindsym Right resize grow width $resize_amount px or $resize_amount ppt
+        bindsym Shift+Left resize shrink width $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+Down resize grow height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+Up resize shrink height $large_resize_amount px or $large_resize_amount ppt
+        bindsym Shift+Right resize grow width $large_resize_amount px or $resize_amount ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -202,19 +209,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# bindsym $mod+n exec /home/xmay/.config/i3/dual_lay.sh
-# bindsym $mod+m exec /home/xmay/.config/i3/single_lay.sh
-
-exec $HOME/.fehbg
-# exec ./.config/i3/scrl.sh
-exec $HOME/.config/polybar/rebar.sh
-exec dunst
-# exec compton --shadow-exclude-reg 1920x26+0+0
+exec --no-startup-id $HOME/.fehbg
+exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch
+bindsym $mod+p exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch && i3-msg gaps outer all set 7
+bindsym $mod+shift+p exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch_productive && i3-msg gaps outer all set 0
+exec --no-startup-id dunst
+exec --no-startup-id xscreensaver
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
 for_window [class="Spotify"] move to workspace $ws4
-assign [class="Google-chrome"] 2
+for_window [class="i3-frame"] floating disable
 assign [class="Slack"] 3
 gaps inner 0
 gaps outer 7

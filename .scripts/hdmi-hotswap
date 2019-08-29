@@ -1,0 +1,29 @@
+#!/bin/bash
+export PATH=$PATH:$HOME/.scripts
+export DISPLAY=:0
+export HDMI_ORIENTATION=r
+hdmi_off=true
+while true; do
+        xrandr | grep 'VIRTUAL1 connected'
+        hdmi_status=$?
+        if [ $hdmi_status -eq 0 ] ; then
+                echo 'VIRTUAL1 connected' | systemd-cat
+                echo 'VIRTUAL1 connected'
+                if $hdmi_off ; then
+                        echo 'Displaying HDMI' | systemd-cat
+                        echo 'Displaying HDMI'
+                        echo $HDMI_ORIENTATION | display-hdmi
+                        hdmi_off=false
+                else
+                        echo 'Already Displayed' | systemd-cat
+                        echo 'Already Displayed'
+                        sleep 1s
+                fi
+        else
+                echo 'VIRTUAL1 disconnected' | systemd-cat
+                echo 'VIRTUAL1 disconnected'
+                open_output_ports
+                hdmi_off=true
+        fi
+        sleep 5s
+done

@@ -1,0 +1,33 @@
+-- By default, NULL displays as an empty space. Is it actually an empty
+-- string, or is it null? This makes that distinction visible.
+\pset null '[NULL]'
+\pset true 'True'
+\pset false 'False'
+
+-- Use table format (with headers across the top) by default, but switch to
+-- expanded table format when there's a lot of data, which makes it much
+-- easier to read.
+\x off
+
+-- Verbose error reports.
+\set VERBOSITY verbose
+
+-- Use a separate history file per-database.
+\set HISTFILE ~/.psql_history- :DBNAME
+
+-- If a command is run more than once in a row, only store it once in the
+-- history.
+\set HISTCONTROL ignoredups
+
+-- Autocomplete keywords (like SELECT) in upper-case, even if you started
+-- typing them in lower case.
+-- \set COMP_KEYWORD_CASE upper
+
+-- \set PROMPT1 '%[%033[1m%]%M/%/%R%[%033[0m%]%# '
+
+\pset pager always
+\set PROMPT1 '%M:%[%033[1;33m%]%>%[%033[0m%] %[%033[1;31m%]%n%[%033[0m%]@%[%033[1;34m%]%/%[%033[0m%] %R%#%x '
+\set PROMPT2 '%M:%[%033[1;33m%]%>%[%033[0m%] %[%033[1;31m%]%n%[%033[0m%]@%[%033[1;34m%]%/%[%033[0m%] %R%#%x '
+\set VERBOSITY verbose
+
+-- \set PROMPT1 '%M: %[%033[1;43;30m%]%> %[%033[0m%]%[%033[1;41;33m%]%[%033[0m%]%[%033[1;41;30m%]%n%[%033[0m%]%[%033[1;43;30m%]%[%033[0m%]%[%033[1;44;30m%]%/%[%033[0m%]%[%033[1;30m%]%[%033[0m%] %R%#%x '

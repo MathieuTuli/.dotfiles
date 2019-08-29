@@ -1,4 +1,0 @@
-#!/bin/sh
-read -p "if: " INPUT
-read -p "of: " OUTPUT
-echo "sudo dd bs=4M if=$INPUT of=$OUTPUT status=progress oflag=sync"

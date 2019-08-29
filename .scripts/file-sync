@@ -1,0 +1,135 @@
+#! /usr/bin/env python3
+"""
+File Sync
+"""
+from argparse import ArgumentParser
+from pathlib import Path
+import subprocess
+
+WORKING_DIR = Path('~/.config/scripts/file-sync/').expanduser().resolve()
+WORKING_DIR.mkdir(parents=True, exist_ok=True)
+
+parser = ArgumentParser(prog='file_sync', description=__doc__)
+subparsers = parser.add_subparsers(dest='subparsers')
+
+for directive in 'add', 'remove', 'ls', 'systemd', 'sync':
+    if directive == 'add' or directive == 'remove':
+        subparser = subparsers.add_parser(
+                directive,
+                help=f'{directive} file1/dir1 file2/dir2 ' +
+                     'file3/dir3...')
+        subparser.add_argument('Args',
+                               metavar='args',
+                               nargs='+',
+                               default=[],
+                               type=str,)
+    elif directive == 'ls':
+        subparser = subparsers.add_parser(
+                directive,
+                help='list files and dirs to be synced')
+        subparser.add_argument('-f', '--files', dest='files',
+                               action='store_true', help='list only files')
+        subparser.set_defaults(files=False)
+        subparser.add_argument('-d', '--dirs', dest='dirs',
+                               action='store_true', help='list only dirs')
+        subparser.set_defaults(dirs=False)
+    elif directive == 'systemd':
+        subparser = subparsers.add_parser(
+                directive,
+                help='run systemd portion, the ' +
+                     'actual syncing')
+    elif directive == 'sync':
+        subparser = subparsers.add_parser(
+                directive,
+                help='run systemd portion, the ' +
+                     'actual syncing')
+    else:
+        raise ValueError("Something went wrong")
+    subparser.add_argument('-v', '--verbose',
+                           default=False,
+                           dest='verbose',
+                           action='store_true')
+    subparser.set_defaults(verbose=False)
+
+args = parser.parse_args()
+
+
+if __name__ == "__main__":
+    # if args.add_files or args.add_dir or args.remove_files or args.ls_files \
+    #         or args.ls_dirs or args.ls:
+    #     raise ValueError(
+    #             "Too many directives. You can only do one of [add_file, " +
+    #             "add-dir, remove-file, remove-dir, ls-files, ls-dirs, ls] " +
+    #             "at a time.")
+    to_sync = WORKING_DIR.joinpath("to_sync.txt")
+    if args.subparsers == 'add':
+        with open(to_sync, 'r') as f:
+            lines = [line.strip() for line in f.readlines()]
+        with open(to_sync, 'a+') as f:
+            for arg in args.Args:
+                path = Path(arg).expanduser().resolve()
+                if path.is_dir() or path.is_file():
+                    if str(path) not in lines:
+                        f.write(str(path))
+                        f.write('\n')
+                        if args.verbose:
+                            print(f"{path} added.")
+                    else:
+                        if args.verbose:
+                            print(f"{path} already recorded.")
+                else:
+                    if args.verbose:
+                        print(f"{path} is not a valid path. Did not add.")
+    elif args.subparsers == 'remove':
+        for arg in args.Args:
+            path = Path(arg).expanduser().resolve()
+            with open(to_sync, 'r') as f:
+                lines = f.readlines()
+            with open(to_sync, 'w') as f:
+                for line in lines:
+                    if Path(path) != path:
+                        f.write(line)
+                        f.write('\n')
+                    else:
+                        if args.verbose:
+                            print(f"Removed {path}.")
+    elif args.subparsers == 'ls':
+        with open(to_sync, 'r') as f:
+            lines = f.readlines()
+        for line in lines:
+            line = line.strip()
+            if args.files:
+                if Path(line).is_file():
+                    print(line)
+            elif args.dirs:
+                if Path(line).is_dir():
+                    print(line)
+            else:
+                print(line)
+    elif args.subparsers == 'systemd' or args.subparsers == 'sync':
+        with open(to_sync, 'r') as f:
+            lines = [line.strip() for line in f.readlines()]
+        for line in lines:
+            rsync_command = ['rsync', '--relative', '-r', '-i',
+                             str(Path('~/.ssh/id_rsa.pub').expanduser()),
+                             f'{line}', 'file-sync:~/efs']
+            try:
+                p = subprocess.Popen(rsync_command,
+                                     stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE,
+                                     shell=False)
+                out, err = p.communicate()
+                if err:
+                    notify_command = ['notify-send', '--urgency=critical',
+                                      f'{line} failed to sync: {err}']
+                else:
+                    notify_command = ['notify-send', '--urgency=low',
+                                      f'{line} synced.']
+            except Exception as e:
+                notify_command = ['notify-send', '--urgency=critical',
+                                  f'{line} failed to sync: {e}']
+            p = subprocess.Popen(notify_command,
+                                 stdout=subprocess.PIPE,
+                                 stderr=subprocess.PIPE,
+                                 shell=False)
+            out, err = p.communicate()

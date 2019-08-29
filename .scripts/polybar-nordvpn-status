@@ -1,0 +1,17 @@
+#!/bin/sh
+CONNECTED=$(nordvpn status | grep Status | tr -d ' ' | cut -d ':' -f2)
+RED="%{F#FF8787}"
+GREEN="%{F#85ca9c}"
+BROWN="%{F#906050}"
+GREY="%{F#7b7b7b}"
+COLOR_END="%{F-}"
+BAR="$GREY|$COLOR_END"
+
+if [ "$CONNECTED" = "Connected" ]; then
+        IP=$(nordvpn status | grep IP | tr -d ' ' | cut -d ':' -f2)
+        COUNTRY=$(nordvpn status | grep Country | tr -d ' ' | cut -d ':' -f2)
+        CITY=$(nordvpn status | grep City | tr -d ' ' | cut -d ':' -f2)
+        echo "$GREY$CITY, $COUNTRY | $IP | $GREEN▲$COLOR_END "
+else
+    echo " $RED▼$COLOR_END "
+fi

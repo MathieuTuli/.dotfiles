@@ -9,16 +9,12 @@ selected-workspace-background = #666666
 ; Text Color
 foreground = #222222
 
-; Little bits at the bottom of WS numbers
-primary = #cCc0b0
-
 ; These are both for alerts
 secondary = #FD2C40
 ; alert = #BD2C40
 alert = #F67280
 
 ; i3
-
 focused-i3-background = #7B7B7B
 focused-i3-foreground = #222222
 unfocused-i3-background = #222222
@@ -37,7 +33,7 @@ module-background = #393939
 ; red = #F67280
 ; orange = F8B195
 transparent = #00ffffff
-white = #FFFFFF
+white = #eeeeee
 grey = #444444
 blue = #87AFD7
 purple = #9F78E1
@@ -46,17 +42,24 @@ purple = #9F78E1
 green = #85ca9c
 red = #FF8787
 orange = #FFAF87
-# pink = #FFAFD7
-pink = #D7AFD7
+pink = #FFAFD7
+# pink = #D7AFD7
+yellow = #FFFD98
+brown = #906050
 
+
+[vars]
+monitor = ${env:MONITOR:}
 ;------------------------------------------------------------
 ;       BARS
 ;------------------------------------------------------------
 [bar/main]
 monitor = ${env:MONITOR:}
+bottom=false
+enable-ipc = true
 
 width = 100%
-height = 18
+height = 22
 radius = 0.0
 
 background = ${colors.bar-background}
@@ -80,17 +83,18 @@ border-right-color = ${colors.bar-background}
 ; module-margin-left = 1
 ; module-margin-right = 1
 
-font-0 = fixed:pixelsize=12;3
+font-0 = Source Code Pro for Powerline:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Wuncon Siji:pixelsize=12;3
+font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
 font-3 = fixed:pixelsize=0;0
+font-4 = WeatherIcons:size=12;4
+font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
+font-6 = Noto Sans Symbols:pixelsize=12;3
+font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
+font-8 = Noto Sans Symbols2:pixelsize=12;3
 
-# modules-left = edge-space l-slant-unfocused-i3-l i3 l-slant-unfocused-i3-r space  l-slant-module-l spotify l-slant-module-r space alsa
-modules-left = l-slant-module-l i3 l-slant-module-r space l-slant-module-l spotify l-slant-module-r space l-slant-module-l alsa l-slant-module-r
-# modules-center = alsa
-# modules-right = arrow-filesystem filesystem arrow-memory memory arrow-cpu cpu arrow-wlan wlan arrow-battery Battery arrow-date date
-# modules-right = r-slant-red-l filesystem r-slant-red-r space r-slant-orange-l memory r-slant-orange-r space r-slant-green-l cpu r-slant-green-r space r-slant-purple-l wlan r-slant-purple-r space r-slant-orange-l battery r-slant-orange-r space r-slant-blue-l date r-slant-blue-r edge-space
-modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-module-l memory space cpu r-slant-module-r space r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l date r-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
+modules-right = r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
 
 # tray-position = right
 # tray-padding = 2
@@ -98,21 +102,89 @@ modules-right = r-slant-module-l filesystem r-slant-module-r space r-slant-modul
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[bar/main-productive]
+monitor = ${env:MONITOR:}
+inheritance=bar/main
+bottom=false
+enable-ipc = true
+
+width = 100%
+height = 22
+radius = 0.0
+
+background = ${colors.bar-background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #FFFFFF
+
+border-size = 0
+border-color = ${colors.bar-background}
+border-top-size = 7
+border-top-color = ${colors.bar-background}
+border-bottom-size = 7
+border-bottom-color = ${colors.bar-background}
+border-left-size = 7
+border-left-color = ${colors.bar-background}
+border-right-size = 7
+border-right-color = ${colors.bar-background}
+
+modules-left = l-slant-module-l i3 l-slant-module-r
+modules-right = r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
+# modules-left = i3-productive
+# modules-right = wlan-productive productive-spacer battery-productive productive-spacer date-productive
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/main-bottom]
+inheritance=bar/main
+bottom=true
+enable-ipc = true
+
+# reverse the slants
+modules-left=r-slant-module-l arch-updates r-slant-module-r r-slant-module-l dotfiles r-slant-module-r
+# r-slant-module-l file-sync r-slant-module-r
+modules-center = c-slant-module-l cpu-temp c-slant-module-r
+modules-right = l-slant-module-l nordvpn-status l-slant-module-r
+
+height=22
+border-size = 0
+border-color = ${colors.bar-background}
+border-top-size = 0
+border-top-color = ${colors.red}
+border-bottom-size = 7
+border-bottom-color = ${colors.bar-background}
+border-left-size = 7
+border-left-color = ${colors.bar-background}
+border-right-size = 7
+border-right-color = ${colors.bar-background}
+
 ;------------------------------------------------------------
 ;       DECORATIONS
 ;------------------------------------------------------------
+[module/spacer]
+type=custom/text
+content = " "
+content-foreground = ${colors.module-background}
+content-background = ${colors.module-background}
 
-[module/edge-space]
-type = custom/text
-content = ""
+[module/productive-spacer]
+inheritance=module/spacer
 content-foreground = ${colors.bar-background}
 content-background = ${colors.bar-background}
 
-[module/space]
-type = custom/text
-content = "%{T4} %{T-}"
-content-foreground = ${colors.bar-background}
-content-background = ${colors.bar-background}
+[module/yellow-spacer]
+type=custom/text
+content = " | "
+content-foreground = ${colors.yellow}
+content-background = ${colors.module-background}
+
+[module/grey-spacer]
+type=custom/text
+content = " | "
+content-foreground = ${colors.focused-i3-background}
+content-background = ${colors.module-background}
 
 [module/l-slant-bar-l]
 type = custom/text
@@ -143,18 +215,21 @@ content-font = 2
 content-foreground = ${colors.module-background}
 content-background= ${colors.bar-background}
 
-[module/l-slant-unfocused-i3-l]
+[module/c-slant-module-l]
 type = custom/text
-content = ""
+# content = ""
+content = ""
 content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.unfocused-i3-background}
+content-foreground = ${colors.module-background}
+content-background = ${colors.bar-background}
 
-[module/l-slant-unfocused-i3-r]
+[module/c-slant-module-r]
+# █
 type = custom/text
 content = ""
+# content = ""
 content-font = 2
-content-foreground = ${colors.unfocused-i3-background}
+content-foreground = ${colors.module-background}
 content-background= ${colors.bar-background}
 
 [module/r-slant-module-l]
@@ -171,139 +246,35 @@ content-font = 2
 content-foreground = ${colors.bar-background}
 content-background= ${colors.module-background}
 
-[module/r-slant-red-l]
+[module/l-slant-unfocused-i3-l]
 type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.red}
-content-background = ${colors.bar-background}
-
-[module/r-slant-red-r]
-type = custom/text
-content = ""
+content = ""
 content-font = 2
 content-foreground = ${colors.bar-background}
-content-background = ${colors.red}
+content-background = ${colors.unfocused-i3-background}
 
-[module/r-slant-orange-l]
+[module/l-slant-unfocused-i3-r]
 type = custom/text
-content = ""
+content = ""
 content-font = 2
-content-foreground = ${colors.orange}
-content-background = ${colors.bar-background}
+content-foreground = ${colors.unfocused-i3-background}
+content-background= ${colors.bar-background}
 
-[module/r-slant-orange-r]
+[module/bar]
 type = custom/text
-content = ""
+content = "█"
 content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.orange}
+content-foreground = ${colors.module-background}
+content-background= ${colors.module-background}
 
-[module/r-slant-green-l]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.bar-background}
-
-[module/r-slant-green-r]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.green}
-
-[module/r-slant-purple-l]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.purple}
-content-background = ${colors.bar-background}
-
-[module/r-slant-purple-r]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.purple}
-
-[module/r-slant-blue-l]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.blue}
-content-background = ${colors.bar-background}
-
-[module/r-slant-blue-r]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.bar-background}
-content-background = ${colors.blue}
-
-[module/arrow-i3]
-type = custom/text
-content = ""
-content-font = 2
-content-foreground = ${colors.transparent}
-content-background = ${colors.green}
-
-[module/arrow-spotify]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.bar-background}
-
-[module/arrow-filesystem]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.red}
-content-background = ${colors.bar-background}
-
-[module/arrow-memory]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.orange}
-content-background = ${colors.red}
-
-[module/arrow-cpu]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.green}
-content-background = ${colors.orange}
-
-[module/arrow-wlan]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.purple}
-content-background = ${colors.green}
-
-[module/arrow-battery]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.orange}
-content-background = ${colors.purple}
-
-[module/arrow-date]
-type = custom/text
-content = " "
-content-font = 2
-content-foreground = ${colors.blue}
-content-background = ${colors.orange}
-
+# 
 ;------------------------------------------------------------
 ;       MODULES
 ;------------------------------------------------------------
 
 [module/system-nvidia-smi]
 type = custom/script
-exec = ~/.config/polybar/system-nvidia-smi.sh
+exec = ~/.scripts/polybar-nvidia-smi
 label-foreground = ${colors.pink}
 label-background = ${colors.module-background}
 interval = 0.5
@@ -318,6 +289,7 @@ label-foreground = ${colors.module-backgrond}
 
 label-mode-background = ${colors.alert}
 label-mode-foreground = ${colors.module-background}
+label-mode = " %mode% "
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
@@ -331,19 +303,19 @@ label-focused-foreground= ${colors.module-background}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = "%index%"
 label-unfocused-padding = 1
 label-unfocused-background = ${colors.module-background}
 label-unfocused-foreground= ${colors.unfocused-i3-foreground}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = "%index%"
 label-visible-background = ${self.label-focused-background}
 ; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = "%index%"
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
@@ -351,11 +323,29 @@ label-urgent-padding = 1
 ; label-separator = |
 ; ws-icon-0 = 1;⌬
 
+[module/i3-productive]
+inheritance=module/i3
+# label-unfocused = "%icon%"
+# label-focused = "%icon%"
+# label-visible = "%icon%"
+# label-urgent = "%icon%"
+#
+# ws-icon-0 = 1;-
+# ws-icon-1 = 2;-
+# ws-icon-2 = 3;-
+# ws-icon-3 = 4;-
+# ws-icon-4 = 5;-
+# ws-icon-5 = 6;-
+# ws-icon-6 = 7;-
+# ws-icon-7 = 8;-
+# ws-icon-8 = 9;-
+# ws-icon-9 = 10;
+
 [module/spotify]
 type = custom/script
-interval = 0.1
+interval = 3
 format = <label>
-exec = python ~/.scripts/spotify_status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
+exec = python ~/.scripts/polybar-spotify-status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
 # label-foreground = ${colors.foreground}
 # label-background = ${colors.green}
 label-foreground = ${colors.green}
@@ -405,28 +395,43 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777}⚡⚡⚡⚡⚡⚡%{F-}
-ramp-signal-0 = ⚡%{F#777777}⚡⚡⚡⚡⚡%{F-}
-ramp-signal-1 = ⚡⚡%{F#777777}⚡⚡⚡⚡%{F-}
-ramp-signal-2 = ⚡⚡⚡%{F#777777}⚡⚡⚡%{F-}
-ramp-signal-3 = ⚡⚡⚡⚡%{F#777777}⚡⚡%{F-}
-ramp-signal-4 = ⚡⚡⚡⚡⚡%{F#777777}⚡%{F-}
-ramp-signal-5 = ⚡⚡⚡⚡⚡⚡
+label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡%{FT-}
+ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡%{FT-}
+ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
+
+[module/wlan-productive]
+inheritance = module/wlan
+format-connected-background = ${colors.purple}
+format-connected-foreground = ${colors.bar-background}
+label-disconnected = *** %{F#666666 T6}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T6}⚡%{T-}%{F#666666 T6}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#666666 T6}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#666666 T6}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#666666 T6}⚡⚡%{FT-}
+ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#666666 T6}⚡%{FT-}
+ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/date]
 type = internal/date
 interval = 0.5
-date = "%Y-%m-%d"
-date-short = "%m-%d"
+date = "%Y-%m-%d "
 
 time-alt = "%I:%M:%S %p"
 time = "%I:%M:%S %p"
 
-; format-prefix = " "
 format-prefix-background = ${colors.module-background}
-label = %date% %time%
+label = %date%%time%
 label-foreground = ${colors.blue}
 label-background = ${colors.module-background}
+
+[module/date-productive]
+inheritance = module/date
+label-foreground = ${colors.bar-background}
+label-background = ${colors.blue}
 
 [module/alsa]
 type = internal/alsa
@@ -436,7 +441,7 @@ speaker-soundcard = default
 headphone-soundcard = default
 
 master-mixer = Master
-speaker-mixer = Front
+speaker-mixer = Speaker
 headphone-mixer = Headphone
 
 headphone-id = 17
@@ -454,7 +459,7 @@ format-volume-background = ${colors.module-background}
 
 format-muted-foreground = ${colors.alert}
 format-muted-background = ${colors.module-background}
-label-muted =  " M ﭳﭳﭳﭳﭳﭳﭳﭳﭳ"
+label-muted =  "M ﭳﭳﭳﭳﭳﭳﭳﭳﭳ"
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #8ECEB2
@@ -548,7 +553,7 @@ adapter = AC0
 full-at = 100
 
 format-charging = <label-charging>
-format-charging-foreground = ${colors.white}
+format-charging-foreground = ${colors.green}
 format-charging-background = ${colors.module-background}
 format-discharging = <label-discharging>
 format-discharging-foreground = ${colors.white}
@@ -557,25 +562,101 @@ format-full = <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.module-background}
 
-label-charging = "%percentage:02%% ⚡"
-label-discharging = "%percentage:02%% %{F#777777}⚡%{F-}"
+label-charging = "%percentage:02%% %{T6}⚡%{T-}"
+label-discharging = "%percentage:02%% %{F#777777 T6}⚡%{FT-}"
 label-discharging-foreground = ${colors.white}
-label-full = "%percentage:02%% ⚡"
+label-full = "%percentage:02%% %{T6}⚡%{T-}"
 
-ramp-capacity-0 =
-ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1 =
-ramp-capacity-1-foreground = ${colors.red}
-ramp-capacity-2 =
-ramp-capacity-3 =
-ramp-capacity-4 =
-animation-charging-0 =
-animation-charging-1 =
-animation-charging-2 =
-animation-charging-3 =
-animation-charging-4 =
-animation-charging-framerate = 750
+[module/battery-productive]
+inheritance = module/battery
+format-charging-foreground = ${colors.bar-background}
+format-charging-background = ${colors.green}
+format-discharging-foreground = ${colors.bar-background}
+format-discharging-background = ${colors.white}
+format-full-foreground = ${colors.module-background}
+format-full-background = ${colors.green}
 
+label-charging = "%percentage:02%% %{T6}⚡%{T-}"
+label-discharging = "%percentage:02%% %{T6}⚡%{T-}"
+label-discharging-foreground = ${colors.bar-background}
+label-full = "%percentage:02%% %{T6}⚡%{T-}"
+
+[module/cpu-temp]
+type = custom/script
+exec = ~/.scripts/polybar-cpu-temp -t 80
+interval=0.5
+label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
+
+[module/arch-updates]
+type = custom/script
+exec = ~/.scripts/polybar-arch-updates
+interval = 30
+label-foreground = ${colors.brown}
+label-background = ${colors.module-background}
+
+# CAUTION, OPEN WEATHER MAP HAS A 60RPM LIMIT FOR THE FREE TIER
+[module/weather-current]
+type = custom/script
+exec = ~/.scripts/polybar-weather -i current
+label-font=1
+interval = 30
+label-foreground = ${colors.yellow}
+label-background = ${colors.module-background}
+[module/weather-current-icon]
+inheritance=module/weather-current
+exec = ~/.scripts/polybar-weather -i current_icon
+label-font=5
+[module/weather-forecast]
+inheritance=module/weather-current
+exec = ~/.scripts/polybar-weather -i forecast
+label-font=1
+[module/weather-forecast-icon]
+inheritance=module/weather-current
+exec = ~/.scripts/polybar-weather -i forecast_icon
+label-font=5
+[module/weather-trend]
+inheritance=module/weather-current
+exec = ~/.scripts/polybar-weather -i trend
+label-font=5
+[module/weather-set]
+inheritance=module/weather-current
+exec = ~/.scripts/polybar-weather -i set
+label-font=1
+[module/weather-set-icon]
+inheritance=module/weather-current
+exec = ~/.scripts/polybar-weather -i set_icon
+label-font=5
+
+[module/dotfiles]
+type = custom/script
+exec = ~/.scripts/polybar-dotfiles-status
+label-font=1
+interval=10
+label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
+
+[module/file-sync]
+type = custom/ipc
+hook-0 = ~/.scripts/polybar-rebar-wrapper file_sync_icon
+initial = 1
+click-left = ~/.scripts/polybar-rebar-wrapper file_sync_toggle
+
+[module/file-sync-ls]
+type = custom/script
+exec = ~/.scripts/polybar-file-sync-ls
+label-font=3
+interval=30
+label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
+
+[module/nordvpn-status]
+type = custom/script
+exec = ~/.scripts/polybar-nordvpn-status
+label-font=3
+interval=5
+label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------

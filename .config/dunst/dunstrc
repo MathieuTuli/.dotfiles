@@ -1,15 +1,15 @@
 [global]
-    monitor = 0
+    monitor = 1
     indicate_hidden = yes
     icon_path = ~/.config/dunst/icons/
-    font = Wuncon Siji 16
+    font = Source Code Pro for Powerline 16
     geometry = "500x0-7+32"
     notification_height=100
     show_indicators = true
-    dmenu = /usr/bin/dmenu -i -p 'Arch Linux' -fn Wuncon Siji:pixelsize=16 -nb #2d2d2d -nf #ffffff -sf #ffffff -sb #666666
+    dmenu = /usr/bin/dmenu -i -p 'Arch Linux' -fn Source Code Pro for Powerline:pixelsize=16 -nb #2d2d2d -nf #ffffff -sf #ffffff -sb #666666
     browser = /usr/bin/google-chrome-stable
     stack_duplicates = true
-    follow = mouse
+    follow = none
     shrink = no
     transparency = 0
     separator_height = 4
@@ -96,10 +96,10 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#AFD787"
+    background = "#85ca9c"
     foreground = "#2d2d2d"
     frame_color = "#2d2d2d"
-    timeout = 5
+    timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
@@ -107,12 +107,12 @@
     background = "#FFAF87"
     foreground = "#2d2d2d"
     frame_color = "#2d2d2d"
-    timeout = 10
+    timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#F67280"
+    background = "#FF8787"
     foreground = "#2d2d2d"
     frame_color = "#2d2d2d"
     timeout = 0

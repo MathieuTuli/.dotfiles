@@ -1,0 +1,54 @@
+#!/usr/bin/python
+from pathlib import Path
+from argparse import ArgumentParser
+
+import subprocess
+import json
+import re
+
+
+parser = ArgumentParser(__doc__)
+parser.add_argument("--status", type=str)
+parser.add_argument("--remind", action='store_true')
+parser.set_defaults(remind=False)
+args = parser.parse_args()
+
+reminder_file = Path("~/.config/remind/reminders.rem").expanduser()
+if not reminder_file.is_file():
+    Path("~/.config/remind").expanduser().mkdir(parents=True, exist_ok=True)
+    reminder_file.touch()
+
+
+def write_tasks_to_file(status: str):
+    reminders = f"Tasks {status.lower()}\n"
+    for t in json.loads(subprocess.check_output(["task", f"+{status}",
+                                                 "+UNBLOCKED", "export"])):
+        due = t["due"]
+        description = t["description"]
+        annotations = list()
+        if 'annotations' in t:
+            annotations = t["annotations"]
+        if args.remind:
+            reminders += f"REM {due[:4]}-{due[4:6]}-{due[6:8]} MSG"
+            reminders += f" {description} |"
+            for annotation in annotations:
+                reminders += f" {annotation['description']} -"
+        else:
+            add = f" - {due[:4]}-{due[4:6]}-{due[6:8]}"
+            add += f" {description}\n"
+            add = re.sub("(.{45})", "\\1\n   ", add, 0, re.DOTALL)
+            reminders += add
+            for annotation in annotations:
+                add = f"     - {annotation['description']}\n"
+                add = re.sub("(.{45})", "\\1\n       ", add, 0, re.DOTALL)
+                reminders += add
+        reminders = reminders[:-1]
+        reminders += "\n"
+
+    with open(reminder_file, "r") as f:
+        if reminders != f.read():
+            with open(reminder_file, "w") as o:
+                o.write(reminders)
+
+
+write_tasks_to_file(args.status)
