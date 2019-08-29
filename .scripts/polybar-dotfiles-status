@@ -2,7 +2,7 @@
 MODIFIED=$(git dotfiles ls-files $HOME --modified | wc -l)
 STAGED=$(git dotfiles diff --name-only --cached | wc -l)
 DELETED=$(git dotfiles ls-files $HOME --deleted | wc -l)
-AHEAD=$(git dotfiles rev-list desktop --count)
+AHEAD=$(git dotfiles rev-list desktop..origin/desktop --count)
 ORANGE="%{F#FFaF87}"
 RED="%{F#FF8787}"
 GREEN="%{F#85ca9c}"
