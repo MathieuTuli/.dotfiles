@@ -70,4 +70,8 @@ function show-pdf() {
     command apvlv "$@" &
 }
 
+function show-weather() {
+        curl wttr.in
+}
+
 alias notify-done="notify-send \"Done\""
