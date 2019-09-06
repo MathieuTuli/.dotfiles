@@ -71,3 +71,4 @@ function show-pdf() {
 }
 
 alias notify-done="notify-send \"Done\""
+
