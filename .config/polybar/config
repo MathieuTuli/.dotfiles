@@ -164,6 +164,16 @@ border-left-color = ${colors.bar-background}
 border-right-size = 7
 border-right-color = ${colors.bar-background}
 
+font-0 = Source Code Pro for Powerline:pixelsize=12;3
+font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
+font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
+font-3 = fixed:pixelsize=0;0
+font-4 = WeatherIcons:size=12;4
+font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
+font-6 = Noto Sans Symbols:pixelsize=12;3
+font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
+font-8 = Noto Sans Symbols2:pixelsize=12;3
+
 ;------------------------------------------------------------
 ;       DECORATIONS
 ;------------------------------------------------------------
