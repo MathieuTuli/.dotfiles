@@ -57,6 +57,15 @@ function pacman() {
     command pacman --color=always "$@" | less
 }
 
+function yay() {
+    # pacman as root is 99% of the time interactive, so
+    # don't use less, as it'll screw things up.
+    [ "$(id -un)" = 0 ] && return command yay "$@"
+    # Otherwise, page, because it should never be
+    # interactive, and it often dumps me screen fulls.
+    yay pacman --color=always "$@" | less
+}
+
 # function pytest() {
 #     command pytest --color=yes "$@" | less
 # }
