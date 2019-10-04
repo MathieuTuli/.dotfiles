@@ -70,5 +70,9 @@ function show-pdf() {
     command apvlv "$@" &
 }
 
+function calendar-google-week() {
+    command gcalcli calw today 2 "$@"
+}
+
 alias notify-done="notify-send \"Done\""
 
