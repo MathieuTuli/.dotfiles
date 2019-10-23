@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify Of Google Calendar Events
+
+[Service]
+Type=simple
+ExecStart=/bin/gcalcli remind 20
+
+[Install]
+WantedBy=multi-user.target

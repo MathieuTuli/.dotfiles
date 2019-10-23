@@ -26,8 +26,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2dB-
 bindsym XF86AudioMute exec --no-startup-id $HOME/.scripts/toggle-mute
 
 # Sreen brightness controls
-bindsym $mod+bracketright exec --no-startup-id light -A 2 # increase screen brightness
-bindsym $mod+bracketleft exec --no-startup-id light -U 2 # decrease screen brightness
+bindsym $mod+bracketright exec --no-startup-id light -A 1 # increase screen brightness
+bindsym $mod+bracketleft exec --no-startup-id light -U 1 # decrease screen brightness
 
 # Media player controls
 # bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
@@ -48,7 +48,7 @@ bindsym $mod+Return exec --no-startup-id termite
 # bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -i -p 'Arch Linux' -fn 'Source Code Pro for Powerline:pixelsize=21' -nb '#2d2d2d' -nf '#ffffff' -sf '#ffffff' -sb '#666666'

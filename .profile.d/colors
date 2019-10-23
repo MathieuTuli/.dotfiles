@@ -7,6 +7,7 @@ alias less='less -R'
 alias aws='aws --color on'
 alias pacman='pacman --color=always'
 alias ip='ip -c'
+alias tshark='tshark --color'
 export LESS=-R
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
@@ -38,3 +39,5 @@ export LS_COLORS='ow=4;34:*.py=0;35'
 # PAGER+="s/\([[:space:]]\+[0-9.\-]\+[[:space:]]\)/${GREEN}\1$NO_COLOR/g;"
 # PAGER+="s/|/$ORANGE|$NO_COLOR/g;s/^\([-+]\+\)/$ORANGE\1$NO_COLOR/\" 2>/dev/null  | less"
 # export PAGER
+#
+#

@@ -18,7 +18,7 @@ alias render-background='exec feh --bg-max $HOME/.config/i3/background.jpg'
 alias store-git-credentials="git config --global credential.helper 'cache --timeout 28800'"
 
 EC2 () {
-    LESS=FRXS aws ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
+    # LESS=FRXS aws ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
     LESS=FRXS aws --profile mat ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
 }
 
@@ -72,6 +72,9 @@ function show-pdf() {
 
 function show-weather() {
         curl wttr.in
+function calendar-google-week() {
+    command gcalcli calw today 2 "$@"
 }
 
 alias notify-done="notify-send \"Done\""
+
