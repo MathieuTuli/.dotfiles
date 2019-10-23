@@ -72,9 +72,9 @@ function show-pdf() {
 
 function show-weather() {
         curl wttr.in
+}
 function calendar-google-week() {
     command gcalcli calw today 2 "$@"
 }
 
 alias notify-done="notify-send \"Done\""
-
