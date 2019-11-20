@@ -1,9 +1,9 @@
 " BRACKET COMPLETION
-inoremap (; (<CR>);<C-c>O
+"" inoremap (; (<CR>);<C-c>O
 " inoremap (, (<CR>),<C-c>O
-inoremap {; {<CR>};<C-c>O
+"" inoremap {; {<CR>};<C-c>O
 " inoremap {, {<CR>},<C-c>O
-inoremap [; [<CR>];<C-c>O
+"" inoremap [; [<CR>];<C-c>O
 " inoremap [, [<CR>],<C-c>O
 " inoremap <> <><Left>
 " inoremap () ()<Left>

@@ -22,6 +22,7 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'luochen1990/rainbow'
 Plugin 'terryma/vim-smooth-scroll'
+Plugin 'tikhomirov/vim-glsl'
 call vundle#end()
 filetype plugin indent on
 set clipboard+=unnamedplus
