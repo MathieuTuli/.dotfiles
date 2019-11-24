@@ -19,7 +19,7 @@ alias store-git-credentials="git config --global credential.helper 'cache --time
 
 EC2 () {
     # LESS=FRXS aws ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
-    LESS=FRXS aws --profile mat ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
+    LESS=FRXS aws ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,Name:Tags[?Key==`Name`] | [0].Value,IP:PublicIpAddress,State:State.Name}' "$@" | less
 }
 
 alias json-pretty='python -m json.tool'
