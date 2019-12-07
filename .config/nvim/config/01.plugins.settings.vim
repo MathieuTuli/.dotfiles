@@ -54,3 +54,9 @@ let g:rainbow_active=1
 " noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 5, 1)<CR>
 " noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
 " noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
+
+" KITE
+nmap <silent> <buffer> gK <Plug>(kite-docs)
+let g:kite_auto_complete=1
+let g:kite_tab_complete=1
+
