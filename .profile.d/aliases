@@ -9,7 +9,11 @@ alias wpa_cli='wpa_cli -i wlp2s0'
 
 alias powerlevel-colors='for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"'
 function truncate-pwd() {
-    POWERLEVEL9K_SHORTEN_DIR_LENGTH="$@"
+        if [[ $@ == "" ]]; then
+            POWERLEVEL9K_SHORTEN_DIR_LENGTH="1"
+        else
+            POWERLEVEL9K_SHORTEN_DIR_LENGTH="$@"
+        fi
 }
 alias expand-pwd="POWERLEVEL9K_SHORTEN_DIR_LENGTH="
 

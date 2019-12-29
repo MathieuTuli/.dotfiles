@@ -26,7 +26,7 @@ PREVIOUS_CAPACITY=$(($CAPACITY+1))
 DISPLAY=:0
 update_keyboard_colour () {
         GREEN_LIMIT=80
-        YELLOW_LIMIT=50
+        YELLOW_LIMIT=60
         ORANGE_LIMIT=40
         RED_LIMIT=20
         if [ $CAPACITY -ge $GREEN_LIMIT ]; then

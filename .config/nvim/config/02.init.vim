@@ -29,3 +29,5 @@ set backspace=indent,eol,start
 set splitright
 set splitbelow
 filetype plugin indent on
+
+cnoreabbrev Pytest Pytest file verbose

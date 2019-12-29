@@ -36,6 +36,8 @@ nnoremap \p :cp<CR>
 nnoremap \o :copen<CR>
 nnoremap \c :cclose<CR>
 nnoremap \bq :b#<CR>
+nnoremap ]<space> :ALENextWrap<CR>
+nnoremap [<space> :ALEPreviousWrap<CR>
 
 " TABS
 nnoremap tbn :tabnext<CR>

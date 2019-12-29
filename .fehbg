@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-max --image-bg '#2d2d2d' '/home/mat/.config/i3/backgrounds/grey_lego_patent_border.jpg' 
+feh --no-fehbg --bg-max --image-bg '#2d2d2d' '/home/mat/.config/i3/backgrounds/bison_border.jpg'

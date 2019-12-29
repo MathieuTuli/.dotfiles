@@ -8,7 +8,7 @@ import cv2
 
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--image', type=str, required=True)
-parser.add_argument('--dest', type=str, default='~/pictures/')
+parser.add_argument('--dest', type=str, default='~/Pictures/')
 parser.add_argument('--top', type=int, required=False)
 parser.add_argument('--left', type=int, required=False)
 parser.add_argument('--bottom', type=int, required=False)
@@ -23,8 +23,8 @@ if __name__ == "__main__":
         image = np.zeros((args.height, args.width, 3), np.uint8)
         color = tuple(reversed(args.color))
         image[:] = color
-        destination = os.path.join(os.path.expanduser(args.dest),
-                                   "mono.jpg")
+        destination = str(os.path.join(os.path.expanduser(args.dest),
+                                       "mono.jpg"))
         cv2.imwrite(destination, image)
     else:
         img = cv2.imread(args.image)
@@ -40,5 +40,5 @@ if __name__ == "__main__":
                                          args.color[1],
                                          args.color[2]))
         image_file_name = args.image.split('/')[-1]
-        cv2.imwrite(args.dest, border_img)
+        cv2.imwrite('/home/mat/Pictures/image.jpg', border_img)
         print("Success")
