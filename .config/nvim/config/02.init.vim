@@ -30,3 +30,7 @@ set splitright
 set splitbelow
 set synmaxcol=200
 filetype plugin indent on
+
+let g:python3_host_prog = "/home/mat/.pyenv/shims/python"
+
+set path+=include,./include,.

@@ -78,3 +78,11 @@ function calendar-google-week() {
 }
 
 alias notify-done="notify-send \"Done\""
+
+function regex-rm(){
+    ls | grep -P "$@" | xargs -d'\n' rm
+}
+
+function regex-rm-all-but(){
+    ls | grep -P "^(?\!$@).*$" | xargs -d'\n' rm
+}
