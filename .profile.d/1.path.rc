@@ -5,7 +5,7 @@ export SAVEHIST=300
 export HISTSIZE=300
 export HISTFILE="$HOME/.zsh_history"
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64:/usr/lib/firmware/nvidia:/usr/lib/nvidia
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64:/usr/lib/firmware/nvidia:/usr/lib/nvidia:/opt/cuda/targets/x86_64-linux/lib/
 export CUDA_HOME=/opt/cuda
 
 export CPATH=/opt/opencv/include

@@ -129,7 +129,7 @@ border-left-color = ${colors.bar-background}
 border-right-size = 7
 border-right-color = ${colors.bar-background}
 
-modules-left = l-slant-module-l i3 l-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l alsa l-slant-module-r
 modules-right = r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
 # modules-left = i3-productive
 # modules-right = wlan-productive productive-spacer battery-productive productive-spacer date-productive
