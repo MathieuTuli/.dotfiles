@@ -5,59 +5,18 @@
 # for example, `polybar file-sync-panel -w` outputs polybar-file-sync-panel_eDP1
 # Then you can use `xdotool search --name polybar-file-sync-panel_eDP1` to get the window id, which you need to then raise
 
-WINDOW_ID_CONKY=/tmp/conky_window_id
-
 launch() {
     echo "close" > /tmp/polybar_side_panel_state
     echo "off" > $HOME/.config/scripts/productive_polybar_status
-    # conky_launch
-    # sleep 0.2
     killall -q polybar
-    # if type "xrandr"; then
-    #     for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    #         LINES=$(cat $HOME/.config/scripts/file-sync/to_sync.txt | wc -l)
-    #         LONGEST_LINE=$(cat $HOME/.config/scripts/file-sync/to_sync.txt | wc -L)
-    #         let "LINES = $LINES * 30"
-    #         let "LONGEST_LINE = $LONGEST_LINE * 10"
-    #         FILE_SYNC_PANEL_HEIGHT=$LINES FILE_SYNC_PANEL_WIDTH=$LONGEST_LINE MONITOR=$m polybar --reload file-sync-panel&
-    #         BAR_ID=$!
-    #         sleep 0.2
-    #         WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel_$m)
-    #         echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id_$m
-    #         rm -f /tmp/polybar_mqueue_panel_$m
-    #         ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel_$m
-    #         echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$m
-    #     done
-    # else
-    #     polybar --reload file-sync-panel&
-    #     BAR_ID=$!
-    #     sleep 0.2
-    #     WM_BAR_ID=$(xdotool search --name polybar-file-sync-panel)
-    #     echo $WM_BAR_ID > /tmp/polybar_mqueue_panel_wm_id
-    #     rm -f /tmp/polybar_mqueue_panel
-    #     ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_panel
-    #     echo "cmd:hide" >> /tmp/polybar_mqueue_panel
-    # fi
     if type "xrandr"; then
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
             MONITOR=$m polybar --reload main&
-            BAR_ID=$!
-            rm -f /tmp/polybar_mqueue_top_$m
-            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
             MONITOR=$m polybar --reload main-bottom&
-            BAR_ID=$!
-            rm -f /tmp/polybar_mqueue_bottom_$m
-            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
         done
     else
         polybar --reload main&
-        BAR_ID=$!
-        rm -f /tmp/polybar_mqueue_top
-        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
         polybar --reload main-bottom&
-        BAR_ID=$!
-        rm -f /tmp/polybar_mqueue_bottom
-        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
     fi
 }
 
@@ -68,139 +27,16 @@ launch_productive() {
     if type "xrandr"; then
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
             MONITOR=$m polybar --reload main-productive&
-            BAR_ID=$!
-            rm -f /tmp/polybar_mqueue_top_$m
-            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
-            # MONITOR=$m polybar --reload main-bottom-productive&
-            BAR_ID=$!
-            rm -f /tmp/polybar_mqueue_bottom_$m
-            ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
         done
     else
         polybar --reload main-productive&
-        BAR_ID=$!
-        rm -f /tmp/polybar_mqueue_top
-        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_top_$m
-        # polybar --reload main-bottom-productive&
-        BAR_ID=$!
-        rm -f /tmp/polybar_mqueue_bottom
-        ln -s /tmp/polybar_mqueue.$BAR_ID /tmp/polybar_mqueue_bottom_$m
     fi
 }
 
-file_sync_open() {
-    if [ "$1" == "none" ]; then
-            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top
-            echo "cmd:show" >> /tmp/polybar_mqueue_panel
-            echo "open" > /tmp/polybar_side_panel_state
-            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id)
-            xdotool windowmap $PANEL_ID
-            xdotool windowraise $PANEL_ID
-    else
-            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$1
-            echo "cmd:show" >> /tmp/polybar_mqueue_panel_$1
-            echo "open" > /tmp/polybar_side_panel_state_$1
-            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$1)
-            xdotool windowmap $PANEL_ID
-            xdotool windowraise $PANEL_ID
-    fi
-}
-
-file_sync_close() {
-    if [ "$1" == "none" ]; then
-            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top
-            echo "cmd:hide" >> /tmp/polybar_mqueue_panel
-            echo "close" > /tmp/polybar_side_panel_state
-            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id)
-            xdotool windowunmap $PANEL_ID
-    else
-            echo "hook:module/file-sync" >> /tmp/polybar_mqueue_top_$1
-            echo "cmd:hide" >> /tmp/polybar_mqueue_panel_$1
-            echo "close" > /tmp/polybar_side_panel_state_$1
-            PANEL_ID=$(cat /tmp/polybar_mqueue_panel_wm_id_$1)
-            xdotool windowunmap $PANEL_ID
-    fi
-}
-
-file_sync_toggle() {
-    eval $(xdotool getmouselocation --shell)
-    MAX_X=1919
-    MIN_X=0
-    MAX_Y=1079
-    MIN_Y=0
-    if [ "$X" -gt "$MAX_X" ] || [ "$X" -lt "$MIN_X" ] || [ "$Y" -gt "$MAX_Y" ] || [ "$Y" -lt "$MIN_Y" ]; then
-        CURRENT_MONITOR=VIRTUAL1
-    else
-        CURRENT_MONITOR=eDP1
-    fi
-    if type "xrandr"; then
-        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            if [ "$(cat /tmp/polybar_side_panel_state_$m)" == "open" ]; then
-                if [ "$CURRENT_MONITOR" == "$m" ]; then
-                        file_sync_close $m
-                fi
-            else
-                if [ "$CURRENT_MONITOR" == "$m" ]; then
-                        file_sync_open $m
-                fi
-            fi
-        done
-    else
-            if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-                file_sync_close none
-            else
-                file_sync_open none
-            fi
-    fi
-}
-
-file_sync_icon() {
-    if type "xrandr"; then
-        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            if [ "$(cat /tmp/polybar_side_panel_state_$m)" == "open" ]; then
-                # echo  %{F#85ca9c B#393939}%{FB-}
-                # echo  %{F#85ca9c B#393939}File Sync%{FB-}
-                echo  %{F#777777 B#393939}File Sync%{FB-}
-            else
-                # echo  %{F#777777 B#393939}%{FB-}
-                echo  %{F#777777 B#393939}File Sync%{FB-}
-            fi
-        done
-    else
-            if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-                # echo  %{F#85ca9c B#393939}%{FB-}
-                # echo  %{F#85ca9c B#393939}File Sync%{FB-}
-                echo  %{F#777777 B#393939}File Sync%{FB-}
-            else
-                # echo  %{F#777777 B#393939}%{FB-}
-                echo  %{F#777777 B#393939}File Sync%{FB-}
-            fi
-    fi
-}
 
 case "$1" in
-    file_sync_toggle)
-        file_sync_toggle;;
-    file_sync_icon)
-        file_sync_icon;;
     launch)
         launch;;
     launch_productive)
         launch_productive;;
-    hide)
-        if type "xrandr"; then
-            for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-                    echo "cmd:hide" >> /tmp/polybar_mqueue_top_$m
-            done
-        else
-            echo "cmd:hide" >> /tmp/polybar_mqueue_top
-        fi;;
-    show)
-        if type "xrandr"; then
-            for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-                    echo "cmd:show" >> /tmp/polybar_mqueue_top_$m
-            done
-        else
-            echo "cmd:show" >> /tmp/polybar_mqueue_top
-        fi;;
 esac

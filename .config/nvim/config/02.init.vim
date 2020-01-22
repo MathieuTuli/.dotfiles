@@ -28,6 +28,7 @@ set ruler
 set backspace=indent,eol,start
 set splitright
 set splitbelow
+set synmaxcol=200
 filetype plugin indent on
 
 cnoreabbrev Pytest Pytest file verbose
