@@ -406,7 +406,7 @@ label-background = ${colors.module-background}
 
 [module/wlan]
 type = internal/network
-interface = wlp6s0
+interface = wlp2s0
 interval = 3.0
 
 # format-prefix = " "
@@ -465,7 +465,7 @@ speaker-soundcard = default
 headphone-soundcard = default
 
 master-mixer = Master
-speaker-mixer = Front
+speaker-mixer = Speaker
 headphone-mixer = Headphone
 
 headphone-id = 17
