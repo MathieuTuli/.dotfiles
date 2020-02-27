@@ -1,5 +1,6 @@
 # [PATHS]
 export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:~/.scripts:/opt/opencv:/usr/bin:$HOME/.i3-wm-scripts
+export JAVA_HOME=/usr/lib/jvm/default/
 
 export SAVEHIST=300
 export HISTSIZE=300
