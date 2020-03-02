@@ -93,7 +93,7 @@ font-6 = Noto Sans Symbols:pixelsize=12;3
 font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
 font-8 = Noto Sans Symbols2:pixelsize=12;3
 
-modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r l-slant-module-l brightness l-slant-module-r
 modules-right = r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
 
 # tray-position = right
@@ -139,7 +139,7 @@ border-left-color = ${colors.bar-background}
 border-right-size = 7
 border-right-color = ${colors.bar-background}
 
-modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l alsa l-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l alsa l-slant-module-r l-slant-module-l brightness l-slant-module-r
 modules-right = r-slant-module-l wlan r-slant-module-r r-slant-module-l battery r-slant-module-r r-slant-module-l date r-slant-module-r
 # modules-left = i3-productive
 # modules-right = wlan-productive productive-spacer battery-productive productive-spacer date-productive
@@ -681,6 +681,57 @@ label-font=3
 interval=5
 label-foreground = ${colors.focused-i3-background}
 label-background = ${colors.module-background}
+
+[module/brightness]
+type = internal/xbacklight
+output = eDP1
+format = <ramp>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+format-background = ${colors.module-background}
+format-foreground = ${colors.green}
+ramp-0 = %{F#777777}⏺⏺⏺⏺⏺%{F-}
+ramp-1 = ⏺%{F#777777}⏺⏺⏺⏺%{F-}
+ramp-2 = ⏺⏺%{F#777777}⏺⏺⏺%{F-}
+ramp-3 = ⏺⏺⏺%{F#777777}⏺⏺%{F-}
+ramp-4 = ⏺⏺⏺⏺%{F#777777}⏺%{F-}
+ramp-5 = ⏺⏺⏺⏺⏺
+
+ramp-volume-0-foreground = ${colors.green}
+ramp-volume-0-background = ${colors.module-background}
+ramp-volume-0 = S %{F#777777}ﭳﭳﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-1-foreground = ${colors.green}
+ramp-volume-1-background = ${colors.module-background}
+ramp-volume-1 = S ﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-2-foreground = ${colors.green}
+ramp-volume-2-background = ${colors.module-background}
+ramp-volume-2 = S ﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-3-foreground = ${colors.green}
+ramp-volume-3-background = ${colors.module-background}
+ramp-volume-3 = S ﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-4-foreground = ${colors.green}
+ramp-volume-4-background = ${colors.module-background}
+ramp-volume-4 = S ﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳﭳ%{F-}
+ramp-volume-5-foreground = ${colors.green}
+ramp-volume-5-background = ${colors.module-background}
+ramp-volume-5 = S ﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳﭳ%{F-}
+ramp-volume-6-foreground = ${colors.green}
+ramp-volume-6-background = ${colors.module-background}
+ramp-volume-6 = S ﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳﭳ%{F-}
+ramp-volume-7-foreground = ${colors.green}
+ramp-volume-7-background = ${colors.module-background}
+ramp-volume-7 = S ﭳﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳﭳ%{F-}
+ramp-volume-8-foreground = ${colors.green}
+ramp-volume-8-background = ${colors.module-background}
+ramp-volume-8 = S ﭳﭳﭳﭳﭳﭳﭳﭳ%{F#777777}ﭳ%{F-}
+ramp-volume-9-foreground = ${colors.green}
+ramp-volume-9-background = ${colors.module-background}
+ramp-volume-9 = S ﭳﭳﭳﭳﭳﭳﭳﭳﭳ%{F#777777}%{F-}
+
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------
