@@ -11,12 +11,19 @@ launch() {
     killall -q polybar
     if type "xrandr"; then
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            MONITOR=$m polybar --reload main&
-            MONITOR=$m polybar --reload main-bottom&
+            MONITOR=$m polybar --reload i3&
+            MONITOR=$m polybar --reload spotify&
+            MONITOR=$m polybar --reload info&
+            MONITOR=$m polybar --reload wlan&
+            MONITOR=$m polybar --reload date&
+            MONITOR=$m polybar --reload cpu&
+            MONITOR=$m polybar --reload pacman&
+            MONITOR=$m polybar --reload dotfiles&
+            # MONITOR=$m polybar --reload main-bottom&
         done
     else
-        polybar --reload main&
-        polybar --reload main-bottom&
+        polybar --reload i3&
+        # polybar --reload main-bottom&
     fi
 }
 

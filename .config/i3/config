@@ -177,7 +177,7 @@ bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed 
 bindsym $mod+Ctrl+Shift+e exec --no-startup-id i3-msg exit
 
 # resize window (you can also use the mouse for that)
-set $resize_amount 4
+set $resize_amount 1
 set $large_resize_amount 20
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -213,12 +213,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec --no-startup-id $HOME/.fehbg
-exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch
+exec_always --no-startup-id picom -b --config $HOME/.config/picom/picom.conf
+exec_always --no-startup-id $HOME/.fehbg
+exec_always --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch
 bindsym $mod+p exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch && i3-msg gaps outer all set 7
 bindsym $mod+shift+p exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch_productive && i3-msg gaps outer all set 0
-exec --no-startup-id dunst
-exec --no-startup-id xscreensaver
+exec_always --no-startup-id dunst
+exec_always --no-startup-id xscreensaver
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
@@ -228,4 +229,5 @@ for_window [class="discord"] move to workspace $ws4
 for_window [class="i3-frame"] floating disable
 assign [class="Slack"] 4
 gaps inner 0
-gaps outer 7
+gaps horizontal 7
+gaps vertical 31
