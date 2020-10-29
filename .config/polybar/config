@@ -68,7 +68,7 @@ font-2 = Hasklug Nerd Font Mono:pixelsize=12;4
 font-3 = fixed:pixelsize=0;0
 font-4 = WeatherIcons:size=12;4
 font-5 = Hasklug Nerd Font:pixelsize=16;4
-font-6 = Noto Sans Symbols:pixelsize=16;3
+font-6 = Noto Sans Symbols:pixelsize=12;3
 font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
 font-8 = Noto Sans Symbols2:pixelsize=12;3
 font-9 = Source Code Pro for Powerline:size=19;3
@@ -88,7 +88,7 @@ modules-right = left-circle archive spacer filesystem spacer memory spacer cpu s
 inherit = bar/base
 bottom = true
 border-color = ${colors.bar-background}
-border-top-size = 9
+border-bottom-size = 9
 border-left-size = 9
 border-right-size = 9
 modules-left =  left-circle arch-updates right-circle blank-spacer left-circle dotfiles right-circle
@@ -219,13 +219,13 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡%{FT-}
-ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡%{FT-}
-ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡%{FT-}
-ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡%{FT-}
-ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
+label-disconnected = *** %{F#777777 T7}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T7}⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T7}⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T7}⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T7}⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡%{FT-}
+ramp-signal-4 = %{T7}⚡⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡%{FT-}
+ramp-signal-5 = %{T7}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/elan]
 type = internal/network
@@ -467,7 +467,7 @@ label-background = ${colors.module-background}
 [module/weather-current-icon]
 inheritance=module/weather-current
 exec = ~/.scripts/polybar-weather -i current_icon
-label-font=5
+label-font=6
 [module/weather-forecast]
 inheritance=module/weather-current
 exec = ~/.scripts/polybar-weather -i forecast
