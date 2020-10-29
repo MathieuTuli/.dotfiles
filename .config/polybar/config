@@ -2,11 +2,11 @@
 ;       VARIABLES
 ;------------------------------------------------------------
 [colors]
-bar-background = #aa2d2d2d
-bar-foreground = #ffffff
+bar-background = #aa
+bar-foreground = #2d2d2d
 
-; Text Color
-foreground = #2d2d2d
+foreground = #ffffff
+
 
 ; These are both for alerts
 secondary = #FD2C40
@@ -44,98 +44,77 @@ monitor = ${env:MONITOR:}
 ;------------------------------------------------------------
 [bar/base]
 monitor = ${env:MONITOR:}
-background          = ${colors.foreground}
+background          = ${colors.bar-background}
 border-color          = ${colors.foreground}
 border-size           = 0
-border-transparent    = true
 bottom                = false
 cursor-click          = pointer
 cursor-scroll         = ns-resize
 fixed-center          = true
 foreground            = ${colors.foreground}
-height                = 30
+height                = 26
 module-margin-left    = 0
-override-redirect = true
+# override-redirect = true
 module-margin-right   = 0
-offset-y              = 5
-padding-left          = 0
-padding-right         = 0
-radius                = 15
+offset-x              = 0
+offset-y              = 0
+padding          = 0
+# padding-right         = 0
+# radius                = 15
 
 font-0 = Source Code Pro for Powerline:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Hasklug Nerd Font Mono:pixelsize=13;3
+font-2 = Hasklug Nerd Font Mono:pixelsize=12;4
 font-3 = fixed:pixelsize=0;0
 font-4 = WeatherIcons:size=12;4
-font-5 = Hasklug Nerd Font Mono:pixelsize=10;3
-font-6 = Noto Sans Symbols:pixelsize=12;3
+font-5 = Hasklug Nerd Font:pixelsize=16;4
+font-6 = Noto Sans Symbols:pixelsize=16;3
 font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
 font-8 = Noto Sans Symbols2:pixelsize=12;3
+font-9 = Source Code Pro for Powerline:size=19;3
 
-[bar/i3]
-offset-x = 47.5%:
-width = 5%
+[bar/top]
 inherit = bar/base
 bottom = false
-modules-center = i3
+border-color = ${colors.bar-background}
+border-top-size = 9
+border-left-size = 9
+border-right-size = 9
+modules-left = left-circle spotify spacer alsa-optical right-circle 
+modules-center = left-circle i3 right-circle
+modules-right = left-circle archive spacer filesystem spacer memory spacer cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan right-circle blank-spacer left-circle date right-circle
 
-[bar/spotify]
-offset-x = 10
-width = 16%
-inherit = bar/base
-bottom = false
-modules-center = spotify spacer alsa-optical
-
-[bar/info]
-offset-x = 71%:-30
-width = 16%
-inherit = bar/base
-bottom = false
-modules-center = archive spacer filesystem spacer memory spacer cpu spacer system-nvidia-smi
-
-[bar/wlan]
-offset-x = 87%:-20
-width = 4.5%
-inherit = bar/base
-bottom = false
-modules-center = wlan
-
-[bar/date]
-offset-x = 91.5%:-10
-width = 8.5%
-inherit = bar/base
-bottom = false
-modules-center = date
-
-[bar/cpu]
-offset-x = 42.5%:
-width = 15%
+[bar/bottom]
 inherit = bar/base
 bottom = true
-modules-center = cpu-temp
-
-[bar/pacman]
-offset-x = 10
-width = 2%
-inherit = bar/base
-bottom = true
-modules-center = arch-updates
-
-[bar/dotfiles]
-offset-x = 2%:20
-width = 5.5%
-inherit = bar/base
-bottom = true
-modules-center = dotfiles
+border-color = ${colors.bar-background}
+border-top-size = 9
+border-left-size = 9
+border-right-size = 9
+modules-left =  left-circle arch-updates right-circle blank-spacer left-circle dotfiles right-circle
 
 ;------------------------------------------------------------
 ;       MODULES
 ;------------------------------------------------------------
+[module/left-circle]
+type=custom/text
+content = "%{T6}%{T-}"
+content-foreground = ${colors.bar-foreground}
+
+[module/right-circle]
+type=custom/text
+content = "%{T6}%{T-}"
+content-foreground = ${colors.module-background}
+
 [module/spacer]
 type=custom/text
 content = " "
 content-foreground = ${colors.module-background}
 content-background = ${colors.module-background}
+
+[module/blank-spacer]
+type=custom/text
+content = " "
 
 [module/system-nvidia-smi]
 type = custom/script

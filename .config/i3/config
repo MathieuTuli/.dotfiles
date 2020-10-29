@@ -230,4 +230,4 @@ for_window [class="i3-frame"] floating disable
 assign [class="Slack"] 4
 gaps inner 0
 gaps horizontal 7
-gaps vertical 31
+gaps vertical 7
