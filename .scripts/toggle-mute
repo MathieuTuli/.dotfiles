@@ -2,3 +2,4 @@
 amixer set Master toggle
 amixer set Headphone unmute
 amixer set Speaker unmute
+amixer set IEC958 toggle

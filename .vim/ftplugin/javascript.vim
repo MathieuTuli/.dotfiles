@@ -1,3 +1,6 @@
+set ts=2
+set sts=2
+set sw=2
 " Vim filetype plugin file
 " Language:     JavaScript
 " Maintainer:   vim-javascript community

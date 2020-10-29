@@ -55,3 +55,17 @@ let g:rainbow_active=1
 " noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 5, 1)<CR>
 " noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
 " noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
+
+
+"VIMTEX
+let g:vimtex_view_method = 'zathura'
+let g:xwindow_id = system('xdotool getactivewindow')
+let g:vimtex_view_zathura_hook_view = 'MyHook'
+let g:vimtex_view_zathura_hook_callback = 'MyHook'
+set conceallevel=1
+let g:tex_conceal='abdmg'
+let g:vimtex_quickfix_mode=1
+
+function! MyHook()
+  silent call system('xdotool windowactivate ' . g:xwindow_id . ' --sync')
+endfunction

@@ -93,8 +93,9 @@ font-6 = Noto Sans Symbols:pixelsize=12;3
 font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
 font-8 = Noto Sans Symbols2:pixelsize=12;3
 
-modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa l-slant-module-r
-modules-right = r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l date r-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l spotify l-slant-module-r l-slant-module-l alsa-optical l-slant-module-r
+# modules-right = r-slant-module-l archive r-slant-module-r r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan elan r-slant-module-r r-slant-module-l date r-slant-module-r
+modules-right = r-slant-module-l archive r-slant-module-r r-slant-module-l filesystem r-slant-module-r r-slant-module-l memory cpu r-slant-module-r r-slant-module-l system-nvidia-smi r-slant-module-r r-slant-module-l wlan r-slant-module-r r-slant-module-l date r-slant-module-r
 
 # tray-position = right
 # tray-padding = 2
@@ -139,8 +140,8 @@ border-left-color = ${colors.bar-background}
 border-right-size = 7
 border-right-color = ${colors.bar-background}
 
-modules-left = l-slant-module-l i3 l-slant-module-r
-modules-right = r-slant-module-l wlan r-slant-module-r r-slant-module-l date r-slant-module-r
+modules-left = l-slant-module-l i3 l-slant-module-r l-slant-module-l alsa l-slant-module-r
+modules-right = r-slant-module-l wlan elan r-slant-module-r r-slant-module-l date r-slant-module-r
 # modules-left = i3-productive
 # modules-right = wlan-productive productive-spacer battery-productive productive-spacer date-productive
 
@@ -385,6 +386,16 @@ label-mounted = "%mountpoint% %percentage_used:02%%"
 label-mounted-foreground = ${colors.red}
 label-mounted-background= ${colors.module-background}
 
+[module/archive]
+type = internal/fs
+interval = 30
+mount-0 = /home/mat/archive
+# format-prefix = " "
+# format-prefix-background = ${colors.red}
+label-mounted = "archive %percentage_used:02%%"
+label-mounted-foreground = ${colors.red}
+label-mounted-background= ${colors.module-background}
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -414,10 +425,33 @@ interval = 3.0
 format-connected = <label-connected> <ramp-signal>
 format-connected-background = ${colors.module-background}
 format-connected-foreground = ${colors.purple}
-format-disconnected = <label-disconnected>
+format-disconnected = 
 format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
+speed-labels = %downspeed:9% %upspeed:9%
+label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡%{FT-}
+ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡%{FT-}
+ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
+
+[module/elan]
+type = internal/network
+interface = eno1
+interval = 3.0
+
+# format-prefix = " "
+# format-prefix-background = ${colors.purple}
+format-connected = <label-connected> <ramp-signal>
+format-connected-background = ${colors.module-background}
+format-connected-foreground = ${colors.purple}
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${colors.module-background}
+format-disconnected-foreground = ${colors.purple}
+label-connected = "%ifname%"
 speed-labels = %downspeed:9% %upspeed:9%
 label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
 ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
@@ -456,6 +490,30 @@ label-background = ${colors.module-background}
 inheritance = module/date
 label-foreground = ${colors.bar-background}
 label-background = ${colors.blue}
+
+[module/alsa-optical]
+type = internal/alsa
+
+master-soundcard = default
+
+master-mixer = IEC958
+
+headphone-id = 17
+
+mapped = true
+interval = 5
+
+# format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
+# label-volume = VOL %percentage%%
+label-volume = "🔊"
+label-volume-foreground = ${colors.green}
+
+format-volume-background = ${colors.module-background}
+
+format-muted-foreground = ${colors.alert}
+format-muted-background = ${colors.module-background}
+label-muted =  "🔇"
 
 [module/alsa]
 type = internal/alsa
