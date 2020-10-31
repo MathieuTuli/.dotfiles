@@ -15,13 +15,13 @@ alert = #F67280
 
 ; i3
 focused-i3-background = #2d2d2d
-focused-i3-foreground = #ffffff
+focused-i3-foreground = #eeeeee
 unfocused-i3-background = #2d2d2d
-unfocused-i3-foreground = #ffffff
+unfocused-i3-foreground = #eeeeee
 
 ; module
 module-background = #2d2d2d
-module-foreground = #ffffff
+module-foreground = #eeeeee
 
 ; Colors
 transparent = #00ffffff
@@ -82,7 +82,7 @@ border-left-size = 9
 border-right-size = 9
 modules-left = left-circle spotify spacer alsa-optical right-circle 
 modules-center = left-circle i3 right-circle
-modules-right = left-circle archive spacer filesystem spacer memory spacer cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan right-circle blank-spacer left-circle date right-circle
+modules-right = left-circle archive spacer filesystem spacer memory spacer cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan elan right-circle blank-spacer left-circle date right-circle
 
 [bar/bottom]
 inherit = bar/base
@@ -157,7 +157,7 @@ label-visible-foreground = ${colors.blue}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = "%index%"
+label-urgent = "●"
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
@@ -188,7 +188,7 @@ label-mounted-background= ${colors.module-background}
 type = internal/fs
 interval = 30
 mount-0 = /home/mat/archive
-label-mounted = "archive %percentage_used:02%%"
+label-mounted = "arch %percentage_used:02%%"
 label-mounted-foreground = ${colors.red}
 label-mounted-background= ${colors.module-background}
 
@@ -232,7 +232,7 @@ type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected = <label-connected> <ramp-signal>
+format-connected = <label-connected>
 format-connected-background = ${colors.module-background}
 format-connected-foreground = ${colors.purple}
 format-disconnected = <label-disconnected>
@@ -240,13 +240,13 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%ifname%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡%{FT-}
-ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡%{FT-}
-ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡%{FT-}
-ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡%{FT-}
-ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
+label-disconnected = 
+ramp-signal-0 = %{T7}⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T7}⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T7}⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T7}⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡%{FT-}
+ramp-signal-4 = %{T7}⚡⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡%{FT-}
+ramp-signal-5 = %{T7}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/wlan-productive]
 inheritance = module/wlan
