@@ -1,0 +1,154 @@
+@import "base/ui-variables";
+
+@gray-base:         #202020;
+@orange:            #ffaf87;
+@white:             #eeeeee;     
+@background-base:   #2d2d2d;
+@text-base:         rgba(255, 255, 255, 0.8);
+@base-border:       transparent;
+@preferences-extra:  #85ca9c;
+
+// Message filter
+@message-filter:       invert(100%) hue-rotate(180deg);
+@message-filter-undo:  hue-rotate(-180deg) invert(85%); // white will be a bit fainter
+
+@text-base-prefilter:  spin(#fff - @text-color, 180);
+@orange-prefilter:     rgb(219, 179, 143); // set manually, as hue-rotate is only an approximation of spin
+// @orange-prefilter:  spin(#fff - @orange, 180); // set automatically, but suboptimally
+
+// State colors
+@info-color:        #87afd7;
+@success-color:     #85ca9c;
+@warning-color:     #ffafd7;
+@error-color:       #ff8787;
+@danger-color:      #ff8787;
+
+// Grays
+@gray-darker:   darken(@gray-base, 30%);
+@gray-dark:     darken(@gray-base, 10%);
+@gray:          @gray-base;
+@gray-light:    lighten(@gray-base, 10%);
+@gray-lighter:  lighten(@gray-base, 30%);
+
+// Activity
+@open-activity-color:  rgba(159, 120, 225, 0.8);
+@link-activity-color:  rgba(255, 135, 135, 0.8);
+@reply-activity-color: @gray-lighter;
+
+// Accents
+@accent-primary:           @orange;
+@accent-primary-dark:      @accent-primary;
+@accent-primary-prefilter: @orange-prefilter;
+
+// Text
+@text-color:              @text-base;
+@text-color-prefilter:    @text-base-prefilter;
+@text-color-subtle:       fadeout(@text-color, 30%);
+@text-color-very-subtle:  fadeout(@text-color-subtle, 10%);
+@text-color-inverse:      @white;
+@text-color-heading:      @text-color;
+
+@text-color-link:         @accent-primary-prefilter; //@accent-primary 
+@text-color-link-hover:   lighten(@accent-primary-prefilter, 10%); //darken(@accent-primary, 10%);
+@text-color-link-active:  @text-color-link-hover;
+
+@text-color-info:         @info-color;
+@text-color-success:      @success-color;
+@text-color-warning:      @warning-color;
+@text-color-error:        @error-color;
+@text-color-destructive:  @danger-color;
+@text-color-highlight:    @accent-primary;
+@text-color-selected:     @text-color-highlight;
+
+// Backgrounds
+@background-primary:     @background-base;
+@background-off-primary: @background-primary;
+@background-secondary:   @gray-base;
+@background-tertiary:    @preferences-extra;
+
+// No borders.
+@border-primary-bg:     @base-border;
+@border-secondary-bg:   @base-border;
+@border-tertiary-bg:    @base-border;
+@border-color-divider:  @base-border;
+@border-color:          @base-border;
+@border-color-subtle:   @base-border;
+@border-dark:           @gray-dark;
+@border-header-divider: fadeout(@text-color-very-subtle, 20%);
+
+// Buttons
+@btn-shadow: @standard-shadow;
+@btn-default-bg-color:    @gray-base;
+@btn-default-text-color:  @text-color;
+@btn-light-bg-color:      @gray-light;
+@btn-light-text-color:    @text-color;
+@btn-action-bg-color:     @success-color;
+@btn-action-text-color:   @text-color;
+@btn-emphasis-bg-color:   @accent-primary;
+@btn-emphasis-text-color: @text-color-inverse;
+@btn-danger-bg-color:     @danger-color;
+@btn-danger-text-color:   @text-color-inverse;
+
+// Input fields
+@input-bg:               @background-primary;
+@input-border-color:     @text-color-very-subtle;
+
+// Select dropdown
+@dropdown-default-bg-color:     @background-primary;
+@dropdown-default-text-color:   @text-color;
+@dropdown-default-border-color: @text-color-very-subtle;
+
+// Lists
+@list-bg:                   @background-primary;
+@list-border:               @background-secondary;
+@list-checkbox-border:      @gray-lighter;
+@list-focused-color:        @accent-primary;
+@list-focused-bg:           @background-secondary;
+@list-focused-border:       @base-border;
+@list-selected-color:       @accent-primary;
+@list-selected-bg:          @background-secondary;
+@list-selected-border:      @base-border;
+
+// Panels and sidebars
+@panel-background-color:     @background-secondary;
+@toolbar-background-color:   @background-secondary;
+
+// Notifications
+@background-color-info:      @info-color ;
+@background-color-success:   @success-color;
+@background-color-warning:   @warning-color;
+@background-color-error:     @error-color;
+@background-color-pending:   @text-color-subtle;
+@background-color-highlight: transparent;
+
+// Reminders
+@reminders-background-color:    @gray-light;
+@reminders-color:               @accent-primary;
+@reminders-border-color:        @accent-primary;
+
+// Opening tracking in thread list 
+@open-tracking-color:        @accent-primary;
+@unopen-tracking-color:      @text-color-subtle;
+
+// Other
+@component-border-radius: 0;
+
+//////////////////
+// Nylas legacy //
+//////////////////
+
+//// Public
+//@progress-bar-fill: @accent-primary;
+//@progress-bar-background: @background-secondary;
+
+//// Dropdowns
+//@background-primary: #414141;
+//@overlay-border-color: @base-border;
+
+//// Lists
+//@list-hover-bg:             #f12345;
+//@list-disabled-color:       #f12345;
+//@list-disabled-bg:          #f12345;
+//@list-disabled-text-color:  @list-disabled-color;
+//@list-focused-color-muted:  @text-color-subtle;
+//@list-selected-color-muted: blue;
