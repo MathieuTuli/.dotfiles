@@ -43,10 +43,15 @@
 .button-dropdown.btn-emphasis .only-item, 
 .button-dropdown.btn-emphasis .primary-item,
 .button-dropdown.btn-emphasis .secondary-picker {
-    color: @btn-emphasis-text-color;
+    color: @gray-base;
     background: @btn-emphasis-bg-color;
     border: none;
-
+    & img{
+            filter: invert(1);
+    }
+    &:hover{
+        background: darken(@btn-emphasis-bg-color, 10%);
+    }
     &:active {
         background: darken(@btn-emphasis-bg-color, 10%);
     }
