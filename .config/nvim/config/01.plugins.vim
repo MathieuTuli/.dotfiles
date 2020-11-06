@@ -24,6 +24,8 @@ Plugin 'luochen1990/rainbow'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'scrooloose/nerdTree'
+Plugin 'lervag/vimtex'
+Plugin 'PontusPersson/pddl.vim'
 call vundle#end()
 filetype plugin indent on
 set clipboard+=unnamedplus

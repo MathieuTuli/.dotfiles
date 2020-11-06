@@ -74,3 +74,6 @@ nnoremap <C-H> <C-W><C-h>
 
 " Nerd Tree
 nmap <C-n> :NERDTreeToggle<CR>
+
+" Vimtex
+nmap \tex :VimtexCompile<CR>

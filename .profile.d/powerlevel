@@ -19,7 +19,7 @@ alias term_colors='for code ({000..255}) print -P -- "$code: %F{$code}This is ho
 # vcs			|	CLEAN, UNTRACKED, MODIFIED
 # vi_mode		|	NORMAL, INSERT
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 POWERLEVEL9K_ANDROID_ICON=
 POWERLEVEL9K_APPLE_ICON=

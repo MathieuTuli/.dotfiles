@@ -219,10 +219,17 @@ bindsym $mod+p exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch 
 bindsym $mod+shift+p exec --no-startup-id $HOME/.scripts/polybar-rebar-wrapper launch_productive && i3-msg gaps outer all set 0
 exec --no-startup-id dunst
 exec --no-startup-id xscreensaver
+#
+# swap caps lock and escape
+# exec_always --no-startup-id xmodmap -e "clear lock"
+# exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+# exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+exec_always --no-startup-id setxkbmap -option caps:escape
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
 for_window [class="Spotify"] move to workspace $ws4
+for_window [class="Thunderbird"] move to workspace $ws3
 for_window [class="i3-frame"] floating disable
 assign [class="Slack"] 3
 gaps inner 0
