@@ -82,7 +82,7 @@ border-left-size = 9
 border-right-size = 9
 modules-left = left-circle spotify spacer alsa-optical right-circle
 modules-center = left-circle i3 right-circle
-modules-right = left-circle archive spacer filesystem spacer memory spacer cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan elan right-circle blank-spacer left-circle date right-circle
+modules-right = left-circle archive spacer filesystem spacer memory spacer cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan-6s0 wlan-2s0 elan right-circle blank-spacer left-circle date right-circle
 
 [bar/bottom]
 inherit = bar/base
@@ -191,6 +191,7 @@ mount-0 = /home/mat/archive
 label-mounted = "arch %percentage_used:02%%"
 label-mounted-foreground = ${colors.red}
 label-mounted-background= ${colors.module-background}
+label-unmounted = ""
 
 [module/cpu]
 type = internal/cpu
@@ -206,9 +207,30 @@ label = ☰ %percentage_used:02%%
 label-foreground = ${colors.orange}
 label-background = ${colors.module-background}
 
-[module/wlan]
+[module/wlan-6s0]
 type = internal/network
 interface = wlp6s0
+interval = 3.0
+
+format-connected = <label-connected> <ramp-signal>
+format-connected-background = ${colors.module-background}
+format-connected-foreground = ${colors.purple}
+format-disconnected =
+format-disconnected-background = ${colors.module-background}
+format-disconnected-foreground = ${colors.purple}
+label-connected = "%essid%"
+speed-labels = %downspeed:9% %upspeed:9%
+label-disconnected = *** %{F#777777 T7}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T7}⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T7}⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T7}⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T7}⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡%{FT-}
+ramp-signal-4 = %{T7}⚡⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡%{FT-}
+ramp-signal-5 = %{T7}⚡⚡⚡⚡⚡⚡%{T-}
+
+[module/wlan-2s0]
+type = internal/network
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <label-connected> <ramp-signal>
@@ -249,7 +271,7 @@ ramp-signal-4 = %{T7}⚡⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡%{FT-}
 ramp-signal-5 = %{T7}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/wlan-productive]
-inheritance = module/wlan
+inheritance = module/wlan-6s0
 format-connected-background = ${colors.purple}
 format-connected-foreground = ${colors.bar-background}
 label-disconnected = *** %{F#666666 T6}⚡⚡⚡⚡⚡⚡%{FT-}
