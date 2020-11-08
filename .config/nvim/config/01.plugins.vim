@@ -22,13 +22,14 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'luochen1990/rainbow'
 Plugin 'terryma/vim-smooth-scroll'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'scrooloose/nerdTree'
 Plugin 'justmao945/vim-clang'
-Plugin 'lervag/vimtex'
 Plugin 'sirver/ultisnips'
 Plugin 'KeitaNakamura/tex-conceal.vim'
 Plugin 'ervandew/supertab'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'scrooloose/nerdTree'
+Plugin 'lervag/vimtex'
+Plugin 'PontusPersson/pddl.vim'
 call vundle#end()
 filetype plugin indent on
 set clipboard+=unnamedplus

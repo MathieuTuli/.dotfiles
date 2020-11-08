@@ -13,3 +13,6 @@ if exists('b:undo_ftplugin')
 else
   let b:undo_ftplugin = 'setlocal iskeyword< suffixesadd<'
 endif
+set ts=2
+set sts=2
+set sw=2

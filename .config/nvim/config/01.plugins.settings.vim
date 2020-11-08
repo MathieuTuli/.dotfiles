@@ -69,3 +69,30 @@ let g:vimtex_quickfix_mode=1
 function! MyHook()
   silent call system('xdotool windowactivate ' . g:xwindow_id . ' --sync')
 endfunction
+" KITE
+nmap <silent> <buffer> gK <Plug>(kite-docs)
+let g:kite_auto_complete=1
+let g:kite_tab_complete=1
+
+
+" VIMTEX
+let g:vimtex_view_method = 'zathura'
+let g:xwindow_id = system('xdotool getactivewindow')
+let g:vimtex_view_zathura_hook_view = 'MyHook'
+let g:vimtex_view_zathura_hook_callback = 'MyHook'
+
+function! MyHook()
+        silent call system('xdotool windowactivate ' . g:xwindow_id . ' --sync')
+endfunction
+
+    " \ '_'                : '-pdflatex',
+let g:vimtex_compiler_latexmk_engines = {
+    \ '_'                : '-lualatex',
+    \ 'pdflatex'         : '-pdf',
+    \ 'dvipdfex'         : '-pdfdvi',
+    \ 'lualatex'         : '-lualatex',
+    \ 'xelatex'          : '-xelatex',
+    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+    \ 'context (luatex)' : '-pdf -pdflatex=context',
+    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+    \}

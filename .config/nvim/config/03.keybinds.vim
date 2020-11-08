@@ -36,6 +36,8 @@ nnoremap \p :cp<CR>
 nnoremap \o :copen<CR>
 nnoremap \c :cclose<CR>
 nnoremap \bq :b#<CR>
+nnoremap ]<space> :ALENextWrap<CR>
+nnoremap [<space> :ALEPreviousWrap<CR>
 
 " TABS
 nnoremap tbn :tabnext<CR>
@@ -75,3 +77,7 @@ nmap <C-n> :NERDTreeToggle<CR>
 
 " Vimtex
 nmap \tex :VimtexCompile<CR>
+nnoremap <C-J> <C-W><C-j>
+nnoremap <C-K> <C-W><C-k>
+nnoremap <C-L> <C-W><C-l>
+nnoremap <C-H> <C-W><C-h>

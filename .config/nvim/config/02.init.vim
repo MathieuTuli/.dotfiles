@@ -5,7 +5,7 @@ let &packpath=&runtimepath
 " source ~/.vimrc
 set grepprg=git\ grep\ -n
 " set grepformat=%f:%l:%c:%m
-let g:python3_host_prog = '/usr/bin/python3.7'
+let g:python3_host_prog = '/home/mat/.pyenv/shims/python'
 
 "yaml related
 au BufNewFile,BufReadPost *.yaml,*.yml set filetype=yaml
@@ -34,3 +34,4 @@ filetype plugin indent on
 let g:python3_host_prog = "/home/mat/.pyenv/shims/python"
 
 set path+=include,./include,.
+cnoreabbrev Pytest Pytest file verbose
