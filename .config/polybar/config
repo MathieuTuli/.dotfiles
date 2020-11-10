@@ -82,7 +82,7 @@ border-left-size = 9
 border-right-size = 9
 modules-left = left-circle spotify spacer alsa-optical right-circle
 modules-center = left-circle i3 right-circle
-modules-right = left-circle archive spacer filesystem spacer memory spacer cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan-6s0 wlan-2s0 elan right-circle blank-spacer left-circle date right-circle
+modules-right = left-circle archive spacer filesystem spacer memory cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan-6s0 wlan-2s0 elan right-circle blank-spacer left-circle battery right-circle blank-spacer left-circle date right-circle
 
 [bar/bottom]
 inherit = bar/base
@@ -92,6 +92,8 @@ border-bottom-size = 9
 border-left-size = 9
 border-right-size = 9
 modules-left =  left-circle arch-updates right-circle blank-spacer left-circle dotfiles right-circle
+modules-center = left-circle cpu-temp right-circle
+modules-right = left-circle nordvpn-status right-circle
 
 ;------------------------------------------------------------
 ;       MODULES
@@ -445,10 +447,10 @@ format-full = <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.module-background}
 
-label-charging = "%percentage:02%% %{T6}⚡%{T-}"
-label-discharging = "%percentage:02%% %{F#777777 T6}⚡%{FT-}"
+label-charging = "%percentage:02%% %{T7}⚡%{T-}"
+label-discharging = "%percentage:02%% %{F#777777 T7}⚡%{FT-}"
 label-discharging-foreground = ${colors.white}
-label-full = "%percentage:02%% %{T6}⚡%{T-}"
+label-full = "%percentage:02%% %{T7}⚡%{T-}"
 
 [module/battery-productive]
 inheritance = module/battery
