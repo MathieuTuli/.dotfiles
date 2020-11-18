@@ -87,7 +87,7 @@ endfunction
 
     " \ '_'                : '-pdflatex',
 let g:vimtex_compiler_latexmk_engines = {
-    \ '_'                : '-lualatex',
+    \ '_'                : '-pdflatex',
     \ 'pdflatex'         : '-pdf',
     \ 'dvipdfex'         : '-pdfdvi',
     \ 'lualatex'         : '-lualatex',
