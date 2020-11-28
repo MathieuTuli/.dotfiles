@@ -9,7 +9,7 @@ do
       extension="${filename#*.}"
       if [ $extension == 'pdf' ]
       then
-        zathura $i --fork
+        zathura $i
       fi
     fi
   done

@@ -4,6 +4,7 @@ alias sudo='sudo '
 alias vi=nvim
 alias vim=nvim
 alias vidiff=vimdiff
+alias zathura='zathura --fork'
 
 DEV=$(iw dev | awk '$1=="Interface"{print $2}')
 alias wpa_cli='wpa_cli -i $DEV'
