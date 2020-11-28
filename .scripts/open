@@ -1,0 +1,17 @@
+#!/bin/bash
+for var in "$@"
+do
+  for i in $var;
+  do
+    if [ -f "$i" ]
+    then
+      filename=$(basename $i)
+      extension="${filename#*.}"
+      if [ $extension == 'pdf' ]
+      then
+        zathura $i --fork
+      fi
+    fi
+  done
+done
+
