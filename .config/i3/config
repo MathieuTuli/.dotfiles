@@ -236,3 +236,13 @@ assign [class="Slack"] 4
 gaps inner 0
 gaps horizontal 7
 gaps vertical 7
+
+# workspace $ws1 output DP-0
+# workspace $ws2 output DP-0
+# workspace $ws3 output DP-0
+# workspace $ws4 output HDMI-0
+# exec --no-startup-id i3-msg 'workspace $ws1:Terminal; exec termite'
+# exec --no-startup-id mailspring
+# exec --no-startup-id i3-msg 'workspace $ws2:Terminal; exec google'
+# exec --no-startup-id slack
+# exec --no-startup-id spotify
