@@ -77,7 +77,7 @@ nmap <C-n> :NERDTreeToggle<CR>
 
 " Vimtex
 nmap \tex :VimtexCompile<CR>
-nnoremap <C-J> <C-W><C-j>
-nnoremap <C-K> <C-W><C-k>
-nnoremap <C-L> <C-W><C-l>
-nnoremap <C-H> <C-W><C-h>
+" nnoremap <C-J> <C-W><C-j>
+" nnoremap <C-K> <C-W><C-k>
+" nnoremap <C-L> <C-W><C-l>
+" nnoremap <C-H> <C-W><C-h>
