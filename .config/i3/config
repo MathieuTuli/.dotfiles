@@ -141,6 +141,11 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+workspace $ws1 output DP-0
+workspace $ws2 output DP-0
+workspace $ws3 output DP-0
+workspace $ws4 output HDMI-0
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -228,21 +233,17 @@ exec_always --no-startup-id setxkbmap -option caps:escape
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
-for_window [class="Spotify"] move to workspace $ws4
-for_window [class="Mailspring"] move to workspace $ws3
-for_window [class="discord"] move to workspace $ws4
 for_window [class="i3-frame"] floating disable
-assign [class="Slack"] 4
+for_window [class="Spotify"] move to workspace $ws4
+assign [class="Spotify"] $ws4
+assign [class="Slack"] $ws4
+assign [class="Mailspring"] $ws3
+assign [class="discord"] $ws4
 gaps inner 0
 gaps horizontal 7
 gaps vertical 7
 
-# workspace $ws1 output DP-0
-# workspace $ws2 output DP-0
-# workspace $ws3 output DP-0
-# workspace $ws4 output HDMI-0
-# exec --no-startup-id i3-msg 'workspace $ws1:Terminal; exec termite'
-# exec --no-startup-id mailspring
-# exec --no-startup-id i3-msg 'workspace $ws2:Terminal; exec google'
-# exec --no-startup-id slack
-# exec --no-startup-id spotify
+exec --no-startup-id termite
+exec --no-startup-id mailspring
+exec --no-startup-id spotify
+exec --no-startup-id slack
