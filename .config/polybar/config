@@ -80,7 +80,7 @@ border-color = ${colors.bar-background}
 border-top-size = 9
 border-left-size = 9
 border-right-size = 9
-modules-left = left-circle spotify spacer alsa-optical right-circle
+modules-left = left-circle spotify spacer alsa-optical right-circle blank-spacer left-circle bluetooth right-circle
 modules-center = left-circle i3 right-circle
 modules-right = left-circle archive spacer filesystem spacer memory cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan-6s0 wlan-2s0 elan right-circle blank-spacer left-circle battery right-circle blank-spacer left-circle date right-circle
 
@@ -541,6 +541,14 @@ exec = ~/.scripts/polybar-nordvpn-status
 label-font=3
 interval=5
 label-foreground = ${colors.focused-i3-background}
+label-background = ${colors.module-background}
+
+[module/bluetooth]
+type = custom/script
+exec = polybar-bluetooth --status
+label-font=1
+interval = 1
+click-left = polybar-bluetooth &
 label-background = ${colors.module-background}
 ;------------------------------------------------------------
 ;       SETTINGS
