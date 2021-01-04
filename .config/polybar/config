@@ -80,7 +80,7 @@ border-color = ${colors.bar-background}
 border-top-size = 9
 border-left-size = 9
 border-right-size = 9
-modules-left = left-circle spotify spacer alsa-optical right-circle blank-spacer left-circle bluetooth right-circle
+modules-left = left-circle spotify spacer spacer alsa-optical right-circle blank-spacer left-circle backlight right-circle blank-spacer left-circle bluetooth right-circle
 modules-center = left-circle i3 right-circle
 modules-right = left-circle archive spacer filesystem spacer memory cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan-6s0 wlan-2s0 elan right-circle blank-spacer left-circle battery right-circle blank-spacer left-circle date right-circle
 
@@ -550,6 +550,52 @@ label-font=1
 interval = 1
 click-left = polybar-bluetooth &
 label-background = ${colors.module-background}
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Enable changing the backlight with the scroll wheel
+; NOTE: This may require additional configuration on some systems. Polybar will
+; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
+; to have write access to that file.
+; DO NOT RUN POLYBAR AS ROOT.
+; The recommended way is to add the user to the
+; `video` group and give that group write-privileges for the `brightness` file.
+; See the ArchWiki for more information:
+; https://wiki.archlinux.org/index.php/Backlight#ACPI
+; Default: false
+enable-scroll = true
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp>
+label-font = 9
+ramp-foreground = ${colors.green}
+ramp-background = ${colors.module-background}
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+
+; Only applies if <ramp> is used
+ramp-0 = %{T7}⏺%{T-}%{F#777777 T7}⏺⏺⏺⏺%{FT-}
+ramp-1 = %{T7}⏺⏺%{T-}%{F#777777 T7}⏺⏺⏺%{FT-}
+ramp-2 = %{T7}⏺⏺⏺%{T-}%{F#777777 T7}⏺⏺%{FT-}
+ramp-3 = %{T7}⏺⏺⏺⏺%{T-}%{F#777777 T7}⏺%{FT-}
+ramp-4 = %{T7}⏺⏺⏺⏺⏺%{T-}%{F#777777 T7}%{FT-}
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
 ;------------------------------------------------------------
 ;       SETTINGS
 ;------------------------------------------------------------
