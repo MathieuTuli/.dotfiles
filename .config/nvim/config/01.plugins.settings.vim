@@ -65,6 +65,7 @@ let g:vimtex_view_zathura_hook_callback = 'MyHook'
 set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_mode=1
+hi clear Conceal
 
 function! MyHook()
   silent call system('xdotool windowactivate ' . g:xwindow_id . ' --sync')

@@ -72,6 +72,7 @@ font-6 = Noto Sans Symbols:pixelsize=12;3
 font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
 font-8 = Noto Sans Symbols2:pixelsize=12;3
 font-9 = Source Code Pro for Powerline:size=19;3
+font-10 = Hasklug Nerd Font:pixelsize=12;4
 
 [bar/top]
 inherit = bar/base
@@ -222,13 +223,13 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777 T7}⚡⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-0 = %{T7}⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-1 = %{T7}⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡%{FT-}
-ramp-signal-2 = %{T7}⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡%{FT-}
-ramp-signal-3 = %{T7}⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡%{FT-}
-ramp-signal-4 = %{T7}⚡⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡%{FT-}
-ramp-signal-5 = %{T7}⚡⚡⚡⚡⚡⚡%{T-}
+label-disconnected = *** %{F#777777 T11}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T11}⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T11}⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T11}⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T11}⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡%{FT-}
+ramp-signal-4 = %{T11}⚡⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡%{FT-}
+ramp-signal-5 = %{T11}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/wlan-2s0]
 type = internal/network
@@ -243,13 +244,13 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777 T7}⚡⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-0 = %{T7}⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-1 = %{T7}⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡%{FT-}
-ramp-signal-2 = %{T7}⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡%{FT-}
-ramp-signal-3 = %{T7}⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡%{FT-}
-ramp-signal-4 = %{T7}⚡⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡%{FT-}
-ramp-signal-5 = %{T7}⚡⚡⚡⚡⚡⚡%{T-}
+label-disconnected = *** %{F#777777 T11}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T11}⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T11}⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T11}⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T11}⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡%{FT-}
+ramp-signal-4 = %{T11}⚡⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡%{FT-}
+ramp-signal-5 = %{T11}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/elan]
 type = internal/network
