@@ -2,7 +2,8 @@
 ;       VARIABLES
 ;------------------------------------------------------------
 [colors]
-bar-background = #aa
+; bar-background = #aa
+bar-background = #2d2d2d
 bar-foreground = #2d2d2d
 
 foreground = #ffffff
@@ -78,9 +79,9 @@ font-10 = Hasklug Nerd Font:pixelsize=12;4
 inherit = bar/base
 bottom = false
 border-color = ${colors.bar-background}
-border-top-size = 9
-border-left-size = 9
-border-right-size = 9
+border-top-size = 0
+border-left-size = 0
+border-right-size = 0
 modules-left = left-circle spotify spacer spacer alsa-optical right-circle blank-spacer left-circle backlight right-circle blank-spacer left-circle bluetooth right-circle
 modules-center = left-circle i3 right-circle
 modules-right = left-circle archive spacer filesystem spacer memory cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan-6s0 wlan-2s0 elan right-circle blank-spacer left-circle battery right-circle blank-spacer left-circle date right-circle
@@ -89,9 +90,9 @@ modules-right = left-circle archive spacer filesystem spacer memory cpu spacer s
 inherit = bar/base
 bottom = true
 border-color = ${colors.bar-background}
-border-bottom-size = 9
-border-left-size = 9
-border-right-size = 9
+border-bottom-size = 0
+border-left-size = 0
+border-right-size = 0
 modules-left =  left-circle arch-updates right-circle blank-spacer left-circle dotfiles right-circle
 modules-center = left-circle cpu-temp right-circle
 modules-right = left-circle nordvpn-status right-circle

@@ -144,7 +144,7 @@ set $ws10 "10"
 workspace $ws1 output DP-0
 workspace $ws2 output DP-0
 workspace $ws3 output DP-0
-workspace $ws4 output HDMI-0
+workspace $ws4 output DP-4
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -240,8 +240,8 @@ assign [class="Slack"] $ws4
 assign [class="Mailspring"] $ws3
 assign [class="discord"] $ws4
 gaps inner 0
-gaps horizontal 7
-gaps vertical 7
+gaps horizontal 0
+gaps vertical 0
 
 exec --no-startup-id termite
 exec --no-startup-id mailspring

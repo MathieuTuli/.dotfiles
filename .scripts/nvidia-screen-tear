@@ -1,1 +1,1 @@
-nvidia-settings --assign CurrentMetaMode="DPY-0: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, DPY-2: nvidia-auto-select +2560+0 {ForceCompositionPipeline=On}"
+nvidia-settings --assign CurrentMetaMode="DPY-0: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, DPY-5: nvidia-auto-select +2560+0 {ForceCompositionPipeline=On}"

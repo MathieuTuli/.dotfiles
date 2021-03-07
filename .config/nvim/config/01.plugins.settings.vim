@@ -38,7 +38,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = { 'c': 1, 'cpp': 1 }
 
-let g:ycm_path_to_python_interpreter = '~/.pyenv/shims/python3.7'
+let g:ycm_path_to_python_interpreter = '~/.pyenv/shims/python'
+" let g:ycm_python_binary_path = 'python'
 
 " TODO: Group
 " Since YCM unconditionally remaps <Tab> on VimEnter, we need to remap <Tab>
