@@ -30,6 +30,7 @@ Plugin 'tikhomirov/vim-glsl'
 Plugin 'scrooloose/nerdTree'
 Plugin 'lervag/vimtex'
 Plugin 'PontusPersson/pddl.vim'
+Plugin 'szymonmaszke/vimpyter' 
 call vundle#end()
 filetype plugin indent on
 set clipboard+=unnamedplus

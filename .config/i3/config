@@ -245,5 +245,5 @@ gaps vertical 0
 
 exec --no-startup-id termite
 exec --no-startup-id mailspring
-exec --no-startup-id spotify
 exec --no-startup-id slack
+exec --no-startup-id spotify
