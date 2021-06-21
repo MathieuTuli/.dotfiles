@@ -449,10 +449,10 @@ format-full = <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.module-background}
 
-label-charging = "%percentage:02%% %{T7}⚡%{T-}"
-label-discharging = "%percentage:02%% %{F#777777 T7}⚡%{FT-}"
+label-charging = "%percentage:02%% %{T8}⚡%{T-}"
+label-discharging = "%percentage:02%% %{F#777777 T8}⚡%{FT-}"
 label-discharging-foreground = ${colors.white}
-label-full = "%percentage:02%% %{T7}⚡%{T-}"
+label-full = "%percentage:02%% %{T8}⚡%{T-}"
 
 [module/battery-productive]
 inheritance = module/battery
