@@ -1,5 +1,8 @@
 # [ALIASES]
 
+function vimgrep() {
+  vi $(grep --color=never $@)
+}
 alias sudo='sudo '
 
 # alias find-size="find -name $1 -exec du -h -d 0 {} \;"

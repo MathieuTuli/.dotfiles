@@ -224,13 +224,13 @@ format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777 T11}⚡⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-0 = %{T11}⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-1 = %{T11}⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡%{FT-}
-ramp-signal-2 = %{T11}⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡%{FT-}
-ramp-signal-3 = %{T11}⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡%{FT-}
-ramp-signal-4 = %{T11}⚡⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡%{FT-}
-ramp-signal-5 = %{T11}⚡⚡⚡⚡⚡⚡%{T-}
+label-disconnected = *** %{F#777777 T11}⚡⚡⚡⚡⚡⚡
+ramp-signal-0 = %{T11}⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡⚡
+ramp-signal-1 = %{T11}⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡
+ramp-signal-2 = %{T11}⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡
+ramp-signal-3 = %{T11}⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡
+ramp-signal-4 = %{T11}⚡⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡
+ramp-signal-5 = %{T11}⚡⚡⚡⚡⚡⚡
 
 [module/wlan-2s0]
 type = internal/network
