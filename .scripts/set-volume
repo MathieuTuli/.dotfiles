@@ -1,0 +1,32 @@
+#!/bin/sh
+BLUEZ=false
+
+while read line;
+do
+  echo $line
+  if [[ $line == *"bluez"* ]]; then
+    BLUEZ=true
+  fi
+done <<<"$(pacmd list-sinks | grep "name:\|state" | awk '{$1=$1;printf("%s ",$0)};NR%2==0{print ""}')"
+raise(){
+  if $BLUEZ; then
+    pactl set-sink-volume bluez_sink.60_BE_C4_66_49_64.a2dp_sink +3dB
+  else
+    amixer set Master 2dB+
+  fi
+}
+lower(){
+  if $BLUEZ; then
+    pactl set-sink-volume bluez_sink.60_BE_C4_66_49_64.a2dp_sink -3dB
+  else
+    echo "b not running"
+    amixer set Master 2dB-
+  fi
+}
+case "$1" in
+  up)
+    raise;;
+  down)
+    lower;;
+esac
+
