@@ -7,3 +7,4 @@ amixer set Front unmute
 amixer set Surround unmute
 amixer set Center unmute
 amixer set IEC958 toggle
+pactl set-sink-mute bluez_sink.60_BE_C4_66_49_64.a2dp_sink toggle

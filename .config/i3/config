@@ -24,8 +24,8 @@ client.urgent           #2d2d2d #FF8787 	#2d2d2d #393939   #393939
 bindsym $mod+t exec deepin-screenshot
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2dB+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2dB-
+bindsym XF86AudioRaiseVolume exec --no-startup-id set-volume up
+bindsym XF86AudioLowerVolume exec --no-startup-id set-volume down
 bindsym XF86AudioMute exec --no-startup-id $HOME/.scripts/toggle-mute
 
 # Sreen brightness controls
