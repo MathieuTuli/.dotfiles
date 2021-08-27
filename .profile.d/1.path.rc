@@ -38,4 +38,8 @@ export PYTHON_USER_SITE=$(python -m site --user-site)
 # sudo echo "$LCM_INSTALL_DIR/python$PYTHON_VERSION/site-packages" > /usr/lib/python$PYTHON_VERSION/site-packages/lcm.pth
 export PKG_CONFIG_PATH=$LCM_CONFIG_PATH:$LCM_INSTALL_DIR/pkgconfig:/usr/local/lib/pkgconfig
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/mat/.mujoco/mujoco200/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco200/bin
+
+export PYTHONPATH=$PYTHONPATH:/home/mat/builds/carla/CARLA_0.9.8/PythonAPI
+export PYTHONPATH=$PYTHONPATH:/home/mat/builds/carla/CARLA_0.9.8/PythonAPI/carla
+export PYTHONPATH=$PYTHONPATH:/home/mat/builds/carla/CARLA_0.9.8/PythonAPI/carla/dist/carla-0.9.8-py3.5-linux-x86_64.egg
