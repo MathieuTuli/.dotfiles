@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill --image-bg '#2d2d2d' '/home/mat/.config/i3/backgrounds/wes.jpg'
+feh --no-fehbg --bg-scale '.config/i3/backgrounds/forest-lake-minimalism-3840×2160.jpg'

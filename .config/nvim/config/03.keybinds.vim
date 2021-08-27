@@ -81,3 +81,4 @@ nmap \tex :VimtexCompile<CR>
 " nnoremap <C-K> <C-W><C-k>
 " nnoremap <C-L> <C-W><C-l>
 " nnoremap <C-H> <C-W><C-h>
+tnoremap <C-]> <C-\><C-n>
