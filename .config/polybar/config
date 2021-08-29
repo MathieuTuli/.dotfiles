@@ -72,6 +72,8 @@ font-3 = WeatherIcons:size=12;4
 font-4 = NotoSansSymbols:pixelsize=12;3
 font-5 = NotoEmoji:pixelsize=12;3
 font-6 = NotoSansSymbols:style=Regular:pixelsize=12;3
+font-7 = NotoSansSymbols2:style=Regular:pixelsize=12;4
+font-8 = SourceCodePro:pixelsize=10;2
 
 [bar/top]
 inherit = bar/base
@@ -110,7 +112,7 @@ content-foreground = ${colors.module-background}
 
 [module/spacer]
 type=custom/text
-content = " | "
+content = " %{T9} | %{T-}"
 content-foreground = ${colors.dark-white}
 content-background = ${colors.module-background}
 
@@ -618,11 +620,11 @@ label = %percentage%%
 
 
 ; Only applies if <ramp> is used
-ramp-0 = %{T5}⏺%{T-}%{F#777777 T5}⏺⏺⏺⏺%{FT-}
-ramp-1 = %{T5}⏺⏺%{T-}%{F#777777 T5}⏺⏺⏺%{FT-}
-ramp-2 = %{T5}⏺⏺⏺%{T-}%{F#777777 T5}⏺⏺%{FT-}
-ramp-3 = %{T5}⏺⏺⏺⏺%{T-}%{F#777777 T5}⏺%{FT-}
-ramp-4 = %{T5}⏺⏺⏺⏺⏺%{T-}%{F#777777 T5}%{FT-}
+ramp-0 = %{T7}⏺%{T-}%{F#777777 T7}⏺⏺⏺⏺%{FT-}
+ramp-1 = %{T7}⏺⏺%{T-}%{F#777777 T7}⏺⏺⏺%{FT-}
+ramp-2 = %{T7}⏺⏺⏺%{T-}%{F#777777 T7}⏺⏺%{FT-}
+ramp-3 = %{T7}⏺⏺⏺⏺%{T-}%{F#777777 T7}⏺%{FT-}
+ramp-4 = %{T7}⏺⏺⏺⏺⏺%{T-}%{F#777777 T7}%{FT-}
 
 ; Only applies if <bar> is used
 bar-width = 10
