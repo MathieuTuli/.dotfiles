@@ -80,9 +80,9 @@ border-color = ${colors.bar-background}
 border-top-size = 0
 border-left-size = 0
 border-right-size = 0
-modules-left = spotify spacer spacer alsa-optical blank-spacer backlight blank-spacer bluetooth
+modules-left = blank-spacer spotify blank-spacer alsa-optical spacer backlight spacer bluetooth
 modules-center = i3
-modules-right = filesystem spacer memory spacer cpu spacer system-nvidia-smi-memory spacer system-nvidia-smi wlan-6s0 wlan-2s0 elan battery date
+modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory blank-spacer system-nvidia-smi spacer wlan-6s0 wlan-2s0 elan spacer battery spacer date blank-spacer
 
 [bar/bottom]
 inherit = bar/base
@@ -91,9 +91,9 @@ border-color = ${colors.bar-background}
 border-bottom-size = 0
 border-left-size = 0
 border-right-size = 0
-modules-left =  arch-updates spacer dotfiles
+modules-left =  blank-spacer arch-updates spacer dotfiles
 modules-center = cpu-temp
-modules-right = nordvpn-status
+modules-right = nordvpn-status blank-spacer
 
 ;------------------------------------------------------------
 ;       MODULES
@@ -110,7 +110,7 @@ content-foreground = ${colors.module-background}
 
 [module/spacer]
 type=custom/text
-content = "|"
+content = " | "
 content-foreground = ${colors.dark-white}
 content-background = ${colors.module-background}
 
