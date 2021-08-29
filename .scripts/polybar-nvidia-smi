@@ -1,6 +1,6 @@
 #!/bin/sh
 if nvidia-smi > /tmp/echo_off.txt; then
-   nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{printf "%.2d%s", $3, "%"}'
+   nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{printf "%.2d%s ", $3, "%"}'
 else
   echo \?\?%
 fi

@@ -84,7 +84,8 @@ border-left-size = 0
 border-right-size = 0
 modules-left = blank-spacer spotify blank-spacer alsa-optical spacer backlight spacer bluetooth
 modules-center = i3
-modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory blank-spacer system-nvidia-smi spacer wlan-6s0 wlan-2s0 elan spacer battery spacer date blank-spacer
+modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi spacer wlan-6s0 wlan-2s0 elan spacer battery spacer date blank-spacer
+
 
 [bar/bottom]
 inherit = bar/base
@@ -112,7 +113,7 @@ content-foreground = ${colors.module-background}
 
 [module/spacer]
 type=custom/text
-content = " %{T9} | %{T-}"
+content = "%{T9} | %{T-}"
 content-foreground = ${colors.dark-white}
 content-background = ${colors.module-background}
 
@@ -231,9 +232,7 @@ type = internal/network
 interface = wlp6s0
 interval = 3.0
 
-format-prefix = "%{T5}📶 %{T-}"
-format-prefix-foreground = ${colors.purple}
-format-connected = <label-connected>
+format-connected =  "%{T5 F#9f78e1}📶%{TF-} %{F#eeeeee}<label-connected>%{F-}"
 format-connected-background = ${colors.module-background}
 format-connected-foreground = ${colors.white}
 format-disconnected =
