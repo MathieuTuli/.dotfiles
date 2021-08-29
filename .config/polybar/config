@@ -3,8 +3,8 @@
 ;------------------------------------------------------------
 [colors]
 ; bar-background = #aa
-bar-background = #2d2d2d
-bar-foreground = #2d2d2d
+bar-background = #dd2d2d2d
+bar-foreground = #dd2d2d2d
 
 foreground = #ffffff
 
@@ -15,19 +15,21 @@ secondary = #FD2C40
 alert = #F67280
 
 ; i3
-focused-i3-background = #2d2d2d
+focused-i3-background = #dd2d2d2d
 focused-i3-foreground = #eeeeee
-unfocused-i3-background = #2d2d2d
+unfocused-i3-background = #dd2d2d2d
 unfocused-i3-foreground = #eeeeee
 
 ; module
-module-background = #2d2d2d
+module-background = #dd2d2d2d
 module-foreground = #eeeeee
 
 ; Colors
 transparent = #00ffffff
 white = #eeeeee
+dark-white = #aaaaaa
 grey = #444444
+light-grey = #777777
 blue = #87AFD7
 purple = #9F78E1
 green = #85ca9c
@@ -63,17 +65,13 @@ padding          = 0
 # padding-right         = 0
 # radius                = 15
 
-font-0 = Source Code Pro for Powerline:pixelsize=12;3
+font-0 = SourceCodePro:pixelsize=12;3
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;3
-font-2 = Hasklug Nerd Font Mono:pixelsize=12;4
-font-3 = fixed:pixelsize=0;0
-font-4 = WeatherIcons:size=12;4
-font-5 = Hasklug Nerd Font:pixelsize=16;4
-font-6 = Noto Sans Symbols:pixelsize=12;3
-font-7 = DejaVuSansMono Nerd Font:pixelsize=12;3
-font-8 = Noto Sans Symbols2:pixelsize=12;3
-font-9 = Source Code Pro for Powerline:size=19;3
-font-10 = Hasklug Nerd Font:pixelsize=12;4
+font-2 = fixed:pixelsize=0;0
+font-3 = WeatherIcons:size=12;4
+font-4 = NotoSansSymbols:pixelsize=12;3
+font-5 = NotoEmoji:pixelsize=12;3
+font-6 = NotoSansSymbols:style=Regular:pixelsize=12;3
 
 [bar/top]
 inherit = bar/base
@@ -82,9 +80,9 @@ border-color = ${colors.bar-background}
 border-top-size = 0
 border-left-size = 0
 border-right-size = 0
-modules-left = left-circle spotify spacer spacer alsa-optical right-circle blank-spacer left-circle backlight right-circle blank-spacer left-circle bluetooth right-circle
-modules-center = left-circle i3 right-circle
-modules-right = left-circle archive spacer filesystem spacer memory cpu spacer system-nvidia-smi right-circle blank-spacer left-circle wlan-6s0 wlan-2s0 elan right-circle blank-spacer left-circle battery right-circle blank-spacer left-circle date right-circle
+modules-left = spotify spacer spacer alsa-optical blank-spacer backlight blank-spacer bluetooth
+modules-center = i3
+modules-right = filesystem spacer memory spacer cpu spacer system-nvidia-smi-memory spacer system-nvidia-smi wlan-6s0 wlan-2s0 elan battery date
 
 [bar/bottom]
 inherit = bar/base
@@ -93,27 +91,27 @@ border-color = ${colors.bar-background}
 border-bottom-size = 0
 border-left-size = 0
 border-right-size = 0
-modules-left =  left-circle arch-updates right-circle blank-spacer left-circle dotfiles right-circle
-modules-center = left-circle cpu-temp right-circle
-modules-right = left-circle nordvpn-status right-circle
+modules-left =  arch-updates spacer dotfiles
+modules-center = cpu-temp
+modules-right = nordvpn-status
 
 ;------------------------------------------------------------
 ;       MODULES
 ;------------------------------------------------------------
 [module/left-circle]
 type=custom/text
-content = "%{T6}%{T-}"
+content = "%{T4}%{T-}"
 content-foreground = ${colors.bar-foreground}
 
 [module/right-circle]
 type=custom/text
-content = "%{T6}%{T-}"
+content = "%{T4}%{T-}"
 content-foreground = ${colors.module-background}
 
 [module/spacer]
 type=custom/text
-content = " "
-content-foreground = ${colors.module-background}
+content = "|"
+content-foreground = ${colors.dark-white}
 content-background = ${colors.module-background}
 
 [module/blank-spacer]
@@ -123,7 +121,18 @@ content = " "
 [module/system-nvidia-smi]
 type = custom/script
 exec = ~/.scripts/polybar-nvidia-smi
-label-foreground = ${colors.pink}
+format-prefix = "%{T5}%{T-} "
+format-prefix-foreground = ${colors.pink}
+label-foreground = ${colors.white}
+label-background = ${colors.module-background}
+interval = 0.5
+
+[module/system-nvidia-smi-memory]
+type = custom/script
+exec = ~/.scripts/polybar-nvidia-smi-memory
+format-prefix = "%{T5}🐏  %{T-}"
+format-prefix-foreground = ${colors.pink}
+label-foreground = ${colors.white}
 label-background = ${colors.module-background}
 interval = 0.5
 
@@ -184,8 +193,8 @@ label-background = ${colors.module-background}
 type = internal/fs
 interval = 30
 mount-0 = /
-label-mounted = "%mountpoint% %percentage_used:02%%"
-label-mounted-foreground = ${colors.red}
+label-mounted = "%{F#FF8787 T5}📁%{FT-} %{T1}%percentage_used:02%%%{T-}"
+label-mounted-foreground = ${colors.white}
 label-mounted-background= ${colors.module-background}
 
 [module/archive]
@@ -200,15 +209,19 @@ label-unmounted = ""
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = " ✝ %percentage:02%%"
-label-foreground = ${colors.orange}
+format-prefix = "%{T5}%{T-} "
+format-prefix-foreground = ${colors.orange}
+label = "%percentage:02%%"
+label-foreground = ${colors.white}
 label-background = ${colors.module-background}
 
 [module/memory]
 type = internal/memory
 interval = 2
-label = ☰ %percentage_used:02%%
-label-foreground = ${colors.orange}
+format-prefix = "%{T5}🐏  %{T-}"
+format-prefix-foreground = ${colors.orange}
+label = %percentage_used:02%%
+label-foreground = ${colors.white}
 label-background = ${colors.module-background}
 
 [module/wlan-6s0]
@@ -216,42 +229,44 @@ type = internal/network
 interface = wlp6s0
 interval = 3.0
 
-format-connected = <label-connected> <ramp-signal>
+format-prefix = "%{T5}📶 %{T-}"
+format-prefix-foreground = ${colors.purple}
+format-connected = <label-connected>
 format-connected-background = ${colors.module-background}
-format-connected-foreground = ${colors.purple}
+format-connected-foreground = ${colors.white}
 format-disconnected =
 format-disconnected-background = ${colors.module-background}
-format-disconnected-foreground = ${colors.purple}
+format-disconnected-foreground = ${colors.white}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777 T11}⚡⚡⚡⚡⚡⚡
-ramp-signal-0 = %{T11}⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡⚡
-ramp-signal-1 = %{T11}⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡
-ramp-signal-2 = %{T11}⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡
-ramp-signal-3 = %{T11}⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡
-ramp-signal-4 = %{T11}⚡⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡
-ramp-signal-5 = %{T11}⚡⚡⚡⚡⚡⚡
+label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡
+ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡
+ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡
+ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡
+ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡
+ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡
+ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡
 
 [module/wlan-2s0]
 type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected = <label-connected> <ramp-signal>
+format-connected =  "%{T5 F#9f78e1}📶%{TF-} %{F#eeeeee}<label-connected>%{F-}"
 format-connected-background = ${colors.module-background}
-format-connected-foreground = ${colors.purple}
+format-connected-foreground = ${colors.white}
 format-disconnected =
 format-disconnected-background = ${colors.module-background}
-format-disconnected-foreground = ${colors.purple}
+format-disconnected-foreground = ${colors.white}
 label-connected = "%essid%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected = *** %{F#777777 T11}⚡⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-0 = %{T11}⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡⚡%{FT-}
-ramp-signal-1 = %{T11}⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡⚡%{FT-}
-ramp-signal-2 = %{T11}⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡⚡%{FT-}
-ramp-signal-3 = %{T11}⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡⚡%{FT-}
-ramp-signal-4 = %{T11}⚡⚡⚡⚡⚡%{T-}%{F#777777 T11}⚡%{FT-}
-ramp-signal-5 = %{T11}⚡⚡⚡⚡⚡⚡%{T-}
+label-disconnected = *** %{F#777777 T6}⚡⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-0 = %{T6}⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡⚡%{FT-}
+ramp-signal-1 = %{T6}⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡⚡%{FT-}
+ramp-signal-2 = %{T6}⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡⚡%{FT-}
+ramp-signal-3 = %{T6}⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡⚡%{FT-}
+ramp-signal-4 = %{T6}⚡⚡⚡⚡⚡%{T-}%{F#777777 T6}⚡%{FT-}
+ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/elan]
 type = internal/network
@@ -290,13 +305,16 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 type = internal/date
 interval = 0.5
 date = "%Y-%m-%d "
+date-alt = ""
 
 time-alt = "%I:%M:%S %p"
 time = "%I:%M:%S %p"
 
+format-prefix = "%{T5}⏰%{T-} "
+format-prefix-foreground = ${colors.blue}
 format-prefix-background = ${colors.module-background}
 label = %date%%time%
-label-foreground = ${colors.blue}
+label-foreground = ${colors.white}
 label-background = ${colors.module-background}
 
 [module/date-productive]
@@ -440,7 +458,7 @@ adapter = AC0
 full-at = 100
 
 format-charging = <label-charging>
-format-charging-foreground = ${colors.green}
+format-charging-foreground = ${colors.white}
 format-charging-background = ${colors.module-background}
 format-discharging = <label-discharging>
 format-discharging-foreground = ${colors.white}
@@ -448,11 +466,17 @@ format-discharging-background = ${colors.module-background}
 format-full = <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.module-background}
+format-full-prefix = "%{T6}⚡%{T-}"
+format-charging-prefix = "%{T6}⚡%{T-}"
+format-discharging-prefix = "%{T6}⚡%{T-}"
+format-full-prefix-foreground = ${colors.green}
+format-charging-prefix-foreground = ${colors.green}
+format-discharging-prefix-foreground = ${colors.light-grey}
 
-label-charging = "%percentage:02%% %{T8}⚡%{T-}"
-label-discharging = "%percentage:02%% %{F#777777 T8}⚡%{FT-}"
+label-charging = "%percentage:02%%"
+label-discharging = "%percentage:02%%"
 label-discharging-foreground = ${colors.white}
-label-full = "%percentage:02%% %{T8}⚡%{T-}"
+label-full = "%percentage:02%%"
 
 [module/battery-productive]
 inheritance = module/battery
@@ -463,10 +487,17 @@ format-discharging-background = ${colors.white}
 format-full-foreground = ${colors.module-background}
 format-full-background = ${colors.green}
 
-label-charging = "%percentage:02%% %{T6}⚡%{T-}"
-label-discharging = "%percentage:02%% %{T6}⚡%{T-}"
-label-discharging-foreground = ${colors.bar-background}
-label-full = "%percentage:02%% %{T6}⚡%{T-}"
+format-full-prefix = "%{T6}⚡%{T-}"
+format-charging-prefix = "%{T6}⚡%{T-}"
+format-discharging-prefix = "%{T6}⚡%{T-}"
+format-full-prefix-foreground = ${colors.green}
+format-charging-prefix-foreground = ${colors.green}
+format-discharging-prefix-foreground = ${colors.light-grey}
+
+label-charging = "%percentage:02%%"
+label-discharging = "%percentage:02%%"
+label-discharging-foreground = ${colors.white}
+label-full = "%percentage:02%%"
 
 [module/cpu-temp]
 type = custom/script
@@ -587,11 +618,11 @@ label = %percentage%%
 
 
 ; Only applies if <ramp> is used
-ramp-0 = %{T7}⏺%{T-}%{F#777777 T7}⏺⏺⏺⏺%{FT-}
-ramp-1 = %{T7}⏺⏺%{T-}%{F#777777 T7}⏺⏺⏺%{FT-}
-ramp-2 = %{T7}⏺⏺⏺%{T-}%{F#777777 T7}⏺⏺%{FT-}
-ramp-3 = %{T7}⏺⏺⏺⏺%{T-}%{F#777777 T7}⏺%{FT-}
-ramp-4 = %{T7}⏺⏺⏺⏺⏺%{T-}%{F#777777 T7}%{FT-}
+ramp-0 = %{T5}⏺%{T-}%{F#777777 T5}⏺⏺⏺⏺%{FT-}
+ramp-1 = %{T5}⏺⏺%{T-}%{F#777777 T5}⏺⏺⏺%{FT-}
+ramp-2 = %{T5}⏺⏺⏺%{T-}%{F#777777 T5}⏺⏺%{FT-}
+ramp-3 = %{T5}⏺⏺⏺⏺%{T-}%{F#777777 T5}⏺%{FT-}
+ramp-4 = %{T5}⏺⏺⏺⏺⏺%{T-}%{F#777777 T5}%{FT-}
 
 ; Only applies if <bar> is used
 bar-width = 10
