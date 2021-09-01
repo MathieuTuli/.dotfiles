@@ -25,7 +25,7 @@ window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-	border:							2% 1% 2% 1%;
+	border:							0% 0% 0% 0%;
 	border-color:					@border;
     border-radius:                  0% 0% 0% 0%;
     height:                         70%;
@@ -78,7 +78,8 @@ listview {
 
 mainbox {
     background-color:               @background;
-	border:							2% 1% 2% 1%;
+	// border:							0.5% 0.3% 0.5% 0.3%;
+	border:							0% 0% 0% 0%;
     border-radius:                  0% 0% 0% 0%;
 	border-color:					@border-alt;
     children:                       [ inputbar, listview ];
