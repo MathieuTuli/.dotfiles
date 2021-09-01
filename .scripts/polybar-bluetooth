@@ -300,7 +300,10 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="rofi -dmenu -no-fixed-num-lines -yoffset -100 -i -p"
+dir="$HOME/.config/rofi/launchers/slate"
+themes=($(ls -p --hide="launcher.sh" --hide="styles" $dir))
+theme="${themes[$(( $RANDOM % 7 ))]}"
+rofi_command="rofi  -theme $dir/slate_center_thin.rasi -dmenu -i -p :"
 
 case "$1" in
     --status)
