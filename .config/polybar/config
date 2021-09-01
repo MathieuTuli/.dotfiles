@@ -82,9 +82,9 @@ border-color = ${colors.bar-background}
 border-top-size = 0
 border-left-size = 0
 border-right-size = 0
-modules-left = blank-spacer spotify blank-spacer alsa-optical spacer backlight spacer bluetooth
+modules-left = blank-spacer spotify blank-spacer alsa-optical spacer bluetooth
 modules-center = i3
-modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi spacer wlan-6s0 wlan-2s0 elan spacer battery spacer date blank-spacer
+modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi nl-spacer wlan-6s0 wlan-2s0 elan spacer date blank-spacer
 
 
 [bar/bottom]
@@ -114,6 +114,12 @@ content-foreground = ${colors.module-background}
 [module/spacer]
 type=custom/text
 content = "%{T9} | %{T-}"
+content-foreground = ${colors.dark-white}
+content-background = ${colors.module-background}
+
+[module/nl-spacer]
+type=custom/text
+content = "%{T9}| %{T-}"
 content-foreground = ${colors.dark-white}
 content-background = ${colors.module-background}
 
@@ -232,10 +238,10 @@ type = internal/network
 interface = wlp6s0
 interval = 3.0
 
-format-connected =  "%{T5 F#9f78e1}📶%{TF-} %{F#eeeeee}<label-connected>%{F-}"
+format-connected =  "%{A1:wpa_gui:}%{T5 F#9f78e1}📶%{TF-} %{F#eeeeee}<label-connected>%{F-}%{A}"
 format-connected-background = ${colors.module-background}
 format-connected-foreground = ${colors.white}
-format-disconnected =
+format-disconnected =  "%{A1:wpa_gui:}%{T5 F#777777}📶%{TF-} %{A}"
 format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.white}
 label-connected = "%essid%"
@@ -253,10 +259,10 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected =  "%{T5 F#9f78e1}📶%{TF-} %{F#eeeeee}<label-connected>%{F-}"
+format-connected =  "%{A1:wpa_gui:}%{T5 F#9f78e1}📶%{TF-} %{F#eeeeee}<label-connected>%{F-}%{A}"
 format-connected-background = ${colors.module-background}
 format-connected-foreground = ${colors.white}
-format-disconnected =
+format-disconnected =  "%{A1:wpa_gui:}%{T5 F#777777}📶%{TF-} %{A}"
 format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.white}
 label-connected = "%essid%"
@@ -326,9 +332,9 @@ label-background = ${colors.blue}
 [module/alsa-optical]
 type = internal/alsa
 
-master-soundcard = default
+master-soundcard =  default
 
-master-mixer = IEC958
+master-mixer = Master
 
 headphone-id = 17
 
@@ -580,7 +586,7 @@ label-background = ${colors.module-background}
 [module/bluetooth]
 type = custom/script
 exec = polybar-bluetooth --status
-label-font=1
+label-font = 1
 interval = 1
 click-left = polybar-bluetooth &
 label-background = ${colors.module-background}

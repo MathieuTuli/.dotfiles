@@ -13,6 +13,7 @@ raise(){
     pactl set-sink-volume bluez_sink.60_BE_C4_66_49_64.a2dp_sink +3dB
   else
     amixer set Master 2dB+
+    pactl set-sink-volume alsa_output.pci-0000_0d_00.4.analog-stereo +3dB
   fi
 }
 lower(){
@@ -21,6 +22,7 @@ lower(){
   else
     echo "b not running"
     amixer set Master 2dB-
+    pactl set-sink-volume alsa_output.pci-0000_0d_00.4.analog-stereo -3dB
   fi
 }
 case "$1" in
