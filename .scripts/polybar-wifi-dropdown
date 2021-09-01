@@ -1,0 +1,6 @@
+#!/bin/sh
+if [[ $(pgrep wpa_gui) ]]; then
+  killall wpa_gui
+else
+  nohup wpa_gui > /dev/null 2>&1 &
+fi
