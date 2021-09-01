@@ -18,7 +18,7 @@ highlight clear SignColumn
 set updatetime=100
 
 set switchbuf+=usetab,newtab
-set guifont=Source\ Code\ Pro\ for\ Powerline\ 16
+set guifont=Source\ Code\ Pro
 set showmatch
 set autoindent
 set smartindent

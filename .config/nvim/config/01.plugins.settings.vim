@@ -35,11 +35,11 @@ let g:gitgutter_sign_modified_removed = '~-'
 " YCM
 " let g:ycm_filetype_blacklist = { 'tex': 1 }
 let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_filetype_blacklist = { 'c': 1, 'cpp': 1, 'tex': 1}
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" let g:ycm_filetype_blacklist = { 'c': 1, 'cpp': 1, 'tex': 1}
 
-let g:ycm_path_to_python_interpreter = '../../../.pyenv/shims/python3.9'
-let g:ycm_server_python_interpreter = '../../../.pyenv/shims/python3.9'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
+" let g:ycm_server_python_interpreter = '../../../.pyenv/shims/python3.9'
 " let g:ycm_python_binary_path = 'python'
 
 " TODO: Group

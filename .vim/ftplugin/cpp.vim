@@ -5,4 +5,4 @@ set sw=2
 let b:ale_linters = ['clang', 'g++']
 let g:ale_cpp_clang_options = '-std=c++17 -Wall'
 let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
-let g:enable_ycm_at_startup = 0
+" let g:enable_ycm_at_startup = 0
