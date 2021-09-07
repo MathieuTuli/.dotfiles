@@ -74,6 +74,7 @@ font-5 = NotoEmoji:pixelsize=12;3
 font-6 = NotoSansSymbols:style=Regular:pixelsize=12;3
 font-7 = NotoSansSymbols2:style=Regular:pixelsize=12;4
 font-8 = SourceCodePro:pixelsize=10;2
+; font-9 = NotoSansSymbols2:style=Regular:pixelsize=18;5
 
 [bar/top]
 inherit = bar/base
@@ -103,8 +104,10 @@ modules-right = nordvpn-status blank-spacer
 ;------------------------------------------------------------
 [module/left-circle]
 type=custom/text
-content = "%{T4}%{T-}"
-content-foreground = ${colors.bar-foreground}
+;content = "%{T5}❨⦗%{T-}"
+content = "%{T10}❨%{T-}"
+content-foreground = ${colors.content-foreground}
+content-background = ${colors.module-background}
 
 [module/right-circle]
 type=custom/text

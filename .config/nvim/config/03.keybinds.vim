@@ -17,6 +17,7 @@
 " nnoremap ;l $
 " nnoremap ;h ^
 nnoremap G G:syntax sync clear<CR>
+nnoremap n n:syntax sync clear<CR>
 nnoremap <M-l> $
 nnoremap <M-h> ^
 " INSERT MODE RELATED
