@@ -140,6 +140,7 @@ typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_FIRST_SEGMENT_END_SYMBOL='%{%}'
 # End filler on the edge of the screen if there are no right segments on the first line.
 typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
 fi
+ZLE_RPROMPT_INDENT=0
 
 # PYENV
 POWERLEVEL9K_PYENV_BACKGROUND='11'
