@@ -319,11 +319,11 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 [module/date]
 type = internal/date
 interval = 0.5
-date = "%Y-%m-%d "
-date-alt = ""
+date = ""
+date-alt = "%Y-%m-%d "
 
-time-alt = "%I:%M:%S %p"
-time = "%I:%M:%S %p"
+time-alt = "%I:%M:%S"
+time = "%I:%M:%S"
 
 format-prefix = "%{T5}⏰%{T-} "
 format-prefix-foreground = ${colors.blue}

@@ -16,6 +16,7 @@
 " CURSOR NAVIGATION
 " nnoremap ;l $
 " nnoremap ;h ^
+nnoremap <S-j> <S-j>x
 nnoremap G G:syntax sync clear<CR>
 nnoremap n n:syntax sync clear<CR>
 nnoremap <M-l> $
