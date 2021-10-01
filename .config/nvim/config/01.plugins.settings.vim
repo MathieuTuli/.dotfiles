@@ -60,18 +60,18 @@ let g:rainbow_active=1
 
 
 "VIMTEX
-let g:vimtex_view_method = 'zathura'
-let g:xwindow_id = system('xdotool getactivewindow')
-let g:vimtex_view_zathura_hook_view = 'MyHook'
-let g:vimtex_view_zathura_hook_callback = 'MyHook'
-set conceallevel=1
-let g:tex_conceal='abdmg'
-let g:vimtex_quickfix_mode=1
-hi clear Conceal
-
-function! MyHook()
-  silent call system('xdotool windowactivate ' . g:xwindow_id . ' --sync')
-endfunction
+" let g:vimtex_view_method = 'zathura'
+" let g:xwindow_id = system('xdotool getactivewindow')
+" let g:vimtex_view_zathura_hook_view = 'MyHook'
+" let g:vimtex_view_zathura_hook_callback = 'MyHook'
+" set conceallevel=1
+" let g:tex_conceal='abdmg'
+" let g:vimtex_quickfix_mode=1
+" hi clear Conceal
+" 
+" function! MyHook()
+"   silent call system('xdotool windowactivate ' . g:xwindow_id . ' --sync')
+" endfunction
 " KITE
 " nmap <silent> <buffer> gK <Plug>(kite-docs)
 " let g:kite_auto_complete=1

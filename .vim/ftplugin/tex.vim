@@ -5,7 +5,7 @@ let g:ale_enabled=0
 
 " setlocal spell
 " set spelllang=en_us
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 "SNIPETS
 " let g:UltiSnipsExpandTrigger = '<tab>'

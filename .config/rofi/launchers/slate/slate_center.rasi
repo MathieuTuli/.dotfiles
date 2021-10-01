@@ -98,6 +98,13 @@ element {
 element-icon {
     size:                           64px;
     border:                         0px;
+    background-color:                 @background;
+}
+
+element-icon selected{
+    size:                           64px;
+    border:                         0px;
+    background-color:                 @selected;
 }
 
 element-text {
@@ -105,6 +112,17 @@ element-text {
     horizontal-align:               0.5;
     vertical-align:                 0.5;
     margin:                         0.5% 1% 0% 1%;
+    background-color:                 @background;
+    text-color:                       #ffffff;
+}
+
+element-text selected{
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 1% 0% 1%;
+    background-color:                 @selected;
+    text-color:                       #000000;
 }
 
 element normal.urgent,

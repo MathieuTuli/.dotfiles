@@ -232,14 +232,14 @@ exec_always --no-startup-id xscreensaver
 # exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 exec_always --no-startup-id setxkbmap -option caps:escape
 
+assign [class="Slack"] $ws4
+# assign [class="Spotify"] $ws4
+assign [class="Mailspring"] $ws3
+assign [class="discord"] $ws4
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
 for_window [class="i3-frame"] floating disable
 for_window [class="Spotify"] move to workspace $ws4
-assign [class="Slack"] $ws4
-assign [class="Spotify"] $ws4
-assign [class="Mailspring"] $ws3
-assign [class="discord"] $ws4
 gaps inner 0
 gaps horizontal 0
 gaps vertical 0
