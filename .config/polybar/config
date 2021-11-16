@@ -285,18 +285,18 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/elan]
 type = internal/network
-interface = eno1
+interface = enp4s0
 interval = 3.0
 
-format-connected = <label-connected>
+format-connected = "<label-connected>"
 format-connected-background = ${colors.module-background}
 format-connected-foreground = ${colors.purple}
 format-disconnected = <label-disconnected>
 format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.purple}
-label-connected = "%ifname%"
+label-connected = " %ifname%"
 speed-labels = %downspeed:9% %upspeed:9%
-label-disconnected =
+label-disconnected = " "
 ramp-signal-0 = %{T7}⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡⚡%{FT-}
 ramp-signal-1 = %{T7}⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡⚡%{FT-}
 ramp-signal-2 = %{T7}⚡⚡⚡%{T-}%{F#777777 T7}⚡⚡⚡%{FT-}

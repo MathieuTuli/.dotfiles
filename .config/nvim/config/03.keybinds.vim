@@ -17,7 +17,8 @@
 " nnoremap ;l $
 " nnoremap ;h ^
 " nnoremap <S-j> <S-j>x
-nnoremap G G:syntax sync clear<CR>
+" nnoremap G G:syntax sync clear<CR>
+nnoremap <C-s> :syntax sync clear<CR>
 " nnoremap n n:syntax sync clear<CR>
 nnoremap <M-l> $
 nnoremap <M-h> ^

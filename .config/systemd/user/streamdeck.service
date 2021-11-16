@@ -1,0 +1,11 @@
+[Unit]
+Description=Elgato Streamdeck Service
+
+[Service]
+Type=simple
+ExecStart=/bin/sh %h/.scripts/streamdeck
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=default.target
