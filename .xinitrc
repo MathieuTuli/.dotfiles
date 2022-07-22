@@ -8,4 +8,6 @@ export SSH_AUTH_SOCK
 setxkbmap -option caps:escape
 alsactl --file ~/.config/asound.state restore
 nvidia-screen-tear
+xset -dpms
+xset s off
 exec i3

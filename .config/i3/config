@@ -19,6 +19,10 @@ client.urgent           #2d2d2d #FF8787 	#2d2d2d #393939   #393939
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 
+# dunst
+bindsym $mod+Ctrl+k exec dunstctl close
+bindsym $mod+Ctrl+d exec dunstctl close-all
+bindsym $mod+Ctrl+j exec dunstctl history-pop
 
 # Screenshot
 bindsym $mod+t exec deepin-screenshot
@@ -236,6 +240,7 @@ assign [class="Slack"] $ws4
 # assign [class="Spotify"] $ws4
 assign [class="Mailspring"] $ws3
 assign [class="discord"] $ws4
+assign [class="Ledger Live"] $ws4
 for_window [class="^.*"] border pixel 0
 for_window [class="Termite"] border pixel 4 title_format "Terminal"
 for_window [class="i3-frame"] floating disable
@@ -246,5 +251,7 @@ gaps vertical 0
 
 # exec --no-startup-id termite
 exec --no-startup-id mailspring
-exec --no-startup-id slack
 exec --no-startup-id spotify
+exec --no-startup-id slack
+exec --no-startup-id discord
+exec --no-startup-id ledger-live-desktop

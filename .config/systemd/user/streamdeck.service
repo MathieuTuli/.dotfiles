@@ -3,9 +3,9 @@ Description=Elgato Streamdeck Service
 
 [Service]
 Type=simple
-ExecStart=/bin/sh %h/.scripts/streamdeck
+ExecStart=/usr/bin/python3 -u %h/.scripts/streamdeck
 Restart=always
-RestartSec=2s
+RestartSec=10s
 
 [Install]
 WantedBy=default.target

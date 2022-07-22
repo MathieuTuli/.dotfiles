@@ -83,7 +83,7 @@ border-color = ${colors.bar-background}
 border-top-size = 0
 border-left-size = 0
 border-right-size = 0
-modules-left = blank-spacer spotify blank-spacer alsa-optical spacer bluetooth
+modules-left = blank-spacer spotify blank-spacer alsa-optical spacer bluetooth spacer battery
 modules-center = i3
 modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi nl-spacer wlan-6s0 wlan-2s0 elan spacer date blank-spacer
 
@@ -134,7 +134,7 @@ content-background = ${colors.module-background}
 [module/system-nvidia-smi]
 type = custom/script
 exec = ~/.scripts/polybar-nvidia-smi
-format-prefix = "%{T5}%{T-} "
+format-prefix = "%{T5}🖥️%{T-} "
 format-prefix-foreground = ${colors.pink}
 format-prefix-background = ${colors.module-background}
 label-foreground = ${colors.white}
@@ -208,7 +208,7 @@ label-background = ${colors.module-background}
 type = internal/fs
 interval = 30
 mount-0 = /
-label-mounted = "%{F#FF8787 T5}📁%{FT-} %{T1}%percentage_used:02%%%{T-}"
+label-mounted = "%{F#FF8787}%{T5}📁%{F-}%{T-} %{T1}%percentage_used:02%%%{T-}"
 label-mounted-foreground = ${colors.white}
 label-mounted-background= ${colors.module-background}
 
@@ -224,7 +224,7 @@ label-unmounted = ""
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "%{T5}%{T-} "
+format-prefix = "%{T5}🖥️%{T-} "
 format-prefix-foreground = ${colors.orange}
 format-prefix-background = ${colors.module-background}
 label = "%percentage:02%%"
@@ -246,10 +246,10 @@ type = internal/network
 interface = wlp6s0
 interval = 3.0
 
-format-connected =  "%{A1:polybar-wifi-dropdown:}%{T5 F#9f78e1}📶%{TF-} %{F#eeeeee}<label-connected>%{F-}%{A}"
+format-connected =  "%{A1:polybar-wifi-dropdown:}%{T5}%{F#9f78e1}📶%{T-}%{F-} %{F#eeeeee}<label-connected>%{F-}%{A}"
 format-connected-background = ${colors.module-background}
 format-connected-foreground = ${colors.white}
-format-disconnected =  "%{A1:polybar-wifi-dropdown:}%{T5 F#777777}📶%{TF-} %{A}"
+format-disconnected =  "%{A1:polybar-wifi-dropdown:}%{T5}%{F#777777}📶%{T-}%{F-} %{A}"
 format-disconnected-background = ${colors.module-background}
 format-disconnected-foreground = ${colors.white}
 label-connected = "%essid%"

@@ -3,8 +3,11 @@
     indicate_hidden = yes
     icon_path = ~/.config/dunst/icons/
     font = Source Code Pro for Powerline 16
-    geometry = "500x0-7+32"
-    notification_height=100
+    # geometry = "500x0-7+32"
+    width=500
+    height=500
+    offset=7x32
+    # notification_height=100
     show_indicators = true
     dmenu = /usr/bin/dmenu -i -p 'Arch Linux' -fn Source Code Pro for Powerline:pixelsize=16 -nb #2d2d2d -nf #ffffff -sf #ffffff -sb #666666
     browser = /usr/bin/google-chrome-stable
@@ -59,7 +62,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    startup_notification = false
+    # startup_notification = false
 
     # Manage dunst's desire for talking
     # Can be one of the following values:
@@ -68,7 +71,7 @@
     #  mesg: Important Messages
     #  info: all unimportant stuff
     # debug: all less than unimportant stuff
-    verbosity = crit
+    # verbosity = crit
     corner_radius = 0
 
     ### Legacy
@@ -82,16 +85,16 @@
 
 [shortcuts]
     # Close notification.
-    close = mod4+ctrl+k
+    # close = mod4+ctrl+k
     # Close all notifications.
-    close_all = mod4+ctrl+d
+    # close_all = mod4+ctrl+d
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = mod4+ctrl+j
+    # history = mod4+ctrl+j
     # Context menu.
-    context = mod4+ctrl+shift+period
+    # context = mod4+ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
