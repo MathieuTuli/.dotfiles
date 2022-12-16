@@ -85,7 +85,7 @@ border-left-size = 0
 border-right-size = 0
 modules-left = blank-spacer spotify blank-spacer alsa-optical spacer bluetooth spacer battery
 modules-center = i3
-modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi nl-spacer wlan-6s0 wlan-2s0 elan spacer date blank-spacer
+modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi nl-spacer wlan-7s0 wlan-2s0 elan spacer date blank-spacer
 
 
 [bar/bottom]
@@ -241,9 +241,9 @@ label = %percentage_used:02%%
 label-foreground = ${colors.white}
 label-background = ${colors.module-background}
 
-[module/wlan-6s0]
+[module/wlan-7s0]
 type = internal/network
-interface = wlp6s0
+interface = wlp7s0
 interval = 3.0
 
 format-connected =  "%{A1:polybar-wifi-dropdown:}%{T5}%{F#9f78e1}📶%{T-}%{F-} %{F#eeeeee}<label-connected>%{F-}%{A}"
@@ -285,7 +285,7 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/elan]
 type = internal/network
-interface = enp4s0
+interface = enp5s0
 interval = 3.0
 
 format-connected = "<label-connected>"
@@ -305,7 +305,7 @@ ramp-signal-4 = %{T7}⚡⚡⚡⚡⚡%{T-}%{F#777777 T7}⚡%{FT-}
 ramp-signal-5 = %{T7}⚡⚡⚡⚡⚡⚡%{T-}
 
 [module/wlan-productive]
-inheritance = module/wlan-6s0
+inheritance = module/wlan-7s0
 format-connected-background = ${colors.purple}
 format-connected-foreground = ${colors.bar-background}
 label-disconnected = *** %{F#666666 T6}⚡⚡⚡⚡⚡⚡%{FT-}

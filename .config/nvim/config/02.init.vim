@@ -3,7 +3,7 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 " source ~/.vimrc
-set grepprg=git\ grep\ -n
+set grepprg=grep\ -n
 " set grepformat=%f:%l:%c:%m
 let g:python3_host_prog = '/home/mat/.pyenv/shims/python'
 
