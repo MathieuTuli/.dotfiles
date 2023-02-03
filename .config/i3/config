@@ -249,6 +249,14 @@ gaps inner 0
 gaps horizontal 0
 gaps vertical 0
 
+# FLOATING
+for_window [window_role="pop-up"]                       floating enable
+for_window [window_role="bubble"]                       floating enable
+for_window [window_role="task_dialog"]                  floating enable
+for_window [window_role="Preferences"]                  floating enable
+for_window [window_type="dialog"]                       floating enable
+for_window [window_type="menu"]                         floating enable
+
 # exec --no-startup-id termite
 exec --no-startup-id mailspring
 exec --no-startup-id spotify
