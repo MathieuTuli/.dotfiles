@@ -25,7 +25,7 @@ bindsym $mod+Ctrl+d exec dunstctl close-all
 bindsym $mod+Ctrl+j exec dunstctl history-pop
 
 # Screenshot
-bindsym $mod+t exec deepin-screenshot
+bindsym $mod+t exec flameshot gui
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id set-volume up
@@ -135,6 +135,11 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+workspace $ws1 output DP-0
+workspace $ws2 output DP-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -145,11 +150,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
-workspace $ws1 output DP-2
-workspace $ws2 output DP-2
-workspace $ws3 output DP-0
-workspace $ws4 output DP-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -236,9 +236,9 @@ exec_always --no-startup-id xscreensaver
 # exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 exec_always --no-startup-id setxkbmap -option caps:escape
 
-assign [class="Slack"] $ws4
+assign [class="Slack"] $ws3
 # assign [class="Spotify"] $ws4
-assign [class="Mailspring"] $ws3
+# assign [class="Mailspring"] $ws3
 assign [class="discord"] $ws4
 assign [class="Ledger Live"] $ws4
 for_window [class="^.*"] border pixel 0
@@ -249,9 +249,9 @@ gaps inner 0
 gaps horizontal 0
 gaps vertical 0
 
-# exec --no-startup-id termite
-exec --no-startup-id mailspring
-exec --no-startup-id spotify
-# exec --no-startup-id slack
+exec --no-startup-id termite
+# exec --no-startup-id mailspring
+# exec --no-startup-id spotify
+exec --no-startup-id slack
 exec --no-startup-id discord
 # exec --no-startup-id ledger-live-desktop

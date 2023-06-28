@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '.config/i3/backgrounds/forest-lake-minimalism-3840×2160.jpg'
+feh --no-fehbg --bg-scale '/home/mat/.config/i3/backgrounds/bg.jpg'

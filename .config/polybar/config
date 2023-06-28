@@ -3,8 +3,10 @@
 ;------------------------------------------------------------
 [colors]
 ; bar-background = #aa
-bar-background = #dd2d2d2d
-bar-foreground = #dd2d2d2d
+# bar-background = #dd2d2d2d
+# bar-foreground = #dd2d2d2d
+bar-background = #2d2d2d
+bar-foreground = #2d2d2d
 
 foreground = #ffffff
 
@@ -15,13 +17,16 @@ secondary = #FD2C40
 alert = #F67280
 
 ; i3
-focused-i3-background = #dd2d2d2d
+; focused-i3-background = #dd2d2d2d
+focused-i3-background = #2d2d2d
 focused-i3-foreground = #eeeeee
-unfocused-i3-background = #dd2d2d2d
+; unfocused-i3-background = #dd2d2d2d
+unfocused-i3-background = #2d2d2d
 unfocused-i3-foreground = #eeeeee
 
 ; module
-module-background = #dd2d2d2d
+; module-background = #dd2d2d2d
+module-background = #2d2d2d
 module-foreground = #eeeeee
 
 ; Colors
@@ -83,9 +88,11 @@ border-color = ${colors.bar-background}
 border-top-size = 0
 border-left-size = 0
 border-right-size = 0
-modules-left = blank-spacer spotify blank-spacer alsa-optical spacer bluetooth spacer battery
+; modules-left = blank-spacer spotify blank-spacer alsa-optical spacer bluetooth spacer battery
+module-left =
 modules-center = i3
-modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi nl-spacer wlan-7s0 wlan-2s0 elan spacer date blank-spacer
+; modules-right = filesystem spacer memory blank-spacer cpu spacer system-nvidia-smi-memory system-nvidia-smi nl-spacer wlan-7s0 wlan-2s0 elan spacer date blank-spacer
+modules-right = date blank-spacer
 
 
 [bar/bottom]
@@ -319,8 +326,8 @@ ramp-signal-5 = %{T6}⚡⚡⚡⚡⚡⚡%{T-}
 [module/date]
 type = internal/date
 interval = 0.5
-date = ""
-date-alt = "%Y-%m-%d "
+date-alt = ""
+date = "%Y-%m-%d "
 
 time-alt = "%I:%M:%S"
 time = "%I:%M:%S"

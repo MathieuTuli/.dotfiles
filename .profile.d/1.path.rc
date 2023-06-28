@@ -1,13 +1,13 @@
 # [PATHS]
-export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:~/.scripts:/opt/opencv:/usr/bin:$HOME/.i3-wm-scripts
+export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:~/.scripts:/opt/opencv:/usr/bin:$HOME/.i3-wm-scripts:~/.dotnet/tools
 export JAVA_HOME=/usr/lib/jvm/default/
 
 
-export SAVEHIST=300
-export HISTSIZE=300
+export SAVEHIST=1000
+export HISTSIZE=1000
 export HISTFILE="$HOME/.zsh_history"
-SAVEHIST=300
-HISTSIZE=300
+SAVEHIST=1000
+HISTSIZE=1000
 HISTFILE="$HOME/.zsh_history"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64:/usr/lib/firmware/nvidia:/usr/lib/nvidia:/opt/cuda/targets/x86_64-linux/lib/
@@ -30,7 +30,8 @@ export LANG=en_CA.UTF-8
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-unset PYENV_VERSION
+# unset PYENV_VERSION
+export PYENV_VERSION=3.10.9
 if command -v pyenv 1>/dev/null 2>&1; then
         eval "$(pyenv init -)"
 fi
@@ -48,3 +49,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.mujoco/mujoco200/bin
 export PYTHONPATH=$PYTHONPATH:/home/mat/builds/carla/CARLA_0.9.8/PythonAPI
 export PYTHONPATH=$PYTHONPATH:/home/mat/builds/carla/CARLA_0.9.8/PythonAPI/carla
 export PYTHONPATH=$PYTHONPATH:/home/mat/builds/carla/CARLA_0.9.8/PythonAPI/carla/dist/carla-0.9.8-py3.5-linux-x86_64.egg
+export PYTHONPATH=$PYTHONPATH:./:./code-base
