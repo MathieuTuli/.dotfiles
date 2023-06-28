@@ -207,7 +207,8 @@ inheritance=module/i3
 type = custom/script
 interval = 3
 format = <label>
-exec = python ~/.scripts/polybar-spotify-status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
+; exec = python ~/.scripts/polybar-spotify-status -f '[{artist}] {song} {play_pause}' -t 30 -p '⏸,⏵'
+exec = python ~/.scripts/polybar-spotify-status -f '[{artist}] {song} {play_pause}' -t 30 -p '=,>'
 label-foreground = ${colors.green}
 label-background = ${colors.module-background}
 
