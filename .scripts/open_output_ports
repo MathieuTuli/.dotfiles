@@ -1,6 +1,0 @@
-#!/bin/sh
-# echo 'kill intel-virtual-output if running'
-optirun true
-kill $(pidof intel-virtual-output) >> /tmp/echo_off.txt
-# echo 'restart intel-virtual-output'
-intel-virtual-output

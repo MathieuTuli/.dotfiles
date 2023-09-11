@@ -1,5 +1,0 @@
-if [ "$(tty)" = /dev/tty1 ]; then
-    startx
-    # nvidia-xrun
-fi
-eval "$(pyenv init -)"

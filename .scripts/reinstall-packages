@@ -1,5 +1,0 @@
-#!/bin/sh
-sudo pacman -Qqen > $HOME/.packages.txt
-pacman --force -S $(< packages.txt)
-sudo pacman -Qqdn > $HOME/.package_depts.txt
-pacman --force --asdeps -S $(< package_deps.txt)

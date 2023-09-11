@@ -1,12 +1,12 @@
 " Color palette
 let s:gui_dark_gray = '#2d2d2d'
 let s:cterm_dark_gray = 0
-let s:gui_med_gray_hi = '#393939'
-let s:cterm_med_gray_hi = 237
+let s:gui_med_gray_hi = '#2d2d2d'
+let s:cterm_med_gray_hi = 0
 let s:gui_med_gray_lo = '#2d2d2d'
 let s:cterm_med_gray_lo = 0
-let s:gui_light_gray = '#666666'
-let s:cterm_light_gray = 240
+let s:gui_light_gray = '#555555'
+let s:cterm_light_gray = 8
 let s:gui_green = '#85ca9c'
 " let s:gui_green = '#afd787'
 let s:cterm_green = 10

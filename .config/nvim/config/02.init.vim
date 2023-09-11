@@ -3,9 +3,9 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 " source ~/.vimrc
-set grepprg=grep\ -n
+set grepprg=git\ grep\ -n
 " set grepformat=%f:%l:%c:%m
-let g:python3_host_prog = '/home/mat/.pyenv/shims/python'
+let g:python3_host_prog = '/usr/bin/python3.7'
 
 "yaml related
 au BufNewFile,BufReadPost *.yaml,*.yml set filetype=yaml
@@ -18,7 +18,7 @@ highlight clear SignColumn
 set updatetime=100
 
 set switchbuf+=usetab,newtab
-set guifont=Source\ Code\ Pro
+set guifont=Source\ Code\ Pro\ for\ Powerline\ 16
 set showmatch
 set autoindent
 set smartindent
@@ -28,10 +28,6 @@ set ruler
 set backspace=indent,eol,start
 set splitright
 set splitbelow
-set synmaxcol=200
 filetype plugin indent on
 
-let g:python3_host_prog = "/home/mat/.pyenv/shims/python"
-
-set path+=include,./include,.
-cnoreabbrev Pytest Pytest file verbose
+nnoremap ` .
