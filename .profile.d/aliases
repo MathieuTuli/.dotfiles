@@ -1,0 +1,32 @@
+# [ALIASES]
+
+function vimgrep() {
+  vi $(grep --color=never $@)
+}
+alias sudo='sudo '
+
+# alias find-size="find -name $1 -exec du -h -d 0 {} \;"
+alias vi=nvim
+alias vim=nvim
+alias vidiff=vimdiff
+
+alias powerlevel-colors='for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"'
+function truncate-pwd() {
+        if [[ $@ == "" ]]; then
+            POWERLEVEL9K_SHORTEN_DIR_LENGTH="1"
+        else
+            POWERLEVEL9K_SHORTEN_DIR_LENGTH="$@"
+        fi
+}
+
+# alias store-git-credentials="git config --global credential.helper 'cache --timeout 28800'"
+
+alias json-pretty='python -m json.tool'
+
+function cd_up() {
+  cd $(printf "%0.s../" $(seq 1 $1 ));
+}
+alias "cd.."="cd_up"
+
+alias mv="mv -i"
+alias rm="rm -i"

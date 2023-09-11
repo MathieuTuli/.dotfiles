@@ -1,8 +1,0 @@
-# [PATHS]
-export PATH=$PATH:~/.scripts:/usr/bin
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-export PROMPT_COMMAND="pwd > /tmp/whereami"
-precmd() { eval "$PROMPT_COMMAND" }
-export SYSTEMD_EDITOR=nvim
-export LANG=en_CA.UTF-8

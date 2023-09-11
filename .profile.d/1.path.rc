@@ -1,0 +1,25 @@
+# [PATHS]
+# export JAVA_HOME=/usr/lib/jvm/default/
+
+
+export SAVEHIST=300
+export HISTSIZE=300
+export HISTFILE="$HOME/.zsh_history"
+SAVEHIST=300
+HISTSIZE=300
+HISTFILE="$HOME/.zsh_history"
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export SYSTEMD_EDITOR=nvim
+
+export MYPYPATH=~/github/object-tracking/venv/lib
+
+export LANG=en_CA.UTF-8
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+unset PYENV_VERSION
+if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init -)"
+fi
