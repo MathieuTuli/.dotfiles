@@ -55,9 +55,9 @@ alt + shift - 0 : yabai -m space --balance
 # --------------------------------------------------------------------------------
 # DETACH
 # --------------------------------------------------------------------------------
-alt + shift - e : yabai -m space --layout bsp
-alt + shift - f : yabai -m space --layout float
-alt + shift - d : yabai -m space --layout stack
+alt - e : yabai -m space --layout bsp
+alt - f : yabai -m space --layout float
+alt - w : yabai -m space --layout stack
 
 # --------------------------------------------------------------------------------
 # STACKS
