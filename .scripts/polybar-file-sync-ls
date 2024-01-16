@@ -1,6 +1,0 @@
-#!/bin/sh
-FILE="$HOME/.config/scripts/file-sync/to_sync.txt"
-while IFS= read -r line
-do
-echo "$line"
-done < "$FILE"

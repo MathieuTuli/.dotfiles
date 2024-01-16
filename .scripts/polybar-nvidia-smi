@@ -1,7 +1,0 @@
-#!/bin/sh
-if nvidia-smi > /tmp/echo_off.txt; then
-   nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{printf "%.2d% ", $1, $2}'
-else
-  echo \?\?%
-fi
-
