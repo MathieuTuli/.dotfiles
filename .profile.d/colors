@@ -1,11 +1,4 @@
 # [COLORS]
-export ORANGE="%{F#FFaF87}"
-export RED="%{F#FF8787}"
-export GREEN="%{F#85ca9c}"
-export PURPLE="%{F#9f78e1}"
-export GREY="%{F#7b7b7b}"
-export COLOR_END="%{F-}"
-
 alias diff='diff --color=always'
 alias dmesg='dmesg --color=always'
 alias grep='grep --color=always'
