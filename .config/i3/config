@@ -15,10 +15,10 @@ for_window [class="^.*"] border pixel 1
 # client.focused_inactive                          #87AFD7 #393939 #87AFD7 #87AFD7   #87AFD7
 # client.unfocused                                 #000000 #393939 #888888 #393939   #393939
 # client.urgent                                    #2d2d2d #FF8787 #2d2d2d #393939   #393939
-client.focused 		                             #3E0F0F #0F0F0F #3E0F0F #3E0F0F   #3E0F0F
+client.focused 		                             #accfa7 #0F0F0F #accfa7 #accfa7   #accfa7
 client.focused_inactive                          #888888 #0F0F0F #888888 #888888   #888888
 client.unfocused                                 #0f0f0f #0F0F0F #888888 #0F0F0F   #0F0F0F
-client.urgent                                    #0F0F0F #F80F0F #0F0F0F #0F0F0F   #0F0F0F
+client.urgent                                    #0F0F0F #FF4545 #0F0F0F #0F0F0F   #0F0F0F
 gaps horizontal 0
 gaps vertical 0
 gaps inner 0
@@ -198,10 +198,10 @@ bar {
         separator #888888
 
         #                  border. backgr. text
-        focused_workspace  #0f0f0f #BA0F0F #ffffff
+        focused_workspace  #0f0f0f #32C60C #ffffff
         active_workspace   #0f0f0f #888888 #ffffff
         inactive_workspace #0f0f0f #2d2d2d #888888
-        urgent_workspace   #0f0f0f #F80F0F #ffffff
+        urgent_workspace   #0f0f0f #FF4545 #ffffff
     }
 }
 
