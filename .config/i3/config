@@ -8,17 +8,35 @@ font pango:monospace 16px
 
 # GET DEM BORDERS OUT OF HERE
 # for_window [class="^.*"] border pixel 0
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 #                          class                 border  backgr. text    indicator child_border
-for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
-# 			           <border> <background> <text> <indicator> <child_border>
-# client.focused 		    #FF8787 #393939 #FF8787 #FF8787 #FF8787
-# client.focused_inactive #87AFD7 #393939 #87AFD7 #87AFD7 #87AFD7
-# client.unfocused        #000000 #393939 #888888 #393939 #393939
-# client.urgent           #2d2d2d #FF8787 #2d2d2d #393939 #393939
+# for_window [class="^.*"] client.focused        #77dd77 #285577 #ffffff #2e9ef4   #285577
+# client.focused 		                           #FF8787 #393939 #FF8787 #FF8787   #FF8787
+# client.focused_inactive                          #87AFD7 #393939 #87AFD7 #87AFD7   #87AFD7
+# client.unfocused                                 #000000 #393939 #888888 #393939   #393939
+# client.urgent                                    #2d2d2d #FF8787 #2d2d2d #393939   #393939
+client.focused 		                             #FFFFFF #0F0F0F #FFFFFF #FFFFFF   #FFFFFF
+client.focused_inactive                          #B292B2 #0F0F0F #B292B2 #B292B2   #B292B2
+client.unfocused                                 #0f0f0f #0F0F0F #888888 #0F0F0F   #0F0F0F
+client.urgent                                    #0F0F0F #FF4545 #0F0F0F #0F0F0F   #0F0F0F
 gaps horizontal 0
 gaps vertical 0
 gaps inner 0
+
+# Bar colours
+
+# bar {
+#     colors {
+#         background #000000
+#         statusline #00A5FF #that neon blue
+#         separator #666666
+# 
+#         focused_workspace  #4c7899 #285577 #ffffff
+#         active_workspace   #333333 #5f676a #ffffff
+#         inactive_workspace #333333 #222222 #888888
+#         urgent_workspace   #2f343a #900000 #ffffff
+#     }
+# }
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
