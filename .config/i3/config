@@ -208,8 +208,7 @@ bar {
 # ------------------------------------------
 # CUSTOM KEYS START
 # ------------------------------------------
-# TODO
-# exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 # swap caps lock and escape
 exec_always --no-startup-id setxkbmap -option caps:escape
