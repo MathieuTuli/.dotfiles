@@ -221,6 +221,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound; 
 
+# Spotify
+bindsym XF86AudioNext exec --no-startup-id $HOME/.bin/spotify-next
+bindsym XF86AudioPrev exec --no-startup-id $HOME/.bin/spotify-previous
+bindsym XF86AudioPlay exec --no-startup-id $HOME/.bin/spotify-play-pause
 
 # # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
