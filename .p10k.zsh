@@ -29,7 +29,7 @@
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
 () {
-  emulate -L zsh -o extended_glob
+emulate -L zsh -o extended_glob
 
   # Unset all configuration options.
   unset -m '(POWERLEVEL9K_*|DEFAULT_USER)~POWERLEVEL9K_GITSTATUS_DIR'
@@ -48,27 +48,28 @@
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-    # =========================[ Line #1 ]=========================
-    # context                 # user@host
-    dir                       # current directory
-    vcs                       # git status
-    # command_execution_time  # previous command duration
-    # =========================[ Line #2 ]=========================
-    newline                   # \n
-    # virtualenv              # python virtual environment
-    prompt_char               # prompt symbol
-  )
+  # =========================[ Line #1 ]=========================
+  # context                 # user@host
+  dir                       # current directory
+  vcs                       # git status
+  # command_execution_time  # previous command duration
+  # =========================[ Line #2 ]=========================
+  newline                   # \n
+  # virtualenv              # python virtual environment
+  prompt_char               # prompt symbol
+)
 
   # Right prompt segments.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-    # =========================[ Line #1 ]=========================
-    command_execution_time    # previous command duration
-    virtualenv                # python virtual environment
-    context                   # user@host
-    time                      # current time
-    # =========================[ Line #2 ]=========================
-    newline                   # \n
-  )
+  # =========================[ Line #1 ]=========================
+  background_jobs           # background jobs
+  command_execution_time    # previous command duration
+  virtualenv                # python virtual environment
+  context                   # user@host
+  time                      # current time
+  # =========================[ Line #2 ]=========================
+  newline                   # \n
+)
 
   # Basic style options that define the overall prompt look.
   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
@@ -186,6 +187,10 @@
   # can slow down prompt by 1-2 milliseconds, so it's better to keep it turned off unless you
   # really need it.
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
+
+  # CUSTOM
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_ICON="?"
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=$yellow
 
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
