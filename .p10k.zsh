@@ -189,8 +189,9 @@ emulate -L zsh -o extended_glob
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
   # CUSTOM
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_ICON="?"
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=$yellow
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='•'
 
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
