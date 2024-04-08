@@ -15,6 +15,7 @@ for_window [class="^.*"] border pixel 1
 # client.focused_inactive                          #87AFD7 #393939 #87AFD7 #87AFD7   #87AFD7
 # client.unfocused                                 #000000 #393939 #888888 #393939   #393939
 # client.urgent                                    #2d2d2d #FF8787 #2d2d2d #393939   #393939
+# client.focused 		                             #ACCFA7 #0F0F0F #ACCFA7 #ACCFA7   #ACCFA7
 client.focused 		                             #ACCFA7 #0F0F0F #ACCFA7 #ACCFA7   #ACCFA7
 client.focused_inactive                          #888888 #0F0F0F #888888 #888888   #888888
 client.unfocused                                 #0f0f0f #0F0F0F #888888 #0F0F0F   #0F0F0F
@@ -247,6 +248,7 @@ for_window [window_role="task_dialog"]  floating enable
 for_window [window_role="Preferences"]  floating enable
 for_window [window_type="dialog"]       floating enable
 for_window [window_type="menu"]         floating enable
+for_window [window_type="splash"]       floating enable
 for_window [title="float"]              floating enable
 for_window [window_role="About"]        floating enable
 for_window [class="vlc"]                floating enable

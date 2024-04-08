@@ -1,0 +1,32 @@
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lt = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --simplify-by-decoration
+	lg-full = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --pretty=full
+	dotfiles = !git --git-dir=$HOME/.dotfiles --work-tree=$HOME
+[credential]
+	helper = cache --timeout 28800
+[user]
+	email = tuli.mathieu@gmail.com
+	name = Mathieu Tuli
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+    keepBackup = false
+	prompt = false
+[mergetool "vimdiff"]
+    cmd = nvim -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J' -c \"normal ]nzRzt\"
+[color]
+[color "branch"]
+[color "diff"]
+[color "status"]
+  change = 1
+[diff]
+	tool = vimdiff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
