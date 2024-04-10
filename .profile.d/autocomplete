@@ -1,7 +1,8 @@
 # AUTOCOMPLETE AND VI MODE
 autoload -Uz compinit && compinit
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+eval "$(fzf --zsh)"
+# source /usr/share/fzf/key-bindings.zsh
+# source /usr/share/fzf/completion.zsh
 # source $HOME/.scripts/git_completion.zsh
 # zstyle ':completion:*:*:git:*' script ~/.scripts/git_completion.zsh
 # source /usr/share/zsh/functions/Completion/Unix/_git
