@@ -10,7 +10,7 @@ font pango:monospace 16px
 # for_window [class="^.*"] border pixel 0
 for_window [class="^.*"] border pixel 1
 #                          class                 border  backgr. text    indicator child_border
-# for_window [class="^.*"] client.focused        #77dd77 #285577 #ffffff #2e9ef4   #285577
+# for_window [class="^.*"] client.focused        #77dd77 #285577 #F0F0F0 #2e9ef4   #285577
 # client.focused 		                           #FF8787 #393939 #FF8787 #FF8787   #FF8787
 # client.focused_inactive                          #87AFD7 #393939 #87AFD7 #87AFD7   #87AFD7
 # client.unfocused                                 #000000 #393939 #888888 #393939   #393939
@@ -46,7 +46,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '#0f0f0f' -sf '#0f0f0f' -sb '#ACCFA7' -nf '#FFFFFF' -b"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nb '#0f0f0f' -sf '#0f0f0f' -sb '#ACCFA7' -nf '#F0F0F0' -b"
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -196,14 +196,14 @@ bar {
     tray_output primary
     colors {
         background #0f0f0f
-        statusline #FFFFFF #that neon blue
+        statusline #F0F0F0 #that neon blue
         separator #888888
 
         #                  border. backgr. text
-        focused_workspace  #0f0f0f #32C60C #ffffff
-        active_workspace   #0f0f0f #888888 #ffffff
+        focused_workspace  #0f0f0f #32C60C #F0F0F0
+        active_workspace   #0f0f0f #888888 #F0F0F0
         inactive_workspace #0f0f0f #2d2d2d #888888
-        urgent_workspace   #0f0f0f #FF4545 #ffffff
+        urgent_workspace   #0f0f0f #FF4545 #F0F0F0
     }
 }
 

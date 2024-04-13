@@ -1,0 +1,7 @@
+xterm*Background:               #0F0F0F
+xterm*Foreground:               #F0f0f0
+xterm*cursorColor:              #F0f0f0
+# xterm*pointerShape:             arrow
+xterm*pointerColor:             #F0f0f0
+xterm*faceName: Monospace
+xterm*faceSize: 12
