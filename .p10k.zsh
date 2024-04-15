@@ -45,6 +45,7 @@ emulate -L zsh -o extended_glob
   local magenta='#FF6AC1'
   local cyan='#9AEDFE'
   local white='#FFFFFF'
+  local green='#ACCFA7'
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
@@ -190,7 +191,7 @@ emulate -L zsh -o extended_glob
 
   # CUSTOM
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=$yellow
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=$green
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='•'
 
   # If p10k is already loaded, reload configuration.
