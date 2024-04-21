@@ -1,5 +1,7 @@
 # [ALIASES]
 
+alias air='$(go env GOPATH)/bin/air'
+
 function vimgrep() {
   vi $(grep --color=never $@)
 }
