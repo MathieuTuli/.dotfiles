@@ -1,5 +1,6 @@
 # [ALIASES]
 
+alias gh='gh --owner @me'
 alias air='$(go env GOPATH)/bin/air'
 
 function vimgrep() {

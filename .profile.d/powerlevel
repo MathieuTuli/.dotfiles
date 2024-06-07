@@ -1,6 +1,6 @@
 # [POWERLEVEL9k]
 # FOR COLORS LIST
-alias term_colors='for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"'
+# UNCOMMENT alias term_colors='for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"'
 # ALSO TO CHANGE COLORS
 # POWERLEVEL9K_<name-of-segment>_<state>_[BACKGROUND|FOREGROUND]
 # Segment		|	States
@@ -30,14 +30,14 @@ alias term_colors='for code ({000..255}) print -P -- "$code: %F{$code}This is ho
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#
+# UNCOMENT IF USING if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+# UNCOMENT IF USING   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# UNCOMENT IF USING fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source $HOME/.powerlevel10k/powerlevel10k.zsh-theme
+# UNCOMMENT IF USING [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# UNCOMMENT IF USING source $HOME/.powerlevel10k/powerlevel10k.zsh-theme
