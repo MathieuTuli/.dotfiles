@@ -1,5 +1,5 @@
 # [PATHS]
-export PATH=$PATH:/opt/cuda/bin:/opt/cuda/
+export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:"$HOME/.bin"
 export JAVA_HOME=/usr/lib/jvm/default/
 
 export SAVEHIST=300
