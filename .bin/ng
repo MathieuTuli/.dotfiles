@@ -6,8 +6,8 @@ DEST_DIR="$HOME/notes/cortex"
 if [ -z "$1" ]; then
     find "$SOURCE_DIR" -type f -name "*.md" | while read -r file; do
       # echo "Processing $file"
-      # Extract the tag from the file. This assumes the tag is on the line immediately following "tags:"
-      tag=$(awk '/tags:/{getline; print; exit}' "$file" | sed -e 's/^ *- *//' -e 's/^ *//;s/ *$//')
+      # Extract the tag from the file. This assumes the tag is on the line immediately following "tag:"
+      tag=$(awk '/tag:/{getline; print; exit}' "$file" | sed -e 's/^ *- *//' -e 's/^ *//;s/ *$//')
 
       # echo "Found tag $tag"
 
