@@ -27,7 +27,7 @@ if [ -z "$1" ]; then
     done
 else
     file="$1"
-    tag=$(awk '/tags:/{getline; print; exit}' "$file" | sed -e 's/^ *- *//' -e 's/^ *//;s/ *$//')
+    tag=$(awk '/tag:/{getline; print; exit}' "$file" | sed -e 's/^ *- *//' -e 's/^ *//;s/ *$//')
     if [ ! -z "$tag" ]; then
       TARGET_DIR="$DEST_DIR/$tag"
       mkdir -p "$TARGET_DIR"
