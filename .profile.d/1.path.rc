@@ -1,13 +1,16 @@
-# [PATHS]
+if [[ -f "$HOME/.env" ]]; then
+  export $(grep -v '^#' "$HOME/.env" | xargs)
+else
+  echo "File $HOME/.env not found."
+fi
+
+#!/bin/bash
 export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:"$HOME/.bin"
 export JAVA_HOME=/usr/lib/jvm/default/
 
 export SAVEHIST=300
 export HISTSIZE=300
 export HISTFILE="$HOME/.zsh_history"
-SAVEHIST=300
-HISTSIZE=300
-HISTFILE="$HOME/.zsh_history"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64:/usr/lib/firmware/nvidia:/usr/lib/nvidia:/opt/cuda/targets/x86_64-linux/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/mat/.mujoco/mujoco210/bin
