@@ -7,3 +7,6 @@ mods = "Control|Shift"
 action = "Copy"
 key = "C"
 mods = "Control|Shift"
+
+[font]
+size = 16.0
