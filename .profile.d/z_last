@@ -14,3 +14,6 @@ zle-line-init () {
 zle -N zle-line-init
 bindkey -v
 
+if [[ $(uname) == "Darwin" ]]; then
+    export XDG_RUNTIME_DIR="/tmp/"
+fi

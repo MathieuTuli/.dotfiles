@@ -10,3 +10,4 @@ mods = "Control|Shift"
 
 [font]
 size = 16.0
+normal = { family = "Hack Nerd Font", style = "Regular" }
