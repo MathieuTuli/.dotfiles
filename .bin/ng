@@ -1,7 +1,10 @@
 #!/bin/zsh
 
-SOURCE_DIR="$HOME/notes/hippo"
-DEST_DIR="$HOME/notes/cortex"
+# SOURCE_DIR="$HOME/notes/hippo"
+# DEST_DIR="$HOME/notes/cortex"
+
+SOURCE_DIR="$NOTES_FOLDER/hippo"
+DEST_DIR="$NOTES_FOLDER/cortex"
 
 if [ -z "$1" ]; then
     find "$SOURCE_DIR" -type f -name "*.md" | while read -r file; do

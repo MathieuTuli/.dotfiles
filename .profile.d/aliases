@@ -40,8 +40,8 @@ alias i3-rename-window="i3-msg title_format "
 alias json-pretty='python -m json.tool'
 
 # NOTES
-alias nd='cd $HOME/notes/'
-alias nr='vim $HOME/notes/hippo/*.md'
+alias nd='cd "$NOTES_FOLDER"'
+alias nr='vim $NOTES_FOLDER/hippo/*.md'
 
 # PACMAN
 function pacman() {

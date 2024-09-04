@@ -7,6 +7,6 @@ fi
 
 file_name=$(echo "$1" | tr ' ' '-')
 formatted_file_name=$(date "+%Y-%m-%d")_${file_name}.md
-cd "$HOME/notes" || exit
+cd "$NOTES_FOLDER" || exit
 touch "hippo/${formatted_file_name}"
 nvim "hippo/${formatted_file_name}"

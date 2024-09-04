@@ -38,3 +38,4 @@ export PGDATA=/var/lib/postgres/data
 
 export LCM_INSTALL_DIR=/usr/local/lib
 export PKG_CONFIG_PATH=$LCM_CONFIG_PATH:$LCM_INSTALL_DIR/pkgconfig:/usr/local/lib/pkgconfig
+export NOTES_FOLDER="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/"
