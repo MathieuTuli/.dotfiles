@@ -3,6 +3,7 @@
 # 0
 alias mv="mv -i"
 alias rm="rm -i"
+alias feh="feh -d"
 
 # AWS
 
