@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+
+# Change to the notes directory
+cd "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes"
+
+# Fetch changes from remote
+git fetch origin main
+
+# Check if there are local changes
+if [[ -n "$(git status --porcelain)" ]]; then
+    # Stage all changes
+    git add .
+    
+    # Commit changes with timestamp
+    git commit -m "Auto-sync: $(date '+%Y-%m-%d %H:%M:%S')"
+fi
+
+# Pull changes (with rebase to prevent merge commits)
+git pull --rebase origin main
+
+# Push changes
+git push origin main
