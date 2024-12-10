@@ -4,6 +4,8 @@ else
   echo "File $HOME/.env not found."
 fi
 
+. "$HOME/.cargo/env"
+
 #!/bin/bash
 export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:"$HOME/.bin"
 export JAVA_HOME=/usr/lib/jvm/default/
