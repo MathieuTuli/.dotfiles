@@ -6,10 +6,10 @@ window-save-state = always
 
 keybind = global:alt+p=toggle_quick_terminal
 
-keybind = ctrl+w>j=goto_split:bottom
-keybind = ctrl+w>h=goto_split:left
-keybind = ctrl+w>k=goto_split:top
-keybind = ctrl+w>l=goto_split:right
+keybind = cmd+w>j=goto_split:bottom
+keybind = cmd+w>h=goto_split:left
+keybind = cmd+w>k=goto_split:top
+keybind = cmd+w>l=goto_split:right
 
  
 # keybind = cmd+h=previous_tab
