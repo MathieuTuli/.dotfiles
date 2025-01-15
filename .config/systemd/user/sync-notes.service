@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync Notes Service
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.bin/sync-notes
+
+[Install]
+WantedBy=default.target
