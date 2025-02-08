@@ -1,4 +1,10 @@
 # [ALIASES]
+function kitty() {
+    for file in "$@"; do
+        echo "=== $file ==="
+        ~/.local/kitty.app/bin/kitten icat "$file"
+    done
+}
 
 # 0
 alias mv="mv -i"
