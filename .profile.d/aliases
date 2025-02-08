@@ -1,8 +1,19 @@
 # [ALIASES]
-function kitty() {
+function kitty-graphics() {
+    local kitten_cmd
+
+    if command -v kitten >/dev/null 2>&1; then
+        kitten_cmd="kitten"
+    elif [ -x "$HOME/.local/kitty.app/bin/kitten" ]; then
+        kitten_cmd="$HOME/.local/kitty.app/bin/kitten"
+    else
+        echo "Error: kitten command not found"
+        return 1
+    fi
+
     for file in "$@"; do
         echo "=== $file ==="
-        ~/.local/kitty.app/bin/kitten icat "$file"
+        "$kitten_cmd" icat "$file"
     done
 }
 
