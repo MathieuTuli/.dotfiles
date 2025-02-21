@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # [ALIASES]
 function kitty-graphics() {
     local kitten_cmd

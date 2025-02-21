@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # AUTOCOMPLETE AND VI MODE
 autoload -Uz compinit && compinit
 eval "$(fzf --zsh)"

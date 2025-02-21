@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 zle-keymap-select () {
         if [ $KEYMAP = vicmd ]; then
                 echo -ne "\e[2 q"

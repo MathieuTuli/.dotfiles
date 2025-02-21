@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # [COLORS]
 alias diff='diff --color=always'
 alias dmesg='dmesg --color=always'

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -o vi
 bindkey '^R' history-incremental-search-backward
 bindkey -v '^?' backward-delete-char
