@@ -7,6 +7,7 @@ fi
 . "$HOME/.cargo/env"
 
 #!/bin/bash
+export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:/opt/cuda/bin:/opt/cuda/:"$HOME/.bin"
 export JAVA_HOME=/usr/lib/jvm/default/
 
