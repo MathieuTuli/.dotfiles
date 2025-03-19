@@ -1,11 +1,12 @@
 background = 181818
-font-size = 18
+font-size = 14
 quit-after-last-window-closed=true
 macos-titlebar-style = tabs
 window-save-state = always
 window-decoration = false
 shell-integration-features = no-cursor
-# cursor-invert-fg-bg = true
+clipboard-paste-protection = false
+
 
 keybind = global:alt+p=toggle_quick_terminal
 
