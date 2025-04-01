@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # [ALIASES]
-function kitty-graphics() {
+function vpr() {
     local kitten_cmd
 
     if command -v kitten >/dev/null 2>&1; then
