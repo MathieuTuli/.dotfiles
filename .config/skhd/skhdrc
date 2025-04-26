@@ -1,0 +1,178 @@
+###  --  # --------------------------------------------------------------------------------
+###  --  # NAVIGATION
+###  --  # --------------------------------------------------------------------------------
+###  --  alt - h : yabai -m window --focus west
+###  --  alt - j : yabai -m window --focus south
+###  --  alt - k : yabai -m window --focus north
+###  --  alt - l : yabai -m window --focus east
+###  --  alt - left  : yabai -m window --focus west
+###  --  alt - down  : yabai -m window --focus south
+###  --  alt - up    : yabai -m window --focus north
+###  --  alt - right : yabai -m window --focus east
+###  --  
+###  --  alt - b : yabai -m space --focus recent
+###  --  alt + shift - b : yabai -m window --space recent; \
+###  --                    yabai -m space --focus recent
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # MANAGEMENT
+###  --  # --------------------------------------------------------------------------------
+###  --  alt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+###  --  alt + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+###  --  alt + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+###  --  alt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+###  --  alt + shift - left : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+###  --  alt + shift - down : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+###  --  alt + shift - up : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+###  --  alt + shift - right : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+###  --  
+###  --  alt + shift - 1 : yabai -m window --space 1
+###  --  alt + shift - 2 : yabai -m window --space 2
+###  --  alt + shift - 3 : yabai -m window --space 3
+###  --  alt + shift - 4 : yabai -m window --space 4
+###  --  alt + shift - 5 : yabai -m window --space 5
+###  --  alt + shift - 6 : yabai -m window --space 6
+###  --  alt + shift - 7 : yabai -m window --space 7
+###  --  alt + shift - 8 : yabai -m window --space 8
+###  --  alt + shift - 9 : yabai -m window --space 9
+###  --  # alt + shift - 0 : yabai -m window --space 10
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # MIRROR TREE Y-AXIS
+###  --  # --------------------------------------------------------------------------------
+###  --  alt + shift - y : yabai -m space --mirror y-axis
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # MIRROR TREE X-AXIS
+###  --  # --------------------------------------------------------------------------------
+###  --  alt + shift - x : yabai -m space --mirror x-axis
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # BALANCE SIZE OF WINDOWS
+###  --  # --------------------------------------------------------------------------------
+###  --  alt + shift - 0 : yabai -m space --balance
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # DETACH
+###  --  # --------------------------------------------------------------------------------
+###  --  alt - e : yabai -m space --layout bsp
+###  --  alt - f : yabai -m space --layout float
+###  --  alt - w : yabai -m space --layout stack
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # STACKS
+###  --  # --------------------------------------------------------------------------------
+###  --  alt - p : yabai -m window --focus stack.next || yabai -m window --focus south
+###  --  alt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
+###  --  
+###  --  # -- FORWARDS --
+###  --  alt - p : yabai -m query --spaces --space \
+###  --              | jq -re ".index" \
+###  --              | xargs -I{} yabai -m query --windows --space {} \
+###  --              | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
+###  --              | xargs -I{} yabai -m window --focus {}
+###  --  
+###  --  # -- BACKWARDS --
+###  --  alt - n : yabai -m query --spaces --space \
+###  --              | jq -re ".index" \
+###  --              | xargs -I{} yabai -m query --windows --space {} \
+###  --              | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+###  --              | xargs -I{} yabai -m window --focus {}
+###  --  
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # CLOSE
+###  --  # --------------------------------------------------------------------------------
+###  --  alt + shift - w : yabai -m window --close
+###  --  
+###  --  # --------------------------------------------------------------------------------
+###  --  # FULLSCREEN
+###  --  # --------------------------------------------------------------------------------
+###  --  alt - f : yabai -m window --toggle zoom-fullscreen
+###  --  alt + shift - f : yabai -m window --toggle native-fullscreen
+
+# --------------------------------------------------------------------------------
+# FULLSCREEN
+# --------------------------------------------------------------------------------
+# alt - return : open -n -F -a kitty
+# alt - return : open -n -F -a alacritty
+alt - return : open -n -F -a ghostty
+
+cmd - a [
+    "ghostty"   : skhd -k "ctrl - a"
+]
+cmd - b [
+    "ghostty"   : skhd -k "ctrl - b"
+]
+cmd - c [
+    "ghostty"   : skhd -k "ctrl - c"
+]
+cmd - d [
+    "ghostty"   : skhd -k "ctrl - d"
+]
+cmd - e [
+    "ghostty"   : skhd -k "ctrl - e"
+]
+cmd - f [
+    "ghostty"   : skhd -k "ctrl - f"
+]
+cmd - g [
+    "ghostty"   : skhd -k "ctrl - g"
+]
+cmd - h [
+    "ghostty"   : skhd -k "ctrl - h"
+]
+cmd - i [
+    "ghostty"   : skhd -k "ctrl - i"
+]
+cmd - j [
+    "ghostty"   : skhd -k "ctrl - j"
+]
+cmd - k [
+    "ghostty"   : skhd -k "ctrl - k"
+]
+cmd - l [
+    "ghostty"   : skhd -k "ctrl - l"
+]
+cmd - m [
+    "ghostty"   : skhd -k "ctrl - m"
+]
+cmd - n [
+    "ghostty"   : skhd -k "ctrl - n"
+]
+cmd - o [
+    "ghostty"   : skhd -k "ctrl - o"
+]
+cmd - p [
+    "ghostty"   : skhd -k "ctrl - p"
+]
+cmd - q [
+    "ghostty"   : skhd -k "ctrl - q"
+]
+cmd - r [
+    "ghostty"   : skhd -k "ctrl - r"
+]
+cmd - s [
+    "ghostty"   : skhd -k "ctrl - s"
+]
+cmd - t [
+    "ghostty"   : skhd -k "ctrl - t"
+]
+cmd - u [
+    "ghostty"   : skhd -k "ctrl - u"
+]
+cmd - v [
+    "ghostty"   : skhd -k "ctrl - v"
+]
+cmd - w [
+    "ghostty"   : skhd -k "ctrl - w"
+]
+cmd - x [
+    "ghostty"   : skhd -k "ctrl - x"
+]
+cmd - y [
+    "ghostty"   : skhd -k "ctrl - y"
+]
+cmd - z [
+    "ghostty"   : skhd -k "ctrl - z"
+]
