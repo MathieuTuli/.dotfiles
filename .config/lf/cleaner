@@ -1,0 +1,2 @@
+#!/bin/sh
+exec $HOME/.local/kitty.app/bin/kitten icat --clear --stdin no --transfer-mode memory </dev/null >/dev/tty

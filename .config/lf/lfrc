@@ -1,2 +1,2 @@
-set previewer ~/.config/lf/preview.sh
-set preview
+set previewer ~/.config/lf/previewer
+set cleaner ~/.config/lf/cleaner
